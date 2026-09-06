@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>13 Determinants (ILA 4.1, 4.2, 4.3)</title>
+  <p></p>
+  <page>
+    <p>Exam 2 is next week. What topics would you like to go over in our next studio?</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p><m>{\textbf{Poll Question}}</m>:</p>
+    <p>True or false: If <m>E</m> is n <m>n \times n</m> elementary matrix, then det(<m>E</m>) <m>\neq 0</m>.</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p><m>{\textbf{Worksheet Exercises}}</m>:</p>
+        <p>1. Recall the following theorem from lectures:</p>
+        <p><m>{\mathbf{Theorem}}</m>:</p>
+        <p>If <m>T_A : \mathbb{R}^n \mapsto \mathbb{R}^n</m>, and <m>S</m> is some parallelogram in <m>\mathbb{R}^n</m>, then</p>
+        <me>\operatorname{volume}(T_A(S)) = |\textup{det} (A)| \cdot \operatorname{volume}(S)</me>
+        <p>where <m>T_A(\vec{x}) = A\vec{x}</m>.</p>
+        <m></m><p></p><m></m><p></p>
+        <p><m>S</m> is the parallelogram determined by <m>\vec{p_1} = \begin{pmatrix} 3 \\ 4 \end{pmatrix}</m>, and <m>\vec{p_2} = \begin{pmatrix} 2 \\ 2 \end{pmatrix}</m>.</p>
+      <ol marker="(a)">
+        <li><p>What is the area of <m>S</m>?</p></li>
+        <li><p>If <m>A = \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix}</m>, what is the area of the image of <m>R</m> under the map <m>\vec{x} \mapsto A\vec{x}</m>?</p></li>
+        <li><p>In one diagram, sketch <m>R</m> and its image under the transform.</p></li>
+      </ol>
+      </page>
+      <page>
+        <p>2. From the previous question: if <m>T_A : \mathbb{R}^n \mapsto \mathbb{R}^n</m>, and <m>S</m> is some parallelogram in <m>\mathbb{R}^n</m>, that</p>
+        <me>\operatorname{volume}(T_A(S)) = |\textup{det} (A)| \cdot \operatorname{volume}(S)</me>
+        <p>This means that |det<m>A</m>| tells us <m>\textbf{something}</m> about how areas change under a linear transform.</p>
+        <p>(a) What does |det<m>A</m>| tell us about <m>\textbf{how}</m> areas change under the transform <m>T_A(\vec{x}) = A\vec{x}</m>?</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>(b) What does the sign of det<m>A</m> tell us about <m>\textbf{how}</m> areas change under the transform <m>T_A(\vec{x}) = A\vec{x}</m>? Hint: think about the standard matrices for reflections.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>3. Calculate <m>\det A</m> without constructing <m>A</m>.</p>
+        <p>(a) A is a <m>2 \times 2</m> matrix and <m>T_A = A\vec{x}</m> is a linear transformation that first rotates vectors
+in <m>\mathbb{R}^2</m> counterclockwise by <m>\pi/4</m> radians about the origin, then reflects them across the
+<m>x_1</m>-axis.</p>
+<m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+<p>(b) <m>T_A = A\vec{x}</m>, where <m>A</m> is <m>2 \times 2</m>, and <m>T_A</m> is a transformation that first rotates vectors in <m>\mathbb{R}^2</m> counterclockwise by <m>\theta</m> radians about the origin, and then projects them onto the line <m>x_1 = 0.</m></p>
+<m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+<p>(c) <m>T_A = A\vec{x}</m> , where A is <m>2 \times 2</m>, is a transformation that rotates vectors in <m>\mathbb{R}^2</m> about the origin 100 times by <m>\theta</m> radians, and then reflects them 100 times through the line <m>x_2 = 0</m>.</p>
+<m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>4. Determine the volume of the parallelepiped with one vertex at the origin and adjacent vertices
+at <m>P (1, 0, 2)</m>, <m>Q(0, 3, 4)</m>, <m>R(0, 4, 3)</m>.</p>
+    </page>
+  </worksheet>

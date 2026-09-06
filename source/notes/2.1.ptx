@@ -1,0 +1,251 @@
+<section xml:id="section-orthogonal-diagonalization">
+  <title>2.1 Orthogonal Diagonalization</title>
+
+  <p>
+    Many algorithms rely on a type of matrix that is equal to its transpose. If matrix <m>A</m> satisfies <m>A=A^T</m>, then <m>A</m> is <term>symmetric</term>. A common example of a symmetric matrix is the product <m>A^TA</m>, where <m>A</m> is any <m>m\times n</m> matrix. We use <m>A^TA</m> when, for example, constructing the normal equations in least-squares problems. One way to see that <m>A^TA</m> is symmetric for any matrix <m>A</m> is to take the transpose of <m>A^TA</m>.
+    <me>
+      (A^TA)^T = A^TA^{TT} = A^TA
+    </me>
+    <m>A^TA</m> is equal to its transpose so it must be symmetric. But another way to see that <m>A^TA</m> is symmetric is that for any rectangular matrix <m>A</m> with columns <m>a_1,\dotsc,a_n</m>, is to express the matrix product using the row-column rule for matrix multiplication.
+  </p>
+
+  <p>
+    <me>
+      A^T A =
+      \begin{pmatrix}
+        \text{---} \amp a_1^{T} \amp \text{---} \\
+        \text{---} \amp a_2^{T} \amp \text{---} \\
+        \vdots \amp \vdots \amp \vdots \\
+        \text{---} \amp a_n^{T} \amp \text{---}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \vert \amp \vert \amp \cdots \amp \vert \\
+        a_1 \amp a_2 \amp \cdots \amp a_n \\
+        \vert \amp \vert \amp \cdots \amp \vert
+      \end{pmatrix}
+      =
+      \underbrace{
+      \begin{pmatrix}
+        a_1^{T}a_1 \amp a_1^{T}a_2 \amp \cdots \amp a_1^{T}a_n \\
+        a_2^{T}a_1 \amp a_2^{T}a_2 \amp \cdots \amp a_2^{T}a_n \\
+        \vdots \amp \vdots \amp \ddots \amp \vdots \\
+        a_n^{T}a_1 \amp a_n^{T}a_2 \amp \cdots \amp a_n^{T}a_n
+      \end{pmatrix}
+      }_{\text{entries are dot products of columns of } A}
+    </me>
+  </p>
+
+  <p>
+    Note that <m>a_i^Ta_j</m> is the dot product between <m>a_i</m> and <m>a_j</m>. And because dot products commute, in other words
+    <me>
+      a_i^T a_j = a_i \cdot a_j = a_j \cdot a_i = a_j^Ta_i
+    </me>
+    <m>A^TA</m> is symmetric.
+  </p>
+
+  <p>
+    One of the reasons that symmetric matrices are found in many algorithms is that they posses several properties that we can use to make useful or efficient calculations. In this section we investigate some of these properties that symmetric matrices have. In later sections of this chapter we will use these properties to develop and understand algorithms and their results.
+  </p>
+
+  <subsection xml:id="subsection-properties-of-symmetric-matrices">
+    <title>Properties of Symmetric Matrices</title>
+
+    <p>In this section we give three theorems that characterize symmetric matrices.</p>
+
+    <subsubsection xml:id="subsubsection-orthogonal-eigenspaces">
+      <title>1) Symmetric Matrices Have Orthogonal Eigenspaces</title>
+
+      <p>The eigenspaces of symmetric matrices have a useful property that we can use when, for example, diagoanlizing a matrix.</p>
+
+      <theorem xml:id="theorem-orthogonal-eigenspaces">
+        <title>Theorem</title>
+        <statement>
+          <p>
+            If <m>A</m> is a symmetric matrix, with eigenvectors <m>\vec v_1</m> and <m>\vec v_2</m> corresponding to two distinct eigenvalues, then <m>\vec v_1</m> and <m>\vec v_2</m> are orthogonal.
+          </p>
+        </statement>
+      </theorem>
+
+      <p>More generally this theorem implies that eigenspaces associated to distinct eigenvalues are orthogonal subspaces.</p>
+
+      <proof>
+        <p>
+          Our approach will be to show that if <m>A</m> is symmetric then any two of its eigenvectors <m>\vec v_1</m> and <m>\vec v_2</m> must be orthogonal when their corresponding eigenvalues <m>\lambda_1</m> and <m>\lambda_2</m> are not equal to each other.
+        </p>
+        <mdn>
+          <mrow>\lambda_1 \vec v_1 \cdot \vec v_2 \amp= A\vec v_1 \cdot \vec v_2 \amp\amp \text{using } A\vec v_i = \lambda_i \vec v_i</mrow>
+          <mrow>\amp= (A\vec v_1)^T\vec v_2 \amp\amp \text{using the definition of the dot product}</mrow>
+          <mrow>\amp= \vec v_1\,^TA^T\vec v_2 \amp\amp \text{property of transpose of product}</mrow>
+          <mrow>\amp= \vec v_1\,^TA\vec v_2 \amp\amp \text{given that } A = A^T</mrow>
+          <mrow>\amp= \vec v_1 \cdot A\vec v_2 \amp\amp \text{again using the definition of the dot product}</mrow>
+          <mrow>\amp= \vec v_1 \cdot \lambda_2 \vec v_2 \amp\amp \text{using } A\vec v_i = \lambda_i \vec v_i</mrow>
+          <mrow>\amp= \lambda_2 \vec v_1 \cdot \vec v_2</mrow>
+        </mdn>
+        <p>Rearranging the equation yields</p>
+        <mdn>
+          <mrow>0 \amp= \lambda_2 \vec v_1 \cdot \vec v_2 - \lambda_1 \vec v_1 \cdot \vec v_2</mrow>
+          <mrow>\amp= (\lambda_2 - \lambda_1) \vec v_1 \cdot \vec v_2</mrow>
+        </mdn>
+        <p>
+          But <m>\lambda_1 \ne \lambda_2</m> so <m>\vec v_1 \cdot \vec v_2 = 0</m>. In other words, eigenvectors corresponding to distinct eigenvalues must be orthogonal.
+        </p>
+      </proof>
+
+      <p>
+        This theorem can be sometimes be used to quickly identify the eigenvectors of a matrix. For example, if <m>A</m> is a <m>2\times2</m> matrix and we know that <m>\vec v_1</m> is an eigenvector of <m>A</m>, then we can find any non-zero vector orthogonal to <m>\vec v_1</m> to identify the eigenvector for the other eigenspace.
+      </p>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-real-eigenvalues">
+      <title>2) The Eigenvalues of a Symmetric Matrix are Real</title>
+
+      <theorem xml:id="theorem-real-eigenvalues">
+        <title>Theorem</title>
+        <statement>
+          <p>If <m>A</m> is a real symmetric matrix then all eigenvalues of <m>A</m> are real.</p>
+        </statement>
+      </theorem>
+
+      <p>A proof of this result is in Appendix 1.2.</p>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-spectral-theorem">
+      <title>3) The Spectral Theorem</title>
+
+      <p>It turns out that every real symmetric matrix can always be diagonalized using an orthogonal matrix, which is a result of the spectral theorem.</p>
+
+      <theorem xml:id="theorem-spectral-theorem">
+        <title>The Spectral Theorem</title>
+        <statement>
+          <p>An <m>n \times n</m> matrix <m>A</m> is symmetric if and only if the matrix can be orthogonally diagonalized.</p>
+        </statement>
+      </theorem>
+
+      <p>
+        A proof of this theorem is beyond the scope of these notes, but there are several important consequences of this theorem. All symmetric matrices can not only be diagonalized, but they can be diagonalized with an orthogonal matrix. Moreover, the only matrices that can be diagonalized orthogonally are symmetric, and that if a matrix can be diagonalized with an orthogonal matrix, then it is symmetric.
+      </p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-examples">
+    <title>Examples</title>
+
+    <example xml:id="example-2x2-orthogonal-diagonalization">
+      <title>Example 1: Orthogonal Diagonalization of a <m>2\times 2</m> Matrix</title>
+
+      <p>Suppose <m>A</m> is the symmetric matrix below.</p>
+      <me>
+        A = \begin{pmatrix} 0 \amp -2 \\ -2 \amp 3 \end{pmatrix}, \quad \lambda_1 = 4, \quad \lambda_2=-1
+      </me>
+
+      <p>
+        The eigenvalues of <m>A</m> are given. In this example we will diagonalize <m>A</m> using an orthogonal matrix, <m>P</m>. For eigenvalue <m>\lambda_1 = 4</m> we have
+        <me>
+          A - \lambda_1 I = \begin{pmatrix} -4 \amp -2 \\ -2 \amp -1 \end{pmatrix}
+        </me>
+        A vector in the null space of <m>A - \lambda_1 I</m> is the eigenvector
+        <me>
+          \vec v_1 = \begin{pmatrix} 1 \\ -2 \end{pmatrix}
+        </me>
+      </p>
+
+      <p>
+        A vector orthogonal to <m>\vec v_1</m> is
+        <me>
+          \vec v_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}
+        </me>
+        which must be an eigenvector for <m>\lambda_2</m> because <m>A</m> is symmetric.
+      </p>
+
+      <p>
+        Dividing each of the eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, <m>P</m>, we obtain an orthogonal matrix. In other words, <m>P^{-1}P = PP^{-1} = I</m>. This convenient property gives us a convenient way to compute <m>P^{-1}</m> should it be needed.
+      </p>
+
+      <p>
+        Placing the eigenvalues of <m>A</m> in the order that matches the order used to create <m>P</m>, we obtain the factorization
+        <me>
+          A = PDP^T, \quad D = \begin{pmatrix} \lambda_1 \amp 0 \\ 0 \amp \lambda_2 \end{pmatrix}, \quad P = \frac{1}{\sqrt 5} \begin{pmatrix} 1 \amp 2 \\ -2 \amp 1 \end{pmatrix}
+        </me>
+      </p>
+    </example>
+
+    <example xml:id="example-3x3-orthogonal-diagonalization">
+      <title>Example 2: Orthogonal Diagonalization of a <m>3\times3</m> Matrix</title>
+
+      <p>In this example we will diagonalize a matrix, <m>A</m>, using an orthogonal matrix, <m>P</m>.</p>
+      <me>
+        A = \begin{pmatrix} 0 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \end{pmatrix}, \quad \lambda = -1, 1
+      </me>
+
+      <p>
+        The eigenvalues of <m>A</m> are given. For eigenvalue <m>\lambda_1 = -1</m> we have
+        <me>
+          A - \lambda_1 I = \begin{pmatrix} 1 \amp 0 \amp 1 \\ 0 \amp 2 \amp 0 \\ 1 \amp 0 \amp 1 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 1 \\ 0 \amp 2 \amp 0 \\ 1 \amp 0 \amp 1 \end{pmatrix}
+        </me>
+        A vector in the null space of <m>A - \lambda_1 I</m> is the eigenvector
+        <me>
+          \vec v_1 = \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+        </me>
+        For eigenvalue <m>\lambda_2 = 1</m> we have
+        <me>
+          A - \lambda_2 I = \begin{pmatrix} -1 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \\ 1 \amp 0 \amp -1 \end{pmatrix} \sim \begin{pmatrix} -1 \amp 0 \amp 1 \\ 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}
+        </me>
+        By inspection, two vectors in the null space of <m>A - \lambda_2 I</m> are
+        <me>
+          \vec v_2 = \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}, \quad \vec v_3 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+        </me>
+      </p>
+
+      <p>
+        There are many other choices that we could make but the above two vectors will suffice. Note that <m>\vec v_2</m> and <m>\vec v_3</m> happen to be orthogonal to each other. If they happened to not be orthogonal, one could use the Gram-Schmidt procedure to make them so.
+      </p>
+
+      <p>
+        Dividing each of the three eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, <m>P</m>, we obtain an orthogonal matrix. This will give us a matrix whose inverse is equal to its transpose. In other words, <m>P</m> is an orthogonal matrix, and <m>P^{-1}P = PP^{-1} = I</m>. This convenient property gives us a convenient way to compute <m>P^{-1}</m> should it be needed.
+      </p>
+
+      <p>
+        Placing the eigenvalues of <m>A</m> in the order that matches the order used to create <m>P</m>, we obtain the factorization
+        <me>
+          A = PDP^T, \quad D = \begin{pmatrix} -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}, \quad P = \frac{1}{\sqrt 2} \begin{pmatrix} 1 \amp 0 \amp 1 \\ 0 \amp \sqrt2 \amp 0 \\ -1 \amp 0 \amp 1 \end{pmatrix}
+        </me>
+      </p>
+    </example>
+  </subsection>
+
+  <subsection xml:id="subsection-summary">
+    <title>Summary</title>
+
+    <p>
+      In this section we explored how we might construct an orthogonal diagonalization of a symmetric matrix, <m>A = PDP^T</m>. Note that when a symmetric matrix has a repeated eigenvalue, Gram-Schmidt may be needed when eigenvalues are repeated to construct a full set of orthonormal eigenvectors that span <m>\mathbb R^n</m>. The theorems we introduced in this section gives us that
+    </p>
+    <ul>
+      <li><p>all eigenvalues of <m>A</m> are real</p></li>
+      <li><p>eigenspaces of <m>A</m> are mutually orthogonal</p></li>
+      <li><p><m>A</m> can be diagonalized as <m>A = P D P^{T}</m></p></li>
+    </ul>
+  </subsection>
+
+  <exercises xml:id="exercises-orthogonal-diagonalization">
+    <title>Exercises</title>
+
+    <exercise xml:id="exercise-symmetric-products">
+      <statement>
+        <p>
+          Suppose <m>A</m> and <m>C</m> are <m>n \times n</m> matrices, <m>\vec x \in \mathbb R^n</m>, and <m>C</m> is symmetric. Which of the following products are equal to a symmetric matrix?
+        </p>
+        <ol marker="a.">
+          <li><p><m>AA^T</m></p></li>
+          <li><p><m>\vec x \vec x\,^T</m></p></li>
+          <li><p><m>C^2</m></p></li>
+        </ol>
+      </statement>
+    </exercise>
+
+    <exercise xml:id="exercise-pdpt-symmetric">
+      <statement>
+        <p>If <m>A = P D P^{T}</m> where <m>D</m> is a diagonal matrix and <m>P^T = P^{-1}</m>, then is <m>A</m> symmetric?</p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>

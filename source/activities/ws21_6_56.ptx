@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>21 Least-Squares and Linear Models (ILA 6.3, 6.4)</title>
+  <p></p>
+  <page>
+   <p><m>{\textbf{Poll Question}}</m>:</p>
+   <p>True or false: If <m>A</m> is <m>m \times n</m> and has linearly independent columns, then <m>A</m> has a <m>QR</m> factorization <m>A = QR</m>, and Col<m>A = </m> Col<m>Q</m>.</p>
+    </page>
+    <page>
+        <p><m>{\textbf{Worksheet Exercises}}</m>:</p>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Fill in the blanks. These questions concern the least squares solution <m>\hat x</m> to <m>A\vec{x} = \vec{b}</m>.
+                </p>
+            </introduction>
+            <task>
+                <p>If <m>A = QR</m>, then <m>A^{T} A = </m>____________.</p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            
+            <task>
+                <p>If the columns of <m>A</m> are linearly independent, then <m>\widehat x = </m>____________<m>A^{T} \vec{b}</m>.</p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            
+            <task>
+                <p>If <m>\vec{b}</m> is in the column space of <m>A</m>, then <m>A\widehat x = </m>____________.</p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            
+            <task>
+                <p>If <m>A = QR</m> and <m>R</m> is invertible, then <m>\widehat x = </m>____________<m>Q^{T} \vec{b}</m>.</p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    These questions concern the least squares solution <m>\hat x</m> to <m>A\vec{x} = \vec{b}</m>. Indicate whether the statements are true or false.
+                </p>
+            </introduction>
+            <task>
+                    <p>
+                        The solution <m>\hat x</m> is chosen so that <m>A\hat x</m> is close as possible to <m>\vec{b}</m>.
+                    </p>
+                    <m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            <task>
+                    <p>
+                        If <m>\vec{y} \neq \widehat x</m> then <m>\lVert A \widehat x - \vec{b} \rVert &lt; \lVert A\vec{y} - \vec{b} \rVert</m>.
+                    </p>
+                    <m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            <task>
+                    <p>
+                        If the columns of <m>A</m> are linearly independent, then the least squares solution is unique.
+                    </p>
+                    <m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Use the QR decomposition to calculate the least squares solution to <m>A\vec{x} = \vec{b}</m>.
+                </p>
+                <me>A = QR = \begin{pmatrix} 2/3 \amp -1/3 \\ 2/3 \amp 2/3 \\ 1/3 \amp -2/3 \end{pmatrix} \begin{pmatrix} 3 \amp 5 \\ 0 \amp 1 \end{pmatrix}, \textup{ } \vec{b} = \begin{pmatrix} 7 \\ 3 \\ 1 \end{pmatrix}</me>
+
+            </introduction>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Four points in <m>\mathbb{R}^3</m> with coordinates <m>(x,y,z)</m> are given in the table below.
+                </p>
+            <tabular>
+                <row>
+                    <cell><b><p><m>x</m></p></b></cell>
+                    <cell><b><p><m>-1</m></p></b></cell>
+                    <cell><b><p><m>0</m></p></b></cell>
+                    <cell><b><p><m>2</m></p></b></cell>
+                    <cell><b><p><m>1</m></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p><m>y</m></p></b></cell>
+                    <cell><b><p><m>2</m></p></b></cell>
+                    <cell><b><p><m>1</m></p></b></cell>
+                    <cell><b><p><m>0</m></p></b></cell>
+                    <cell><b><p><m>2</m></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p><m>z</m></p></b></cell>
+                    <cell><b><p><m>9</m></p></b></cell>
+                    <cell><b><p><m>1</m></p></b></cell>
+                    <cell><b><p><m>0</m></p></b></cell>
+                    <cell><b><p><m>-1</m></p></b></cell>
+                </row>
+            </tabular>
+            <p>Determine the coefficients <m>c_1</m> and <m>c_2</m> for the plane <m>z = c_{1}x + c_{2}y</m> that best fits the data. <m>\textit{Hint: normal equations}</m>.</p>
+            </introduction>
+        </exercise>
+    </page>
+  </worksheet>

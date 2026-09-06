@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>1 Systems of Linear Equations (ILA 1.1, 1.2)</title>
+  <p></p>
+  
+  <page>
+<m>{\large \textbf{1.1 Studio Organization}}</m> 
+  <p>
+        This worksheet is a bit shorter than most other worksheets to give time to discuss course and studio
+organization. We will discuss:</p>
+    <!--<exercise workspace="0.5in">
+      <task>-->
+        <p>
+        A) What are studios? How are they different from lectures?
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>
+          B) How do TAs support your class?
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>
+          C) Studio recordings and worksheet solutions.
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>
+          D) How students can ask questions during studio.
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>
+          E) Office hours (please attend them!).
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>
+          F) General advice on how to succeed in linear algebra (and college!).
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p>
+      </page>
+
+
+
+      <page>
+        <m>{\large \textbf{1.2 Linear Systems}}</m> 
+        <p>A <m>{\textbf{linear system}}</m> is a set of linear equations. An example of a linear system with two equations is</p>
+        <me>x + 3y = 4</me>
+        <me>5x + 6y = 5</me>
+        <p>We might want to know:</p>
+        <ul>
+          <li>what values of the unknowns satisfy all equations in the system, if any?</li>
+          <li>what procedure do we want to use to identify those values?</li>
+        </ul>
+      </page>
+        <page>
+        <m>{\large \textbf{1.3 Worksheet Exercises}}</m> 
+        <exercise workspace="1in">
+          <introduction>
+        <p>
+          Use the Teams chat to answer the following in one or two sentences. It is best if we go through
+these questions one at a time.
+        </p>
+      </introduction>
+          <task>
+            <statement>
+              <p>
+                What does it mean for a linear system to be consistent?
+              </p>
+              <m></m><p></p><m></m><p></p><m></m><p></p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                How can we determine whether a linear system is consistent?
+              </p>
+              <m></m><p></p><m></m><p></p><m></m><p></p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                What are the three row operations that we can use to reduce a matrix?
+              </p>
+              <m></m><p></p><m></m><p></p><m></m><p></p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+                What does it mean for a system to have a unique solution?
+              </p>
+              <m></m><p></p><m></m><p></p><m></m><p></p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+               What does it mean for two matrices to be row equivalent?
+              </p>
+              <m></m><p></p><m></m><p></p><m></m><p></p>
+            </statement>
+          </task>
+      </exercise>
+    </page>
+
+
+
+    <page>
+
+
+      <exercise workspace="1in">
+          <introduction>
+        <p>
+          Indicate whether the statements are true or false.
+        </p>
+      </introduction>
+      <task>
+            <statement>
+              <p>
+               If a linear system has more equations than unknowns, then the system cannot have a
+unique solution.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+               If a linear system has more unknowns than equations, then the system could have an
+infinite number of solutions, or the system could have no solutions.
+              </p>
+            </statement>
+          </task>
+    </exercise>
+    <p>Before moving on - what strategies does your TA(s) recommend that students can use to
+approach true/false questions?</p>
+    </page>
+    <page>
+      <exercise workspace="1in">
+          <introduction>
+        <p>
+         For what values of A and B, if any, does the system have (a) an infinite number of solutions?
+(b) no solutions? (c) exactly one solution?
+        </p>
+      </introduction>
+      <me>x_1 + 2x_2 = 1</me>
+      <me>Ax_1 + Bx_2 = 2</me>
+    </exercise>
+    <p>For the case where there are an infinite number of solutions, sketch the set of solutions. Note
+that sketches need to have labeled axes. The set of solutions should be a line that does not
+have arrows.</p>
+      <!--</task>
+    </exercise>-->
+    </page>
+    <page>
+
+<exercise workspace="1in">
+          <introduction>
+        <p>
+          Consider the line <m>x_2 = 2x_1</m>.
+        </p>
+      </introduction>
+      <task>
+            <statement>
+              <p>
+               Sketch any two points on the line. In this class we will always put x1 on the horizontal
+axis.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+               Sketch the line.
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+               Construct a linear system of equations so that the line is the solution set. Use at least
+two equations. How many equations could you have in your system?
+              </p>
+            </statement>
+          </task>
+          <task>
+            <statement>
+              <p>
+               If the point <m>(a, b)</m> is any point in the solution set, is the point <m>(ka, kb)</m> also in the solution
+set for any real number k?
+              </p>
+            </statement>
+          </task>
+    </exercise>
+  </page>
+</worksheet>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>27 Final Exam Review 1</title>
+  <p></p>
+  <page>
+   <p>Before starting the worksheet, using Teams chat,</p>
+   <p>A) What is a strategy that is helpful for studying for the final exam?</p>
+   <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+   <p><m>{\textbf{Worksheet Exercises}}</m>:</p>
+   <exercise workspace="1in">
+    <introduction>
+        <p>
+            Indicate whether the statements are true or false.
+        </p>
+    </introduction>
+    <task>
+        <p>
+            The quadratic form <m>Q(\vec{x}) = \vec{x}^t \vec{x}</m> is positive definite.
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </task>
+    <task>
+        <p>
+            If <m>A</m> is square, then <m>|\det A|</m> is the product of the singular values of <m>A</m>.
+        </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </task>
+   </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    If <m>\vec{x}</m> is a unit eigenvector of <m>A</m> corresponding to eigenvalue <m>\lambda = 7</m>, what is the value of <m>Q = \vec{x}^T A\vec{x}</m>?
+                </p>
+            </introduction>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Below is a SVD factorization for a matrix <m>A</m>.
+                </p>
+                <me>U = \begin{bmatrix} \vec{u}_1 \amp \vec{u}_2 \amp \vec{u}_3 \end{bmatrix}, \Sigma = \begin{bmatrix} 5 \amp 0 \amp 0 \amp 0 \\ 0 \amp 3 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{bmatrix}, V = \begin{bmatrix} \vec{v}_1 \amp \vec{v}_2 \amp \vec{v}_3 \amp \vec{v}_4 \end{bmatrix}</me>
+            </introduction>
+            <task>
+                <p>
+                    What is the rank of <m>A</m>?
+                </p>
+            </task>
+            <task>
+                <p>
+                    What is the largest value of <m>||A\vec{x}||</m>, subject to <m>||\vec{x}|| = 1</m>? For which vector is it obtained?
+                </p>
+            </task>
+            <task>
+                <p>
+                    List an orthonormal basis for: Row<m>A</m>, Col<m>A</m>, Null<m>A</m>
+                </p>
+            </task>
+            <task>
+                <p>
+                    Construct an expression for the spectral decomposition of <m>A</m>.
+                </p>
+            </task>
+        </exercise>
+    </page>
+</worksheet>

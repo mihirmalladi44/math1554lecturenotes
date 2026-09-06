@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <worksheet>
+      <title>14 Exam 2 Review</title>
+
+      <page>
+        <m>\textbf {Poll Question}</m>
+        <p></p>
+        <p>True or false: the columns of an <m>m \times n</m> matrix <m>A</m> are a basis for <m>\text{Col}(A)</m>.</p>
+    <p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p></p>
+        <m>\textbf {Worksheet Exercises}</m>
+        <exercise>
+          <p>Which of the following, if any, are subspaces of <m>\mathbb{R}^3</m>? For those that are subspaces, what is the dimension?</p>
+          <ol marker="(a)">
+            <li>
+              <m>
+              \left\{
+              \begin{pmatrix}
+              x_1 \\ x_2 \\ x_3
+              \end{pmatrix}
+              \in \mathbb{R}^3 \mid x_1 + x_2 = 4
+              \right\}
+              </m>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <m>
+              \left\{
+              \begin{pmatrix}
+              x_1 \\ x_2 \\ x_3
+              \end{pmatrix}
+              \in \mathbb{R}^3 \mid x_1 + x_2 + x_3 = 0, \ x_1 + 2x_2 = 0
+              \right\}
+              </m>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <m>
+              \left\{
+              \begin{pmatrix}
+              x_1 \\ x_2 \\ x_3
+              \end{pmatrix}
+              \in \mathbb{R}^3 \mid x_1 \le x_2 \le x_3
+              \right\}
+              </m>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <p>The nullspace of</p>
+              <m>
+              A =
+              \begin{pmatrix}
+              1 \amp 0 \\
+              2 \amp 0 \\
+              3 \amp 0
+              \end{pmatrix}
+              </m>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise>
+          <p>Indicate whether the statements are true or false. <m>A</m> is an <m>n \times n</m> matrix.</p>
+          <ol marker="(a)">
+            <li>
+              <p>If <m>A \vec{x} = A \vec{y}</m> for some <m>\vec{x} \ne \vec{y} \in \mathbb{R}^n</m>, then <m>A</m> cannot be invertible.</p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <p>If for some <m>\vec{b} \in \mathbb{R}^n</m>, the equation <m>A \vec{x} = \vec{b}</m> has more than one solution, then <m>A</m> is not invertible.</p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <p>Every elementary matrix is invertible.</p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise>
+          <p>A trivial subspace is similar to the concept of a trivial solution to a homogeneous system.</p>
+          <p><strong>Definition:</strong></p>
+          <ul>
+            <li>A trivial subspace is a subspace that contains only the zero vector. If a subspace contains more than just the zero vector, then it is a non-trivial subspace.</li>
+          </ul>
+          <p>Indicate whether the following statements are true or false.</p>
+          <ol marker="(a)">
+            <li>
+              <p>A <m>4 \times 2</m> matrix with two pivot columns can have a non-trivial null space.</p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <p>If the columns of a <m>6 \times 6</m> matrix <m>A</m> are a basis for <m>\mathbb{R}^6</m>, then the null space of <m>A</m> is trivial.</p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+            <li>
+              <p>If <m>A</m> is an <m>n \times n</m> matrix such that the equation <m>A \vec{x} = \vec{b}</m> has a unique solution for every <m>\vec{b} \in \mathbb{R}^n</m>, then the null space of <m>A</m> is trivial.</p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise>
+          <p>Let <m>A</m> be an <m>n \times n</m> matrix with entries <m>a_{ij}</m> defined by:</p>
+          <me>
+          a_{ij} =
+          \begin{cases}
+          0,  \text{if } i + j \text{ is odd} \\
+          1,  \text{if } i + j \text{ is even}
+          \end{cases}
+          </me>
+          <p>Suppose <m>n \ge 2</m>.</p>
+          <ol marker= "(a)">
+            <li>
+              <p>What is the rank of <m>A</m> equal to?</p>
+            </li>
+            <li>
+              <p>Give a basis for Col <m>A</m></p>
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+    </worksheet>

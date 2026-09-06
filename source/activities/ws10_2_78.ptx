@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <worksheet>
+    <title>10 Computer Graphics, Subspaces (LN 1.4, 1.5; ILA 2.6, 2.7)</title>
+    <page>
+      <m>{\large \textbf {Poll Question: Matrix Tic-Tac-Toe}}</m>
+      <ul>
+        <li>
+          <p>Matrix <m>A</m> is <m>2 \times 2</m>.</p> 
+        </li>
+        <li>
+          <p>Two players:</p>
+          <ul>
+            <li>
+              <p>0P students can only place 0's in the matrix.</p>
+            </li>
+            <li>
+              <p>1P (TA or instructor) can only place 1's in the matrix</p>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <p>Players take turns placing entries into the matrix.</p>
+        </li>
+        <li>
+          <p>After all entries are filled,</p>
+          <ul>
+            <li>
+            <p>0P wins if the matrix is singular.</p>
+          </li>
+          <li>
+            <p>1P wins if the atrix is invertible.</p>
+          </li>
+          </ul>
+        </li>
+      </ul>
+      <p>The entries of <m>A</m> are as follows.</p>
+      <me>
+        A = 
+        \begin {pmatrix}
+        a_{11} \amp a_{12} \\
+        a_{21} \amp a_{22}
+        \end {pmatrix}
+      </me>
+      <p>You are the 0P and go first. Where to you want to place your 0?</p>
+    </page>
+    <page>
+      <m>{\large \textbf {10.1 Homogeneous Coordinates and Computer Graphics}}</m>
+      <p></p>
+      <p>1. Triangle <m>S</m> is determined by the data points, <m>P(1,1),Q(3,1),R(3,2)</m>. Transform <m>T</m> Reflects points through the line <m>y = 3</m>.</p>
+      <ol marker= "(a)">
+        <li>
+          <p>Represent the data with a matrix, <m>D</m>. Use homogeneous coordinates.</p>
+        </li>
+        <li>
+          <p>Use matrix multiplication to determine the image of <m>S</m> under <m>T</m>.</p>
+        </li>
+        <li>
+          <p>Sketch <m>S</m> and its image under <m>T</m>.</p>
+        </li>
+      </ol>
+    </page>
+    <page>
+      <m>{\large \textbf {10.2 Subsets and Subspaces}}</m>
+      <p></p>
+      <p>1. <m>{\textbf {Sets:}}</m> Suppose <m>S</m> is the set <m>S = 
+        \begin {cases}
+        {\vec {x} \in \mathbb {R}^2 | x_1 = 2x_2}
+        \end {cases}
+      </m></p>
+      <ol marker= "(a)">
+        <li>
+          <p>List three vectors that are in the set <m>S</m>.</p>
+        </li>
+        <li>
+          Give an example of a vector that is in <m>\mathbb {R}^2</m> but is not in <m>S</m>.
+        </li>
+      </ol>        
+    </page>
+    <page>
+    <p>2. <m>\textbf {Subspaces:}</m> Some sets are also subspaces.</p>
+    <p></p>
+    <p><m>{\mathbf{Definition}}</m>:</p>
+  <p></p>
+  <p>
+  <ul>
+    <li>
+  <p>A subset of <m>H</m> of <m>\mathbb {R}^n</m> is a <m>\textbf {subspace}</m> if it is closed under scalar multiplies and vector addition. That is: for any <m>c \in \mathbb {R}</m> and for <m>\vec {u}, \vec {v} \in H</m>,</p>
+  <ol marker= "(a)">
+    <li>
+    <m>c \vec {u} \in H</m>
+    </li>
+    <li>
+      <m>\vec {u} + \vec {v} \in H</m>
+    </li>
+  </ol>
+  </li>
+  </ul>
+</p>
+<p>Note that condition (a) implies that zero vector must be in <m>H</m></p>
+<p></p>
+<p><m>\textbf {Example}</m></p>
+<p></p>
+<p>List three vectors that are in each set and determine whether the set is a subpace.</p>
+<ol marker= "(a)">
+  <li>
+    <m>T = 
+      \begin {cases}
+      {\vec {x} \in \mathbb {R}^2 | x_1 =1}
+      \end {cases}
+    </m>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  </li>
+  <li>
+    <m> S =
+      \begin {cases} 
+      {\vec {x} \in \mathbb {R}^2 | x_1 + x_2 = 0}
+      \end {cases}
+    </m>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  </li>
+</ol>
+    </page>
+    <page>
+      <p>3. <m>\textbf {The Column Space and The Null Space}</m></p>
+      <p>
+        <m>\textbf {Definition}</m>
+      </p>
+      <p>
+        <ul>
+        <li>
+        <p> Suppose <m>A</m> is an <m>m \times n</m> matrix</p>
+        <ul>
+          <li>
+            <p>The <m>{\textbf {column space of}} A</m>, Col <m>A</m>, is the span of the columns of <m>A</m>.</p>
+          </li>
+          <li>
+            <p>The <m>{\textbf {null space of}} A</m>, Null <m>A</m>, is set of all vectors <m>\vec {x}</m> that solve <m>A \vec {x} = \vec {0}</m>.</p>
+          </li>
+        </ul>
+        </li>
+        </ul>
+      </p>
+      <p><m>\textbf {Example}</m></p>
+      <p></p>
+      <p>Give an example of a <m>3 \times 3</m> matrix <m>A</m> that is in RREF, has two pivotal columns, and v is in the null space of A.</p>
+      <me>v = 
+        \begin {pmatrix}
+        1 \\
+        1 \\
+        1
+        \end {pmatrix}
+      </me>
+    </page>
+    </worksheet>

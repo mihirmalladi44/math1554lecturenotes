@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<worksheet>
+    <title>2 Row Reduction and Echelon Forms (ILA1.2) </title>
+    <p></p>
+    <page>
+        <m>{\large \textbf {2.1  Echelon Forms}}</m>
+        <p></p>
+        <m></m> 
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Use the Team chat to answer the following in one or two sentences.    
+                </p>
+            </introduction>
+                <task>
+                    <p>
+                        What is the echelon form of a matrix?
+                    </p> 
+                    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+                </task>
+
+                <task>
+                    <p>
+                        What is the row reduced echelon form (RREF) of a matrix?   
+                    </p>
+                </task>
+        </exercise>            
+    </page>
+    <page>
+        <p><m>{\large \textbf {2.2  Worksheet Exercises}}</m></p>
+        <p></p>
+        <exercise workspace="1in">
+            <introduction>
+                <p>1. In the table below indicate which matrices are in echelon form, and indicate whether the matrices are in RREF.</p>
+            </introduction>
+            <task>
+                <p><m>A = \begin{pmatrix}
+                    0 \amp 1 \amp 2 \amp 3
+                    \end{pmatrix}
+                </m></p>
+            </task>
+            <task>
+                <p><m>B = 
+                \begin{pmatrix}
+                1 \amp 0 \amp 0 \amp 2\\
+                0 \amp 1 \amp 4 \amp 1\\
+                0 \amp 0 \amp 0 \amp 1
+                \end{pmatrix}
+                </m></p>
+            </task>
+            <task>
+                <p><m>C = 
+                \begin{pmatrix}
+                0 \amp 1 \amp 0 \amp 1 \\
+                0 \amp 0 \amp 5 \amp 5 
+                \end{pmatrix}</m></p>
+            </task>
+            <task>
+                <p><m>D = 
+                \begin{pmatrix}
+                0 \amp 0 \\
+                0 \amp 0 
+                \end{pmatrix}
+                </m></p>
+            </task>
+            <task>
+                <p><m>E = 
+                \begin{pmatrix}
+                0 \\
+                1 \\
+                0 \\
+                0
+                \end{pmatrix}</m></p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Suppose matrix A is <m>3 \times 2</m>.    
+                </p>
+            </introduction>
+            <task>
+                <p>
+                    Using the Teams chat, give an example of a <m>3 \times 2</m> matrix in RREF. Use * for entries that can be arbitrary.
+                </p>
+            </task>
+            <task>
+                <p>
+                    How many different matrices can you make that are <m>3 \times 2</m> and in RREF?   
+                </p>
+            </task>
+        </exercise>    
+    </page>
+    <page>
+        <m>{\large \textbf {2.3  Row Reduction, Basic and Free Variables}}</m>
+            <p>1. Use the teams chat to answer the following in one or two sentences.</p>
+            <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m>(a) What is a free variable?</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m>(b) What is a pivot?</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m>(c) How can we use row reduction to determine whether an augmented matrix corresponds to a consistent system?</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p><m>{\large \textbf {2.4  Worksheet Exercises}}</m></p>
+        <p></p>
+        <p>1. Indicate whether the statements are true or false.</p>
+        <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m>a) A linear system whose <m>3 \times 5</m> coefficient matrix has three pivotal columns. must be consistent. </p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+        <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m>b) The echelon form of a coefficient matrix is unique.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+        <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m>c) If a consistent linear system can be represented as an augmented matrix <m>4 \times 3</m>, then the solution is a vector in <m>\mathbb{R}^3</m>.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>
+            2. For any three distinct points in the plane, no two on a vertical line, there is a second degree polynomial <m>p(t) = a_0 + a_1 t + a_2 t^2 </m> that passes through those three points. Construct the polynomial that passes through <m>(1,12)</m>, <m>(2,15)</m>, and <m>(3,16)</m>. That is, solve 
+        </p>
+            <me>p(1) = 12 = a_0 + a_1 + a_2</me>
+            <me>p(2) = 15 = a_0 + 2a_1 + 4a_2</me>
+            <me>p(3) = 16 = a_0 +3a_1 + 9a_2</me>
+    </page>
+</worksheet>

@@ -1,0 +1,380 @@
+<section xml:id="section-constrained-optimization">
+  <title>2.3.1 Constrained Optimization</title>
+
+  <p>
+    Symmetric matrices can be found in certain optimization problems involving quadratic functions. By applying some of the properties that symmetric matrices have, we can develop algorithms and theorems to better understand and also solve these optimization problems. The following example demonstrates how symmetric matrices might arise in an optimization problem.
+  </p>
+
+  <subsection xml:id="subsection-temperature-unit-sphere">
+    <title>Example 1: Temperature on a Unit Sphere</title>
+
+    <p>
+      Suppose that the temperature, <m>Q</m>, on the surface of the sphere, whose radius is one, is given by
+    </p>
+    <me>
+      Q(\vec x) = 9x_1^2 + 4x_2^2 +3x_3^2, \quad \text{where } x_1^2 + x_2^2 + x_3^2 = ||\vec x||^2 = 1
+    </me>
+    <p>
+      Our goals are to determine the location of the largest and smallest values of <m>Q</m> on the surface of the sphere, and what the temperature is at these points. To do this, we can first identify the largest value of <m>Q</m> on the sphere.
+    </p>
+    <mdn>
+      <mrow>Q(\vec x) \amp= \vec x^{\,T} \begin{pmatrix} 9 \amp 0 \amp 0 \\ 0 \amp 4 \amp 0 \\ 0 \amp 0 \amp 3 \end{pmatrix}\vec x</mrow>
+      <mrow>\amp= 9x_1^2 + 4x_2^2 +3x_3^2</mrow>
+      <mrow>\amp\le 9x_1^2 + 9x_2^2 +9x_3^2</mrow>
+      <mrow>\amp= 9 (x_1^2 + x_2^2 +x_3^2)</mrow>
+      <mrow>\amp= 9 \lVert \vec x \rVert^2</mrow>
+      <mrow>\amp= 9</mrow>
+    </mdn>
+    <p>
+      Note that we are only considering points on the surface of the sphere, so <m>\lVert \vec x \rVert^2 = 1</m>. Notice also, by inspection, that <m>Q</m> is equal to 9 at the points <m>(\pm1,0,0)</m>. We now have both the maximum value of <m>Q</m> and where the maximum values of <m>Q</m> are located. Therefore,
+    </p>
+    <me>
+      \mathrm{max} \{ Q(\vec x) : ||\vec x|| = 1\} = 9, \ \text{and max occurs at } \vec x = \begin{pmatrix} \pm1 \\ 0 \\ 0 \end{pmatrix}
+    </me>
+    <p>A similar analysis yields the minimum value of <m>Q</m>.</p>
+    <me>
+      \mathrm{min} \{ Q(\vec x) : ||\vec x|| = 1\} = 3, \ \text{and min occurs at } \vec x = \begin{pmatrix} 0 \\ 0 \\ \pm1 \end{pmatrix}
+    </me>
+    <p>
+      The diagram below shows our unit sphere, colored in a way that gives the temperature of the sphere, with the hottest points being red, and the coldest points being blue.
+    </p>
+
+    <figure xml:id="figure-temperature-sphere">
+      <caption>The unit sphere colored according to the temperature <m>Q(\vec x) = 9x_1^2 + 4x_2^2 +3x_3^2</m>, with the hottest points in red and the coldest points in blue.</caption>
+      <image width="50%">
+        <latex-image>
+          \pgfplotsset{compat=1.16}
+          \pgfmathsetmacro{\radius}{2}
+          \begin{tikzpicture}[scale=1.5]
+            \begin{axis}
+            [   view={145}{20},
+                unit vector ratio=1 1 1,
+                anchor=origin,
+                axis lines = none,
+                xmin=-3,ymin=-3,zmin=-3,xmax=3,ymax=3,zmax=3.5,
+            ]
+            \draw[thick,->,>=stealth] (-\radius-2,0,0) coordinate(-\radius-2,0,0) -- (\radius+2,0,0) node[below]{$x_1$};
+            \draw[thick,->,>=stealth] (0,-\radius-2,0) coordinate(0,-\radius - 2,0) -- (0,\radius+2,0) node[below]{$x_2$};
+            \draw[thick,->,>=stealth] (0,0,-\radius-2) coordinate(0,0,-\radius-2) -- (0,0,\radius+2) node[left]{$x_3$};
+            \addplot3
+                [   domain=0:180,
+                    y domain=0:360,
+                    surf,
+                    shader=interp,
+                    z buffer=sort,
+                    point meta={sqrt(pow(3*x,2)+pow(2*y,2)+pow(1.73*z,2))},
+                    colormap/bluered, samples=35, opacity=0.8
+                ]
+                    ({\radius*sin(x)*cos(y)},
+                     {\radius*sin(x)*sin(y)},
+                     {\radius*cos(x)});
+            \draw[thick,->,>=stealth] (\radius,0,0) coordinate(\radius,0,0) -- (\radius+2,0,0);
+            \draw[thick,->,>=stealth] (0,\radius,0) coordinate(0,\radius,0) -- (0,\radius+2,0);
+            \draw[thick,->,>=stealth] (0,0,\radius) coordinate(0,0,\radius) -- (0,0,\radius+2);
+            \end{axis}
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      Note that the hottest points are given by the points <m>(\pm 1, 0,0 )</m> and the coldest points at <m>(0,0,\pm 1)</m>. You may have also noticed that the maximum and minimum values of <m>Q</m> coincide with the eigenvalues of <m>A</m>. We will explore this connection in the next section.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsection-constrained-optimization-problem">
+    <title>A Constrained Optimization Problem</title>
+
+    <p>
+      We will now turn our attention to a more general problem of optimizing a function, <m>Q</m>, on a unit sphere. That is, we wish to identify the maximum or minimum values of
+    </p>
+    <me>
+      Q(\vec x) = \vec x^{\,T}A \vec x, \quad \vec x \in \mathbb R^n, \quad A \in \mathbb R^{n\times n},
+    </me>
+    <p>
+      subject to <m>||\vec x|| = 1</m>. This is an example of a <term>constrained optimization</term> problem. Also note that we may also want to know where these extreme values are obtained. The following theorem gives us some insight on how these values can be obtained.
+    </p>
+
+    <theorem xml:id="theorem-constrained-optimization">
+      <title>Constrained Optimization</title>
+      <statement>
+        <p>
+          If <m>Q = \vec x^{\,T} A \vec x</m>, <m>A</m> is a real <m>n\times n</m> symmetric matrix, with eigenvalues
+        </p>
+        <me>
+          \lambda_1 \ge \lambda_2 \ldots \ge \lambda_n
+        </me>
+        <p>
+          and associated normalized eigenvectors <m>\vec u_1, \vec u_2, \ldots , \vec u_n</m>. Then, subject to the constraint <m>||\vec x ||=1</m>, the <term>maximum</term> value of <m>Q(\vec x)</m> is <m>\lambda_1</m>, which is attained at <m>\vec x = \pm \, \vec u_1</m>. The <term>minimum</term> value of <m>Q(\vec x)</m> is <m>\lambda_n</m>, which is attained at <m>\vec x = \pm \, \vec u_n</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>Suppose <m>\lambda_1</m> is the largest eigenvalue of <m>A</m> and <m>\vec u_1</m> is the corresponding unit eigenvector.</p>
+      <mdn>
+        <mrow>Q = \vec x^{\,T} A\vec x \amp= \vec y^{\,T} D\vec y , \quad \text{using } A = PDP^T , \ \vec x = P\vec y</mrow>
+        <mrow>\amp= \sum \lambda_i y_i^2, \quad \text{because } D \text{ is diagonal}</mrow>
+        <mrow>\amp\le \sum \lambda_1 y_i^2, \quad \text{because } \lambda_1 \text{ is the largest eigenvalue}</mrow>
+        <mrow>\amp= \lambda_1 \sum y_i^2</mrow>
+        <mrow>\amp= \lambda_1 \, \lVert \vec y \rVert^2 = \lambda_1 , \quad \text{because } \lVert \vec y \rVert^2 =1</mrow>
+      </mdn>
+      <p>
+        This means that <m>Q</m> is at most <m>\lambda_1</m>. But <m>Q = \lambda_1</m> at <m>\pm \vec u_1</m> because
+      </p>
+      <me>
+        Q(\pm \vec u_1) = \vec u_1^{\,T} A \vec u_1 = \vec u_1^{\,T} (\lambda_1 \vec u_1 ) = \lambda_1
+      </me>
+    </proof>
+
+    <subsubsection xml:id="subsubsection-example2-repeated-eigenvalue">
+      <title>Example 2: Constrained Optimization with a Repeated Eigenvalue</title>
+
+      <p>
+        In this example we will calculate the maximum and minimum values of <m>Q(\vec x) = \vec x^{\,T}A \vec x = x_1^2 + 2x_2x_3</m>, <m>\vec x \in \mathbb R^3</m>, subject to <m>||\vec x|| = 1</m>, and identify points where these values are obtained.
+      </p>
+      <p>For <m>Q(\vec x) = x_1^2 + 2x_2x_3</m>, we have</p>
+      <me>
+        Q = \vec x^{\,T} A\vec x,\quad A = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \end{pmatrix}
+      </me>
+      <p>
+        By inspection, <m>A</m> has eigenvalues <m>\lambda \pm 1</m> (don't forget that an eigenvalue, <m>\lambda</m>, is a number that makes <m>A - \lambda I</m> singular). For <m>\lambda = 1</m>,
+      </p>
+      <me>
+        A-I = \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \\ 0 \amp 1 \amp -1 \end{pmatrix} \Rightarrow \vec v_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \vec v_2 = \frac{1}{\sqrt2}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+      </me>
+      <p>
+        Because <m>A</m> is symmetric, the eigenvector for eigenvalue <m>\lambda = -1</m> must be orthogonal to <m>\vec v_1</m> and <m>\vec v_2</m>. So by inspection
+      </p>
+      <me>
+        \vec v_3 = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}
+      </me>
+      <p>
+        Therefore, the minimum value of <m>Q</m> is <m>-1</m>, and is obtained at <m>\pm \vec v_3</m>. The maximum value of <m>Q</m> is <m>+1</m>, which is obtained at any unit vector in the span of <m>\vec v_1</m> and <m>\vec v_2</m>.
+      </p>
+      <p>
+        The image below is the unit sphere whose surface is colored according to the quadratic from the previous example. Notice the agreement between our solution and the image.
+      </p>
+
+      <figure xml:id="figure-repeated-eigenvalue-sphere">
+        <caption>Left: the unit sphere colored according to <m>Q(\vec x) = x_1^2 + 2x_2x_3</m>. Right: the eigenvectors <m>\vec v_1</m>, <m>\vec v_2</m>, and <m>\vec v_3</m>.</caption>
+        <sidebyside widths="48% 48%">
+          <image>
+            <latex-image>
+              \pgfplotsset{compat=1.16}
+              \pgfmathsetmacro{\radius}{2}
+              \begin{tikzpicture}[scale=1.5]
+                \begin{axis}
+                [   view={145}{20},
+                    anchor=origin,
+                    unit vector ratio=1 1 1,
+                    axis lines = none,
+                    xmin=-3,ymin=-3,zmin=-3,xmax=3,ymax=3,zmax=3.5,
+                ]
+                \draw[thick,->,>=stealth] (-\radius-2,0,0) coordinate(-\radius-2,0,0) -- (\radius+2,0,0) node[below]{$x_1$};
+                \draw[thick,->,>=stealth] (0,-\radius-2,0) coordinate(0,-\radius - 2,0) -- (0,\radius+2,0) node[below]{$x_2$};
+                \draw[thick,->,>=stealth] (0,0,-\radius-2) coordinate(0,0,-\radius-2) -- (0,0,\radius+2) node[left]{$x_3$};
+                \addplot3
+                    [   domain=0:180,
+                        y domain=0:360,
+                        surf,
+                        shader=interp,
+                        z buffer=sort,
+                        point meta={x*x+2*y*z},
+                        colormap/bluered, samples=40, opacity=0.9
+                    ]
+                ({\radius*sin(x)*cos(y)},
+                 {\radius*sin(x)*sin(y)},
+                 {\radius*cos(x)});
+                \draw[thick,->,>=stealth] (\radius,0,0) coordinate(\radius,0,0) -- (\radius+2,0,0);
+                \draw[thick,->,>=stealth] (0,\radius,0) coordinate(0,\radius,0) -- (0,\radius+2,0);
+                \draw[thick,->,>=stealth] (0,0,\radius) coordinate(0,0,\radius) -- (0,0,\radius+2);
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+          <image>
+            <latex-image>
+              \pgfplotsset{compat=1.16}
+              \pgfmathsetmacro{\radius}{2}
+              \begin{tikzpicture}[scale=1.5]
+                \begin{axis}
+                [   view={145}{20},
+                    anchor=origin,
+                    unit vector ratio=1 1 1,
+                    axis lines = none,
+                    xmin=-3,ymin=-3,zmin=-3,xmax=3,ymax=3,zmax=3.5,
+                ]
+                \draw[thick,->,>=stealth] (-\radius-2,0,0) coordinate(-\radius-2,0,0) -- (\radius+2,0,0) node[below]{$x_1$};
+                \draw[thick,->,>=stealth] (0,-\radius-2,0) coordinate(0,-\radius - 2,0) -- (0,\radius+2,0) node[below]{$x_2$};
+                \draw[thick,->,>=stealth] (0,0,-\radius-2) coordinate(0,0,-\radius-2) -- (0,0,\radius+2) node[left]{$x_3$};
+                \draw[ultra thick,->,>=stealth,DarkBlue] (0,0,0) coordinate(0,0,0) -- (2,0,0) node[below]{$\vec v_1$};
+                \draw[ultra thick,->,>=stealth,DarkBlue] (0,0,0) coordinate(0,0,0) -- (0,1.4,1.4) node[right]{$\vec v_2$};
+                \draw[ultra thick,->,>=stealth,DarkBlue] (0,0,0) coordinate(0,0,0) -- (0,1.4,-1.4) node[below]{$\vec v_3$};
+                \end{axis}
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </sidebyside>
+      </figure>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-orthogonality-constraints">
+    <title>Orthogonality Constraints</title>
+
+    <p>
+      Another useful constraint that we will use when constructing the singular value decomposition of a matrix involves orthogonality.
+    </p>
+
+    <theorem xml:id="theorem-orthogonality-constraint">
+      <title>Optimization with an Orthogonality Constraint</title>
+      <statement>
+        <p>
+          Suppose <m>Q = \vec x^{\,T} A \vec x</m>, where <m>A \in \mathbb R^{n\times n}</m> is symmetric and has eigenvalues <m>\lambda_1 \ge \lambda_2 \ldots \ge \lambda_n</m> and associated normalized eigenvectors <m>\vec u_1, \vec u_2, \ldots , \vec u_n</m>. Then, subject to the constraints <m>||\vec x ||=1</m> and <m>\vec x \cdot \vec u_1 = 0</m>, the maximum value of <m>Q(\vec x)</m> is <m>\lambda_{2}</m>, which is attained at <m>\vec x = \vec u_{2}</m>. The minimum value of <m>Q(\vec x)</m> is <m>\lambda_n</m>, which is attained at <m>\vec x = \vec u_n</m>.
+        </p>
+      </statement>
+    </theorem>
+
+    <p>
+      A proof would go beyond the scope of what we need for these notes, but it could use a similar approach to the theorem that gives the maximum (or minimum) of <m>Q</m> subject to <m>\lVert \vec x \rVert = 1</m>. We could start the proof with a change of variable so that we could express <m>Q</m> using a diagonal matrix and an orthonormal basis for <m>\mathbb R^n</m>. We could then identify the second largest eigenvalue. The associated eigenvector would be orthogonal to the eigenvector associated with the largest eigenvalue.
+    </p>
+
+    <subsubsection xml:id="subsubsection-example3-orthogonality-constraint">
+      <title>Example 3: Optimization with an Orthogonality Constraint</title>
+
+      <p>
+        In this example our goal is to identify the maximum value of
+      </p>
+      <me>
+        Q(\vec x) = \vec x^{\,T}A \vec x, \quad \text{where } A=A^T, \quad \text{subject to }  ||\vec x|| = 1 \text{ and } \vec x \cdot \vec u_1 = 0
+      </me>
+      <p>
+        where <m>\vec x \in \mathbb R^3</m>, <m>A</m> and its eigenvalues are
+      </p>
+      <me>
+        A = \begin{pmatrix} -1 \amp 1 \amp 0 \\ 1 \amp -2 \amp 1 \\ 0 \amp 1 \amp -1 \end{pmatrix}, \quad \lambda_1 = 0, \ \lambda_2 = -1, \ \lambda_3 = -3
+      </me>
+      <p>
+        and <m>\vec u_1</m> is the eigenvector associated with <m>\lambda_1</m>, where
+      </p>
+      <me>
+        \vec u_1 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+      </me>
+      <p>
+        The eigenvector associated with <m>\lambda_2</m> is found using the usual process of finding a vector in the nullspace of <m>A - \lambda_2I</m>.
+      </p>
+      <me>
+        A - \lambda_2I = \begin{pmatrix} 0 \amp 1 \amp 0 \\ 1 \amp -1 \amp 1 \\ 0 \amp 1 \amp 0 \end{pmatrix}
+      </me>
+      <p>By inspection, a vector in the nullspace will be</p>
+      <me>
+        \begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+      </me>
+      <p>
+        But we need to satisfy the constraint <m>\lVert \vec x \rVert = 1</m>, so we will need to normalize our eigenvector to ensure that it has length one. Our unit eigenvector is
+      </p>
+      <me>
+        \vec u_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+      </me>
+      <p>
+        This eigenvector gives one location where the maximum value of <m>Q</m> is obtained, with the constraints
+      </p>
+      <me>
+        ||\vec x|| = 1 \text{ and } \vec x \cdot \vec u_1 = 0
+      </me>
+      <p>
+        The two locations where this maximum are obtained are <m>(1, 0, - 1)</m> and <m>(-1,0,1)</m>. Evaluating <m>Q</m> at either of these points will give us <m>Q = \lambda_2 = -1</m>.
+      </p>
+      <p>
+        The image below is the unit sphere whose surface is colored according to the quadratic from this example.
+      </p>
+
+      <figure xml:id="figure-orthogonality-constraint-sphere">
+        <caption>The unit sphere colored according to <m>Q(\vec x) = \vec x^{\,T}A \vec x</m>, with the eigenvectors <m>\vec u_1</m> and <m>\vec u_2</m> marked.</caption>
+        <image width="50%">
+          <latex-image>
+            \pgfplotsset{compat=1.16}
+            \pgfmathsetmacro{\radius}{8}
+            \begin{tikzpicture}[scale=1]
+              \begin{axis}
+              [   view={145}{10},
+                  anchor=origin,
+                  unit vector ratio=1 1 1,
+                  axis lines = none,
+                  xmin=-\radius-2,ymin=-\radius-2,zmin=-\radius-2, xmax=\radius+2, ymax=\radius+2, zmax=\radius+2,
+              ]
+              \draw[thick,-,>=stealth] (-\radius-3,0,0) coordinate(-\radius-3,0,0) -- (\radius+2,0,0);
+              \draw[thick,-,>=stealth] (0,-\radius-3,0) coordinate(0,-\radius-3,0) -- (0,\radius+2,0);
+              \draw[thick,-,>=stealth] (0,0,-\radius-3) coordinate(0,0,-\radius-3) -- (0,0,\radius+2);
+              \addplot3
+                  [   domain=0:180,
+                      y domain=0:360,
+                      surf,
+                      shader=interp,
+                      z buffer=sort,
+                      point meta={-x*x+-2*y*y - z*z + 2*x*y + 2*y*z},
+                      colormap/bluered, samples=40, opacity=0.8
+                  ]
+              ({\radius*sin(x)*cos(y)},
+               {\radius*sin(x)*sin(y)},
+               {\radius*cos(x)});
+              \draw[thick,->,>=stealth] (\radius,0,0) coordinate(\radius,0,0) -- (\radius+4,0,0)  node[left]{$x_1$};
+              \draw[thick,->,>=stealth] (0,\radius,0) coordinate(0,\radius,0) -- (0,\radius+6,0) node[right]{$x_2$};
+              \draw[thick,->,>=stealth] (0,0,\radius) coordinate(0,0,\radius) -- (0,0,\radius+2) node[left]{$x_3$};
+              \draw[fill=black] (\radius*.5,\radius*.5,\radius*.5) circle (0.15em)
+                node[above left] {$\vec u_1$};
+              \draw[fill=black] (\radius*.7,0,-\radius*.7) circle (0.15em)
+                node[below left] {$\vec u_2$};
+              \end{axis}
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        The set of unit vectors that are orthogonal to <m>\vec u_1</m> creates a circle, and the point on that circle with the largest value of <m>Q</m> corresponds to <m>\vec u_2</m>.
+      </p>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-example4-orthogonality-repeated">
+      <title>Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case</title>
+
+      <p>
+        In this example we will identify the maximum value of <m>Q(\vec x) = \vec x^{\,T}A \vec x</m>, <m>\vec x \in \mathbb R^3</m>, subject to <m>||\vec x|| = 1</m> and to <m>\vec x \cdot \vec u_1 = 0</m>, where
+      </p>
+      <me>
+        Q(\vec x) = x_1^2 + 2x_2x_3, \qquad \vec u_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+      </me>
+      <p>
+        Noting that this example uses the same quadratic as in Example 2, we know that <m>\vec u_1</m> is an eigenvector associated with the largest eigenvalue, <m>\lambda = 1</m>. The next largest eigenvalue is <m>\lambda = -1</m>, which was a repeated eigenvalue. Any unit vector in the span of <m>\vec u_2</m> and <m>\vec u_3</m> is also an eigenvector with eigenvalue <m>\lambda_2 = -1</m>. If, for example, <m>\vec w</m> is a unit vector in the span of <m>\vec u_2</m> and <m>\vec u_3</m>, then <m>Q(\vec w) = \lambda_2 = -1</m> and <m>\vec w</m> will be orthogonal to <m>\vec u_1</m>. Therefore the maximum value of <m>Q(\vec x) = \vec x^{\,T}A \vec x</m>, subject to <m>||\vec x|| = 1</m> and to <m>\vec x \cdot \vec u_1 = 0</m> is <m>\lambda_2 = -1</m>.
+      </p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-constrained-optimization-summary">
+    <title>Summary</title>
+
+    <p>
+      In this section we introduced two constrained optimization problems. Our first problems was to identify the maximum/minimum values (and where they are located) of
+    </p>
+    <me>
+      Q(\vec x) = \vec x^{\,T}A \vec x, \quad \text{where } A=A^T, \quad \text{subject to }  ||\vec x|| = 1.
+    </me>
+    <p>
+      We saw that the maximum/minimum values are given by eigenvalues of <m>A</m>, and that the locations of these extreme values are given by the unit eigenvectors of <m>A</m>.
+    </p>
+    <p>
+      We then explored a related constrained optimization problem. We extended our results from the previous constrained optimization problem to identify the maximum/minimum values of <m>Q</m>, and where they are located, subject to two constraints. If, for example, <m>\vec u_1</m> is the eigenvector corresponding to the largest eigenvalue, then our goal was to optimize
+    </p>
+    <me>
+      Q(\vec x) = \vec x^{\,T}A \vec x, \quad \text{where } A=A^T, \quad \text{subject to }  ||\vec x|| = 1 \text{ and } \vec x \cdot \vec u_1 = 0
+    </me>
+    <p>
+      Again we saw that the maximum/minimum values are given by eigenvalues of <m>A</m>. And we saw that the corresponding <term>locations</term> of these extreme values are given by unit eigenvectors of <m>A</m>, but that we needed to use the second largest eigenvalue. These results could then be extended to handle cases with repeated eigenvalues, to add additional orthogonality constraints, or to identify minimum values of <m>Q</m> with orthogonality constraints.
+    </p>
+    <p>
+      Students who have already completed a multivariable calculus course may recognize constrained optimization problems when working with <term>Lagrange Multipliers</term>, which would give a more general framework to approach constrained optimization problems. Lagrange Multipliers are not explored in this particular course. But we will make use of the results in this section when developing the singular value decomposition (SVD) of a matrix.
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>11 Subspaces, Dimension, Basis (ILA 2.8, 2.9)</title>
+  <p></p>
+  <page>
+    <p><m>{\textbf{Poll Question}}</m>:</p>
+    <p>True or false: True or false: the set <m>T =  \{ \vec{x} \in \mathbb{R}^2 | x_1 \ge 0 \}</m> is a subspace.</p>
+<m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+    </page>
+    <page>
+        <m>{\large \textbf{11.1 Subspaces}}</m> 
+        <p>1. Suppose a set of vectors <m>\{v_i\}</m> are in a subspace, <m>S</m>, of <m>\mathbb{R}^n</m>.</p>
+        <p><m>{\small{•}}</m> What properties does the set of vectors need to have in order for them to form a basis
+for a subspace?</p>
+<m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+<p><m>{\small{•}}</m> True or false: suppose <m>V = \{v_1, v_2\}</m> form a basis for a subspace, <m>S</m>, of <m>\mathbb{R}^3</m>. Then the set
+<m>\{v_1 + v_2, v_2\}</m> also forms a basis for <m>S</m>.</p>
+<m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>2. Recall the definitions of the Column Space and Null Space of a matrix.</p>
+        <p><m>{\mathbf{Definition}}</m>:</p>
+        <p>Suppose <m>A</m> is an <m>m \times n</m> matrix.</p>
+        <ul>
+            <li>
+                <p>
+                    The <m>\textbf{column space}</m> of <m>A</m>, Col<m>A</m>, is the span of the column of <m>A</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The <m>\textbf{null space}</m> of <m>A</m>, Null<m>A</m>, is set of all vectors <m>\vec{x}</m> that solve <m>A\vec{x} = \vec{0}</m>.
+                </p>
+            </li>
+        </ul>
+        <m></m><p></p><m></m><p></p>
+        <p><m>A</m> has the RREF below. Construct a basis for Col<m>A</m> and a basis for Null<m>A</m>.</p>
+        <p><me>A = {\begin{pmatrix} \vec{a_1} \amp \vec{a_2} \amp \vec{a_3} \amp \vec{a_4} \amp \vec{a_5} \end{pmatrix}} \sim 
+            \begin{pmatrix} 1 \amp 0 \amp 10 \amp 0 \amp 13 \\
+                            0 \amp 1 \amp -3 \amp 0 \amp -5 \\
+                            0 \amp 0 \amp 0 \amp 1 \amp 4 \\
+                            0 \amp 0 \amp 0 \amp 0 \amp 0 \end{pmatrix}</me>.</p>
+    </page>
+    <page>
+        <p>3. Answer the following using the chat.</p>
+        <p><m>{\small{•}}</m> What is the <m>\textbf{dimension}</m> of a subspace?</p>
+        <m></m><p></p><m></m><p></p>
+        <p><m>{\small{•}}</m> What is the <m>\textbf{rank}</m> of a matrix?</p>
+        <m></m><p></p><m></m><p></p>
+        <p><m>{\small{•}}</m> How is the rank of a matrix related to dim(Null<m>A</m>)?</p>
+    </page>
+  </worksheet>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>23 Diagonalization of Symmetric Matrices (LN 2.1)</title>
+  <p></p>
+  <page>
+   <m>{\large \textbf{23.1 Symmetric Matrices}}</m>
+   <p><m>{\mathbf{Definitions}}</m>:</p>
+   <p>Matrix <m>A</m> is <m>\textbf{symmetric}</m> if it satisfies <m>A = A^T</m>.</p>
+   <m></m><p></p><m></m><p></p>
+   <p><m>{\textbf{Examples}}</m>:</p>
+   <p>In this part of the course we often encounter the expressions</p>
+   <me>A^T A, \textup{ }vv^T, \textup{ and } PDP^T</me>
+   <p>Which of the following are symmetric matrices?</p>
+   <p> <m>\textup{ }</m> <m>\textup{ }</m>1. <m>X = A^T A</m>, where <m>A</m> is a real <m>n \times n</m> matrix.</p>
+   <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+   <p> <m>\textup{ }</m> <m>\textup{ }</m>2. <m>Y = vv^T</m>, where <m>v</m> is a vector in <m>\mathbb{R}^n</m>.</p>
+   <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+   <p> <m>\textup{ }</m> <m>\textup{ }</m>3. <m>Z = PDP^T</m>, where <m>D</m> is a diagonal, and <m>P^{-1} = P^T</m>.</p>
+   <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <m>{\large \textbf{23.2 The Spectral Theorem}}</m>
+        <p>The Spectral Theorem:</p>
+        <p>An <m>n \times n</m> symmetric matrix <m>A</m> has the following properties.</p>
+        <ul>
+            <li>
+                <p>
+                    All eigenvalues of <m>A</m> are real.
+                </p>
+            </li>
+            <li>
+                <p>
+                    The eigenspaces are mutually orthogonal.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>A</m> can be diagonalized as <m>A = PDP^T</m>, where <m>D</m> is diagonal and <m>P</m> is orthogonal.
+                </p>
+            </li>
+        </ul>
+        <m></m><p></p><m></m><p></p>
+        <p><m>{\textbf{Worksheet Exercises}}</m>:</p>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Give examples of the following.
+                </p>
+            </introduction>
+            <task>
+                <p>A matrix <m>A \in \mathbb{R}^{2 \times 2}</m> that is diagonalizable but not orthogonally diagonalizable</p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            <task>
+                <p>A matrix <m>A \in \mathbb{R}^{2 \times 2}</m> that is orthogonally diagonalizable but not invertible.</p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+               <p>Indicate whether the statements are true or false.</p>
+            </introduction>
+            <task>
+                <p>If <m>A</m> is orthogonally diagonalizable, then so is <m>A^2</m>.</p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            <task>
+                <p>
+                    If <m>A^2</m> is orthogonally diagonalizable, then <m>A</m> is symmetric.
+                    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+                </p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>The only eigenvalues of <m>A</m> are <m>\lambda_1 = -2</m> and <m>\lambda_2 = 7</m>.</p>
+                <me>A = \begin{pmatrix}3 \amp -2 \amp 4 \\ -2 \amp 6 \amp 2 \\ 4 \amp 2 \amp 3 \end{pmatrix}</me>
+                <p>Construct matrices <m>P</m> and <m>D</m> for the orthogonal diagonalization <m>A = PDP^T</m>. <m>\textit{Hints: you may want to use Gram-Schmidt to construct $P$. And $P$ is an orthogonal}</m><m>\textit{matrix, so what do the lengths of each column of $P$ need to be?}</m></p>
+            </introduction>
+        </exercise>
+    </page>
+    <page>
+         <m>{\large \textbf{23.3 The Spectral Decomposition of a Matrix}}</m>
+         <m></m><p></p><m></m><p></p>
+         <p><m>\large \textup{Spectral Decomposition}</m>:</p>
+         <p>Suppose <m>A</m> can be orthogonally diagonalized as</p>
+         <me>A = PDP^T = (\vec{u}_1 \cdots \vec{u}_n) \begin{pmatrix} \lambda_1 \amp \cdots \amp 0 \\ \vdots \amp \ddots \amp \vdots \\ 0 \amp \cdots \amp \lambda_n \end{pmatrix} \begin{pmatrix} {\vec{u}_1}^T \\ \vdots \\ {\vec{u}_n}^T \end{pmatrix}</me>
+         <p>Then <m>A</m> has the decomposition</p>
+         <me>A = \lambda_1 \vec{u}_1 {\vec{u}_1}^T + \cdots + \lambda_n \vec{u}_n {\vec{u}_n}^T = \sum_{i=1}^{n} \lambda_i \vec{u}_i {\vec{u}_i}^T</me>
+         <m></m><p></p><m></m><p></p>
+         <p><m>{\textbf{Example}}</m>:</p>
+         <p>Construct a spectral decomposition for <m>A = PDP^T</m>.</p>
+         <me>A = \begin{pmatrix} 1 \amp -5 \\ -5 \amp 1 \end{pmatrix},\textup{ } P = \frac{1}{\sqrt{2}} \begin{pmatrix} -1 \amp 1 \\ 1 \amp 1 \end{pmatrix}, \textup{ } D = \begin{pmatrix} 6 \amp 0 \\ 0 \amp -4 \end{pmatrix}</me>
+         <p>Leave your expression for <m>A</m> as the sum of two matrices.</p>
+    </page>
+</worksheet>

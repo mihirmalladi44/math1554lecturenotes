@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+
+<worksheet>
+  <title>15 Markov Chains and Eigenvalues (ILA 5.1, 5.2, 5.6)</title>
+  <p></p>
+  <page>
+    <p><m>{\textbf{Poll Question}}</m>:</p>
+    <p>If <m>\det A = 2</m> and <m>\det(AB) = 3</m>, what is <m>det(A^2 B^T)</m> equal to?</p>
+    
+    </page>
+    <page>
+        <m>{\large \textbf{15.1 Markov Chains}}</m>
+        <p>1. Recall the definition of a regular stochastic matrix.</p>
+        <m></m><p></p>
+        <p><m>{\mathbf{Definition}}</m>:</p>
+        <p>A stochastic matrix <m>P</m> is <m>\textbf{regular}</m> if there is some <m>k</m> such that every entry of <m>P^k</m> is <m>\framebox{________}.</m></p>
+
+        <m></m><p></p><m></m><p></p>
+        <p>Determine whether <m>P</m> and <m>Q</m> are a regular stochastic matrices.</p>
+        <me>P = \begin{pmatrix} .8 \amp 0 \\ .2 \amp 1 \end{pmatrix}, \textup{ }Q = \frac{1}{4}\begin{pmatrix} 1 \amp 2 \amp 0 \\ 0 \amp 1 \amp 2 \\ 3 \amp 1 \amp 2 \end{pmatrix}</me>
+    </page>
+    <page>
+        <p>2. We use the idea of a regular stochastic matrix to describe convergence of Markov chains.</p>
+         <p><m>{\mathbf{Theorem}}</m>:</p>
+         <p>If <m>P</m> is a regular stochastic matrix, then <m>\vec{x}_{k+1} = P\vec{x}_k</m> converges to a <m>\framebox{____________________}</m> steady-state vector <m>\vec{q}</m> as <m>k \rightarrow \infty</m>.</p>
+         <m></m><p></p><m></m><p></p>
+         <p>Suppose there are two cities, X and Y. Every year,</p>
+         <ul>
+            <li>
+                <p>
+                    70% of the people from X stay in X, the remaining 30% move to Y.
+                </p>
+            </li>
+            <li>
+                <p>
+                    40% of the people from Y stay in Y, the remaining 60% move to X.
+                </p>
+            </li>
+         </ul>
+         <p>The initial populations of X and Y are <m>100</m> and <m>200</m>, respectively.</p>
+            <ol marker="(a)">
+                <li>
+                    <p>
+                        What is the stochastic matrix that represents this situation?
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        After a long period of time, what is the population in city X?
+                    </p>
+                </li>
+            </ol>
+    </page>
+    <page>
+        <m>{\large \textbf{15.2 Eigenvalue Problems}}</m>
+        <p>1. The Markov Chains we were exploring have a connection to the eigenvalue problem.</p>
+        <m></m><p></p>
+        <p><m>{\mathbf{Definition}}</m>:</p>
+        <p>If <m>A</m> is real <m>n \times n</m>, and there is a <m>\vec{v} \neq \vec{0}</m> in <m>\mathbb{C}^n</m>, and</p>
+        <me>A\vec{v} = \framebox{___________}</me> 
+        <p>then <m>\vec{v}</m> is an <m>\textbf{eigenvector}</m> for <m>A</m>, and <m>\lambda \in \mathbb{C}</m> is the corresponding <m>\textbf{eigenvalue}</m>.</p>
+<m></m><p></p><m></m><p></p>
+        <p>(a) Is <m>\lambda = 2</m> an eigenvalue of <m>A</m>? Do not compute the characteristic polynomial.</p>
+        <me>A = \begin{pmatrix} 3 \amp 2 \\ 3 \amp 8 \end{pmatrix}</me>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+        <p>(b) Determine whether <m>\vec{v}_1</m> and <m>\vec{v}_2</m> are eigenvectors of <m>A</m>. If so, what are their eigenvalues? Do not use the characteristic polynomial.</p>
+        <me>A = \begin{pmatrix} -3 \amp -3 \amp 2 \\ 6 \amp 4 \amp 0 \\ 5 \amp 3 \amp 0 \end{pmatrix}, 
+            \textup{ } \vec{v}_1 = \begin{pmatrix} -1 \\ 1 \\ 1 \end{pmatrix}, \textup{ } \vec{v}_2 = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+        </me>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>2. <m>T</m> is a linear transformation in <m>\mathbb{R}^2</m>. Without constructing <m>A</m>, identify one eigenvalue of <m>A</m>.</p>
+        <ol marker="(a)">
+            <li>
+                <p>
+                    <m>T</m> reflects points across the line <m>x_1 = -x_2</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    <m>T</m> projects points onto the <m>x_2-</m>axis.
+                </p>
+            </li>
+        </ol>
+    </page>
+    <page>
+        <p>3. If <m>Av = \lambda v</m> with <m>v \neq 0</m> and <m>A</m> is invertible, can you identify an eigenvalue of <m>A^{-1}</m>?</p>
+    </page>
+  </worksheet>

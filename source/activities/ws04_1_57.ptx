@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+        <worksheet margin="1in" bottom="1.25cm" xml:id="worksheet-4">
+                <title>4 Solution Sets and Linear Independence</title>
+        <page>
+        <m>{\large \textbf {4.1 Homogeneous Equations and Solution Sets}}</m>
+        <p></p>
+            <p>
+                Use the Teams chat to answer the following in one or two sentences.
+            </p>
+            <exercise workspace= "2in">
+                <statement>
+                    <p>
+                        When a Homogeneous system has a nontrivial solution, what properties does that system have?
+                    </p>
+                </statement>  
+            </exercise>
+             <exercise workspace="2in">
+                <statement>
+                    <p>
+                        What is a trivial solution to the system <m>Ax = 0</m>?
+                    </p>
+                </statement>  
+            </exercise>
+             <exercise workspace= "2in">
+                <statement>
+                    <p>
+                        Suppose <m>\vec {A} \vec {x} = \vec {b}</m> is consistent and <m>\vec {p}</m> is a solution. Then the solution set of <m>A \vec {x} = \vec {b}</m> is the set of all vectors of the form <m>\vec {w} = \vec {p} + \vec {v}</m>. What is <m>\vec {v}</m>?
+                    </p>
+                </statement>  
+            </exercise>
+        </page>
+        <page>
+         <m>{\large \textbf {4.2 Worksheet Exercises}}</m>
+         <p></p>
+            <p>
+                1. Express the solution to <m>A \vec {x} = \vec {b}</m> in parametric vector form.
+            </p>
+            <p></p>
+            <p>(a)
+                <m> A = </m> 
+                   <m>
+                    \begin {pmatrix}
+                    1 \amp 3 \amp 4 \\ 
+                    0 \amp 0 \amp 1
+                    \end {pmatrix}
+                    </m>
+            <m>\vec {b} = </m>
+            <m>
+                \begin {pmatrix} 
+                1 \\
+                2
+                \end {pmatrix}
+            </m>
+
+            </p>
+    <p></p>
+              
+              <p>(b)
+
+             <m> A = </m> 
+                   <m>
+                    \begin {pmatrix}
+                    1 \amp 3 \amp 4 \\ 
+                    0 \amp 0 \amp 1
+                    \end {pmatrix}
+                    </m>
+                
+            <m>\vec {b} = </m>
+            <m>
+                \begin {pmatrix} 
+                0 \\
+                0
+                \end {pmatrix}
+            </m>
+        </p>
+        </page>  
+        <page>
+            <p> 2. Example construction exercises. </p>
+            <p></p>
+            <p>
+                (a) Give an example of a non zero 2 <m>\times</m> 3 matrix <m>A</m> such that <m>\vec {x} = 
+                    /begin {pmatrix}
+                    1 \\
+                    2 \\ 
+                    1
+                    /end {pmatrix} 
+                </m> is a solution of <m>A \vec {x} = \vec {0}</m>.
+            </p>
+            <p></p>
+            <p>
+                (b) Give an example of a non trivial solution to <m>A \vec {x} = \vec {0}</m>, where <m>
+                    A = 
+                    \begin {pmatrix} 
+                    2 \amp 5 \\
+                    0 \amp 0 \\
+                    4 \amp 10
+                    \end {pmatrix}
+                </m>
+            </p>
+        </page>  
+      <page>
+        <p>3. Indicate whether the statements are true or false.</p>
+        <p>
+            <span></span> (a) If <m>\vec {x}</m> is a non-trivial solution of <m>A \vec {x} = \vec {0}</m>, then all of the entries of <m> \vec {x}</m> are non-zero.
+        </p>
+        <p></p>
+        <p>
+            (b) if <m>A \vec {x} =  \vec {b}</m> and <m>A \vec {y} = \vec {b}</m>, then <m>A(\vec {x} - \vec {y}) = \vec {0}</m>.
+        </p>
+        <p></p>
+        <p> (c) Any <m>3 \times 2 </m> <m>A</m> with two pivotal positions has a non trivial solution to <m>A \vec {x} = 0</m>
+        </p>
+      </page>
+      <page>
+    <m>{\large \textbf {4.3 Linear Independence}}</m>
+    <p></p>
+    <p>1. What is a set of linearly independent vectors?</p>
+    <p></p>
+    <p>2. When two vectors are linearly dependent, how are they related?</p>
+    <p></p>
+    <p>3. How are span and linear dependence related to each other?</p>
+      </page>   
+      <page>
+        <m>{\large \textbf {4.4 Worksheet Exercises}}</m>
+        <p></p>
+        <p>
+            1. In the problems, below <m>\vec {v}_1</m>, <m>\vec {v}_2</m>, <m>\vec {v}_3</m> are three linearly independent vectors in <m> \mathbb {R}</m>. Which of the collections of vectors below are linearly independent?
+        </p>
+        <ol marker= "a)">
+            <li>
+                <m>{\vec {v}_1 , \vec {v}_2 , \vec {0}} </m>
+            </li>
+            <li>
+                <m>{\vec {v}_1 , \vec {v}_1 + \vec {v}_2 , \vec {v}_2} </m>
+            </li>
+            <li>
+           <m>{\vec {v}_1 , \vec {v}_1 + \vec {v}_2} </m>
+            </li>
+        </ol>
+      </page>
+      <page>
+        <p>2. For what values of <m>h</m> are the columns of <m>A</m> linearly dependent?</p>
+        <p></p>
+        <m>A = 
+            \begin {pmatrix}
+            1 \amp 2 \amp -1\\
+            0 \amp 1 \amp 0\\
+            4 \amp 7 \amp h
+            \end {pmatrix}
+        </m>
+      </page>
+      <page>
+       <p>
+        3. A <m> 5 \times 3</m> matrix <m>A = (\vec{a}_1 \vec{a}_2 \vec{a}_3</m> has all non-zero columns, and <m>\vec {a}_3 = 5 \vec{a}_1 + 7 \vec{a}_2</m>. Identify a non-trivial solution to <m>A \vec{x} = \vec{0}</m>.
+        </p>
+      </page>
+      <page>
+        <p>
+            4. Short answer questions.
+        </p>
+        <p></p>
+        <p>(a) The columns of a <m>7 \times 5</m> matrix are linearly independent. How many pivots does the matrix have?
+        </p>
+        <p></p>
+        <p>(b) If the columns of a <m>3 \times 7</m> matrix span <m>\mathbb {R}^3</m>, how many pivots does the matrix have?</p>
+      </page>
+        </worksheet>

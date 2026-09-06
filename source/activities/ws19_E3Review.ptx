@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>19 Exam 3 Review</title>
+  <p></p>
+  <page>
+    <p><m>{\textbf{Poll Question}}</m>:</p>
+    <p>True or false: if <m>A</m> is diagonalizable, then so is <m>A^2</m>.</p>
+    </page>
+    <page>
+        <p>1. Indicate whether the statements are true or false.</p>
+        <p>(a) if <m>A^2</m> is diagonalizable, then so is <m>A</m>.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>(a) if <m>A</m> is not invertible then <m>A</m> is not diagonalizable.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>2. For what values of <m>k</m> (if any) does <m>A</m> have one real eigenvalue of algebraic multiplicity 2?</p>
+        <me>A = \begin{pmatrix} -4 \amp k \\ 2 \amp -2 \end{pmatrix}</me>
+    </page>
+    <page>
+        <p>3. Give an example of an upper triangular <m>4 \times 4</m> matrix <m>A</m> such that <m>0</m> is its only eigenvalue and such that its eigenspace is <m>3</m>-dimensional.</p>
+    </page>
+    <page>
+        <p>4. Consider the dynamical system <m>\vec{x}_k = A\vec{x}_{k-1}, \textup{ } k = 1,2,3\ldots</m>, where</p>
+        <me>A = \begin{pmatrix} .5 \amp .25 \amp .25 \\ .25 \amp .5 \amp .25 \\ .25 \amp .25 \amp .5 \end{pmatrix}, \textup{ } \vec{x}_0 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}</me>
+        <p>The eigenvalues of <m>A</m> are <m>1</m> and <m>\frac{1}{4}</m>. Analyze the long-term behaviour of the system. In other words, determine what <m>\vec{x}_k</m> tends to as <m>k \to \infty</m>.</p>
+    </page>
+    <page>
+        <p>5. Suppose <m>p</m> and <m>q</m> are real numbers on the open interval <m>(0, 1)</m>, and</p>
+        <me>A = \begin{pmatrix} p \amp 1-q \\ 1-p \amp q \end{pmatrix}</me>
+        <ol marker="(a)">
+            <li>
+                <p>
+                    Is <m>A</m> stochastic? Is <m>A</m> regular?
+                </p>
+            </li>
+            <li>
+                <p>
+                    By inspection, what is one eigenvalue of <m>A</m>?
+                </p>
+            </li>
+            <li>
+                <p>
+                    Compute the steady-state vector of <m>A</m>.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Compute the limit <m>\lim_{n \rightarrow \infty} A^n</m>
+                </p>
+            </li>
+        </ol>
+    </page>
+    <page>
+        <p>6. tr<m>(A)</m> is the sum of the elements on the main diagonal of <m>A</m>. If tr<m>(A) = 2</m>, det<m>(A) = 1</m>, and <m>A \in \mathbb{R}^{2 \times 2}</m>, compute the eigenvalues of <m>A</m>.</p>
+    </page>
+  </worksheet>

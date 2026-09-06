@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <worksheet>
+      <title>20 Orthogonal Projections, Gram-Schmidt, and the QR Factorization (6.3, 6.4)</title>
+
+      <page>
+        <p><m>\textbf {Poll Question}</m></p>
+        <p>True or false: If <m>W</m> is a subspace of <m>\mathbb {R}^n, \vec {x} \in W</m>, and <m>\vec {y} \times \vec {x} =0</m>, then <m>\vec {y} \in W</m></p>
+      </page>
+
+      <page>
+        <p><m>\large \textbf {20.1 Orthogonal Decomposition}</m></p>
+        <p>Suppose:</p>
+        <ul>
+          <li>
+            <p><m>\vec {v}_1</m> and <m>\vec {v}_2</m> in <m>\mathbb {R}^3</m> are an orthonormal basis for subspace W</p>
+          </li>
+          <li>
+            <p><m>W = </m> Span<m>
+              \begin {cases}
+              \vec {v}_1, \vec {v}_2
+              \end {cases}
+            </m></p>
+          </li>
+          <li>
+            <p>vector <m>\vec {y}</m> is not in <m>W</m></p>
+          </li>
+        </ul>
+
+        <image label="figure-worksheet-20" width="50%">
+              
+              <latex-image>
+                \tdplotsetmaincoords{70}{30}
+                \begin{tikzpicture}[scale=3,
+        axis/.style={->,black,-stealth,ultra thick}, 
+        vectorR/.style={-stealth,DarkBlue,ultra thick},
+        vectorB/.style={-stealth,DarkRed,ultra thick},
+        vectorZ/.style={-stealth,black,ultra thick},
+        dsline/.style={gray,dashed},
+        tdplot_main_coords
+        ]
+        
+        \coordinate (O) at (0,0,0);
+        \coordinate (P) at (.9,.3,1);
+        \coordinate (Q) at (.9,.3,0);        
+
+        % plane for W
+        \filldraw[draw=DarkBlue!40,fill=DarkBlue!08,]          
+            (O) -- (3,0,0) -- (3,3,0) -- (0,3,0)
+            -- cycle;
+        
+        \draw[] (2,2,0) node[right]{$W$};
+            
+        %draw axes
+        \draw[axis] (O) -- (1,0,0) node[below]{$\vec v_1$};
+        \draw[axis] (O) -- (0,1,0) node[right]{$\vec v_2$};
+        %\draw[axis] (O) -- (0,0,1) node[left]{$\vec e_3$};
+            
+        % draw vectors
+        \draw[vectorR] (O) -- (P) node[right]{$\vec y$};
+        \draw[vectorB] (O) -- (Q) node[right]{$\widehat y \in W$}; 
+        
+        % dashed line
+        \draw[dsline] (P) -- (Q) ;
+        
+        % z
+        
+            \draw[vectorZ] (Q) -- (P) ;
+            \draw[] (.2,1.5,0) node[right]{$z$};
+        
+    \end{tikzpicture}
+              </latex-image>
+          </image>
+
+        <p>Our goals:</p>
+        <ul>
+          <li>
+            <p>identify the vector in <m>W</m> that is closest to <m>\vec {y}</m>, which we call <m>\hat {y}</m>.</p>
+          </li>
+          <li>
+            <p>identify <m>z</m> so that <m>\vec {y} = \hat {y} + z</m>.</p>
+          </li>
+        </ul>
+      </page>
+
+      <page>
+        <p><m>\textbf {20.1.1 Worksheet Exercises}</m></p>
+        <p>1. <m>\vec {y} =
+          \begin {pmatrix}
+          0 \\
+          2 \\
+          4
+          \end {pmatrix}
+          ,
+          \vec {u}_1 =
+          \begin {pmatrix}
+          1 \\
+          1 \\
+          0
+          \end {pmatrix}
+          , 
+          \vec {u}_2 = 
+          \begin {pmatrix}
+          -1 \\
+          1 \\
+          0
+          \end {pmatrix}
+        </m></p>
+        <ol marker="(a)">
+          <li>
+            <p>Determine whether <m>\vec {u}_1</m> and <m>\vec {u}_2</m>:</p>
+            <ol marker="1.">
+              <li><p>are linearly independent</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+        </li>
+              <li><p>are mutually orthogonal</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+              </li>
+              <li><p>are orthonormal</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+        </li>
+              <li><p>span <m>\mathbb {R}^3</m></p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+        </li>
+            </ol>
+          </li>
+          <li>
+            <p>Is <m>\vec {y}</m> in <m>W =</m> Span<m>
+              \begin {cases}
+              \vec {u}_1, \vec {u}_2
+              \end {cases}
+            </m>?</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+
+          </li>
+          <li>
+            <p>Compute the vector, <m>\hat {y} \in W</m>, that most closely approximates <m>\vec {y}</m></p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+          </li>
+          <li>
+            <p>Construct a vector, <m>\vec {z}</m>, that is in <m>W</m>.</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p>
+
+          </li>
+        </ol>
+      </page>
+
+      <page>
+        <p>2. indicate whether the statements are true or false.</p>
+        <ol marker= "(a)">
+          <li>
+            <p>If <m>\vec {y}</m> is in subspace <m>W</m>, the orthogonal projection of <m>\vec {y}</m> onto <m>W</m> is <m>\vec {y}</m>.</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+          </li>
+          <li>
+            <p>If <m>\vec {x}</m> is orthogonal to <m>\vec {v}</m> and <m>\vec {w}</m>, then <m>\vec {x}</m> is also orthogonal to <m>\vec {v} - \vec {w}</m>.</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+          </li>
+        </ol>
+      </page>
+      <page>
+        <p>3. Give an example o a non-zero vector, <m>\vec {w}</m>, whose projection onto Col<m>(A)</m> is <m>\vec {w}</m>.</p>
+        <me>A =
+          \begin {pmatrix}
+          1 \amp 0 \\
+          0 \amp 0 \\
+          0 \amp 1
+          \end {pmatrix}
+        </me>
+      </page>
+      <page>
+        <p><m>{\large \textbf {20.2  The Gram-Schmidt Process and the QR Factorization}}</m></p>
+        <p><m>\textbf {The Gram-Schmidt Process}</m></p>
+        
+<p>
+      Suppose the set <m>\{\vec{x}_1, \ldots, \vec{x}_p\}</m> is a basis for a subspace <m>W</m> of <m>\mathbb{R}^n</m>.
+    </p>
+
+    <p><m>W_1 = \text{Span}\{\vec{v}_1\}</m>, <me>\vec{v}_1 = \vec{x}_1</me></p>
+    <p><m>W_2 = \text{Span}\{\vec{v}_1, \vec{v}_2\}</m>, <me>\vec{v}_2 = \vec{x}_2 - \text{proj}_{W_1} \vec{x}_2</me></p>
+    <p><m>W_3 = \text{Span}\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}</m>, <me>\vec{v}_3 = \vec{x}_3 - \text{proj}_{W_2} \vec{x}_3</me></p>
+    <p><m>\vdots</m>, <me>\vdots</me></p>
+    <p><m>W_p = \text{Span}\{\vec{v}_1, \ldots, \vec{v}_p\}</m>, <me>\vec{v}_p = \vec{x}_p - \text{proj}_{W_{p-1}} \vec{x}_p</me></p>
+
+    <p>
+      Then, <m>\{\vec{v}_1, \ldots, \vec{v}_p\}</m> is an <em>orthogonal</em> basis for <m>W</m>.
+    </p>
+      </page>
+      <page>
+        <p><m>\textbf {Exercises}</m></p>
+        <p>1. Use the Gram-Schmidt Process to compute the QR decomposition of <m>A = 
+          \begin {pmatrix}
+          3 \amp -5 \\
+          0 \amp 2 \\
+          4 \amp 10 
+          \end {pmatrix}
+        </m></p>
+      </page>
+    </worksheet>

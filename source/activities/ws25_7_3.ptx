@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>25 Constrained Optimization (LN 2.4)</title>
+  <p></p>
+  <page>
+   <m>{\large \textbf{25.1 A Constrained Optimization Problem}}</m>
+   <p>Goal: locate the extreme values of</p>
+   <me>Q(\vec{x}) = \vec{x}^T A\vec{x}, \textup{ } \vec{x} \in \mathbb{R}^n, \textup{ } A \in \mathbb{R}^{n \times n},</me>
+   <p>subject to</p>
+   <me>||\vec{x}|| = 1</me>
+   <p>We'd also like to determine the values of <m>Q</m> at these points.</p>
+   <p><m>{\mathbf{Theorem}}</m>:</p>
+   <p>If <m>Q = \vec{x}^T A\vec{x}</m>, <m>A</m> is a real <m>n \times n</m> symmetric matrix, with eigenvalues</p>
+   <me>\lambda_1 \ge \lambda_2 \cdots \ge \lambda_n</me>
+   <p>and associated normalized eigenvectors</p>
+   <me>\vec{u}_1, \vec{u}_2, \cdots, \vec{u}_n</me>
+   <p>Then, subject to the constraint <m>||\vec{x}|| = 1</m>,</p>
+   <ul>
+    <li>
+        <p>
+            the <m>\textbf{maximum}</m> value of <m>Q(\vec{x}) = \lambda_1</m>, attained at <m>\vec{x} = \pm \vec{u}_1</m>.
+        </p>
+    </li>
+    <li>
+        <p>
+            the <m>\textbf{minimum}</m> value of <m>Q(\vec{x}) = \lambda_n</m>, attained at <m>\vec{x} = \pm \vec{u}_n</m>.
+        </p>
+    </li>
+   </ul>
+   <m></m><p></p><m></m><p></p>
+   <p><m>{\textbf{25.1.1 Example}}</m>:</p>
+   <p>Calculate the maximum and minimum values of the quadratic form <m>Q</m> subject to the constraint <m>||\vec{x}|| = 1</m>. Identify where this maximum is obtained.</p>
+   <me>Q(\vec{x}) = 4{x_1}^2 + {x_2}^2 + 4x_1 x_2 + 3{x_3}^2, \textup{ } \vec{x} \in \mathbb{R}^3</me>
+    </page>
+    <page>
+        <m>{\large \textbf{25.2 Orthogonality Constraints}}</m>
+        <p><m>{\mathbf{Theorem}}</m>:</p>
+        <p>Suppose <m>Q = \vec{x}^T A\vec{x}</m>, where <m>A \in \mathbb{R}^{n \times n}</m> is symmetric and has eigenvalues</p>
+        <me>\lambda_1 \ge \lambda_2 \cdots \ge \lambda_n</me>
+        <p>and associated eigenvectors</p>
+        <me>\vec{u}_1, \vec{u}_2, \cdots, \vec{u}_n</me>
+        <p>Subject to the constraints <m>||\vec{x}|| = 1</m> and <m>\vec{x} \cdot \vec{u}_1 = 0</m>,</p>
+        <ul>
+            <li>
+                <p>
+                    the maximum value of <m>Q(\vec{x}) = \lambda_2</m>, attained at <m>\vec{x} = \vec{u}_2</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    the minimum value of <m>Q(\vec{x}) = \lambda_n</m>, attained at <m>\vec{x} = \vec{u}_n</m>
+                </p>
+            </li>
+        </ul>
+        <m></m><p></p><m></m><p></p>
+        <p><m>{\textbf{25.2.1 Example}}</m>:</p>
+        <p>Calculate the maximum and minimum values of <m>Q</m> subject to <m>||\vec{x}|| = 1</m> and <m>\vec{x} \cdot \vec{u} = 0</m>.</p>
+        <me>Q(\vec{x}) = 4{x_1}^2 + {x_2}^2 + 4x_1 x_2 + 3{x_3}^2, \textup{ } \vec{u} = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}</me>
+    </page>
+    <page>
+        <m>{\large \textbf{25.3 Additional Examples}}</m>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Give examples of the following if possible.
+                </p>
+            </introduction>
+            <task>
+                <p>A quadratic form <m>Q : \mathbb{R}^3 \mapsto \mathbb{R}</m>, that has a maximum value 12, subject to the constraint that <m>||\vec{x}|| = 1</m>.</p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            
+            <task>
+                <p>A quadratic form <m>Q : \mathbb{R}^3 \mapsto \mathbb{R}</m>, that has a maximum value 4 at two distinct locations, subject to the constraint that <m>||\vec{x}|| = 1</m>.</p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Indicate whether the statements are true or false.
+                </p>
+            </introduction>
+            <task>
+                <p>
+                    The largest value of a positive definite quadratic form <m>\vec{x}^T A\vec{x}</m> is the largest eigenvalue of <m>A</m>.
+                </p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+            <task>
+                <p>
+                    The largest value of a positive definite quadratic form <m>\vec{x}^T A\vec{x}</m> subject to <m>||\vec{x}|| = 1</m> is the largest value on the diagonal of <m>A</m>.
+                </p>
+                <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </task>
+        </exercise>
+    </page>
+</worksheet>

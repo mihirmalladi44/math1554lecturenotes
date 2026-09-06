@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>28 Final Exam Review 2</title>
+  <p></p>
+  <page>
+    <p>We made it to the end of the semester! Hooray! This is the last studio session that we have this semester.</p>
+        <p><m>{\textbf{Worksheet Exercises}}</m>:</p>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Indicate whether the statements are possible (P) or impossible (I). For the statements that are possible, give an example.
+                </p>
+                <tabular>
+                <row>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p></b></cell>
+                    <cell><b><p><m>\large \textup{P}</m></p></b></cell>
+                    <cell><b><p><m>\large \textup{I}</m></p></b></cell>
+                    <cell><b><p><m>\large \textup{Example}</m></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p>a)</p></b></cell>
+                    <cell><b><p><m>T_A</m> is a linear transformation <m>T_A = A\vec{x}</m>, where <m>A \in \mathbb{R}^{N \times N}</m>,</p><p><m>N \ge 2</m>, and <m>T_A</m> is one-to-one but not onto.</p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p><m></m><p></p><m></m><p></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p>b)</p></b></cell>
+                    <cell><b><p><m>Q(\vec{x}) = \vec{x}^T A\vec{x}</m> is a negative semi-definite quadratic form, and</p><p><m>Q(\vec{v}) = 0</m>, where <m>\vec{v}</m> is an eigenvector of <m>A</m>.</p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p><m></m><p></p><m></m><p></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p>c)</p></b></cell>
+                    <cell><b><p><m>A</m> is a square <m>4 \times 4</m> matrix, <m>\lambda \in \mathbb{R}</m> is an eigenvalue of <m>A</m>, and</p><p>dim<m>(</m>Row<m>{(A - \lambda L)}^{\perp}) = 0</m>.</p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p><m></m><p></p><m></m><p></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p>d)</p></b></cell>
+                    <cell><b><p>Matrix <m>A</m> is <m>n \times n</m>, <m>A\vec{x} = A\vec{y}</m> for some <m>\vec{x} \neq \vec{y}</m>, and dim(Null<m>A</m>)<m>=</m></p><p><m>0</m>.</p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p><m></m><p></p><m></m><p></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p>e)</p></b></cell>
+                    <cell><b><p>The Gram-Schmidt algorithm applied to exactly <m>N</m> vectors in <m>\mathbb{R}^N</m></p><p>produces an orthogonal basis with dimension <m>N-1</m>.</p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p><m></m><p></p><m></m><p></p></b></cell>
+                </row>
+                <row>
+                    <cell><b><p>f)</p></b></cell>
+                    <cell><b><p>Matrix <m>A</m> is <m>3 \times 2</m>, has singular values <m>\sigma_1</m> and <m>\sigma_2</m>, and <m>\sigma_1 = \sigma_2</m>.</p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p><m>\bigcirc</m></p></b></cell>
+                    <cell><b><p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m></p><m></m><p></p><m></m><p></p></b></cell>
+                </row>
+            </tabular>
+            </introduction>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Vectors <m>\vec{v}_1, \vec{v}_2, \vec{v}_3</m> are linearly independent and span subspace <m>S</m>.
+                </p>
+            </introduction>
+            <task>
+                <p>Fill in the circles next to sets of vectors that span <m>S</m>. Leave the other circles empty.</p>
+                <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ } \bigcirc \{\vec{v}_1, \vec{v}_2, \vec{v}_3, 2\vec{v}_3, \vec{0}\}</m></p>
+                <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ } \bigcirc \{\vec{v}_1, \vec{v}_1 - \vec{v}_2, \vec{v}_3\}</m></p>
+            </task>
+            <task>
+                <p>Fill in the circles next to sets of vectors that form a basis for <m>S</m>. Leave the other circles empty.</p>
+                <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ } \bigcirc \{\vec{v}_1, \vec{v}_2, 3\vec{v}_3, \vec{0}\}</m></p>
+                <p> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ }</m> <m>\textup{ } \bigcirc \{\vec{v}_1, \vec{v}_1 - \vec{v}_2, \vec{v}_3\}</m></p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    An example of an <m>N \times N</m> matrix whose nullspace is equal to its column space is:
+                </p>
+            </introduction>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    Fill in the blanks.
+                </p>
+            </introduction>
+            <task>
+                <p>
+                    If <m>M > N</m> and for all <m>\vec{b} \in \mathbb{R}^N</m> there is at most one <m>\vec{x}</m> such that <m>T(\vec{x}) = A\vec{x} = \vec{b}</m>, and <m>A \in \mathbb{R}^{M \times N}</m>, how many pivot columns does <m>A</m> have? <m>\framebox{________}</m>
+                </p>
+            </task>
+            <task>
+                <p>Consider the row operations that reduce <m>A</m> to <m>I_3</m>.</p>
+                <me>A = \underbrace{\begin{pmatrix} 0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 5 \amp 1 \end{pmatrix}}_{A} \thicksim \underbrace{\begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 5 \amp 1 \end{pmatrix}}_{E_1 A} \thicksim \underbrace{\begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}}_{E_2 E_1 A} = I_3</me>
+                <p>By inspection, <m>E_1 = \begin{pmatrix} \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \end{pmatrix}</m> and <m>E_2 = \begin{pmatrix} \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \end{pmatrix}</m>.</p>
+            </task>
+            <task>
+                <p>For what values of <m>k \in \mathbb{R}</m> (if any) is <m>A = \begin{pmatrix} 3 \amp 0 \\ k \amp 3 \end{pmatrix}</m> diagonalizable? <m>\framebox{________}</m></p>
+            </task>
+            <task>
+                <p>An eigenvector of <m>A = \begin{pmatrix} 1 \amp 1 \amp 1 \amp 1 \\ 1 \amp -1 \amp 1 \amp -1 \\ -1 \amp 1 \amp -1 \amp 1 \\ 1 \amp -1 \amp -1 \amp 1 \end{pmatrix}</m> is <m>\vec{v}_1 = \begin{pmatrix} 0 \\ -2 \\ 2 \\ 0 \end{pmatrix}</m>. What is the eigenvalue associated with eigenvector <m>\vec{v}_1</m>? <m>\framebox{________}</m></p>
+            </task>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <introduction>
+                <p>
+                    If possible, give an example of the following, or write not possible.
+                </p>
+            </introduction>
+            <task>
+                <p>
+                    A matrix <m>A</m> in RREF such that <m>T_A: \mathbb{R}^4 \to \mathbb{R}^3</m>. The vectors <m>u = \begin{pmatrix} 3 \\ 0 \\ 0 \end{pmatrix}</m> and <m>v = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}</m> are a basis for the range of <m>T</m>. <m>A = \begin{pmatrix} \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \end{pmatrix}</m>.
+                </p>
+            </task>
+            <task>
+                <p>
+                    A non-zero matrix, <m>A</m>, that is in RREF, and satisfies dim<m>((\mathrm{Row}(A))^{\perp}) = 1</m> and dim<m>((\mathrm{Col}(A))^{\perp}) = 1</m>. <m>A = \begin{pmatrix} \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \\ \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \textup{ } \end{pmatrix}</m>.
+                </p>
+            </task>
+        </exercise>
+    </page>
+</worksheet>

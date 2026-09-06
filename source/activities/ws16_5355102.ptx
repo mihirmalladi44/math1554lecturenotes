@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <worksheet xml:id="worksheet-8-worksheet" margin="1in" bottom="1.25cm">
+      <title>16 Diagonalization, Complex Eigenvalues, Page Rank (ILA 5.3, 5.4, 5.5, 5.6)</title>
+
+      <page>
+        <p><m>\textbf{Poll Question}</m></p>
+        <p>True or false: if <m>A</m> is diagonalizable, then <m>A</m> is invertible.</p>
+        <p><m>{\large \textbf{16.1 Diagonalization}}</m></p>
+        <p>1. Recall from lecture: matrix <m>A</m> is diagonalizable if it can be written <m>A = PDP^{-1}</m>.</p>
+         <ol>
+          <li><p><m>P</m> is a matrix whose columns are <fillin width="3in"/></p></li>
+          <li><p><m>D</m> is a <fillin width="2in"/></p></li>
+          <li><p>The elements on the main diagonal of <m>D</m> are <fillin width="2in"/></p></li>
+          <li><p>A diagonal matrix is a matrix that <fillin width="2in"/></p></li>
+          <li><p>The geometric multiplicity of an eigenvalue is: <fillin width="2in"/></p></li>
+          <li><p>A matrix can be diagonalized when: <fillin width="2in"/></p></li>
+        </ol>
+      </page>
+
+  
+
+      <page>
+        <p>2. Construct <m>P</m> and <m>D</m> so that <m>A = PDP^{-1}</m> if possible. Eigenvalues of <m>A</m> are given.</p>
+        <ol>
+          <li>
+            <p><m>
+              A =
+              \begin{pmatrix}
+              1 \amp 3 \\
+              4 \amp 2
+              \end{pmatrix},
+              \quad \lambda = -2, 5
+            </m></p>
+          </li>
+          <li>
+            <p><m>
+              A =
+              \begin{pmatrix}
+              3 \amp 2 \\
+              0 \amp 3
+              \end{pmatrix},
+              \quad \lambda = 3, 3
+            </m></p>
+          </li>
+          <li>
+            <p><m>
+              A =
+              \begin{pmatrix}
+              3 \amp 1 \amp 1 \\
+              1 \amp 3 \amp 1 \\
+              1 \amp 1 \amp 3
+              \end{pmatrix},
+              \quad \lambda = 2, 2, 5
+            </m></p>
+          </li>
+        </ol>
+      </page>
+
+      <page>
+        <p><m>\textbf{3. If possible, give an example of:}</m></p>
+        <ol>
+          <li><p>A singular <m>2 \times 2</m> matrix in echelon form that can be diagonalized.</p></li>
+          <li><p>A singular <m>2 \times 2</m> matrix in echelon form that cannot be diagonalized.</p></li>
+          <li><p>An invertible <m>2 \times 2</m> matrix in echelon form that can be diagonalized.</p></li>
+          <li><p>An invertible <m>2 \times 2</m> matrix in echelon form that cannot be diagonalized.</p></li>
+        </ol>
+      </page>
+
+      <page>
+        <p><m>{\large \textbf{16.2 Complex Eigenvalues}}</m></p>
+        <exercise>
+          <p>1. <m>A</m> is a composition of a rotation and a scaling. Give the angle of rotation <m>\varphi</m>, and the scale factor <m>r</m>.</p>
+          <m>
+            A =
+            \begin{pmatrix}
+            \sqrt{3} \amp -1 \\
+            1 \amp \sqrt{3}
+            \end{pmatrix}
+          </m>
+        </exercise>
+      </page>
+
+      <page>
+        <p><m>{\large \textbf{16.3 Google Page Rank}}</m></p>
+        <p>1. A set of web pages link to each other according to this diagram:</p>
+
+
+        <image width="50%">
+<prefigure xmlns="https://prefigure.org" label="image-163-coded">
+  <diagram dimensions="(300,300)" margins="10">
+    <coordinates bbox="(-0.75,-1.75,2.75,0.75)">
+      <network directed="yes" scale="0.8" arrows="end"
+      node-fill="white" node-stroke="black"
+      seed="1" labels="yes"
+      tactile-node-size="40" node-size="25">
+
+      <node at="1" p="(0,0)">V</node>
+      <node at="2" p="(1,0)">W</node>
+      <node at="3" p="(2,0)">Y</node>
+      <node at="4" p="(0,-1)">X</node>
+      <node at="5" p="(2,-1)">Z</node>
+      <edge vertices="(4,1)" loop-scale="(0.5,0.5)" />
+      <edge vertices="(1,2)" loop-scale="(0.5,0.5)" />
+      <edge vertices="(2,1)" loop-scale="(0.5,0.5)" />
+      <edge vertices="(2,4)" loop-scale="(0.5,0.5)" />
+      <edge vertices="(4,2)" loop-scale="(0.5,0.5)" />
+      <edge vertices="(2,3)" loop-scale="(0.5,0.5)" />
+      <edge vertices="(3,5)" loop-scale="(0.5,0.5)" />
+    </network>
+  </coordinates>
+</diagram>
+</prefigure>
+</image>
+        
+
+
+        <ol>
+          <li><p>Create the transition matrix <m>P</m> for this web.</p></li>
+          <li><p>Construct the Google matrix <m>G</m> for this web. Use damping factor <m>p = 0.85</m>.</p></li>
+          <li><p>Compute the steady-state vector and page ranks of each page on the web. You may use software.</p></li>
+        </ol>
+
+        <p><m>\textbf{Hint:}</m></p>
+        <p>For a web with only two pages that are linked to each other, we can compute the steady state using MATLAB or Octave with these commands:</p>
+        <ol>
+          <li>
+        Pstar= 
+          </li>
+          <li>
+  K = 1/2*ones(2)
+        </li>
+        <li> 
+      p = 0.85
+        </li>
+        <li>
+G = p * Pstar + (1 - p) * K
+</li>
+<li>
+G ^ 100
+</li>
+</ol>       
+        <p>There are many free online Octave compilers available.</p>
+      </page>
+
+    </worksheet>

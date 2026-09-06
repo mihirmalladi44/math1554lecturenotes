@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<worksheet>
+      <title>8 Exam 1 Review</title>
+
+      <page>
+        <m>{\large \textbf{Worksheet Exercises}}</m>
+        <exercise workspace="1in">
+          <p>
+            Suppose <m>S = \{\vec{v}_1, \vec{v}_2, \vec{v}_2\}</m> is a linearly dependent set of vectors in <m>\mathbb{R}^n</m>. Indicate whether the following statements are true or false.
+          </p>
+          <ol marker="(a)">
+            <li>
+              <p><m>X = \{\vec{v}_1, \vec{v}_2\}</m> is a linearly dependent set.</p>
+                  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+            </li>
+            <li>
+              <p><m>Y = \{\vec{v}_1 + \vec{v}_2, 2 \vec{v}_1 + 2 \vec{v}_2\}</m> is a linearly dependent set.</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise workspace="1in">
+          <p>How many different matrices can you make that meet all of the given criteria?</p>
+          <ol marker="(a)">
+            <li>
+              <p>Matrix <m>A</m> is non-zero, <m>2 \times 2</m>, in RREF, has only 1 pivot column, and every entry of <m>A</m> is either 1 or 0.</p>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+            </li>
+            <li>
+              <p>
+                Matrix <m>A</m> is <m>2 \times 2</m>, in RREF, and <m>\vec{v} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}</m> is a solution to <m>A \vec{x} = 0</m>.
+              </p>
+              <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise workspace="1in">
+          <p>The linear transform <m>T_A(\vec{x}) = A\vec{x}</m>, where <m>T_A : \mathbb{R}^8 \to \mathbb{R}^4</m>, is onto.</p>
+          <ol>
+            <li>
+              <p>The domain of <m>T_A</m> is <fillin width="2in"/>.</p>
+            </li>
+            <li>
+              <p>The co-domain of <m>T_A</m> is <fillin width="2in"/>.</p>
+            </li>
+            <li>
+              <p>The range of <m>T_A</m> is <fillin width="2in"/>.</p>
+            </li>
+            <li>
+              <p><m>A</m> has exactly <fillin width="1in"/> pivots.</p>
+            </li>
+          </ol>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise workspace="1in">
+          <p>
+            Suppose <m>A = 
+            \begin{pmatrix}
+              1 \amp -3 \\
+              2 \amp -6
+            \end{pmatrix}
+            </m> and 
+            <m>\vec{b} =
+            \begin{pmatrix}
+              2 \\
+              4
+            \end{pmatrix}
+            </m>.
+          </p>
+          <p>In the grids below, sketch:</p>
+          <ol marker="(a)">
+            <li><p>the span of the columns of <m>A</m></p></li>
+            <li><p>any non-zero vector that is a solution to <m>A \vec{x} = \vec{b}</m></p></li>
+            <li><p>the solution set to <m>A \vec{x} = \vec{b}</m></p></li>
+          </ol>
+          <p>You do not need to show your work.</p>
+          <sidebyside widths="10% 23% 10% 23% 10% 24%">  
+        <p> (a) </p>
+        <image width="100%">
+          <prefigure label="prefigure-diffeq-testing8a" xmlns="https://prefigure.org">
+          <diagram dimensions="(300,300)" margins="5">
+          <coordinates bbox="(-4,-4,4,4)">
+            <grid-axes xlabel="x_1" ylabel="x_2"/>    
+          </coordinates>
+          </diagram>
+          </prefigure>
+        </image>
+
+        <p> (b)</p>
+
+        <image width="100%">
+          <prefigure label="prefigure-diffeq-testing8b" xmlns="https://prefigure.org">
+          <diagram dimensions="(300,300)" margins="5">
+          <coordinates bbox="(-4,-4,4,4)">
+            <grid-axes xlabel="x_1" ylabel="x_2"/>    
+          </coordinates>
+          </diagram>
+          </prefigure>
+        </image>
+        <p> (c)</p>
+        <image width="100%">
+          <prefigure label="prefigure-diffeq-testing8c" xmlns="https://prefigure.org">
+          <diagram dimensions="(300,300)" margins="5">
+          <coordinates bbox="(-4,-4,4,4)">
+            <grid-axes xlabel="x_1" ylabel="x_2"/>    
+          </coordinates>
+          </diagram>
+          </prefigure>
+        </image>
+
+      </sidebyside>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise workspace="1in">
+          <p>If <m>A</m> is <m>2 \times 2</m> and <m>T_A(\vec{x}) = A\vec{x}</m> is a linear transform that:</p>
+          <ul>
+            <li>first rotates points in <m>\mathbb{R}^2</m> clockwise about the origin by <m>\pi / 2</m> radians,</li>
+            <li>then reflects them through the line <m>x_2 = x_1</m>,</li>
+            <li>then projects them onto the line <m>x_2 = 0</m></li>
+          </ul>
+          <p>What is <m>A</m> equal to?</p>
+        </exercise>
+      </page>
+      
+    </worksheet>

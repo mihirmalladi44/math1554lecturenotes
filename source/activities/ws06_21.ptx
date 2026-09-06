@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<worksheet>
+    <title>6 Matrix Algebra (ILA 3.4)</title>
+    <p></p>
+    <page>
+        <m>{\large \textbf {Poll Question}}</m>
+        <p></p>
+        <p>Consider the following matrix equation:</p>
+        <me>(A + B)^2 = A^2 + B^2 + 2AB</me>
+        <p>Assume <m>A, B, C</m> are all <m>n \times n</m>. When does this equation hold? Always, sometimes, never?</p>
+    </page>
+    <page>
+        <m>{\Large \textbf {6.1 Matrix Addition and Multiplication}} </m>
+        <p></p>
+        <m>{\large \textbf {Addition and Scalar Multiplication}} </m>
+        <p></p>
+        <p>Suppose <m>A</m> and <m>B</m> are <m>m \times n</m> matrices.</p>
+        <ul>
+            <li>the entry of <m>A</m> in row <m>i</m> and column <m>j</m> is <m>a_{i,j}</m></li>
+            <li>the entry of <m>B</m> in row <m>i</m> and column <m>j</m> is <m>b_{i,j}</m></li>
+        </ul>
+        <p>Then:</p>
+        <ul>
+            <li>The entries of <m>A + B</m> are <m>a_{i,j} + b_{i,j}</m>.</li>
+            <li>If <m>c \in \mathbb{R}</m>, then the entries of <m>cA</m> are <m>c a_{i,j}</m>.</li>
+        </ul>
+        <p><m>{\large \textbf {Example}} </m></p>
+        <p>Suppose</p>
+        <me>
+            \begin{pmatrix}
+                1  0 \amp 1 \\
+                0 \amp 2 \amp 6
+            \end{pmatrix}
+            + c
+            \begin{pmatrix}
+                2 \amp 1 \amp 0 \\
+                0 \amp 0 \amp k
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                9 \amp 4 \amp 1 \\
+                0 \amp 2 \amp 14
+            \end{pmatrix}
+        </me>
+        <p>What are the values of <m>c</m> and <m>k</m>?</p>
+    </page>
+    <page>
+        <m>{\large \textbf{Multiplication}}</m>
+        <p></p>
+        <p><m>A, B, C</m> be matrices of dimensions needed for matrix multiplication to be defined, and <m>A</m> is <m>m \times n</m>.</p>
+        <ol marker="1.">
+            <li><m>(AB)C = A(BC)</m></li>
+            <li><m>A(B + C) = AB + AC</m></li>
+            <li><m>(A + B)C = AC + BC</m></li>
+            <li><m>I_m A = A I_n</m></li>
+        </ol>
+        <m>{\large \textbf {Warnings:}}</m>
+        <p></p>
+        <ol marker="1.">
+            <li><p><m>AB \neq BA </m> in general</p></li>
+            <li><p><m>AB = AC</m> does not mean <m>B = C</m></p></li>
+            <li><p><m>AB = 0</m> does not mean that either <m>A = 0</m> or <m>B = 0</m>.</p></li>
+        </ol>
+        <p><m>{\large \textbf {Example}}</m></p>
+        <p>If</p>
+        <me>
+            A =
+            \begin{pmatrix}
+                2 \amp 1 \\
+                0 \amp 0
+            \end{pmatrix}
+            ,
+            B =
+            \begin{pmatrix}
+                k \amp 0 \\
+                1 \amp 0
+            \end{pmatrix}
+        </me>
+        <p><m>\textup{then what values}</m> of <m>k</m> (if any) satisfy <m>AB = 0</m>?</p>
+    </page>
+    <page>
+        <m>{\large \textbf {6.2 Transpose and Powers}}</m>
+        <p></p>
+        <m>\textbf {Transpose}</m>
+        <ul>
+            <li><p><m>A^T</m> is the matrix whose columns are the rows of A</p></li>
+            <li><p><m>(A^T)^T = A</m></p></li>
+            <li><p><m>(AB)^T = B^T</m></p></li>
+            <li><p><m>\textbf {Example}</m>: if <m>A = 
+                \begin{pmatrix}
+                    1 \amp 0 \amp 1 \\
+                    0 \amp 1 \amp 0
+                \end{pmatrix}
+            </m>, then <m>AA^T =</m></p></li>
+        </ul>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+        <p><m>\textbf {Powers}</m></p>
+        <ul>
+            <li><m>A^2 = AA</m></li>
+            <li><m>A^3 = AAA</m></li>
+            <li><p><m>A^k = AA...A</m>, matrix <m>A</m> multiplied by itself <m>k</m> times</p></li>
+            <li><p><m>\textbf {Example}</m>: if <m>A =
+                \begin{pmatrix}
+                    1 \amp 0 \\
+                    0 \amp 0.5
+                \end{pmatrix}
+            </m>, then what is <m>A^k</m> equal to as <m>k \to \infty</m>?</p></li>
+        </ul>
+    </page>
+    <page>
+        <m>{\large \textbf {6.3 Worksheet Exercises}}</m>
+        <exercise workspace="1in">
+            <p>True or false: if <m>A</m> and <m>B</m> are <m>n \times n</m> matrices, then <m>(A + B)(A - B) = A^2 + B^2</m>.</p>
+            <ul>
+                <li><p>If an example exists, give a <m>2 \times 2</m> example where this is true.</p></li>
+                <li><p>If an example exists, give a <m>2 \times 2</m> example where this is false.</p></li>
+            </ul>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <p>Apply matrix algebra to expand the matrix product and use the given assumption to simplify. Assume the matrices are <m>n \times n</m>.</p>
+            <me>(A + I)(B - 2I) - A(B + 1) 3A - 1 = B</me>
+        </exercise>
+    </page>
+    <page>
+        <exercise workspace="1in">
+            <p>Indicate whether the following statement is true or false.</p>
+            <ol>
+                <li><p>For any square matrix <m>A</m>, the matrix <m>B = A + A^T</m> satisfies <m>B = B^T</m>.</p></li>
+            </ol>
+        </exercise>
+    </page>
+</worksheet>

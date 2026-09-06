@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <worksheet>
+      <title>12 Determinants (ILA 4.1, 4.2, 4.3)</title>
+
+      <page>
+        <p><m>\textbf {Poll Question}</m></p>
+        <p>True or false: if <m>A</m> is <m>2 \times 2</m> and <m>\det(A) = 4</m>, then <m>\det(3A) = 12</m>.</p>
+      </page>
+
+      <page>
+        <m>\textbf {Worksheet Exercises}</m>
+        <exercise>
+          <statement>
+            <p>Use a determinant to identify all values of <m>k</m> so that C is singular.</p>
+            <me>C = A - k 1_2, A = 
+              \begin {pmatrix}
+              3 \amp 5 \\
+              5 \amp 3
+              \end {pmatrix}
+              , k \in \mathbb {R}
+            </me>
+          </statement>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise>
+          <statement>
+            <p>Suppose <m>\vec{a}, \vec{b}, \vec{c}, \vec{d}</m> are vectors in <m>\mathbb{R}^4</m>. And</p>
+            <me>X = 
+              \begin {bmatrix}
+              \vec{a} \amp \vec{b} \amp \vec{c} \amp \vec{d}
+              \end {bmatrix}
+            </me>
+            <p>be a <m>4 \times 4</m> matrix whose determinant is equal to 2. Determine the value of the determinant</p>
+            <m>\left| \vec{d} \ \vec{b} \ 3\vec{c} \ \vec{a} \right|</m>
+          </statement>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise>
+          <statement>
+            <p>If <m>a, b,</m> and <m>c</m> are real numbers, and</p>
+            <me>A = 
+              \begin {pmatrix}
+              a \amp b \\
+              c \amp c
+              \end {pmatrix} , 
+              B = 
+              \begin {pmatrix}
+              2c \amp 2c \\
+              a - 3c \amp b - 3c
+              \end {pmatrix}
+            </me>
+            <p>If <m>\det(B) = -84</m>, then <m>\det(A) =</m> <fillin width="2in"/></p>
+          </statement>
+        </exercise>
+      </page>
+
+      <page>
+        <exercise>
+          <statement>
+            <p>Suppose <m>\det 
+              \begin {pmatrix}
+              2 \amp c \\
+              4 \amp 3
+              \end {pmatrix}
+              = 14</m>. Then <m>c =</m> <fillin width="1in"/></p>
+          </statement>
+        </exercise>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+        <exercise>
+          <statement>
+            <p>The determinant of <m>
+              A = 
+              \begin {pmatrix}
+              2 \amp 42 \amp 23 \amp 31 \\
+              0 \amp 2 \amp 3 \amp 1 \\
+              0 \amp 2 \amp 3 \amp 0 \\
+              0 \amp 2 \amp 0 \amp 0 \\
+              \end {pmatrix}
+            </m> is: <fillin width="2in"/></p>
+          </statement>
+        </exercise>
+            <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+
+      </page>
+
+    </worksheet>

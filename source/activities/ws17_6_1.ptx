@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>17 Inner Products (ILA 6.1, 6.2)</title>
+  <p></p>
+  <page>
+    <p><m>{\textbf{Poll Question}}</m>:</p>
+    <p>True or false: If <m>\vec{x} \in </m> Null<m>(A)</m>, then <m>\vec{x}</m> is orthogonal to the rows of matrix <m>A</m>.</p>
+    </page>
+    <page>
+        <m>{\large \textbf{17.1 Orthogonal Complements}}</m>
+         <p><m>{\mathbf{Definitions}}</m>:</p>
+         <p>Let <m>W</m> be a subspace of <m>\mathbb{R}^n</m>. Vector <m>\vec{z} \in \mathbb{R}^n</m> is <m>\textbf{orthogonal}</m> to <m>W</m> if <m>\vec{z}</m> is orthogonal to every vector in <m>W</m>.</p>
+         <p></p>
+         <p>The set of all vectors orthogonal to <m>W</m> is a subspace, the <m>\textbf{orthogonal compliment}</m> of <m>W</m> , or <m>W^{\perp}</m>.</p>
+         <me>W^{\perp} = \{\vec{z} \in \mathbb{R}^n | \framebox{________________} \textup{ for all } \vec{w} \in W \}</me>
+
+         <m></m><p></p><m></m><p></p>
+
+         <p><m>{\textbf{Examples}}</m>:</p>
+         <p>1. <m>W</m> is the set of all vectors of the form <m>\begin{pmatrix} x_1 \\ x_2 \\ {x_1 + x_2} \end{pmatrix}</m>.</p>
+         <m></m><p></p>
+         <p>(a) We can use set-builder notation to write <m>W = \{\vec{x} \in \mathbb{R}^3 | \framebox{________________}\}</m>.</p>
+         <m></m><p></p><m></m><p></p><m></m><p></p>
+         <p>(b) Which of the vectors are in <m>W^{\perp}</m>?</p>
+         <me>\vec{u} = \begin{pmatrix} 2 \\ 3 \\ 5 \end{pmatrix}, \textup{  } \vec{v} = \begin{pmatrix} 1 \\ 2 \\ -3 \end{pmatrix}, \textup{  } \vec{w} = \begin{pmatrix} 3 \\ 3 \\ -3 \end{pmatrix}</me>
+         <m></m><p></p><m></m><p></p><m></m><p></p>
+         <p>(c) We can use set-builder notation to write <m>W^{-1} = \{\vec{y} \in \mathbb{R}^3 | \framebox{________________} \}</m>.</p>
+         <m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <p>2. Fill in the blanks.</p>
+        <p>(a) If <m>W</m> is the plane spanned by the vectors <m>\vec{u} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} </m> and <m> \vec{v} = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}</m>, a basis of <m>W^{\perp}</m> is given by <m>\vec{w} = \begin{pmatrix} {\textup{__}} \\ {\textup{__}} \\ {\textup{__}} \end{pmatrix}</m>.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+        <p>(b) If <m>V = \{\vec{x} \in \mathbb{R}^3 | x_1 + x_2 = x_3 \}</m>, then dim<m>V</m> = <m>\framebox{______}</m>, and dim<m>V^{\perp} = \framebox{______}</m>.</p>
+        <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </page>
+    <page>
+        <m>{\large \textbf{17.2 The Row Space of a Matrix}}</m>
+        <p><m>{\mathbf{Definition: The \textup{ } Row \textup{ } Space}}</m></p>
+        <p>The space spanned by the rows of matrix <m>A</m> is <m>\textbf{Row}A</m>.</p>
+        <m></m><p></p><m></m><p></p>
+        <p>We can show that</p>
+        <ul>
+            <li><p>a basis for Row<m>A</m> is given by the pivot rows of <m>A</m></p></li>
+            <li><p>in general Row<m>A</m> and Col<m>A</m> are not related to each other except that</p></li>
+            
+        </ul>
+        <ul marker="circle">
+                <li>
+                    <p>
+                        dim<m>(\textup{Row}A) = </m> dim<m>(\textup{Col}A)</m> because
+                    </p>
+                </li>
+                <li>
+                    <p>
+                       Row<m>A = </m> Col<m>A^T</m> by the properties of the
+                    </p>
+                </li>
+            </ul>
+            <m></m><p></p><m></m><p></p>
+        <m>{\large \textbf{17.3 The Four Fundamental Subspaces}}</m>
+        <p><m>{\mathbf{Theorem: The \textup{ } Four \textup{ } Subspaces}}</m></p>
+        <p>For any <m>m \times n</m> matrix <m>A</m>,</p>
+        <ul>
+            <li>
+                <p>
+                    the orthogonal complement of Row<m>A</m> is Null<m>A</m>
+                </p>
+            </li>
+            <li>
+                <p>
+                    the orthogonal complement of Col<m>A</m> is Null<m>A^T</m>
+                </p>
+            </li>
+        </ul>
+         <m></m><p></p><m></m><p></p>
+         <p>We can describe the relationship between these four spaces with the diagram:</p>
+
+         
+          <image label="two-rectangles-figure-17-6-1" width="50%">
+              <description>https://ibb.co/TBFtZZf2</description>
+              <latex-image>
+                \begin{tikzpicture}[scale=.85]
+        
+        % boxes
+        \filldraw[draw=DarkBlue!50,fill=DarkBlue!15] (0,0) -- (-1,1) -- (1,3) -- (2,2) -- cycle;
+        \filldraw[draw=DarkBlue!50,fill=DarkBlue!15] (0,0) -- (1,-1) -- (0,-2) -- (-1,-1) -- cycle;      
+        \draw (0.4, 1.7) node[below]{\small $\Row A$};
+        \draw (0.0,-0.7) node[below]{\small $\Nul A$};        
+        
+        \filldraw[draw=DarkGreen!50,fill=DarkGreen!15] (4,0) -- (2.5, 1.5) -- (3.5, 2.5) -- (5,1) -- cycle;
+        \filldraw[draw=DarkGreen!50,fill=DarkGreen!15] (4,0) -- (5.5,-1.5) -- (4.5,-2.5) -- (3,-1) -- cycle;        
+        \draw (3.9, 1.5) node[below]{\small $\Col A$};
+        \draw (4.2, -0.8) node[below]{\small $\Nul A^T$};        
+
+        \draw (-1.0,0.5) node[below]{\Large $\color{DarkBlue} \mathbb R^n$};
+
+        \draw ( 5.2,0.5) node[below]{\Large $\color{DarkGreen} \mathbb R^m$};
+        
+    \end{tikzpicture}
+              </latex-image>
+          </image>
+         
+    </page>
+    <page>
+        <p><m>{\textbf{Examples}}</m>:</p>
+        <p>Suppose that <m>A = \begin{pmatrix} 1 \amp 3 \\ 2 \amp 6 \end{pmatrix}</m>.</p>
+        <p>1. Construct bases for the following.</p>
+        <p>(a) Row<m>A</m></p>
+        <m></m><p></p><m></m><p></p>
+        <p>(b) <m>(\textup{Row} A)^{\perp}</m></p>
+        <m></m><p></p><m></m><p></p>
+        <p>(c) Col<m>A</m></p>
+        <m></m><p></p><m></m><p></p>
+        <p>(d) <m>(\textup{Col} A)^{\perp}</m></p>
+        <m></m><p></p><m></m><p></p>
+        <p>2. On the grids below sketch a) Null<m>A</m> and Row<m>A</m>, and b) Col<m>A</m>, and <m>(\textup{Col}A)^{\perp}</m>.</p>
+        <sidebyside widths="15% 35% 15% 35%">  
+        <p> (a) </p>
+        <image width="100%">
+          <prefigure label="prefigure-diffeq-testing14" xmlns="https://prefigure.org">
+          <diagram dimensions="(300,300)" margins="5">
+          <coordinates bbox="(-4,-4,4,4)">
+            <grid-axes xlabel="x_1" ylabel="x_2"/>    
+          </coordinates>
+          </diagram>
+          </prefigure>
+        </image>
+
+        <p> (b)</p>
+
+        <image width="100%">
+          <prefigure label="prefigure-diffeq-testing14b" xmlns="https://prefigure.org">
+          <diagram dimensions="(300,300)" margins="5">
+          <coordinates bbox="(-4,-4,4,4)">
+            <grid-axes xlabel="x_1" ylabel="x_2"/>    
+          </coordinates>
+          </diagram>
+          </prefigure>
+        </image>
+
+      </sidebyside>
+    </page>
+  </worksheet>

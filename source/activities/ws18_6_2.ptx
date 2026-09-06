@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <worksheet>
+      <title>18 Orthogonal Sets (ILA 6.1, 6.2)</title>
+      <page>
+        <p><m>{\large \textbf{18.1 Orthogonal Projections}}</m></p>
+        <p><m>\textbf{Theorem}</m></p>
+        <ul>
+          <li>
+            <p>
+              Suppose <m>\vec{u}</m> and <m>\vec{y}</m> are in <m>\mathbb{R}</m>, with 
+              <m>\vec{u} \ne \vec{0}</m>, and <m>W = \text{Span} \{\vec{u}\}</m>. The 
+              <m>\textbf{projection of } \vec{y} \textbf{ onto } \vec{u}</m> is the vector 
+              in the span of <m>\vec{u}</m> that is closest to <m>\vec{y}</m>.
+            </p>
+          </li>
+        </ul>
+        <me>
+          \text{projection of } \vec{y} \text{ onto } \vec{u} = 
+          \text{proj}_{\vec{u}} \vec{y} = 
+          <fillin width="1in"/>
+          \vec{u}
+        </me>
+        <ul>
+          <li>
+            Moreover, <m>\vec {y} = \hat {y} + \vec {z}</m>, where <m>\vec {z} \in W^\perp</m>
+          </li>
+        </ul>
+        <p><m>\textbf {Geometric Interpretation}</m></p>
+        <p>The vector <m>\vec {z} = \vec {y} - \text{proj}_{\vec {u}} \vec {y}</m> is orthogonal to <m>\vec {u}</m>, so that</p>
+        <me>\vec{y} = \text{proj}_{\vec{u}} \vec{y} + \vec{z}</me>
+  <me>\|\vec{y}\|^2 = \|\text{proj}_{\vec{u}} \vec{y}\|^2 + \|\vec{z}\|^2</me>
+  <p>Schematic:</p>
+
+
+        <image label="triangle-vector-arrows-figure-18-1-36" width="50%">
+              
+              <latex-image>
+                \begin{tikzpicture}[scale=1] 
+                \draw[-,gray, dashed] (-1,0) -- (5,0) node[below, right] {Span$\{\vec u\}$}; 
+                \draw[->,DarkBlue, very thick,-stealth] (0,0) -- (4,0) node[below] {$ \vec u$}; 
+                \draw[->,DarkRed, very thick,-stealth] (0,0) -- (2,2) node[above] {$ \vec y$}; 
+                \draw[->,black, very thick,-stealth] (0,0) -- (2,0) node[midway,below] {proj$_{\vec u} \vec y$}; 
+                \draw[->,very thick,gray,-stealth] (2,0) -- (2,2) node[midway,right] {$\vec z$};
+            \end{tikzpicture}
+              </latex-image>
+          </image>
+
+  <p><m>\textbf {Example}</m></p>
+  <p>1. Write <m>\vec {y}</m> as the sum of a vector parallel to <m>\vec {u}</m> and a vector perpendicular to <m>\vec {u}</m>.</p>
+  <me>\vec {y} = 
+    \begin {pmatrix}
+    -1 \\
+    -5 \\
+    10
+    \end {pmatrix}
+    , <span width="1in"/>
+    \vec {u} = 
+    \begin {pmatrix}
+    5 \\ 
+    -2 \\
+    1 
+    \end {pmatrix}
+  </me>
+      </page>
+      <page>
+  <p>2. Give examples of the following.</p>
+  <ol marker="(a)">
+    <li>
+      <p>
+        A matrix, <m>A</m>, in RREF, such that <m>\dim((\text{Row}(A))^{\perp}) = 1</m> and <m>\dim((\text{Col}(A))^{\perp}) = 2</m>.
+      </p>
+      <me>
+        A =
+        \begin{pmatrix}
+        \amp \amp \amp \amp \amp \\
+        \amp \amp \amp \amp \amp \\
+        \amp \amp \amp \amp \amp
+        \end{pmatrix}
+      </me>
+      <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </li>
+    <li>
+      <p>
+        Two linearly independent vectors in <m>\mathbb{R}^3</m>, <m>\vec{u}</m> and <m>\vec{v}</m>, such that <m>\vec{u} \times \vec{x} = \vec{v} \times \vec{x} = \vec{0}</m>, where
+      </p>
+      <me>
+        \vec{x} =
+        \begin{pmatrix}
+        1 \\
+        1 \\
+        1
+        \end{pmatrix}
+      </me>
+      <me>
+        \vec{u} =
+        \begin{pmatrix}
+        \amp \\
+        \amp \\
+        \amp
+        \end{pmatrix}
+      </me>
+      <me>
+        \vec{v} =
+        \begin{pmatrix}
+        \amp \\
+        \amp \\
+        \amp
+        \end{pmatrix}
+      </me>
+    </li>
+    <li>
+      <p>
+        A <m>3 \times 3</m> matrix in RREF, <m>A</m>, such that <m>(\text{Null}(A))^{\perp}</m> is spanned by
+        <m>
+          \begin{pmatrix}
+          1 \\
+          0 \\
+          -2
+          \end{pmatrix}
+        </m>.
+      </p>
+      <me>
+        A =
+        \begin{pmatrix}
+        \amp \amp \amp \\
+        \amp \amp \amp \\
+        \amp \amp \amp
+        \end{pmatrix}
+      </me>
+      <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    </li>
+  </ol>
+</page>
+<page>
+ <p><m>\textbf {Theorem}</m></p>
+ <ul>
+  <li>
+    <p>An <m>m \times n</m> matrix <m>U</m> has orthonormal columns if and only if<m>U^T U = I_n</m>.</p>
+  </li>
+ </ul>
+ <p><m>\textbf {Definition}</m></p>
+ <ul>
+  <li>
+    <p>An <m>\textbf {orthogonal matrix}</m> is a square invertible matrix <m>U</m> so that <m>U^T U = I</m>.</p>
+  </li>
+ </ul>
+ <p>Note: </p>
+ <ul>
+  <li>
+    <p>In other words, an <m>\textbf {orthogonal matrix}</m> is a square matrix with <m>\textbf {orthonormal columns}</m>.</p>
+  </li>
+  <li>
+    <p>There is no name for matrices that have columns that are orthogonal but orthonormal</p>
+  </li>
+  <li>
+    <p>If <m>U</m> is <m>m \times n</m>, can <m>U</m> have orthonormal columns when <m>n > m</m>?</p>
+  </li>
+ </ul>
+ <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+ <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+ <p><m>\textbf {18.2.1 Properties of Matrices with Orthonormal Columns}</m></p>
+ <ol marker="1.">
+  <li>
+    <m>\|\vec{Ux}\| = \|\vec{x}\|</m>
+  </li>
+  <li>
+    <m>(\vec{Ux}) \cdot (\vec{Uy}) = \vec{x} \cdot \vec{y}</m>
+  </li>
+  <li>
+    <m>(\vec{Ux}) \cdot (\vec{Uy}) = 0</m> if and only if <m>\vec{x} \cdot \vec{y} = 0</m>
+  </li>
+</ol>
+<p>These properties tell us that the mapping <m>\vec {x} \to U \vec{x}</m> preserves lngth and orthogonality.</p>
+</page>
+<page>
+  <p><m>\large \textbf {18.2.2  Example}</m></p>
+  <p>Indicate whether the statements are true or false.</p>
+  <exercise workspace= "2in">
+    <p>If the columns of an <m>n \times n</m> matrix <m>A</m> are orthonormal, then the linear mapping <m>\vec {x} \to A \vec{x}</m> preserves lengths.</p>
+  </exercise>
+  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  <exercise workspace= "2in">
+    <p>If <m>P</m> is a stochastic matrix, then the columns of <m>P</m> have unit length.</p>
+  </exercise>
+  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  <exercise workspace= "2in">
+    <p>All orthogonal matrices are invertible.</p>
+  </exercise>
+  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+</page>
+
+    </worksheet>

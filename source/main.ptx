@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This is the main course file for ... . It is used to generate all the public facing course materials so those can be hosted online.  -->
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Include common macros etc: -->
+  <xi:include href="./docinfo.ptx" />
+  <!-- By creating a PreTeXt "book" for the course, we can split components into "chapters" -->
+  <book>
+    <title>Course Name (change me)</title>
+
+    <subtitle>MATH xxx Semester 20xx</subtitle>
+
+    <!-- Optional: include frontmatter with author info and date -->
+    <xi:include href="./frontmatter.ptx" />
+
+    <chapter xml:id="course-documents">
+      <title>Course Documents</title>
+
+      <!-- Course syllabus -->
+      <xi:include href="./syllabus/syllabus.ptx" />
+      <!-- Other documents could go here, like a schedule, project description, etc. -->
+    </chapter>
+
+    <chapter xml:id="course-notes">
+      <title>Course Notes</title>
+
+      <introduction>
+        <p>
+          The following notes are intended to remind you what we covered each week.
+          They are not a substitute for attending class and not a substitute for reading the textbook.
+        </p>
+      </introduction>
+
+      <xi:include href="./notes/2.1.ptx"/>
+      <xi:include href="./notes/2.2.ptx"/>
+      <xi:include href="./notes/2.3.1.ptx"/>
+      <xi:include href="./notes/2.3.2.ptx"/>
+      <!-- etc. -->
+
+    </chapter>
+
+
+    <chapter xml:id="activities">
+      <title>In-Class Activities</title>
+
+      <introduction>
+        <p>
+          These are copies of the in-class activities distributed during the semester.
+        </p>
+      </introduction>
+
+      <!-- Remove the example and replace with your own activities -->
+      <xi:include href="./activities/ws0_about.ptx"/>
+      <xi:include href="./activities/ws01_1_1.ptx"/>
+      <xi:include href="./activities/ws02_1_2.ptx"/>
+      <xi:include href="./activities/ws03_34.ptx"/>
+      <xi:include href="./activities/ws04_1_57.ptx"/>
+      <xi:include href="./activities/ws05_1_89.ptx"/>
+      <xi:include href="./activities/ws06_21.ptx"/>
+      <xi:include href="./activities/ws07_22_23.ptx"/>
+      <xi:include href="./activities/ws08_E1Review.ptx"/>
+      <xi:include href="./activities/ws09_24_25_26.ptx"/>
+      
+      <xi:include href="./activities/ws10_2_78.ptx"/>
+      <xi:include href="./activities/ws11_2_89.ptx"/>
+      <xi:include href="./activities/ws12_3132.ptx"/>
+      <xi:include href="./activities/ws13_3233.ptx"/>
+      <xi:include href="./activities/ws14_E2Review.ptx"/>
+      <xi:include href="./activities/ws15_4_95152.ptx"/>
+      <xi:include href="./activities/ws16_5355102.ptx"/>
+      <xi:include href="./activities/ws17_6_1.ptx"/>
+      <xi:include href="./activities/ws18_6_2.ptx"/>
+      <xi:include href="./activities/ws19_E3Review.ptx"/>
+      <xi:include href="./activities/ws20_6_34.ptx"/>
+      <xi:include href="./activities/ws21_6_56.ptx"/>
+      <xi:include href="./activities/ws22_6_56.ptx"/>
+      <xi:include href="./activities/ws23_7_1.ptx"/>
+      <xi:include href="./activities/ws24_7_2.ptx"/>
+      <xi:include href="./activities/ws25_7_3.ptx"/>
+      <xi:include href="./activities/ws26_7_4.ptx"/>
+      <xi:include href="./activities/ws27_Final1.ptx"/>
+      <xi:include href="./activities/ws28_Final2.ptx"/>
+
+      <!-- Add more xi:include files here to include them in the main course -->
+    </chapter>
+
+    <chapter xml:id="handouts">
+      <title>Handouts</title>
+      <!-- Include handouts -->
+      <!--<xi:include href="./handouts/handout-filename.ptx"/>-->
+    </chapter>
+
+    <chapter xml:id="homework">
+      <title>Homework</title>
+
+      <!-- Include homework files -->
+      <!--<xi:include href="./homework/homework01.ptx"/>-->
+
+    </chapter>
+
+    <!-- Include additional chapters for other categories -->
+
+    </book>
+  </pretext>

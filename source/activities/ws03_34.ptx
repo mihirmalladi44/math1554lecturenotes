@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+<worksheet>
+  <title>3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</title>
+  <p></p>
+  <page>
+<p>Welcome to Week 2! This week there are several assessments that are due.</p> 
+    <p><m>{\small{•}}</m> According to the syllabus, what assessments are due this week? When are they due?</p>
+       <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p><m>{\small{•}}</m> If you need help while you are completing a homework set or written assignment, what can
+you do to ask a question?</p>
+       <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+       <p><m>{\small{•}}</m> Where can you find all of the office hours that are available for this class?</p>
+       <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  </page>
+  <page>
+    <m>{\large \textbf{3.1 Linear Combinations and Span}}</m> 
+    <p>Use the Teams chat to answer the following in one or two sentences.</p>
+    <p>1. What is a linear combination of vectors?</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p>2. What does the span of a set of vectors represent?</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p>3. What does it mean for a vector to <m>{\textbf{not}}</m> be in the span of a set of vectors?</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p>4. How do we determine whether a vector is in the span of a set of vectors?</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+  </page>
+  <page>
+    <m>{\large \textbf{3.2 Worksheet Exercises}}</m>
+    <exercise workspace="1in">
+        <introduction>
+          <p>Suppose <m>A = </m>   <m>\begin{pmatrix}
+                2 \amp -1 \amp 3 \\
+                4 \amp -2 \amp 6
+                \end{pmatrix}</m>.</p>
+        </introduction>
+        <task>
+          <statement>
+            <p>
+              Sketch the span of the columns of the matrix. 
+              <m>{\textit{Remember to label your axes.}}</m><m>{\textit{Also,
+                arrows should be used for coordinate axes and vectors, because they are}}</m><m>{\textit{quantities with
+direction. But do not sketch the span of a set of vectors using arrows.}}</m>
+            </p>
+          </statement>
+        </task>
+
+        <task>
+          <statement>
+            <p>
+             On the same graph, sketch vectors <m>u = \begin{pmatrix}
+                1 \\
+                2
+                \end{pmatrix}</m> and <m>v = \begin{pmatrix}
+                3 \\
+                1
+                \end{pmatrix}</m>.
+            </p>
+          </statement>
+        </task>
+
+         <task>
+          <statement>
+            <p>
+             Using your graph, which of the following systems is consistent?
+            </p>
+            <ul>
+            <li><m>Ax = u</m></li>
+            <li><m>Ax = v</m></li>
+          </ul>
+          </statement>
+        </task>
+    </exercise>
+  </page>
+  <page>
+    <exercise workspace="1in">
+        <introduction>
+          <p>Suppose <m>\vec{v}_1, \vec{v}_2</m> are non-zero vectors in <m>\mathbb{R}^n</m>, and that <m>\vec{v}_1, \vec{v}_2</m> span a plane.</p>
+        </introduction>
+        <p>Then Span<m>\{\vec{v}_1, \vec{v}_2\}</m> is equal to which of the expressions below?</p>
+
+        <p>i) Span<m>\{\vec{v}_1, \vec{v}_2, 3\vec{v}_1\}</m></p>
+        <p>ii) Span<m>\{\vec{v}_1, 3\vec{v}_1\}</m></p>
+        <p>iii) Span<m>\{\vec{v}_1, \vec{v}_2, 3\vec{v}_1 + 2\vec{v}_2\}</m></p>
+    </exercise>
+  </page>
+  <page>
+    <exercise workspace="1in">
+        <introduction>
+          <p>For what values of <m>k</m> will the span of the vectors be a plane?</p>
+        </introduction>
+        <me>v_1 = \begin{pmatrix}
+                1 \\
+                0 \\
+                -k
+                \end{pmatrix},  v_2 = \begin{pmatrix}
+                0 \\
+                1 \\
+                6
+                \end{pmatrix},  v_3 = \begin{pmatrix}
+                k \\
+                -1 \\
+                5k
+                \end{pmatrix}</me>
+    </exercise>
+  </page>
+  <page>
+    <exercise workspace="1in">
+      <introduction>
+        <p>
+          Indicate whether the statements are true or false.
+        </p>
+      </introduction>
+      <task>
+        <p>If the equation <m>A\vec{x}\ = \vec{b}</m> is inconsistent, then <m>\vec{b}</m> is not in the set spanned by the columns of <m>A</m>.</p>
+      </task>
+      <task>
+        <p>If the augmented matrix <m>\begin{bmatrix}
+                A \amp \vec{b}
+                \end{bmatrix}</m> has a pivot position in every row, then the equation <m>A\vec{x}\ = \vec{b}</m> must be consistent.</p>
+      </task>
+      <task>
+        <p>There are exactly three vectors in Span<m>\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}</m>.</p>
+      </task>
+      </exercise>
+  </page>
+  </worksheet>

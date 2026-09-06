@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Contributed by Mitch Keller -->
+
+<worksheet>
+  <title>7 Invertible Matrices (ILA 3.5, 3.6)</title>
+  <p></p>
+  <page>
+    <p><m>{\large \textbf{Poll Question}}</m> </p>
+    <p>True or False: if <m>A</m> is an <m>n \times n</m> invertible matrix, then <m>Ax = b</m> is consistent for all b in <m>\mathbb{R}^n</m>.</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <m>{\large \textbf{7.1 The Matrix Inverse}}</m>
+
+
+  <p><m>{\large \textbf{Definition}}</m>:</p>
+  
+  <p> The <m>n \times n</m> matrix <m>A</m> is <m>{\textbf{invertible}} \textup{ (or } \textbf{non-singular} \textup{)}</m> if there is an <m>n \times n</m> matrix <m>C</m> so that</p>
+  <p><me>AC = CA = I_n</me>.</p> 
+  <p>If there is, we write <m>C = A^{-1}</m>.</p>
+  <m></m><p></p><m></m><p></p>
+  <p>Note that</p>
+  <ul>
+    <li><p>A matrix that is not invertible is <m>\textbf{singular}</m>.</p></li>
+    <li><p>There is a formula for computing the inverse of a <m>2 \times 2</m> matrix.</p></li>
+  </ul>
+
+</page>
+<page>
+     <p><m>{\large \textbf{Theorem}}</m>:</p>
+     <p>The <m>2 \times 2</m> matrix <m>\begin{pmatrix}a \amp b \\ c \amp d \end{pmatrix}</m> is non-singular if and only if <m>ad - bc \neq 0</m>, and </p>
+     <me>{\begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}}^{-1} = {\frac 1 {ad-bc}} \begin{pmatrix}d \amp {-b} \\ {-c} \amp a \end{pmatrix}</me>
+     <m></m><p></p><m></m><p></p>
+     <p><m>{\textbf{Example}}</m>:</p>
+     <p>Let <m>A = \begin{pmatrix} 1 \amp k \\ 2 \amp 1 \end{pmatrix}</m>.</p>
+     <ol marker="1.">
+        <li><p>For what values of <m>k</m> is <m>A</m> singular?</p></li>
+        <li><p>Use the inverse to solve the system of equations</p></li>
+     </ol>
+     <me>x_1 + x_2 = 3</me>
+     <me>2x_1 + x_2 = 1</me>
+</page>
+<page>
+    <p><m>{\textbf{7.1.1 The Invertible Matrix Theorem}}</m>:</p>
+    <p>Determine whether the following statements are true or false.</p>
+    <p>1. If <m>A</m> is square and invertible then every row of <m>A</m> contains a pivot. <m>\textit{Hint: use the poll question from the start of the worksheet.}</m></p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p>2. If <m>A</m> is square and invertible then the columns of <m>A</m> are independent.</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+    <p>3. If <m>A</m> is square and invertible then <m>T_A(x) = Ax</m> is one-to-one and onto.</p>
+    <m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p><m></m><p></p>
+</page>
+<page>
+    <p><m>{\textbf{The Invertible Matrix Theorem}}</m>:</p>
+    <p><m>{\large \textbf{Theorem}}</m>:</p>
+    <p>If <m>A</m> be an <m>n \times n</m> matrix then these statements are equivalent.</p>
+    <ol marker="(a)">
+        <li><p><m>A</m> is invertible.</p></li>
+        <li><p><m>A</m> is row equivalent to <m>I_n</m>.</p></li>
+        <li><p><m>A</m> has <m>n</m> pivotal columns (all columns are pivotal).</p></li>
+        <li><p><m>A\vec{x} = \vec{0}</m> has only the trivial solution.</p></li>
+        <li><p>The columns of <m>A</m> are linearly independent.</p></li>
+        <li><p>The equation <m>A\vec{x} = \vec{b}</m> has a solution for all <m>\vec{b} \in \mathbb{R}^n</m>.</p></li>
+        <li><p>The columns of <m>A</m> span <m>\mathbb{R}^n</m>.</p></li>
+        <li><p>There is a <m>n \times n</m> matrix <m>C</m> so that <m>CA=I_n \textup{ (} A \textup{ has a left inverse.)}</m></p></li>
+        <li><p>There is a <m>n \times n</m> matrix <m>D</m> so that <m>AD=I_n \textup{ (} A \textup{ has a right inverse.)}</m></p></li>
+        <li><p><m>A^T</m> is invertible.</p></li>
+    </ol>
+    <m></m><p></p><m></m><p></p>
+    <p>By equivalent statements we mean that:</p>
+    <ul>
+        <li>
+            <p>
+                if one statement is true, all statements are true
+            </p>
+        </li>
+        <li>
+            <p>
+                if one statement is false, all statements are false
+            </p>
+        </li>
+    </ul>
+</page>
+<page>
+    <p><m>{\textbf{7.1.2 Elementary Matrices}}</m>:</p>
+    <p><m>{\large \textbf{Goal}}</m>:</p>
+    <p>Represent row operations using matrix multiplication because it allows us to under-
+stand how algorithms that reduce matrices work.</p>
+<m></m><p></p><m></m><p></p>
+<p>Recall that we have elementary row operations:</p>
+<ul>
+    <li>
+        <p>
+            swap rows
+        </p>
+    </li>
+    <li>
+        <p>
+            multiply a row by a non-zero scalar
+        </p>
+    </li>
+    <li>
+        <p>
+            add a multiple of one row to another
+        </p>
+    </li>
+</ul>
+<p>We can represent each operation by a matrix multiplication with an <m>\textbf{elementary matrix}</m>.</p>
+<p><m>{\large \textbf{Definition}}</m>:</p>
+<p>An elementary matrix, <m>E</m>, is a square matrix that differs by <m>I_n</m> by one row operation.</p>
+
+<p><m>{\textbf{Example}}</m>:</p>
+<p>Consider the sequence of row operations that reduce matrix <m>A</m> to the identity:</p>
+<me>A = \underbrace{\begin{pmatrix} 1 \amp 2 \amp 0 \\ 0 \amp 0 \amp 2 \\ 0 \amp 1 \amp 0 \end{pmatrix}}_{A} \thicksim 
+        \underbrace{\begin{pmatrix} 1 \amp 2 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 2 \end{pmatrix}}_{E_1 A} \thicksim
+        \underbrace{\begin{pmatrix} 1 \amp 2 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}}_{E_2 E_1 A} \thicksim
+        \underbrace{\begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 1 \end{pmatrix}}_{E_3 E_2 E_1 A} = I_3</me>
+        <ul>
+            <li>
+                <p>
+                    Construct the elementary matrices <m>E_1</m>, <m>E_2</m>, and <m>E_3</m> that apply the row operations above.
+                </p>
+            </li>
+            <li>
+                <p>
+                    Use the elementary matrices to construct <m>A^{-1}</m>.
+                </p>
+            </li>
+        </ul>
+</page>
+  </worksheet>
