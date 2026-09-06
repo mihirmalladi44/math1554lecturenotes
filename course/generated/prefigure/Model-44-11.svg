@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Model-44-figure" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <clipPath id="Model-44-__clipPath-0">
+      <rect x="10.0" y="10.0" width="300.0" height="300.0"/>
+    </clipPath>
+    <clipPath id="Model-44-__clipPath-1">
+      <rect x="10.0" y="10.0" width="300.0" height="300.0"/>
+    </clipPath>
+    <marker id="Model-44-arrow-head-end-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="6.5" refY="4.0">
+      <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+    </marker>
+    <marker id="Model-44-arrow-head-end-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="8.5" refY="6.0">
+      <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+    </marker>
+    <marker id="Model-44-arrow-head-start-2_None_24_60-black" markerWidth="9.0" markerHeight="8.0" markerUnits="userSpaceOnUse" orient="auto" refX="2.5" refY="4.0">
+      <g transform="rotate(180, 4.5, 4.0)">
+        <path d="M 9.0 4.0L 0.0 8.0L 1.7 5.0L 1.7 3.0L 0.0 0.0Z" fill="black" stroke="none"/>
+      </g>
+    </marker>
+    <marker id="Model-44-arrow-head-start-2_None_24_60-black-outline" markerWidth="13.0" markerHeight="12.0" markerUnits="userSpaceOnUse" orient="auto" refX="4.5" refY="6.0">
+      <g transform="rotate(180, 6.5, 6.0)">
+        <path d="M 11.8 7.8 L 2.8 11.8 A 2 2 0 0 1 0.0 10.0 L 0.0 2.0 A 2 2 0 0 1 2.8 0.2 L 11.8 4.2 A 2 2 0 0 1 11.8 7.8 Z" fill="white" stroke="none"/>
+      </g>
+    </marker>
+  </defs>
+  <g id="Model-44-__group-0">
+    <g id="Model-44-__group-1">
+      <line id="Model-44-edge-3-1" x1="160.0" y1="220.0" x2="92.0" y2="124.8" stroke="black" stroke-width="2" stroke-dasharray="none" fill="none" marker-end="url(#Model-44-arrow-head-end-2_None_24_60-black)"/>
+      <g id="Model-44-__label-0" transform="translate(121.1,156.0) translate(0.0,-10.6)">
+        <g id="Model-44-__g-0">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0.1</text>
+        </g>
+      </g>
+      <line id="Model-44-edge-2-1" x1="245.7" y1="100.0" x2="104.7" y2="100.0" stroke="black" stroke-width="2" stroke-dasharray="none" fill="none" marker-end="url(#Model-44-arrow-head-end-2_None_24_60-black)"/>
+      <g id="Model-44-__label-1" transform="translate(160.0,96.0) translate(-11.1,-10.6)">
+        <g id="Model-44-__g-1">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0.1</text>
+        </g>
+      </g>
+      <line id="Model-44-edge-3-2" x1="160.0" y1="220.0" x2="228.0" y2="124.8" stroke="black" stroke-width="2" stroke-dasharray="none" fill="none" marker-end="url(#Model-44-arrow-head-end-2_None_24_60-black)"/>
+      <g id="Model-44-__label-2" transform="translate(206.9,164.0) translate(0.0,-0.0)">
+        <g id="Model-44-__g-2">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0.1</text>
+        </g>
+      </g>
+      <path id="Model-44-loop-1" d="M 74.3 100.0 C 59.0 129.6 14.6 106.8 29.8 77.1 C 37.5 62.3 52.4 60.6 63.5 66.3 C 66.3 67.8 68.8 69.7 70.9 71.9" stroke="black" stroke-width="2" stroke-dasharray="none" fill="none" clip-path="url(#Model-44-__clipPath-1)" marker-end="url(#Model-44-arrow-head-end-2_None_24_60-black)"/>
+      <g id="Model-44-__label-3" transform="translate(25.8,73.1) translate(-22.3,-10.6)">
+        <g id="Model-44-__g-3">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0.2</text>
+        </g>
+      </g>
+      <path id="Model-44-loop-2" d="M 245.7 100.0 C 230.5 70.4 274.9 47.5 290.2 77.1 C 297.8 91.9 290.5 105.1 279.4 110.8 C 276.6 112.2 273.6 113.2 270.5 113.6" stroke="black" stroke-width="2" stroke-dasharray="none" fill="none" clip-path="url(#Model-44-__clipPath-1)" marker-end="url(#Model-44-arrow-head-end-2_None_24_60-black)"/>
+      <g id="Model-44-__label-4" transform="translate(294.2,73.1) translate(0.0,-10.6)">
+        <g id="Model-44-__g-4">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0.2</text>
+        </g>
+      </g>
+      <path id="Model-44-loop-3" d="M 160.0 220.0 C 193.3 220.0 193.3 270.0 160.0 270.0 C 143.3 270.0 135.0 257.5 135.0 245.0 C 135.0 241.9 135.5 238.7 136.6 235.8" stroke="black" stroke-width="2" stroke-dasharray="none" fill="none" clip-path="url(#Model-44-__clipPath-1)" marker-end="url(#Model-44-arrow-head-end-2_None_24_60-black)"/>
+      <g id="Model-44-__label-5" transform="translate(160.0,274.0) translate(-11.1,-0.0)">
+        <g id="Model-44-__g-5">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.4">0.2</text>
+        </g>
+      </g>
+    </g>
+    <g id="Model-44-__group-2">
+      <circle id="Model-44-node-1" cx="74.3" cy="100.0" r="25" stroke="black" stroke-width="1" fill="white"/>
+      <g id="Model-44-1" transform="translate(74.3,100.0) translate(-4.8,-5.1)">
+        <g id="Model-44-__g-6">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">X</text>
+        </g>
+      </g>
+      <circle id="Model-44-node-2" cx="245.7" cy="100.0" r="25" stroke="black" stroke-width="1" fill="white"/>
+      <g id="Model-44-2" transform="translate(245.7,100.0) translate(-4.3,-5.1)">
+        <g id="Model-44-__g-7">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">Y</text>
+        </g>
+      </g>
+      <circle id="Model-44-node-3" cx="160.0" cy="220.0" r="25" stroke="black" stroke-width="1" fill="white"/>
+      <g id="Model-44-3" transform="translate(160.0,220.0) translate(-4.8,-5.1)">
+        <g id="Model-44-__g-8">
+          <text font-family="sans-serif" font-size="14" x="0.0" y="10.2">Z</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

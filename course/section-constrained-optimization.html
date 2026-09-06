@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>2.3.1 Constrained Optimization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-alpha; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends lower-alpha; prefix: ''; suffix: ') '; }
+@counter-style ptx-marker-3 { system: extends decimal; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-4 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+lang: "en-US",
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Course Name (change me)">
+<meta property="og:title" content="Course Name (change me)">
+<meta property="book:title" content="Course Name (change me)">
+<meta name="twitter:description" content="MATH xxx Semester 20xx">
+<meta property="og:description" content="MATH xxx Semester 20xx">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.52"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.52"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Course Name (change me)</span> <span class="subtitle">MATH xxx Semester 20xx</span></a></div>
+<p class="byline">Instructor Lastname</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="ptx-embed-button" class="ptx-embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><dialog class="ptx-dialog ptx-embed-popup" id="ptx-embed-popup"><div class="ptx-embed-popup-controls">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<button class="ptx-embed-close-button button" id="ptx-embed-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-embed-code-container">
+<textarea class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly aria-label="Embed"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div></dialog><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="section-quadratic-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="course-notes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-quadratic-surfaces.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Row}{\text{Row}}
+\newcommand{\Col}{\text{Col}}
+\newcommand{\Nul}{\text{Null}}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="title">Course Documents</span></a></div>
+<ul id="ptx-toc-group-course-documents" class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="syllabus.html" class="internal"><span class="title">Syllabus</span></a></div>
+<ul id="ptx-toc-group-syllabus" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="syllabus.html#sec-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="syllabus.html#sec-assessments" class="internal"><span class="title">Assessments and Grades</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="course-notes.html" class="internal"><span class="title">Course Notes</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-course-notes">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="course-notes-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-orthogonal-diagonalization.html" class="internal"><span class="title">2.1 Orthogonal Diagonalization</span></a></div>
+<ul id="ptx-toc-group-section-orthogonal-diagonalization" class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsection-properties-of-symmetric-matrices" class="internal"><span class="title">Properties of Symmetric Matrices</span></a></div>
+<ul id="ptx-toc-group-subsection-properties-of-symmetric-matrices" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsubsection-orthogonal-eigenspaces" class="internal"><span class="title">1) Symmetric Matrices Have Orthogonal Eigenspaces</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsubsection-real-eigenvalues" class="internal"><span class="title">2) The Eigenvalues of a Symmetric Matrix are Real</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsubsection-spectral-theorem" class="internal"><span class="title">3) The Spectral Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsection-examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsection-summary" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#exercises-orthogonal-diagonalization" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-quadratic-forms.html" class="internal"><span class="title">2.2 Quadratic Forms</span></a></div>
+<ul id="ptx-toc-group-section-quadratic-forms" class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-quadratic-forms-def" class="internal"><span class="title">Quadratic Forms</span></a></div>
+<ul id="ptx-toc-group-subsection-quadratic-forms-def" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsubsection-quadratic-forms-r2" class="internal"><span class="title">Example 1: Quadratic forms in <span class="process-math">\(\mathbb R^2\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsubsection-quadratic-form-example2" class="internal"><span class="title">Example 2: A Quadratic Form</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsubsection-quadratic-form-example3" class="internal"><span class="title">Example 3: Quadratic Form in Three Variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-principal-axes-theorem" class="internal"><span class="title">Principle Axes Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-example4-change-of-variable" class="internal"><span class="title">Example 4: Change of Variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-example5-inequality" class="internal"><span class="title">Example 5: Inequality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-quadratic-forms-summary" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section contains-active">
+<div class="toc-title-box"><a href="section-constrained-optimization.html" class="internal"><span class="title">2.3.1 Constrained Optimization</span></a></div>
+<ul class="structural toc-item-list active" id="ptx-toc-group-section-constrained-optimization">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-temperature-unit-sphere" class="internal"><span class="title">Example 1: Temperature on a Unit Sphere</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-constrained-optimization-problem" class="internal"><span class="title">A Constrained Optimization Problem</span></a></div>
+<ul id="ptx-toc-group-subsection-constrained-optimization-problem" class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsubsection-example2-repeated-eigenvalue" class="internal"><span class="title">Example 2: Constrained Optimization with a Repeated Eigenvalue</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-orthogonality-constraints" class="internal"><span class="title">Orthogonality Constraints</span></a></div>
+<ul id="ptx-toc-group-subsection-orthogonality-constraints" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsubsection-example3-orthogonality-constraint" class="internal"><span class="title">Example 3: Optimization with an Orthogonality Constraint</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsubsection-example4-orthogonality-repeated" class="internal"><span class="title">Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-constrained-optimization-summary" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-quadratic-surfaces.html" class="internal"><span class="title">2.3.2 Quadratic Surfaces</span></a></div>
+<ul id="ptx-toc-group-section-quadratic-surfaces" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-quadratic-surface-r3" class="internal"><span class="title">Example 1: A Quadratic Surface in <span class="process-math">\(\mathbb R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-quadratic-surfaces-example2" class="internal"><span class="title">Example 2: Quadratic Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-classifying-quadratic-forms" class="internal"><span class="title">Classifying Quadratic Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-example3-quad-forms-eigenvalues" class="internal"><span class="title">Example 3: Quadratic Forms and Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-quadratic-surfaces-summary" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="activities.html" class="internal"><span class="title">In-Class Activities</span></a></div>
+<ul id="ptx-toc-group-activities" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="activities-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-3.html" class="internal"><span class="title">1 Systems of Linear Equations (ILA 1.1, 1.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-4.html" class="internal"><span class="title">2 Row Reduction and Echelon Forms (ILA1.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-5.html" class="internal"><span class="title">3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="worksheet-4.html" class="internal"><span class="title">4 Solution Sets and Linear Independence</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-7.html" class="internal"><span class="title">5 Linear Transforms (ILA 3.1, 3.2, 3.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-8.html" class="internal"><span class="title">6 Matrix Algebra (ILA 3.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-9.html" class="internal"><span class="title">7 Invertible Matrices (ILA 3.5, 3.6)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-10.html" class="internal"><span class="title">8 Exam 1 Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-11.html" class="internal"><span class="title">9 Applications (LN 1.1, 1.2, 1.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-12.html" class="internal"><span class="title">0 About This Document</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-13.html" class="internal"><span class="title">10 Computer Graphics, Subspaces (LN 1.4, 1.5; ILA 2.6, 2.7)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-14.html" class="internal"><span class="title">11 Subspaces, Dimension, Basis (ILA 2.8, 2.9)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-15.html" class="internal"><span class="title">12 Determinants (ILA 4.1, 4.2, 4.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-16.html" class="internal"><span class="title">13 Determinants (ILA 4.1, 4.2, 4.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-17.html" class="internal"><span class="title">14 Exam 2 Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-18.html" class="internal"><span class="title">15 Markov Chains and Eigenvalues (ILA 5.1, 5.2, 5.6)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="worksheet-8-worksheet.html" class="internal"><span class="title">16 Diagonalization, Complex Eigenvalues, Page Rank (ILA 5.3, 5.4, 5.5, 5.6)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-20.html" class="internal"><span class="title">17 Inner Products (ILA 6.1, 6.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-21.html" class="internal"><span class="title">18 Orthogonal Sets (ILA 6.1, 6.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-22.html" class="internal"><span class="title">19 Exam 3 Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-23.html" class="internal"><span class="title">20 Orthogonal Projections, Gram-Schmidt, and the QR Factorization (6.3, 6.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-24.html" class="internal"><span class="title">21 Least-Squares and Linear Models (ILA 6.3, 6.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-25.html" class="internal"><span class="title">22 Orthogonality Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-26.html" class="internal"><span class="title">23 Diagonalization of Symmetric Matrices (LN 2.1)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-27.html" class="internal"><span class="title">24  Quadratic Forms (LN 2.2, 2.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-28.html" class="internal"><span class="title">25 Constrained Optimization (LN 2.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-29.html" class="internal"><span class="title">26 The Singular Value Decomposition (LN 2.5, 2.6, 2.7)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-30.html" class="internal"><span class="title">27 Final Exam Review 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-31.html" class="internal"><span class="title">28 Final Exam Review 2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="handouts.html" class="internal"><span class="title">Handouts</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="title">Homework</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="section-constrained-optimization">
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">2.3.1 Constrained Optimization</span>
+</h1>
+<div class="para" id="section-constrained-optimization-2">Symmetric matrices can be found in certain optimization problems involving quadratic functions. By applying some of the properties that symmetric matrices have, we can develop algorithms and theorems to better understand and also solve these optimization problems. The following example demonstrates how symmetric matrices might arise in an optimization problem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#section-constrained-optimization-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsection" id="subsection-temperature-unit-sphere">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 1: Temperature on a Unit Sphere</span>
+</h2>
+<div class="para" id="subsection-temperature-unit-sphere-2">Suppose that the temperature, <span class="process-math">\(Q\text{,}\)</span> on the surface of the sphere, whose radius is one, is given by<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-temperature-unit-sphere-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-temperature-unit-sphere-3">
+\begin{equation*}
+Q(\vec x) = 9x_1^2 + 4x_2^2 +3x_3^2, \quad \text{where } x_1^2 + x_2^2 + x_3^2 = ||\vec x||^2 = 1
+\end{equation*}
+</div>
+<div class="para" id="subsection-temperature-unit-sphere-4">Our goals are to determine the location of the largest and smallest values of <span class="process-math">\(Q\)</span> on the surface of the sphere, and what the temperature is at these points. To do this, we can first identify the largest value of <span class="process-math">\(Q\)</span> on the sphere.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-temperature-unit-sphere-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-temperature-unit-sphere-5">
+\begin{align}
+Q(\vec x) \amp= \vec x^{\,T} \begin{pmatrix} 9 \amp 0 \amp 0 \\ 0 \amp 4 \amp 0 \\ 0 \amp 0 \amp 3 \end{pmatrix}\vec x\tag{17}\\
+\amp= 9x_1^2 + 4x_2^2 +3x_3^2\tag{18}\\
+\amp\le 9x_1^2 + 9x_2^2 +9x_3^2\tag{19}\\
+\amp= 9 (x_1^2 + x_2^2 +x_3^2)\tag{20}\\
+\amp= 9 \lVert \vec x \rVert^2\tag{21}\\
+\amp= 9\tag{22}
+\end{align}
+</div>
+<div class="para" id="subsection-temperature-unit-sphere-6">Note that we are only considering points on the surface of the sphere, so <span class="process-math">\(\lVert \vec x \rVert^2 = 1\text{.}\)</span> Notice also, by inspection, that <span class="process-math">\(Q\)</span> is equal to 9 at the points <span class="process-math">\((\pm1,0,0)\text{.}\)</span> We now have both the maximum value of <span class="process-math">\(Q\)</span> and where the maximum values of <span class="process-math">\(Q\)</span> are located. Therefore,<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-temperature-unit-sphere-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-temperature-unit-sphere-7">
+\begin{equation*}
+\mathrm{max} \{ Q(\vec x) : ||\vec x|| = 1\} = 9, \ \text{and max occurs at } \vec x = \begin{pmatrix} \pm1 \\ 0 \\ 0 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsection-temperature-unit-sphere-8">A similar analysis yields the minimum value of <span class="process-math">\(Q\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-temperature-unit-sphere-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-temperature-unit-sphere-9">
+\begin{equation*}
+\mathrm{min} \{ Q(\vec x) : ||\vec x|| = 1\} = 3, \ \text{and min occurs at } \vec x = \begin{pmatrix} 0 \\ 0 \\ \pm1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsection-temperature-unit-sphere-10">The diagram below shows our unit sphere, colored in a way that gives the temperature of the sphere, with the hottest points being red, and the coldest points being blue.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-temperature-unit-sphere-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="figure-temperature-sphere"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/figure-temperature-sphere-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The unit sphere colored according to the temperature <span class="process-math">\(Q(\vec x) = 9x_1^2 + 4x_2^2 +3x_3^2\text{,}\)</span> with the hottest points in red and the coldest points in blue.<div class="autopermalink" aria-hidden="true" data-description="Figure 10"><a tabindex="-1" href="#figure-temperature-sphere" title="Copy heading and permalink for Figure 10" aria-label="Copy heading and permalink for Figure 10">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsection-temperature-unit-sphere-12">Note that the hottest points are given by the points <span class="process-math">\((\pm 1, 0,0 )\)</span> and the coldest points at <span class="process-math">\((0,0,\pm 1)\text{.}\)</span> You may have also noticed that the maximum and minimum values of <span class="process-math">\(Q\)</span> coincide with the eigenvalues of <span class="process-math">\(A\text{.}\)</span> We will explore this connection in the next section.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-temperature-unit-sphere-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsection: Example 1: Temperature on a Unit Sphere"><a tabindex="-1" href="#subsection-temperature-unit-sphere" title="Copy heading and permalink for Subsection: Example 1: Temperature on a Unit Sphere" aria-label="Copy heading and permalink for Subsection: Example 1: Temperature on a Unit Sphere">🔗</a></div>
+</section>
+<section class="subsection" id="subsection-constrained-optimization-problem">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Constrained Optimization Problem</span>
+</h2>
+<div class="para" id="subsection-constrained-optimization-problem-2">We will now turn our attention to a more general problem of optimizing a function, <span class="process-math">\(Q\text{,}\)</span> on a unit sphere. That is, we wish to identify the maximum or minimum values of<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-problem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-constrained-optimization-problem-3">
+\begin{equation*}
+Q(\vec x) = \vec x^{\,T}A \vec x, \quad \vec x \in \mathbb R^n, \quad A \in \mathbb R^{n\times n},
+\end{equation*}
+</div>
+<div class="para" id="subsection-constrained-optimization-problem-4">subject to <span class="process-math">\(||\vec x|| = 1\text{.}\)</span> This is an example of a <dfn class="terminology">constrained optimization</dfn> problem. Also note that we may also want to know where these extreme values are obtained. The following theorem gives us some insight on how these values can be obtained.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-problem-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="theorem-constrained-optimization"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Constrained Optimization.</span>
+</h3>
+<div class="para" id="theorem-constrained-optimization-2-1">If <span class="process-math">\(Q = \vec x^{\,T} A \vec x\text{,}\)</span> <span class="process-math">\(A\)</span> is a real <span class="process-math">\(n\times n\)</span> symmetric matrix, with eigenvalues<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#theorem-constrained-optimization-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="theorem-constrained-optimization-2-2">
+\begin{equation*}
+\lambda_1 \ge \lambda_2 \ldots \ge \lambda_n
+\end{equation*}
+</div>
+<div class="para" id="theorem-constrained-optimization-2-3">and associated normalized eigenvectors <span class="process-math">\(\vec u_1, \vec u_2, \ldots , \vec u_n\text{.}\)</span> Then, subject to the constraint <span class="process-math">\(||\vec x ||=1\text{,}\)</span> the <dfn class="terminology">maximum</dfn> value of <span class="process-math">\(Q(\vec x)\)</span> is <span class="process-math">\(\lambda_1\text{,}\)</span> which is attained at <span class="process-math">\(\vec x = \pm \, \vec u_1\text{.}\)</span> The <dfn class="terminology">minimum</dfn> value of <span class="process-math">\(Q(\vec x)\)</span> is <span class="process-math">\(\lambda_n\text{,}\)</span> which is attained at <span class="process-math">\(\vec x = \pm \, \vec u_n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#theorem-constrained-optimization-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 11: Constrained Optimization"><a tabindex="-1" href="#theorem-constrained-optimization" title="Copy heading and permalink for Theorem 11: Constrained Optimization" aria-label="Copy heading and permalink for Theorem 11: Constrained Optimization">🔗</a></div>
+</article>
+<details id="subsection-constrained-optimization-problem-6" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h3 class="heading"><span class="type">Proof<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h3></summary>
+<article class="hiddenproof knowl__content">
+<div class="para" id="subsection-constrained-optimization-problem-6-1">Suppose <span class="process-math">\(\lambda_1\)</span> is the largest eigenvalue of <span class="process-math">\(A\)</span> and <span class="process-math">\(\vec u_1\)</span> is the corresponding unit eigenvector.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-problem-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-constrained-optimization-problem-6-2">
+\begin{align}
+Q = \vec x^{\,T} A\vec x \amp= \vec y^{\,T} D\vec y , \quad \text{using } A = PDP^T , \ \vec x = P\vec y\tag{23}\\
+\amp= \sum \lambda_i y_i^2, \quad \text{because } D \text{ is diagonal}\tag{24}\\
+\amp\le \sum \lambda_1 y_i^2, \quad \text{because } \lambda_1 \text{ is the largest eigenvalue}\tag{25}\\
+\amp= \lambda_1 \sum y_i^2\tag{26}\\
+\amp= \lambda_1 \, \lVert \vec y \rVert^2 = \lambda_1 , \quad \text{because } \lVert \vec y \rVert^2 =1\tag{27}
+\end{align}
+</div>
+<div class="para" id="subsection-constrained-optimization-problem-6-3">This means that <span class="process-math">\(Q\)</span> is at most <span class="process-math">\(\lambda_1\text{.}\)</span> But <span class="process-math">\(Q = \lambda_1\)</span> at <span class="process-math">\(\pm \vec u_1\)</span> because<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-problem-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-constrained-optimization-problem-6-4">
+\begin{equation*}
+Q(\pm \vec u_1) = \vec u_1^{\,T} A \vec u_1 = \vec u_1^{\,T} (\lambda_1 \vec u_1 ) = \lambda_1
+\end{equation*}
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Proof 1"><a tabindex="-1" href="#subsection-constrained-optimization-problem-6" title="Copy heading and permalink for Proof 1" aria-label="Copy heading and permalink for Proof 1">🔗</a></div>
+</article></details>
+<section class="subsubsection" id="subsubsection-example2-repeated-eigenvalue">
+<h3 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 2: Constrained Optimization with a Repeated Eigenvalue</span>
+</h3>
+<div class="para" id="subsubsection-example2-repeated-eigenvalue-2">In this example we will calculate the maximum and minimum values of <span class="process-math">\(Q(\vec x) = \vec x^{\,T}A \vec x = x_1^2 + 2x_2x_3\text{,}\)</span> <span class="process-math">\(\vec x \in \mathbb R^3\text{,}\)</span> subject to <span class="process-math">\(||\vec x|| = 1\text{,}\)</span> and identify points where these values are obtained.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsubsection-example2-repeated-eigenvalue-3">For <span class="process-math">\(Q(\vec x) = x_1^2 + 2x_2x_3\text{,}\)</span> we have<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example2-repeated-eigenvalue-4">
+\begin{equation*}
+Q = \vec x^{\,T} A\vec x,\quad A = \begin{pmatrix} 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example2-repeated-eigenvalue-5">By inspection, <span class="process-math">\(A\)</span> has eigenvalues <span class="process-math">\(\lambda \pm 1\)</span> (don’t forget that an eigenvalue, <span class="process-math">\(\lambda\text{,}\)</span> is a number that makes <span class="process-math">\(A - \lambda I\)</span> singular). For <span class="process-math">\(\lambda = 1\text{,}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example2-repeated-eigenvalue-6">
+\begin{equation*}
+A-I = \begin{pmatrix} 0 \amp 0 \amp 0 \\ 0 \amp -1 \amp 1 \\ 0 \amp 1 \amp -1 \end{pmatrix} \Rightarrow \vec v_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}, \vec v_2 = \frac{1}{\sqrt2}\begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example2-repeated-eigenvalue-7">Because <span class="process-math">\(A\)</span> is symmetric, the eigenvector for eigenvalue <span class="process-math">\(\lambda = -1\)</span> must be orthogonal to <span class="process-math">\(\vec v_1\)</span> and <span class="process-math">\(\vec v_2\text{.}\)</span> So by inspection<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example2-repeated-eigenvalue-8">
+\begin{equation*}
+\vec v_3 = \frac{1}{\sqrt{2}}\begin{pmatrix} 0 \\ 1 \\ -1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example2-repeated-eigenvalue-9">Therefore, the minimum value of <span class="process-math">\(Q\)</span> is <span class="process-math">\(-1\text{,}\)</span> and is obtained at <span class="process-math">\(\pm \vec v_3\text{.}\)</span> The maximum value of <span class="process-math">\(Q\)</span> is <span class="process-math">\(+1\text{,}\)</span> which is obtained at any unit vector in the span of <span class="process-math">\(\vec v_1\)</span> and <span class="process-math">\(\vec v_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsubsection-example2-repeated-eigenvalue-10">The image below is the unit sphere whose surface is colored according to the quadratic from the previous example. Notice the agreement between our solution and the image.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="figure-repeated-eigenvalue-sphere">
+<div class="sidebyside">
+<div class="sbsrow" style="margin-left:1%;margin-right:1%;grid-template-columns:48.9795918367347% 48.9795918367347%;column-gap:2%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/figure-repeated-eigenvalue-sphere-2-1.svg" role="img" class="contained"></div></div>
+<div class="sbspanel sbspanel--top top" style=""><div class="image-box"><img src="generated/latex-image/figure-repeated-eigenvalue-sphere-2-2.svg" role="img" class="contained"></div></div>
+</div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Left: the unit sphere colored according to <span class="process-math">\(Q(\vec x) = x_1^2 + 2x_2x_3\text{.}\)</span> Right: the eigenvectors <span class="process-math">\(\vec v_1\text{,}\)</span> <span class="process-math">\(\vec v_2\text{,}\)</span> and <span class="process-math">\(\vec v_3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 12"><a tabindex="-1" href="#figure-repeated-eigenvalue-sphere" title="Copy heading and permalink for Figure 12" aria-label="Copy heading and permalink for Figure 12">🔗</a></div></figcaption>
+</figure><div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Example 2: Constrained Optimization with a Repeated Eigenvalue"><a tabindex="-1" href="#subsubsection-example2-repeated-eigenvalue" title="Copy heading and permalink for Subsubsection: Example 2: Constrained Optimization with a Repeated Eigenvalue" aria-label="Copy heading and permalink for Subsubsection: Example 2: Constrained Optimization with a Repeated Eigenvalue">🔗</a></div>
+</section><div class="autopermalink" aria-hidden="true" data-description="Subsection: A Constrained Optimization Problem"><a tabindex="-1" href="#subsection-constrained-optimization-problem" title="Copy heading and permalink for Subsection: A Constrained Optimization Problem" aria-label="Copy heading and permalink for Subsection: A Constrained Optimization Problem">🔗</a></div>
+</section>
+<section class="subsection" id="subsection-orthogonality-constraints">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Orthogonality Constraints</span>
+</h2>
+<div class="para" id="subsection-orthogonality-constraints-2">Another useful constraint that we will use when constructing the singular value decomposition of a matrix involves orthogonality.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-orthogonality-constraints-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="theorem-orthogonality-constraint"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">13</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Optimization with an Orthogonality Constraint.</span>
+</h3>
+<div class="para" id="theorem-orthogonality-constraint-2-1">Suppose <span class="process-math">\(Q = \vec x^{\,T} A \vec x\text{,}\)</span> where <span class="process-math">\(A \in \mathbb R^{n\times n}\)</span> is symmetric and has eigenvalues <span class="process-math">\(\lambda_1 \ge \lambda_2 \ldots \ge \lambda_n\)</span> and associated normalized eigenvectors <span class="process-math">\(\vec u_1, \vec u_2, \ldots , \vec u_n\text{.}\)</span> Then, subject to the constraints <span class="process-math">\(||\vec x ||=1\)</span> and <span class="process-math">\(\vec x \cdot \vec u_1 = 0\text{,}\)</span> the maximum value of <span class="process-math">\(Q(\vec x)\)</span> is <span class="process-math">\(\lambda_{2}\text{,}\)</span> which is attained at <span class="process-math">\(\vec x = \vec u_{2}\text{.}\)</span> The minimum value of <span class="process-math">\(Q(\vec x)\)</span> is <span class="process-math">\(\lambda_n\text{,}\)</span> which is attained at <span class="process-math">\(\vec x = \vec u_n\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#theorem-orthogonality-constraint-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 13: Optimization with an Orthogonality Constraint"><a tabindex="-1" href="#theorem-orthogonality-constraint" title="Copy heading and permalink for Theorem 13: Optimization with an Orthogonality Constraint" aria-label="Copy heading and permalink for Theorem 13: Optimization with an Orthogonality Constraint">🔗</a></div>
+</article>
+<div class="para" id="subsection-orthogonality-constraints-4">A proof would go beyond the scope of what we need for these notes, but it could use a similar approach to the theorem that gives the maximum (or minimum) of <span class="process-math">\(Q\)</span> subject to <span class="process-math">\(\lVert \vec x \rVert = 1\text{.}\)</span> We could start the proof with a change of variable so that we could express <span class="process-math">\(Q\)</span> using a diagonal matrix and an orthonormal basis for <span class="process-math">\(\mathbb R^n\text{.}\)</span> We could then identify the second largest eigenvalue. The associated eigenvector would be orthogonal to the eigenvector associated with the largest eigenvalue.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-orthogonality-constraints-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="subsubsection" id="subsubsection-example3-orthogonality-constraint">
+<h3 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 3: Optimization with an Orthogonality Constraint</span>
+</h3>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-2">In this example our goal is to identify the maximum value of<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-3">
+\begin{equation*}
+Q(\vec x) = \vec x^{\,T}A \vec x, \quad \text{where } A=A^T, \quad \text{subject to }  ||\vec x|| = 1 \text{ and } \vec x \cdot \vec u_1 = 0
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-4">where <span class="process-math">\(\vec x \in \mathbb R^3\text{,}\)</span> <span class="process-math">\(A\)</span> and its eigenvalues are<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-5">
+\begin{equation*}
+A = \begin{pmatrix} -1 \amp 1 \amp 0 \\ 1 \amp -2 \amp 1 \\ 0 \amp 1 \amp -1 \end{pmatrix}, \quad \lambda_1 = 0, \ \lambda_2 = -1, \ \lambda_3 = -3
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-6">and <span class="process-math">\(\vec u_1\)</span> is the eigenvector associated with <span class="process-math">\(\lambda_1\text{,}\)</span> where<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-7">
+\begin{equation*}
+\vec u_1 = \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-8">The eigenvector associated with <span class="process-math">\(\lambda_2\)</span> is found using the usual process of finding a vector in the nullspace of <span class="process-math">\(A - \lambda_2I\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-9">
+\begin{equation*}
+A - \lambda_2I = \begin{pmatrix} 0 \amp 1 \amp 0 \\ 1 \amp -1 \amp 1 \\ 0 \amp 1 \amp 0 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-10">By inspection, a vector in the nullspace will be<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-11">
+\begin{equation*}
+\begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-12">But we need to satisfy the constraint <span class="process-math">\(\lVert \vec x \rVert = 1\text{,}\)</span> so we will need to normalize our eigenvector to ensure that it has length one. Our unit eigenvector is<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-13">
+\begin{equation*}
+\vec u_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 0 \\ -1 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-14">This eigenvector gives one location where the maximum value of <span class="process-math">\(Q\)</span> is obtained, with the constraints<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example3-orthogonality-constraint-15">
+\begin{equation*}
+||\vec x|| = 1 \text{ and } \vec x \cdot \vec u_1 = 0
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-16">The two locations where this maximum are obtained are <span class="process-math">\((1, 0, - 1)\)</span> and <span class="process-math">\((-1,0,1)\text{.}\)</span> Evaluating <span class="process-math">\(Q\)</span> at either of these points will give us <span class="process-math">\(Q = \lambda_2 = -1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-17">The image below is the unit sphere whose surface is colored according to the quadratic from this example.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="figure-orthogonality-constraint-sphere"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/figure-orthogonality-constraint-sphere-2.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The unit sphere colored according to <span class="process-math">\(Q(\vec x) = \vec x^{\,T}A \vec x\text{,}\)</span> with the eigenvectors <span class="process-math">\(\vec u_1\)</span> and <span class="process-math">\(\vec u_2\)</span> marked.<div class="autopermalink" aria-hidden="true" data-description="Figure 14"><a tabindex="-1" href="#figure-orthogonality-constraint-sphere" title="Copy heading and permalink for Figure 14" aria-label="Copy heading and permalink for Figure 14">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="subsubsection-example3-orthogonality-constraint-19">The set of unit vectors that are orthogonal to <span class="process-math">\(\vec u_1\)</span> creates a circle, and the point on that circle with the largest value of <span class="process-math">\(Q\)</span> corresponds to <span class="process-math">\(\vec u_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Example 3: Optimization with an Orthogonality Constraint"><a tabindex="-1" href="#subsubsection-example3-orthogonality-constraint" title="Copy heading and permalink for Subsubsection: Example 3: Optimization with an Orthogonality Constraint" aria-label="Copy heading and permalink for Subsubsection: Example 3: Optimization with an Orthogonality Constraint">🔗</a></div>
+</section>
+<section class="subsubsection" id="subsubsection-example4-orthogonality-repeated">
+<h3 class="heading hide-type">
+<span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case</span>
+</h3>
+<div class="para" id="subsubsection-example4-orthogonality-repeated-2">In this example we will identify the maximum value of <span class="process-math">\(Q(\vec x) = \vec x^{\,T}A \vec x\text{,}\)</span> <span class="process-math">\(\vec x \in \mathbb R^3\text{,}\)</span> subject to <span class="process-math">\(||\vec x|| = 1\)</span> and to <span class="process-math">\(\vec x \cdot \vec u_1 = 0\text{,}\)</span> where<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example4-orthogonality-repeated-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsubsection-example4-orthogonality-repeated-3">
+\begin{equation*}
+Q(\vec x) = x_1^2 + 2x_2x_3, \qquad \vec u_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="subsubsection-example4-orthogonality-repeated-4">Noting that this example uses the same quadratic as in Example 2, we know that <span class="process-math">\(\vec u_1\)</span> is an eigenvector associated with the largest eigenvalue, <span class="process-math">\(\lambda = 1\text{.}\)</span> The next largest eigenvalue is <span class="process-math">\(\lambda = -1\text{,}\)</span> which was a repeated eigenvalue. Any unit vector in the span of <span class="process-math">\(\vec u_2\)</span> and <span class="process-math">\(\vec u_3\)</span> is also an eigenvector with eigenvalue <span class="process-math">\(\lambda_2 = -1\text{.}\)</span> If, for example, <span class="process-math">\(\vec w\)</span> is a unit vector in the span of <span class="process-math">\(\vec u_2\)</span> and <span class="process-math">\(\vec u_3\text{,}\)</span> then <span class="process-math">\(Q(\vec w) = \lambda_2 = -1\)</span> and <span class="process-math">\(\vec w\)</span> will be orthogonal to <span class="process-math">\(\vec u_1\text{.}\)</span> Therefore the maximum value of <span class="process-math">\(Q(\vec x) = \vec x^{\,T}A \vec x\text{,}\)</span> subject to <span class="process-math">\(||\vec x|| = 1\)</span> and to <span class="process-math">\(\vec x \cdot \vec u_1 = 0\)</span> is <span class="process-math">\(\lambda_2 = -1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-example4-orthogonality-repeated-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsubsection: Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case"><a tabindex="-1" href="#subsubsection-example4-orthogonality-repeated" title="Copy heading and permalink for Subsubsection: Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case" aria-label="Copy heading and permalink for Subsubsection: Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case">🔗</a></div>
+</section><div class="autopermalink" aria-hidden="true" data-description="Subsection: Orthogonality Constraints"><a tabindex="-1" href="#subsection-orthogonality-constraints" title="Copy heading and permalink for Subsection: Orthogonality Constraints" aria-label="Copy heading and permalink for Subsection: Orthogonality Constraints">🔗</a></div>
+</section>
+<section class="subsection" id="subsection-constrained-optimization-summary">
+<h2 class="heading hide-type">
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Summary</span>
+</h2>
+<div class="para" id="subsection-constrained-optimization-summary-2">In this section we introduced two constrained optimization problems. Our first problems was to identify the maximum/minimum values (and where they are located) of<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-summary-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-constrained-optimization-summary-3">
+\begin{equation*}
+Q(\vec x) = \vec x^{\,T}A \vec x, \quad \text{where } A=A^T, \quad \text{subject to }  ||\vec x|| = 1.
+\end{equation*}
+</div>
+<div class="para" id="subsection-constrained-optimization-summary-4">We saw that the maximum/minimum values are given by eigenvalues of <span class="process-math">\(A\text{,}\)</span> and that the locations of these extreme values are given by the unit eigenvectors of <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-summary-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsection-constrained-optimization-summary-5">We then explored a related constrained optimization problem. We extended our results from the previous constrained optimization problem to identify the maximum/minimum values of <span class="process-math">\(Q\text{,}\)</span> and where they are located, subject to two constraints. If, for example, <span class="process-math">\(\vec u_1\)</span> is the eigenvector corresponding to the largest eigenvalue, then our goal was to optimize<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-summary-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="subsection-constrained-optimization-summary-6">
+\begin{equation*}
+Q(\vec x) = \vec x^{\,T}A \vec x, \quad \text{where } A=A^T, \quad \text{subject to }  ||\vec x|| = 1 \text{ and } \vec x \cdot \vec u_1 = 0
+\end{equation*}
+</div>
+<div class="para" id="subsection-constrained-optimization-summary-7">Again we saw that the maximum/minimum values are given by eigenvalues of <span class="process-math">\(A\text{.}\)</span> And we saw that the corresponding <dfn class="terminology">locations</dfn> of these extreme values are given by unit eigenvectors of <span class="process-math">\(A\text{,}\)</span> but that we needed to use the second largest eigenvalue. These results could then be extended to handle cases with repeated eigenvalues, to add additional orthogonality constraints, or to identify minimum values of <span class="process-math">\(Q\)</span> with orthogonality constraints.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-summary-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="subsection-constrained-optimization-summary-8">Students who have already completed a multivariable calculus course may recognize constrained optimization problems when working with <dfn class="terminology">Lagrange Multipliers</dfn>, which would give a more general framework to approach constrained optimization problems. Lagrange Multipliers are not explored in this particular course. But we will make use of the results in this section when developing the singular value decomposition (SVD) of a matrix.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsection-constrained-optimization-summary-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Subsection: Summary"><a tabindex="-1" href="#subsection-constrained-optimization-summary" title="Copy heading and permalink for Subsection: Summary" aria-label="Copy heading and permalink for Subsection: Summary">🔗</a></div>
+</section><div class="autopermalink" aria-hidden="true" data-description="Section: 2.3.1 Constrained Optimization"><a tabindex="-1" href="#section-constrained-optimization" title="Copy heading and permalink for Section: 2.3.1 Constrained Optimization" aria-label="Copy heading and permalink for Section: 2.3.1 Constrained Optimization">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="section-quadratic-forms.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-quadratic-surfaces.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
