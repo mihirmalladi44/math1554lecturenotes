@@ -14,7 +14,7 @@
 <!--******************************************-->
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>5 Linear Transforms (ILA 3.1, 3.2, 3.3)</title>
+<title>3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
@@ -125,7 +125,7 @@ eBookConfig.enable_chatcodes =  false;
 <legend>Assistive technologies</legend>
 <label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
 </fieldset>
-<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="worksheet-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="activities.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="activities-9.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="activities-5.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="activities.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="worksheet-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\Q}{\mathbb Q}
@@ -227,9 +227,9 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-3.html" class="internal"><span class="title">0 About This Document</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-4.html" class="internal"><span class="title">1 Systems of Linear Equations (ILA 1.1, 1.2)</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-5.html" class="internal"><span class="title">2 Row Reduction and Echelon Forms (ILA1.2)</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-6.html" class="internal"><span class="title">3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</span></a></div></li>
+<li class="toc-item toc-worksheet active"><div class="toc-title-box"><a href="activities-6.html" class="internal"><span class="title">3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="worksheet-4.html" class="internal"><span class="title">4 Solution Sets and Linear Independence</span></a></div></li>
-<li class="toc-item toc-worksheet active"><div class="toc-title-box"><a href="activities-8.html" class="internal"><span class="title">5 Linear Transforms (ILA 3.1, 3.2, 3.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-8.html" class="internal"><span class="title">5 Linear Transforms (ILA 3.1, 3.2, 3.3)</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-9.html" class="internal"><span class="title">6 Matrix Algebra (ILA 3.4)</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-10.html" class="internal"><span class="title">7 Invertible Matrices (ILA 3.5, 3.6)</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-11.html" class="internal"><span class="title">8 Exam 1 Review</span></a></div></li>
@@ -283,193 +283,233 @@ eBookConfig.enable_chatcodes =  false;
 <button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
 </div>
 </div>
-<section class="worksheet" id="activities-8" data-margins="0.75in 0.75in 0.75in 0.75in">
+<section class="worksheet" id="activities-6" data-margins="0.75in 0.75in 0.75in 0.75in">
 <h1 class="heading hide-type">
-<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">5 Linear Transforms (ILA 3.1, 3.2, 3.3)</span><div class="print-links"><a href="?printpreview=activities-8" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</span><div class="print-links"><a href="?printpreview=activities-6" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
 </h1>
-<div class="para" id="activities-8-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<section class="onepage" id="activities-8-3"><span class="process-math">\({\large \textbf{5.1 One-to-One and Onto Linear Transforms}}\)</span>
-<div class="para" id="activities-8-3-2">Use the Teams chat to answer the following in one or two sentences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activities-6-2"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<section class="onepage" id="activities-6-3">
+<div class="para" id="activities-6-3-1">Welcome to Week 2! This week there are several assessments that are due.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="activities-8-3-3">1. What is a linear transform?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activities-6-3-2">
+<span class="process-math">\({\small{•}}\)</span> According to the syllabus, what assessments are due this week? When are they due?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-5"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-4"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-7"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-6"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-9"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-8"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-11"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-10"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-13"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-12"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-15"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<div class="para" id="activities-8-3-16">2. Suppose <span class="process-math">\(T(x) = Ax\)</span> for all <span class="process-math">\(x\)</span> where <span class="process-math">\(A\)</span> is a matrix and <span class="process-math">\(T\)</span> is onto.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activities-6-3-14"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-15">
+<span class="process-math">\({\small{•}}\)</span> If you need help while you are completing a homework set or written assignment, what can you do to ask a question?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<ol class="decimal" id="activities-8-3-17">
-<li id="activities-8-3-17-1">
-<div class="para" id="p-derived-activities-8-3-17-1">What can we say about the solutions to <span class="process-math">\(Ax = b\text{?}\)</span>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-17"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-19"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-21"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-23"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-25"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-27"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-3-28">
+<span class="process-math">\({\small{•}}\)</span> Where can you find all of the office hours that are available for this class?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#activities-8-3-17-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
-</li>
-<li id="activities-8-3-17-2">
-<div class="para" id="p-derived-activities-8-3-17-2">What can we say about the pivots of <span class="process-math">\(A\text{?}\)</span>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-30"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-32"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-34"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-36"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-36" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-38"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-38" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-3-40"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-3-40" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="onepage" id="activities-6-4"><span class="process-math">\({\large \textbf{3.1 Linear Combinations and Span}}\)</span>
+<div class="para" id="activities-6-4-2">Use the Teams chat to answer the following in one or two sentences.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activities-8-3-17-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
-</li>
-</ol>
-<span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-19"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-21"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-23"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-25"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-27"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-29"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
-<div class="para" id="activities-8-3-30">3. Suppose <span class="process-math">\(T(x) = Ax\)</span> for all <span class="process-math">\(x\)</span> where <span class="process-math">\(A\)</span> is a matrix and <span class="process-math">\(T\)</span> is one-to-one.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activities-6-4-3">1. What is a linear combination of vectors?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<ol class="decimal" id="activities-8-3-31">
-<li id="activities-8-3-31-1">
-<div class="para" id="p-derived-activities-8-3-31-1">What can we say about the solutions to <span class="process-math">\(Ax = b\text{?}\)</span>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-5"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-7"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-9"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-11"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-13"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-15"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-16">2. What does the span of a set of vectors represent?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 1"><a tabindex="-1" href="#activities-8-3-31-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
-</li>
-<li id="activities-8-3-31-2">
-<div class="para" id="p-derived-activities-8-3-31-2">What can we say about the pivots of <span class="process-math">\(A\text{?}\)</span>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-18"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-20"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-22"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-24"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-26"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-28"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-29">3. What does it mean for a vector to <span class="process-math">\({\textbf{not}}\)</span> be in the span of a set of vectors?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Item 2"><a tabindex="-1" href="#activities-8-3-31-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
-</li>
-</ol>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-33"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-31"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-35"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-33"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-37"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-37" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-35"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-39"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-37"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-37" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-41"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-39"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-39" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
 <span class="process-math">\(\)</span>
-<div class="para" id="activities-8-3-43"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-3-43" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="onepage" id="activities-8-4"><span class="process-math">\({\large \textbf{5.2 Worksheet Exercises}}\)</span>
-<article class="exercise exercise-like" id="activities-8-4-2"><h2 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
-<div class="introduction" id="activities-8-4-2-1">
-<div class="para" id="activities-8-4-2-1-1">Let <span class="process-math">\(A\)</span> be a <span class="process-math">\(3 \times 4\)</span> matrix. What must <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> be if we define the linear transformation <span class="process-math">\(T : \mathbb{R}^c \to \mathbb{R}^d\)</span> by <span class="process-math">\(T(\vec{x}) = A\vec{x}\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-4-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="activities-6-4-41"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-41" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<div class="para" id="activities-6-4-42">4. How do we determine whether a vector is in the span of a set of vectors?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-42" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-44"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-44" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-46"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-46" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-48"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-48" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-50"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-50" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-52"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-52" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div>
+<span class="process-math">\(\)</span>
+<div class="para" id="activities-6-4-54"><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-4-54" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div></div></section><section class="onepage" id="activities-6-5"><span class="process-math">\({\large \textbf{3.2 Worksheet Exercises}}\)</span>
+<article class="exercise exercise-like" id="activities-6-5-2"><h2 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
+<div class="introduction" id="activities-6-5-2-1">
+<div class="para" id="activities-6-5-2-1-1">Suppose <span class="process-math">\(A = \)</span>   <span class="process-math">\(\begin{pmatrix}
+2 \amp -1 \amp 3 \\
+4 \amp -2 \amp 6
+\end{pmatrix}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-5-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="activities-6-5-2-2"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para" id="activities-6-5-2-2-1-1">Sketch the span of the columns of the matrix. <span class="process-math">\({\textit{Remember to label your axes.}}\)</span><span class="process-math">\({\textit{Also,
+arrows should be used for coordinate axes and vectors, because they are}}\)</span><span class="process-math">\({\textit{quantities with
+direction. But do not sketch the span of a set of vectors using arrows.}}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-5-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1"><a tabindex="-1" href="#activities-8-4-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
-</article></section><section class="onepage" id="activities-8-5">
-<article class="exercise exercise-like" id="activities-8-5-1"><h2 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
-<div class="introduction" id="activities-8-5-1-1">
-<div class="para" id="activities-8-5-1-1-1">Let <span class="process-math">\(T : \mathbb{R}^2 \to \mathbb{R}^2\)</span> be a linear transformation such that<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-5-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.a"><a tabindex="-1" href="#activities-6-5-2-2" title="Copy heading and permalink for Task 1.a" aria-label="Copy heading and permalink for Task 1.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activities-6-5-2-3"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para" id="activities-6-5-2-3-1-1">On the same graph, sketch vectors <span class="process-math">\(u = \begin{pmatrix}
+1 \\
+2
+\end{pmatrix}\)</span> and <span class="process-math">\(v = \begin{pmatrix}
+3 \\
+1
+\end{pmatrix}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-5-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="displaymath process-math" id="activities-8-5-1-1-2">
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.b"><a tabindex="-1" href="#activities-6-5-2-3" title="Copy heading and permalink for Task 1.b" aria-label="Copy heading and permalink for Task 1.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activities-6-5-2-4"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<div class="para" id="activities-6-5-2-4-1-1">Using your graph, which of the following systems is consistent?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-5-2-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ul class="disc" id="activities-6-5-2-4-1-2">
+<li id="activities-6-5-2-4-1-2-1">
+<div class="para" id="p-derived-activities-6-5-2-4-1-2-1"><span class="process-math">\(\displaystyle Ax = u\)</span></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#activities-6-5-2-4-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="activities-6-5-2-4-1-2-2">
+<div class="para" id="p-derived-activities-6-5-2-4-1-2-2"><span class="process-math">\(\displaystyle Ax = v\)</span></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#activities-6-5-2-4-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 1.c"><a tabindex="-1" href="#activities-6-5-2-4" title="Copy heading and permalink for Task 1.c" aria-label="Copy heading and permalink for Task 1.c">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 1"><a tabindex="-1" href="#activities-6-5-2" title="Copy heading and permalink for Worksheet Exercise 1" aria-label="Copy heading and permalink for Worksheet Exercise 1">🔗</a></div>
+</article></section><section class="onepage" id="activities-6-6">
+<article class="exercise exercise-like" id="activities-6-6-1"><h2 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
+<div class="introduction" id="activities-6-6-1-1">
+<div class="para" id="activities-6-6-1-1-1">Suppose <span class="process-math">\(\vec{v}_1, \vec{v}_2\)</span> are non-zero vectors in <span class="process-math">\(\mathbb{R}^n\text{,}\)</span> and that <span class="process-math">\(\vec{v}_1, \vec{v}_2\)</span> span a plane.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="para" id="activities-6-6-1-2">Then Span<span class="process-math">\(\{\vec{v}_1, \vec{v}_2\}\)</span> is equal to which of the expressions below?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="activities-6-6-1-3">i) Span<span class="process-math">\(\{\vec{v}_1, \vec{v}_2, 3\vec{v}_1\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-6-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="activities-6-6-1-4">ii) Span<span class="process-math">\(\{\vec{v}_1, 3\vec{v}_1\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-6-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="activities-6-6-1-5">iii) Span<span class="process-math">\(\{\vec{v}_1, \vec{v}_2, 3\vec{v}_1 + 2\vec{v}_2\}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-6-1-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 2"><a tabindex="-1" href="#activities-6-6-1" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
+</article></section><section class="onepage" id="activities-6-7">
+<article class="exercise exercise-like" id="activities-6-7-1"><h2 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
+<div class="introduction" id="activities-6-7-1-1">
+<div class="para" id="activities-6-7-1-1-1">For what values of <span class="process-math">\(k\)</span> will the span of the vectors be a plane?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-7-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="displaymath process-math" id="activities-6-7-1-2">
 \begin{equation*}
-T {\begin{pmatrix}{\begin{bmatrix}x_1 \\ x_2 \end{bmatrix}} \end{pmatrix}} = x_1 {\begin{bmatrix} -1 \\ 3 \end{bmatrix}} + x_2 {\begin{bmatrix}4 \\ -1 \end{bmatrix}}
+v_1 = \begin{pmatrix}
+1 \\
+0 \\
+-k
+\end{pmatrix},  v_2 = \begin{pmatrix}
+0 \\
+1 \\
+6
+\end{pmatrix},  v_3 = \begin{pmatrix}
+k \\
+-1 \\
+5k
+\end{pmatrix}
 \end{equation*}
 </div>
+<div class="workspace" data-space="1in"></div>
+<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 3"><a tabindex="-1" href="#activities-6-7-1" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
+</article></section><section class="onepage" id="activities-6-8">
+<article class="exercise exercise-like" id="activities-6-8-1"><h2 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
+<div class="introduction" id="activities-6-8-1-1">
+<div class="para" id="activities-6-8-1-1-1">Indicate whether the statements are true or false.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="activities-8-5-1-2">Construct a matrix <span class="process-math">\(A\)</span> so that <span class="process-math">\(T(\vec{x}) = A\vec{x}\)</span> for all vectors <span class="process-math">\(\vec{x}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="task exercise-like" id="activities-6-8-1-2"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para" id="activities-6-8-1-2-1">If the equation <span class="process-math">\(A\vec{x}\ = \vec{b}\)</span> is inconsistent, then <span class="process-math">\(\vec{b}\)</span> is not in the set spanned by the columns of <span class="process-math">\(A\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 2"><a tabindex="-1" href="#activities-8-5-1" title="Copy heading and permalink for Worksheet Exercise 2" aria-label="Copy heading and permalink for Worksheet Exercise 2">🔗</a></div>
-</article></section><section class="onepage" id="activities-8-6">
-<article class="exercise exercise-like" id="activities-8-6-1"><h2 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
-<div class="introduction" id="activities-8-6-1-1">
-<div class="para" id="activities-8-6-1-1-1">Let <span class="process-math">\(T : \mathbb{R}^4 \to \mathbb{R}^3\)</span> be a linear transformation such that<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para logical" id="activities-8-6-1-1-2">
-<div class="displaymath process-math" id="activities-8-6-1-1-2-1">
-\begin{equation*}
-T {\begin{bmatrix}4 \\ 0 \\ 1 \\ 0 \end{bmatrix}} = T {\begin{bmatrix} 0 \\ 0 \\ 1 \\ 4 \end{bmatrix}} \neq \vec{0}\text{.}
-\end{equation*}
-</div>
-<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-6-1-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div>
-<div class="para" id="activities-8-6-1-2">Identify a non-trivial solution <span class="process-math">\(\vec{x}\)</span> to <span class="process-math">\(T\vec{x} = \vec{0}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 3"><a tabindex="-1" href="#activities-8-6-1" title="Copy heading and permalink for Worksheet Exercise 3" aria-label="Copy heading and permalink for Worksheet Exercise 3">🔗</a></div>
-</article></section><section class="onepage" id="activities-8-7">
-<article class="exercise exercise-like" id="activities-8-7-1"><h2 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
-<div class="introduction" id="activities-8-7-1-1">
-<div class="para" id="activities-8-7-1-1-1">Let <span class="process-math">\(T_A\)</span> be the linear transformation with the matrix below. Match each choice of <span class="process-math">\(A\)</span> on the the left with the geometric description of the action of <span class="process-math">\(T_A\)</span> on the right.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-7-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="displaymath process-math" id="activities-8-7-1-1-2">
-\begin{equation*}
-\begin{matrix}  
-{\begin{bmatrix} .5 \amp 0 \\ 0 \amp .5 \end{bmatrix}}  \hskip1in    \amp   \hskip1in     \textup{rotation by }90^{\circ} \\
-{\begin{bmatrix} 0 \amp 0 \\ 0 \amp 1 \end{bmatrix}}    \hskip1in    \amp   \hskip1in    \textup{A shear} \\
-{\begin{bmatrix} 0 \amp -1 \\ 1 \amp 0 \end{bmatrix}}    \hskip1in  \amp     \hskip1in    \textup{Projection onto }y\textup{ axis} \\
-{\begin{bmatrix} 1 \amp 1 \\ 0 \amp 1 \end{bmatrix}}  \hskip1in      \amp    \hskip1in    \textup{dilation by }1/2
-\end{matrix}
-\end{equation*}
-</div>
-</div>
-<div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 4"><a tabindex="-1" href="#activities-8-7-1" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
-</article></section><section class="onepage" id="activities-8-8">
-<article class="exercise exercise-like" id="activities-8-8-1"><h2 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
-<div class="introduction" id="activities-8-8-1-1">
-<div class="para" id="activities-8-8-1-1-1">Indicate whether the statements are true or false.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-8-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div>
-<article class="task exercise-like" id="activities-8-8-1-2"><h3 class="heading"><span class="codenumber">(a)</span></h3>
-<div class="para" id="activities-8-8-1-2-1">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(3 \times 2\)</span> matrix then the map <span class="process-math">\(x \mapsto Ax\)</span> cannot be one-to-one.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 5.a"><a tabindex="-1" href="#activities-8-8-1-2" title="Copy heading and permalink for Task 5.a" aria-label="Copy heading and permalink for Task 5.a">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.a"><a tabindex="-1" href="#activities-6-8-1-2" title="Copy heading and permalink for Task 4.a" aria-label="Copy heading and permalink for Task 4.a">🔗</a></div>
 </article>
-<article class="task exercise-like" id="activities-8-8-1-3"><h3 class="heading"><span class="codenumber">(b)</span></h3>
-<div class="para" id="activities-8-8-1-3-1">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(2 \times 3\)</span> matrix then the map <span class="process-math">\(x \mapsto Ax\)</span> cannot be onto.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-8-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="task exercise-like" id="activities-6-8-1-3"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para" id="activities-6-8-1-3-1">If the augmented matrix <span class="process-math">\(\begin{bmatrix}
+A \amp \vec{b}
+\end{bmatrix}\)</span> has a pivot position in every row, then the equation <span class="process-math">\(A\vec{x}\ = \vec{b}\)</span> must be consistent.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-8-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 5.b"><a tabindex="-1" href="#activities-8-8-1-3" title="Copy heading and permalink for Task 5.b" aria-label="Copy heading and permalink for Task 5.b">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.b"><a tabindex="-1" href="#activities-6-8-1-3" title="Copy heading and permalink for Task 4.b" aria-label="Copy heading and permalink for Task 4.b">🔗</a></div>
 </article>
-<article class="task exercise-like" id="activities-8-8-1-4"><h3 class="heading"><span class="codenumber">(c)</span></h3>
-<div class="para" id="activities-8-8-1-4-1">The linear transform <span class="process-math">\(T_A : \mathbb{R}^n \to \mathbb{R}^m\)</span> is one-to-one if and only if the only solution to <span class="process-math">\(A\vec{x} = \vec{0}\)</span> is the trivial solution.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-8-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<article class="task exercise-like" id="activities-6-8-1-4"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<div class="para" id="activities-6-8-1-4-1">There are exactly three vectors in Span<span class="process-math">\(\{\vec{a}_1, \vec{a}_2, \vec{a}_3\}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-6-8-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 5.c"><a tabindex="-1" href="#activities-8-8-1-4" title="Copy heading and permalink for Task 5.c" aria-label="Copy heading and permalink for Task 5.c">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 5"><a tabindex="-1" href="#activities-8-8-1" title="Copy heading and permalink for Worksheet Exercise 5" aria-label="Copy heading and permalink for Worksheet Exercise 5">🔗</a></div>
-</article></section><section class="onepage" id="activities-8-9">
-<article class="exercise exercise-like" id="activities-8-9-1"><h2 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h2>
-<div class="introduction" id="activities-8-9-1-1">
-<div class="para" id="activities-8-9-1-1-1">Construct the standard matrix of the linear transformation <span class="process-math">\(T\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-9-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-</div>
-<article class="task exercise-like" id="activities-8-9-1-2"><h3 class="heading"><span class="codenumber">(a)</span></h3>
-<div class="para" id="activities-8-9-1-2-1">
-<span class="process-math">\(T : \mathbb{R}^2 \to \mathbb{R}^4\text{,}\)</span> where <span class="process-math">\(T \begin{pmatrix}\begin{bmatrix}1 \\ 0\end{bmatrix}\end{pmatrix} = \begin{bmatrix} 3 \\ 1 \\ 4 \\ 1\end{bmatrix}\)</span> and <span class="process-math">\(T\begin{pmatrix}\begin{bmatrix}0 \\ 1 \end{bmatrix}\end{pmatrix} = \begin{bmatrix}1 \\ 6 \\ 1 \\ 8\end{bmatrix}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-9-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 6.a"><a tabindex="-1" href="#activities-8-9-1-2" title="Copy heading and permalink for Task 6.a" aria-label="Copy heading and permalink for Task 6.a">🔗</a></div>
-</article>
-<article class="task exercise-like" id="activities-8-9-1-3"><h3 class="heading"><span class="codenumber">(b)</span></h3>
-<div class="para" id="activities-8-9-1-3-1">
-<span class="process-math">\(T\)</span> is a vertical shear given by <span class="process-math">\(T(\vec{e}_2) = 2\vec{e}_2\)</span> and <span class="process-math">\(T(\vec{e}_1) = \vec{e}_1-2\vec{e}_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-9-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 6.b"><a tabindex="-1" href="#activities-8-9-1-3" title="Copy heading and permalink for Task 6.b" aria-label="Copy heading and permalink for Task 6.b">🔗</a></div>
-</article>
-<article class="task exercise-like" id="activities-8-9-1-4"><h3 class="heading"><span class="codenumber">(c)</span></h3>
-<div class="para" id="activities-8-9-1-4-1">A matrix <span class="process-math">\(A \in \mathbb{R}^{2 \times 2}\)</span> such that <span class="process-math">\(T (\vec{x}) = A\vec{x}\text{.}\)</span> <span class="process-math">\(T\)</span> is a linear transformation that first reflects vectors across the line <span class="process-math">\(x_1 = x_2\text{,}\)</span> then rotates them counterclockwise by <span class="process-math">\(\pi\)</span> radians about the origin, then reflects them across the line <span class="process-math">\(x_2 = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activities-8-9-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="workspace" data-space="1in"></div>
-<div class="autopermalink" aria-hidden="true" data-description="Task 6.c"><a tabindex="-1" href="#activities-8-9-1-4" title="Copy heading and permalink for Task 6.c" aria-label="Copy heading and permalink for Task 6.c">🔗</a></div>
-</article><div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 6"><a tabindex="-1" href="#activities-8-9-1" title="Copy heading and permalink for Worksheet Exercise 6" aria-label="Copy heading and permalink for Worksheet Exercise 6">🔗</a></div>
-</article></section><div class="autopermalink" aria-hidden="true" data-description="Worksheet: 5 Linear Transforms (ILA 3.1, 3.2, 3.3)"><a tabindex="-1" href="#activities-8" title="Copy heading and permalink for Worksheet: 5 Linear Transforms (ILA 3.1, 3.2, 3.3)" aria-label="Copy heading and permalink for Worksheet: 5 Linear Transforms (ILA 3.1, 3.2, 3.3)">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 4.c"><a tabindex="-1" href="#activities-6-8-1-4" title="Copy heading and permalink for Task 4.c" aria-label="Copy heading and permalink for Task 4.c">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Worksheet Exercise 4"><a tabindex="-1" href="#activities-6-8-1" title="Copy heading and permalink for Worksheet Exercise 4" aria-label="Copy heading and permalink for Worksheet Exercise 4">🔗</a></div>
+</article></section><div class="autopermalink" aria-hidden="true" data-description="Worksheet: 3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)"><a tabindex="-1" href="#activities-6" title="Copy heading and permalink for Worksheet: 3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)" aria-label="Copy heading and permalink for Worksheet: 3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
-<a class="previous-button button" href="worksheet-4.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="activities-9.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="activities-5.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="worksheet-4.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

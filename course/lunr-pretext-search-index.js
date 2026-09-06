@@ -348,44 +348,8 @@ var ptx_lunr_docs = [
   "url": "activities-3.html",
   "type": "Worksheet",
   "number": "",
-  "title": "1 Systems of Linear Equations (ILA 1.1, 1.2)",
-  "body": " 1 Systems of Linear Equations (ILA 1.1, 1.2)     This worksheet is a bit shorter than most other worksheets to give time to discuss course and studio organization. We will discuss:   A) What are studios? How are they different from lectures?   B) How do TAs support your class?   C) Studio recordings and worksheet solutions.   D) How students can ask questions during studio.   E) Office hours (please attend them!).   F) General advice on how to succeed in linear algebra (and college!).      A is a set of linear equations. An example of a linear system with two equations is    We might want to know:   what values of the unknowns satisfy all equations in the system, if any?  what procedure do we want to use to identify those values?        Use the Teams chat to answer the following in one or two sentences. It is best if we go through these questions one at a time.     What does it mean for a linear system to be consistent?       How can we determine whether a linear system is consistent?       What are the three row operations that we can use to reduce a matrix?       What does it mean for a system to have a unique solution?       What does it mean for two matrices to be row equivalent?          Indicate whether the statements are true or false.     If a linear system has more equations than unknowns, then the system cannot have a unique solution.      If a linear system has more unknowns than equations, then the system could have an infinite number of solutions, or the system could have no solutions.     Before moving on - what strategies does your TA(s) recommend that students can use to approach true\/false questions?      For what values of A and B, if any, does the system have (a) an infinite number of solutions? (b) no solutions? (c) exactly one solution?      For the case where there are an infinite number of solutions, sketch the set of solutions. Note that sketches need to have labeled axes. The set of solutions should be a line that does not have arrows.       Consider the line .     Sketch any two points on the line. In this class we will always put x1 on the horizontal axis.      Sketch the line.      Construct a linear system of equations so that the line is the solution set. Use at least two equations. How many equations could you have in your system?      If the point is any point in the solution set, is the point also in the solution set for any real number k?      "
-},
-{
-  "id": "activities-3-5-2",
-  "level": "2",
-  "url": "activities-3.html#activities-3-5-2",
-  "type": "Worksheet Exercise",
-  "number": "1",
-  "title": "",
-  "body": "  Use the Teams chat to answer the following in one or two sentences. It is best if we go through these questions one at a time.     What does it mean for a linear system to be consistent?       How can we determine whether a linear system is consistent?       What are the three row operations that we can use to reduce a matrix?       What does it mean for a system to have a unique solution?       What does it mean for two matrices to be row equivalent?     "
-},
-{
-  "id": "activities-3-6-1",
-  "level": "2",
-  "url": "activities-3.html#activities-3-6-1",
-  "type": "Worksheet Exercise",
-  "number": "2",
-  "title": "",
-  "body": "  Indicate whether the statements are true or false.     If a linear system has more equations than unknowns, then the system cannot have a unique solution.      If a linear system has more unknowns than equations, then the system could have an infinite number of solutions, or the system could have no solutions.    "
-},
-{
-  "id": "activities-3-7-1",
-  "level": "2",
-  "url": "activities-3.html#activities-3-7-1",
-  "type": "Worksheet Exercise",
-  "number": "3",
-  "title": "",
-  "body": "  For what values of A and B, if any, does the system have (a) an infinite number of solutions? (b) no solutions? (c) exactly one solution?     "
-},
-{
-  "id": "activities-3-8-1",
-  "level": "2",
-  "url": "activities-3.html#activities-3-8-1",
-  "type": "Worksheet Exercise",
-  "number": "4",
-  "title": "",
-  "body": "  Consider the line .     Sketch any two points on the line. In this class we will always put x1 on the horizontal axis.      Sketch the line.      Construct a linear system of equations so that the line is the solution set. Use at least two equations. How many equations could you have in your system?      If the point is any point in the solution set, is the point also in the solution set for any real number k?    "
+  "title": "0 About This Document",
+  "body": " 0 About This Document  This document was created using PreTeXt on GitHub Codespaces and GitHub Pages, and was last compiled by Greg Mayer on .      These Studio Worksheets are meant to be used by the Distance Math Program offer of Linear Algebra MATH 1554.    The pacing of the topics roughly follow the schedule of the Distance Math offer of this course.    References to the Interactive Linear Algebra (ILA) textbook and the course Lecture Notes (LN) are found in the worksheet titles.    There are no solutions for these worksheets, but the instructional team will be going through these worksheets throughout the semester. Students are encouraged to work through these worksheets themselves, and are welcome to ask questions about any of the questions during office hours or in the course forums.      This work is under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.    This work was created and reviewed by Mihir Malladi, Navina Weliwita, and Greg Mayer. Last updated .  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  "
 },
 {
   "id": "activities-4",
@@ -393,35 +357,44 @@ var ptx_lunr_docs = [
   "url": "activities-4.html",
   "type": "Worksheet",
   "number": "",
-  "title": "2 Row Reduction and Echelon Forms (ILA1.2)",
-  "body": " 2 Row Reduction and Echelon Forms (ILA1.2)         Use the Team chat to answer the following in one or two sentences.    What is the echelon form of a matrix?     What is the row reduced echelon form (RREF) of a matrix?          1. In the table below indicate which matrices are in echelon form, and indicate whether the matrices are in RREF.                       Suppose matrix A is .    Using the Teams chat, give an example of a matrix in RREF. Use * for entries that can be arbitrary.    How many different matrices can you make that are and in RREF?       1. Use the teams chat to answer the following in one or two sentences.      (a) What is a free variable?       (b) What is a pivot?       (c) How can we use row reduction to determine whether an augmented matrix corresponds to a consistent system?       1. Indicate whether the statements are true or false.      a) A linear system whose coefficient matrix has three pivotal columns. must be consistent.       b) The echelon form of a coefficient matrix is unique.       c) If a consistent linear system can be represented as an augmented matrix , then the solution is a vector in .     2. For any three distinct points in the plane, no two on a vertical line, there is a second degree polynomial that passes through those three points. Construct the polynomial that passes through , , and . That is, solve      "
+  "title": "1 Systems of Linear Equations (ILA 1.1, 1.2)",
+  "body": " 1 Systems of Linear Equations (ILA 1.1, 1.2)     This worksheet is a bit shorter than most other worksheets to give time to discuss course and studio organization. We will discuss:   A) What are studios? How are they different from lectures?   B) How do TAs support your class?   C) Studio recordings and worksheet solutions.   D) How students can ask questions during studio.   E) Office hours (please attend them!).   F) General advice on how to succeed in linear algebra (and college!).      A is a set of linear equations. An example of a linear system with two equations is    We might want to know:   what values of the unknowns satisfy all equations in the system, if any?  what procedure do we want to use to identify those values?        Use the Teams chat to answer the following in one or two sentences. It is best if we go through these questions one at a time.     What does it mean for a linear system to be consistent?       How can we determine whether a linear system is consistent?       What are the three row operations that we can use to reduce a matrix?       What does it mean for a system to have a unique solution?       What does it mean for two matrices to be row equivalent?          Indicate whether the statements are true or false.     If a linear system has more equations than unknowns, then the system cannot have a unique solution.      If a linear system has more unknowns than equations, then the system could have an infinite number of solutions, or the system could have no solutions.     Before moving on - what strategies does your TA(s) recommend that students can use to approach true\/false questions?      For what values of A and B, if any, does the system have (a) an infinite number of solutions? (b) no solutions? (c) exactly one solution?      For the case where there are an infinite number of solutions, sketch the set of solutions. Note that sketches need to have labeled axes. The set of solutions should be a line that does not have arrows.       Consider the line .     Sketch any two points on the line. In this class we will always put x1 on the horizontal axis.      Sketch the line.      Construct a linear system of equations so that the line is the solution set. Use at least two equations. How many equations could you have in your system?      If the point is any point in the solution set, is the point also in the solution set for any real number k?      "
 },
 {
-  "id": "activities-4-3-4",
+  "id": "activities-4-5-2",
   "level": "2",
-  "url": "activities-4.html#activities-4-3-4",
+  "url": "activities-4.html#activities-4-5-2",
   "type": "Worksheet Exercise",
   "number": "1",
   "title": "",
-  "body": "  Use the Team chat to answer the following in one or two sentences.    What is the echelon form of a matrix?     What is the row reduced echelon form (RREF) of a matrix?   "
+  "body": "  Use the Teams chat to answer the following in one or two sentences. It is best if we go through these questions one at a time.     What does it mean for a linear system to be consistent?       How can we determine whether a linear system is consistent?       What are the three row operations that we can use to reduce a matrix?       What does it mean for a system to have a unique solution?       What does it mean for two matrices to be row equivalent?     "
 },
 {
-  "id": "activities-4-4-3",
+  "id": "activities-4-6-1",
   "level": "2",
-  "url": "activities-4.html#activities-4-4-3",
+  "url": "activities-4.html#activities-4-6-1",
   "type": "Worksheet Exercise",
   "number": "2",
   "title": "",
-  "body": "  1. In the table below indicate which matrices are in echelon form, and indicate whether the matrices are in RREF.                  "
+  "body": "  Indicate whether the statements are true or false.     If a linear system has more equations than unknowns, then the system cannot have a unique solution.      If a linear system has more unknowns than equations, then the system could have an infinite number of solutions, or the system could have no solutions.    "
 },
 {
-  "id": "activities-4-5-1",
+  "id": "activities-4-7-1",
   "level": "2",
-  "url": "activities-4.html#activities-4-5-1",
+  "url": "activities-4.html#activities-4-7-1",
   "type": "Worksheet Exercise",
   "number": "3",
   "title": "",
-  "body": "  Suppose matrix A is .    Using the Teams chat, give an example of a matrix in RREF. Use * for entries that can be arbitrary.    How many different matrices can you make that are and in RREF?   "
+  "body": "  For what values of A and B, if any, does the system have (a) an infinite number of solutions? (b) no solutions? (c) exactly one solution?     "
+},
+{
+  "id": "activities-4-8-1",
+  "level": "2",
+  "url": "activities-4.html#activities-4-8-1",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": "  Consider the line .     Sketch any two points on the line. In this class we will always put x1 on the horizontal axis.      Sketch the line.      Construct a linear system of equations so that the line is the solution set. Use at least two equations. How many equations could you have in your system?      If the point is any point in the solution set, is the point also in the solution set for any real number k?    "
 },
 {
   "id": "activities-5",
@@ -429,40 +402,76 @@ var ptx_lunr_docs = [
   "url": "activities-5.html",
   "type": "Worksheet",
   "number": "",
+  "title": "2 Row Reduction and Echelon Forms (ILA1.2)",
+  "body": " 2 Row Reduction and Echelon Forms (ILA1.2)         Use the Team chat to answer the following in one or two sentences.    What is the echelon form of a matrix?     What is the row reduced echelon form (RREF) of a matrix?          1. In the table below indicate which matrices are in echelon form, and indicate whether the matrices are in RREF.                       Suppose matrix A is .    Using the Teams chat, give an example of a matrix in RREF. Use * for entries that can be arbitrary.    How many different matrices can you make that are and in RREF?       1. Use the teams chat to answer the following in one or two sentences.      (a) What is a free variable?       (b) What is a pivot?       (c) How can we use row reduction to determine whether an augmented matrix corresponds to a consistent system?       1. Indicate whether the statements are true or false.      a) A linear system whose coefficient matrix has three pivotal columns. must be consistent.       b) The echelon form of a coefficient matrix is unique.       c) If a consistent linear system can be represented as an augmented matrix , then the solution is a vector in .     2. For any three distinct points in the plane, no two on a vertical line, there is a second degree polynomial that passes through those three points. Construct the polynomial that passes through , , and . That is, solve      "
+},
+{
+  "id": "activities-5-3-4",
+  "level": "2",
+  "url": "activities-5.html#activities-5-3-4",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Use the Team chat to answer the following in one or two sentences.    What is the echelon form of a matrix?     What is the row reduced echelon form (RREF) of a matrix?   "
+},
+{
+  "id": "activities-5-4-3",
+  "level": "2",
+  "url": "activities-5.html#activities-5-4-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  1. In the table below indicate which matrices are in echelon form, and indicate whether the matrices are in RREF.                  "
+},
+{
+  "id": "activities-5-5-1",
+  "level": "2",
+  "url": "activities-5.html#activities-5-5-1",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": "  Suppose matrix A is .    Using the Teams chat, give an example of a matrix in RREF. Use * for entries that can be arbitrary.    How many different matrices can you make that are and in RREF?   "
+},
+{
+  "id": "activities-6",
+  "level": "1",
+  "url": "activities-6.html",
+  "type": "Worksheet",
+  "number": "",
   "title": "3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)",
   "body": " 3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)    Welcome to Week 2! This week there are several assessments that are due.  According to the syllabus, what assessments are due this week? When are they due?   If you need help while you are completing a homework set or written assignment, what can you do to ask a question?   Where can you find all of the office hours that are available for this class?      Use the Teams chat to answer the following in one or two sentences.  1. What is a linear combination of vectors?   2. What does the span of a set of vectors represent?   3. What does it mean for a vector to be in the span of a set of vectors?   4. How do we determine whether a vector is in the span of a set of vectors?        Suppose  .     Sketch the span of the columns of the matrix.       On the same graph, sketch vectors and .      Using your graph, which of the following systems is consistent?             Suppose are non-zero vectors in , and that span a plane.   Then Span is equal to which of the expressions below?  i) Span  ii) Span  iii) Span       For what values of will the span of the vectors be a plane?         Indicate whether the statements are true or false.    If the equation is inconsistent, then is not in the set spanned by the columns of .    If the augmented matrix has a pivot position in every row, then the equation must be consistent.    There are exactly three vectors in Span .     "
 },
 {
-  "id": "activities-5-5-2",
+  "id": "activities-6-5-2",
   "level": "2",
-  "url": "activities-5.html#activities-5-5-2",
+  "url": "activities-6.html#activities-6-5-2",
   "type": "Worksheet Exercise",
   "number": "1",
   "title": "",
   "body": "  Suppose  .     Sketch the span of the columns of the matrix.       On the same graph, sketch vectors and .      Using your graph, which of the following systems is consistent?        "
 },
 {
-  "id": "activities-5-6-1",
+  "id": "activities-6-6-1",
   "level": "2",
-  "url": "activities-5.html#activities-5-6-1",
+  "url": "activities-6.html#activities-6-6-1",
   "type": "Worksheet Exercise",
   "number": "2",
   "title": "",
   "body": "  Suppose are non-zero vectors in , and that span a plane.   Then Span is equal to which of the expressions below?  i) Span  ii) Span  iii) Span  "
 },
 {
-  "id": "activities-5-7-1",
+  "id": "activities-6-7-1",
   "level": "2",
-  "url": "activities-5.html#activities-5-7-1",
+  "url": "activities-6.html#activities-6-7-1",
   "type": "Worksheet Exercise",
   "number": "3",
   "title": "",
   "body": "  For what values of will the span of the vectors be a plane?    "
 },
 {
-  "id": "activities-5-8-1",
+  "id": "activities-6-8-1",
   "level": "2",
-  "url": "activities-5.html#activities-5-8-1",
+  "url": "activities-6.html#activities-6-8-1",
   "type": "Worksheet Exercise",
   "number": "4",
   "title": "",
@@ -505,103 +514,67 @@ var ptx_lunr_docs = [
   "body": "  Suppose is consistent and is a solution. Then the solution set of is the set of all vectors of the form . What is ?   "
 },
 {
-  "id": "activities-7",
+  "id": "activities-8",
   "level": "1",
-  "url": "activities-7.html",
+  "url": "activities-8.html",
   "type": "Worksheet",
   "number": "",
   "title": "5 Linear Transforms (ILA 3.1, 3.2, 3.3)",
   "body": " 5 Linear Transforms (ILA 3.1, 3.2, 3.3)     Use the Teams chat to answer the following in one or two sentences.  1. What is a linear transform?   2. Suppose for all where is a matrix and is onto.   What can we say about the solutions to ?  What can we say about the pivots of ?    3. Suppose for all where is a matrix and is one-to-one.   What can we say about the solutions to ?  What can we say about the pivots of ?         Let be a matrix. What must and be if we define the linear transformation by ?        Let be a linear transformation such that    Construct a matrix so that for all vectors .       Let be a linear transformation such that  .   Identify a non-trivial solution to .       Let be the linear transformation with the matrix below. Match each choice of on the the left with the geometric description of the action of on the right.         Indicate whether the statements are true or false.    If is a matrix then the map cannot be one-to-one.    If is a matrix then the map cannot be onto.    The linear transform is one-to-one if and only if the only solution to is the trivial solution.        Construct the standard matrix of the linear transformation .    , where and     is a vertical shear given by and .    A matrix such that . is a linear transformation that first reflects vectors across the line , then rotates them counterclockwise by radians about the origin, then reflects them across the line .     "
 },
 {
-  "id": "activities-7-4-2",
+  "id": "activities-8-4-2",
   "level": "2",
-  "url": "activities-7.html#activities-7-4-2",
+  "url": "activities-8.html#activities-8-4-2",
   "type": "Worksheet Exercise",
   "number": "1",
   "title": "",
   "body": "  Let be a matrix. What must and be if we define the linear transformation by ?   "
 },
 {
-  "id": "activities-7-5-1",
+  "id": "activities-8-5-1",
   "level": "2",
-  "url": "activities-7.html#activities-7-5-1",
+  "url": "activities-8.html#activities-8-5-1",
   "type": "Worksheet Exercise",
   "number": "2",
   "title": "",
   "body": "  Let be a linear transformation such that    Construct a matrix so that for all vectors .  "
 },
 {
-  "id": "activities-7-6-1",
+  "id": "activities-8-6-1",
   "level": "2",
-  "url": "activities-7.html#activities-7-6-1",
+  "url": "activities-8.html#activities-8-6-1",
   "type": "Worksheet Exercise",
   "number": "3",
   "title": "",
   "body": "  Let be a linear transformation such that  .   Identify a non-trivial solution to .  "
 },
 {
-  "id": "activities-7-7-1",
+  "id": "activities-8-7-1",
   "level": "2",
-  "url": "activities-7.html#activities-7-7-1",
+  "url": "activities-8.html#activities-8-7-1",
   "type": "Worksheet Exercise",
   "number": "4",
   "title": "",
   "body": "  Let be the linear transformation with the matrix below. Match each choice of on the the left with the geometric description of the action of on the right.    "
 },
 {
-  "id": "activities-7-8-1",
+  "id": "activities-8-8-1",
   "level": "2",
-  "url": "activities-7.html#activities-7-8-1",
+  "url": "activities-8.html#activities-8-8-1",
   "type": "Worksheet Exercise",
   "number": "5",
   "title": "",
   "body": "  Indicate whether the statements are true or false.    If is a matrix then the map cannot be one-to-one.    If is a matrix then the map cannot be onto.    The linear transform is one-to-one if and only if the only solution to is the trivial solution.   "
 },
 {
-  "id": "activities-7-9-1",
-  "level": "2",
-  "url": "activities-7.html#activities-7-9-1",
-  "type": "Worksheet Exercise",
-  "number": "6",
-  "title": "",
-  "body": "  Construct the standard matrix of the linear transformation .    , where and     is a vertical shear given by and .    A matrix such that . is a linear transformation that first reflects vectors across the line , then rotates them counterclockwise by radians about the origin, then reflects them across the line .   "
-},
-{
-  "id": "activities-8",
-  "level": "1",
-  "url": "activities-8.html",
-  "type": "Worksheet",
-  "number": "",
-  "title": "6 Matrix Algebra (ILA 3.4)",
-  "body": " 6 Matrix Algebra (ILA 3.4)      Consider the following matrix equation:   Assume are all . When does this equation hold? Always, sometimes, never?        Suppose and are matrices.   the entry of in row and column is  the entry of in row and column is   Then:   The entries of are .  If , then the entries of are .    Suppose   What are the values of and ?      be matrices of dimensions needed for matrix multiplication to be defined, and is .           in general  does not mean  does not mean that either or .    If   of (if any) satisfy ?        is the matrix whose columns are the rows of A    : if , then        , matrix multiplied by itself times  : if , then what is equal to as ?       True or false: if and are matrices, then .   If an example exists, give a example where this is true.  If an example exists, give a example where this is false.       Apply matrix algebra to expand the matrix product and use the given assumption to simplify. Assume the matrices are .       Indicate whether the following statement is true or false.   For any square matrix , the matrix satisfies .     "
-},
-{
-  "id": "activities-8-7-2",
-  "level": "2",
-  "url": "activities-8.html#activities-8-7-2",
-  "type": "Worksheet Exercise",
-  "number": "1",
-  "title": "",
-  "body": " True or false: if and are matrices, then .   If an example exists, give a example where this is true.  If an example exists, give a example where this is false.   "
-},
-{
-  "id": "activities-8-8-1",
-  "level": "2",
-  "url": "activities-8.html#activities-8-8-1",
-  "type": "Worksheet Exercise",
-  "number": "2",
-  "title": "",
-  "body": " Apply matrix algebra to expand the matrix product and use the given assumption to simplify. Assume the matrices are .   "
-},
-{
   "id": "activities-8-9-1",
   "level": "2",
   "url": "activities-8.html#activities-8-9-1",
   "type": "Worksheet Exercise",
-  "number": "3",
+  "number": "6",
   "title": "",
-  "body": " Indicate whether the following statement is true or false.   For any square matrix , the matrix satisfies .   "
+  "body": "  Construct the standard matrix of the linear transformation .    , where and     is a vertical shear given by and .    A matrix such that . is a linear transformation that first reflects vectors across the line , then rotates them counterclockwise by radians about the origin, then reflects them across the line .   "
 },
 {
   "id": "activities-9",
@@ -609,8 +582,35 @@ var ptx_lunr_docs = [
   "url": "activities-9.html",
   "type": "Worksheet",
   "number": "",
-  "title": "7 Invertible Matrices (ILA 3.5, 3.6)",
-  "body": " 7 Invertible Matrices (ILA 3.5, 3.6)      True or False: if is an invertible matrix, then is consistent for all b in .    :  The matrix is if there is an matrix so that  .  If there is, we write .   Note that   A matrix that is not invertible is .  There is a formula for computing the inverse of a matrix.     :  The matrix is non-singular if and only if , and    :  Let .   For what values of is singular?  Use the inverse to solve the system of equations       :  Determine whether the following statements are true or false.  1. If is square and invertible then every row of contains a pivot.   2. If is square and invertible then the columns of are independent.   3. If is square and invertible then is one-to-one and onto.     :  :  If be an matrix then these statements are equivalent.   is invertible.  is row equivalent to .  has pivotal columns (all columns are pivotal).  has only the trivial solution.  The columns of are linearly independent.  The equation has a solution for all .  The columns of span .  There is a matrix so that  There is a matrix so that  is invertible.    By equivalent statements we mean that:    if one statement is true, all statements are true    if one statement is false, all statements are false      :  :  Represent row operations using matrix multiplication because it allows us to under- stand how algorithms that reduce matrices work.   Recall that we have elementary row operations:    swap rows    multiply a row by a non-zero scalar    add a multiple of one row to another    We can represent each operation by a matrix multiplication with an .  :  An elementary matrix, , is a square matrix that differs by by one row operation.  :  Consider the sequence of row operations that reduce matrix to the identity:     Construct the elementary matrices , , and that apply the row operations above.    Use the elementary matrices to construct .     "
+  "title": "6 Matrix Algebra (ILA 3.4)",
+  "body": " 6 Matrix Algebra (ILA 3.4)      Consider the following matrix equation:   Assume are all . When does this equation hold? Always, sometimes, never?        Suppose and are matrices.   the entry of in row and column is  the entry of in row and column is   Then:   The entries of are .  If , then the entries of are .    Suppose   What are the values of and ?      be matrices of dimensions needed for matrix multiplication to be defined, and is .           in general  does not mean  does not mean that either or .    If   of (if any) satisfy ?        is the matrix whose columns are the rows of A    : if , then        , matrix multiplied by itself times  : if , then what is equal to as ?       True or false: if and are matrices, then .   If an example exists, give a example where this is true.  If an example exists, give a example where this is false.       Apply matrix algebra to expand the matrix product and use the given assumption to simplify. Assume the matrices are .       Indicate whether the following statement is true or false.   For any square matrix , the matrix satisfies .     "
+},
+{
+  "id": "activities-9-7-2",
+  "level": "2",
+  "url": "activities-9.html#activities-9-7-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " True or false: if and are matrices, then .   If an example exists, give a example where this is true.  If an example exists, give a example where this is false.   "
+},
+{
+  "id": "activities-9-8-1",
+  "level": "2",
+  "url": "activities-9.html#activities-9-8-1",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Apply matrix algebra to expand the matrix product and use the given assumption to simplify. Assume the matrices are .   "
+},
+{
+  "id": "activities-9-9-1",
+  "level": "2",
+  "url": "activities-9.html#activities-9-9-1",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Indicate whether the following statement is true or false.   For any square matrix , the matrix satisfies .   "
 },
 {
   "id": "activities-10",
@@ -618,53 +618,8 @@ var ptx_lunr_docs = [
   "url": "activities-10.html",
   "type": "Worksheet",
   "number": "",
-  "title": "8 Exam 1 Review",
-  "body": " 8 Exam 1 Review     Suppose is a linearly dependent set of vectors in . Indicate whether the following statements are true or false.    is a linearly dependent set.     is a linearly dependent set.         How many different matrices can you make that meet all of the given criteria?    Matrix is non-zero, , in RREF, has only 1 pivot column, and every entry of is either 1 or 0.     Matrix is , in RREF, and is a solution to .         The linear transform , where , is onto.    The domain of is .    The co-domain of is .    The range of is .    has exactly pivots.        Suppose and .  In the grids below, sketch:   the span of the columns of  any non-zero vector that is a solution to  the solution set to   You do not need to show your work.   (a)           (b)           (c)                If is and is a linear transform that:   first rotates points in clockwise about the origin by radians,  then reflects them through the line ,  then projects them onto the line   What is equal to?    "
-},
-{
-  "id": "activities-10-2-2",
-  "level": "2",
-  "url": "activities-10.html#activities-10-2-2",
-  "type": "Worksheet Exercise",
-  "number": "1",
-  "title": "",
-  "body": " Suppose is a linearly dependent set of vectors in . Indicate whether the following statements are true or false.    is a linearly dependent set.     is a linearly dependent set.     "
-},
-{
-  "id": "activities-10-3-1",
-  "level": "2",
-  "url": "activities-10.html#activities-10-3-1",
-  "type": "Worksheet Exercise",
-  "number": "2",
-  "title": "",
-  "body": " How many different matrices can you make that meet all of the given criteria?    Matrix is non-zero, , in RREF, has only 1 pivot column, and every entry of is either 1 or 0.     Matrix is , in RREF, and is a solution to .     "
-},
-{
-  "id": "activities-10-4-1",
-  "level": "2",
-  "url": "activities-10.html#activities-10-4-1",
-  "type": "Worksheet Exercise",
-  "number": "3",
-  "title": "",
-  "body": " The linear transform , where , is onto.    The domain of is .    The co-domain of is .    The range of is .    has exactly pivots.    "
-},
-{
-  "id": "activities-10-5-1",
-  "level": "2",
-  "url": "activities-10.html#activities-10-5-1",
-  "type": "Worksheet Exercise",
-  "number": "4",
-  "title": "",
-  "body": " Suppose and .  In the grids below, sketch:   the span of the columns of  any non-zero vector that is a solution to  the solution set to   You do not need to show your work.   (a)           (b)           (c)            "
-},
-{
-  "id": "activities-10-6-1",
-  "level": "2",
-  "url": "activities-10.html#activities-10-6-1",
-  "type": "Worksheet Exercise",
-  "number": "5",
-  "title": "",
-  "body": " If is and is a linear transform that:   first rotates points in clockwise about the origin by radians,  then reflects them through the line ,  then projects them onto the line   What is equal to?  "
+  "title": "7 Invertible Matrices (ILA 3.5, 3.6)",
+  "body": " 7 Invertible Matrices (ILA 3.5, 3.6)      True or False: if is an invertible matrix, then is consistent for all b in .    :  The matrix is if there is an matrix so that  .  If there is, we write .   Note that   A matrix that is not invertible is .  There is a formula for computing the inverse of a matrix.     :  The matrix is non-singular if and only if , and    :  Let .   For what values of is singular?  Use the inverse to solve the system of equations       :  Determine whether the following statements are true or false.  1. If is square and invertible then every row of contains a pivot.   2. If is square and invertible then the columns of are independent.   3. If is square and invertible then is one-to-one and onto.     :  :  If be an matrix then these statements are equivalent.   is invertible.  is row equivalent to .  has pivotal columns (all columns are pivotal).  has only the trivial solution.  The columns of are linearly independent.  The equation has a solution for all .  The columns of span .  There is a matrix so that  There is a matrix so that  is invertible.    By equivalent statements we mean that:    if one statement is true, all statements are true    if one statement is false, all statements are false      :  :  Represent row operations using matrix multiplication because it allows us to under- stand how algorithms that reduce matrices work.   Recall that we have elementary row operations:    swap rows    multiply a row by a non-zero scalar    add a multiple of one row to another    We can represent each operation by a matrix multiplication with an .  :  An elementary matrix, , is a square matrix that differs by by one row operation.  :  Consider the sequence of row operations that reduce matrix to the identity:     Construct the elementary matrices , , and that apply the row operations above.    Use the elementary matrices to construct .     "
 },
 {
   "id": "activities-11",
@@ -672,8 +627,53 @@ var ptx_lunr_docs = [
   "url": "activities-11.html",
   "type": "Worksheet",
   "number": "",
-  "title": "9 Applications (LN 1.1, 1.2, 1.3)",
-  "body": " 9 Applications (LN 1.1, 1.2, 1.3)    :  True or false: if a matrix is upper triangular then the matrix is in echelon form.    1. Recall the The LU Factorization of a matrix.  :  If is an matrix that can be row reduced to echelon form without row exchanges, then . is a lower triangular matrix with 's on the diagonal, is an form of .   To compute the LU:   Reduce to , if possible.  Place entries in so that the same sequence of row operations reduces L to I.   Construct the factorization of and use it to solve .      1. Below is a model for the interdependence of a 3-sector economy.       X  Y  Z  0.2  0.2  0.2  0.1  0.1  0.1       For each unit of output,    X requires .2 units from X, .1 units from Y, and .1 units from Z    Y requires 0 units from X, .2 units from Y, and .1 units from Z    Z requires 0 units from X, 0 units from Y, and .2 units from Z    Construct the consumption matrix for this economy. What production level is required to satisfy a final demand of 80 units of X, 150 units of Y, and 30 units of Z?     1. and are invertible matrices, is the identity matrix, and is the zero matrix. Construct an expression for in terms of and .    "
+  "title": "8 Exam 1 Review",
+  "body": " 8 Exam 1 Review     Suppose is a linearly dependent set of vectors in . Indicate whether the following statements are true or false.    is a linearly dependent set.     is a linearly dependent set.         How many different matrices can you make that meet all of the given criteria?    Matrix is non-zero, , in RREF, has only 1 pivot column, and every entry of is either 1 or 0.     Matrix is , in RREF, and is a solution to .         The linear transform , where , is onto.    The domain of is .    The co-domain of is .    The range of is .    has exactly pivots.        Suppose and .  In the grids below, sketch:   the span of the columns of  any non-zero vector that is a solution to  the solution set to   You do not need to show your work.   (a)           (b)           (c)                If is and is a linear transform that:   first rotates points in clockwise about the origin by radians,  then reflects them through the line ,  then projects them onto the line   What is equal to?    "
+},
+{
+  "id": "activities-11-2-2",
+  "level": "2",
+  "url": "activities-11.html#activities-11-2-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Suppose is a linearly dependent set of vectors in . Indicate whether the following statements are true or false.    is a linearly dependent set.     is a linearly dependent set.     "
+},
+{
+  "id": "activities-11-3-1",
+  "level": "2",
+  "url": "activities-11.html#activities-11-3-1",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " How many different matrices can you make that meet all of the given criteria?    Matrix is non-zero, , in RREF, has only 1 pivot column, and every entry of is either 1 or 0.     Matrix is , in RREF, and is a solution to .     "
+},
+{
+  "id": "activities-11-4-1",
+  "level": "2",
+  "url": "activities-11.html#activities-11-4-1",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " The linear transform , where , is onto.    The domain of is .    The co-domain of is .    The range of is .    has exactly pivots.    "
+},
+{
+  "id": "activities-11-5-1",
+  "level": "2",
+  "url": "activities-11.html#activities-11-5-1",
+  "type": "Worksheet Exercise",
+  "number": "4",
+  "title": "",
+  "body": " Suppose and .  In the grids below, sketch:   the span of the columns of  any non-zero vector that is a solution to  the solution set to   You do not need to show your work.   (a)           (b)           (c)            "
+},
+{
+  "id": "activities-11-6-1",
+  "level": "2",
+  "url": "activities-11.html#activities-11-6-1",
+  "type": "Worksheet Exercise",
+  "number": "5",
+  "title": "",
+  "body": " If is and is a linear transform that:   first rotates points in clockwise about the origin by radians,  then reflects them through the line ,  then projects them onto the line   What is equal to?  "
 },
 {
   "id": "activities-12",
@@ -681,8 +681,8 @@ var ptx_lunr_docs = [
   "url": "activities-12.html",
   "type": "Worksheet",
   "number": "",
-  "title": "0 About This Document",
-  "body": " 0 About This Document  This document was created using PreTeXt on GitHub Codespaces and GitHub Pages, and was last compiled by Greg Mayer on .      These Studio Worksheets are meant to be used by the Distance Math Program offer of Linear Algebra MATH 1554.    The pacing of the topics roughly follow the schedule of the Distance Math offer of this course.    References to the Interactive Linear Algebra (ILA) textbook and the course Lecture Notes (LN) are found in the worksheet titles.    There are no solutions for these worksheets, but the instructional team will be going through these worksheets throughout the semester. Students are encouraged to work through these worksheets themselves, and are welcome to ask questions about any of the questions during office hours or in the course forums.      This work is under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.    This work was created and reviewed by Mihir Malladi, Navina Weliwita, and Greg Mayer. Last updated .  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  "
+  "title": "9 Applications (LN 1.1, 1.2, 1.3)",
+  "body": " 9 Applications (LN 1.1, 1.2, 1.3)    :  True or false: if a matrix is upper triangular then the matrix is in echelon form.    1. Recall the The LU Factorization of a matrix.  :  If is an matrix that can be row reduced to echelon form without row exchanges, then . is a lower triangular matrix with 's on the diagonal, is an form of .   To compute the LU:   Reduce to , if possible.  Place entries in so that the same sequence of row operations reduces L to I.   Construct the factorization of and use it to solve .      1. Below is a model for the interdependence of a 3-sector economy.       X  Y  Z  0.2  0.2  0.2  0.1  0.1  0.1       For each unit of output,    X requires .2 units from X, .1 units from Y, and .1 units from Z    Y requires 0 units from X, .2 units from Y, and .1 units from Z    Z requires 0 units from X, 0 units from Y, and .2 units from Z    Construct the consumption matrix for this economy. What production level is required to satisfy a final demand of 80 units of X, 150 units of Y, and 30 units of Z?     1. and are invertible matrices, is the identity matrix, and is the zero matrix. Construct an expression for in terms of and .    "
 },
 {
   "id": "activities-13",
