@@ -1,5 +1,5 @@
-<section xml:id="Sec:SpectralSymm">
-  <title>The Spectral Decomposition of a Symmetric Matrix</title>
+<section xml:id="Sec-SpectralSymm">
+  <title>3.2 The Spectral Decomposition of a Symmetric Matrix</title>
 
   <p>We have seen how any symmetric matrix can be diagonalized as <m>A=PDP^T</m>, where</p>
 

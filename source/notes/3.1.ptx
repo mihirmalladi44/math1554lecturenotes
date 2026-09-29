@@ -1,5 +1,5 @@
-<section xml:id="Sec:SymmRealEig">
-  <title>Symmetric Matrices Have Real Eigenvalues</title>
+<section xml:id="Sec-SymmRealEig">
+  <title>3.1 Symmetric Matrices Have Real Eigenvalues</title>
 
   <p>First we will show that when <m>A</m> is a real symmetric matrix that for any <m>x \in \mathbb C^n</m> that the quantity <m>Q=\bar x ^T A x</m> is real.</p>
 

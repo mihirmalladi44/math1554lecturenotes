@@ -1,5 +1,5 @@
 <section xml:id="section-constrained-optimization">
-  <title>2.3.1 Constrained Optimization</title>
+  <title>2.4 Constrained Optimization</title>
 
   <p>
     Symmetric matrices can be found in certain optimization problems involving quadratic functions. By applying some of the properties that symmetric matrices have, we can develop algorithms and theorems to better understand and also solve these optimization problems. The following example demonstrates how symmetric matrices might arise in an optimization problem.
