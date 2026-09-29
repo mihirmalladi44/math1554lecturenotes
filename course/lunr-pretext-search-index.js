@@ -19,6 +19,240 @@ var ptx_lunr_docs = [
   "body": "course name (MATH xxx, section xxx) "
 },
 {
+  "id": "activity-1-1-worksheet",
+  "level": "1",
+  "url": "activity-1-1-worksheet.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "Block Matrices",
+  "body": " Block Matrices    A block matrix is a matrix that is interpreted as having been broken into sections called blocks , or submatrices . Intuitively, a block matrix can be interpreted as the original matrix that is partitioned into a collection of smaller matrices. For example, the matrix   can also be written as a 2 × 2 partitioned (or block) matrix:   where the entries of A are the blocks   We partitioned our matrix into four blocks, each of which have different dimensions. But the matrix could also, for example, be partitioned into five 4 × 1 blocks, or four 1 × 5 blocks. Indeed, matrices can be partitioned into blocks in many different ways, and depending on the application at hand, there can be a partitioning that is useful or needed.  For example, when solving a linear system to determine , we can construct and row reduce an augmented matrix of the form   The augmented matrix X consists of two sub-matrices, A and , meaning that it can be viewed as a block matrix. Another application of a block matrix arises when using the SVD, which is a popular tool used in data science. The SVD uses a matrix, , of the form   Matrix D is a diagonal matrix, and each is a zero matrix. Representing in terms of sub-matrices helps us see what the structure of is. Another block matrix arises when introducing a procedure for computing the inverse of an matrix. To compute the inverse of matrix A , we construct and row reduce the matrix   This is an example of a block matrix used in an algorithm. In order to use block matrices in other applications we need to define matrix addition and multiplication with partitioned matrices.     If matrices A and B are partitioned in exactly the same way, then the entries of their sum is the sum of their blocks. For example, if A and B are the block matrices   then their sum is the matrix   As long as A and B are partitioned in the same way the addition is calculated block by block.     Recall the row column method for matrix multiplication.   Let be and be matrix. Then, the entry of is   This is the Row Column Method for matrix multiplication.  Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined.     Block matrices can be useful in cases where a matrix has a particular structure.  For example, suppose is the block matrix   where and are matrices, is a zero matrix, and . Then   Computation of only requires computing and . Taking advantage of the block structure leads to a more efficient computation than it otherwise would have been with a naive row-column method that does not take advantage of the structure of the matrix.     and are the matrices   where   If we compute the matrix product using the given partitioning we obtain   where   Therefore   Computing with the row column method confirms our result.      In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of matrix is a matrix , that has the same dimensions as and satisfies   where is the identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.     Recall, using our formula for a 2 × 2 matrix,   provided that . Suppose , , and are invertible matrices. Suppose we wish to construct an expression for the inverse of the matrix   To construct the inverse of , we can write   where is the matrix we seek. If we let be the block matrix   we can determine by solving or . Solving gives us:    The above matrix equation gives us a set of four equations that can be solved to determine , , , and . The block in the second row and first column gives us . It was given that is an invertible matrix, so is a zero matrix because      Likewise the block in the second row and second column yields , so     Now that we have expressions for and we can solve the remaining two equations for and . Solving for gives us the following expression.       Solving for :      We now have our expression for :   Note that in the special case where that each of the blocks are scalars and our expression is equivalent to Equation (1.1).     In this section we used partitioned matrices to solve problems regarding matrix invertibility and matrix multiplication. Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined. They can be used for example when dealing with large matrices that have a known structure where it is more convenient to describe the structure of a matrix in terms of its blocks. Although not part of this text, matrix partitioning can be used to help derive new algorithms because they give a more concise representation of a matrix and of operations on matrices.      Suppose . Which of the following could be equal to?  (a)  (b)  (c)     and are invertible matrices. Construct expressions for and in terms of and .     Suppose , and are invertible matrices, and   Give an expression for in terms of , , and .    "
+},
+{
+  "id": "activity-1-1-worksheet-2-2",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "block matrix blocks submatrices "
+},
+{
+  "id": "activity-1-1-worksheet-2-6",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "A "
+},
+{
+  "id": "activity-1-1-worksheet-2-11",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-11",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "X A "
+},
+{
+  "id": "activity-1-1-worksheet-2-13",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-13",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "D A "
+},
+{
+  "id": "activity-1-1-worksheet-3-2",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-3-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "A B A B "
+},
+{
+  "id": "activity-1-1-worksheet-3-6",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-3-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "A B "
+},
+{
+  "id": "activity-1-1-worksheet-10-2",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-10-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Suppose . Which of the following could be equal to?  (a)  (b)  (c)  "
+},
+{
+  "id": "activity-1-1-worksheet-10-3",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-10-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  and are invertible matrices. Construct expressions for and in terms of and .   "
+},
+{
+  "id": "activity-1-1-worksheet-10-4",
+  "level": "2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-10-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Suppose , and are invertible matrices, and   Give an expression for in terms of , , and .  "
+},
+{
+  "id": "activity-1-2-worksheet",
+  "level": "1",
+  "url": "activity-1-2-worksheet.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "The LU Factorization",
+  "body": " The LU Factorization    To solve a linear system of the form we could use row reduction or, in theory, calculate and use it to determine with the equation   But computing requires the computation of the inverse of an matrix, which is especially difficult for large . It is more practical to solve with row reductions (i.e. Gaussian Elimination). But it turns out that there are more efficient methods, especially when is large.  One method for solving linear systems relies on what is referred to as a matrix factorization. A matrix factorization , or matrix decomposition is a factorization of a matrix into a product of matrices. Factorizations can be useful for solving , or for understanding the properties of a matrix.  In this section, we factor a matrix into lower and into upper triangular matrices to construct what is known as the LU factorization that is used to solve linear systems in a systematic and efficient method. Before we introduce the LU factorization, we will first need to introduce lower and upper triangular matrices.     Before we introduce the LU factorization, we need to first define upper and lower triangular matrices.   Suppose that the entries of matrix are . Then is upper triangular if for . Matrix is lower triangular if for .  As an example, all of the matrices below are in upper triangular form.   Notice how all of the entries below the main diagonal are zero, and the entries on and above the main diagonal can be anything. Likewise, examples of lower triangular matrices are below.   Again, note that our definition for an upper triangular matrix does not specify what the entries on or above the main diagonal need to be. Some or all of the entries above the main diagonal can, for example, be zero. Likewise the entries on and below the main diagonal of a lower triangular matrix do not have to have specific values.     After stating a theorem that gives the LU decomposition, we will give an algorithm for constructing the LU factorization. We will then see how we can use the factorization to solve a linear system.   If is an matrix that can be row reduced to echelon form without row exchanges, then , where is a lower triangular matrix with 1's on the diagonal, and is an echelon form of .     To prove the theorem above we will first show that we can write where is an invertible matrix, and is an echelon form of .  Suppose that matrix can be reduced to echelon form with elementary row operations that only add a multiple of a row to another row that is below it. Then each row operation can be performed by multiplying with elementary matrices.   If we let , then   Note that is invertible because elementary matrices are invertible. Therefore can be reduced to the identity with a sequence of row operations. Moreover, if we multiply Equation (1.3) by we obtain:   Therefore has the decomposition where is an echelon form of and is an invertible matrix. To show that is lower triangular, recall from Equations (1.2) and (1.3) that   Each elementary matrix is lower triangular because to reduce to we only used one type of row operation: adding a multiple of a row to a row below it, so each is a lower triangular matrix. It can also be shown that the product of two lower-triangular matrices is a lower triangular matrix, and the inverse of a lower triangular matrix is lower triangular. This implies that both and will be lower-triangular.     To construct the LU factorization of a matrix we must first apply a sequence of row operations to in order to reduce to . Equation (1.3) gives us that   But if , then the sequence of row operations that reduce to will reduce to . This gives us an algorithm for constructing the LU factorization.   Suppose is an matrix that can be row reduced to echelon form without row exchanges. To construct the LU factorization:  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the sequence of row operations that reduces to will reduce to  Note that the above procedure will work for any matrix that can be reduced to echelon form without row exchanges. Meaning that we do not need to be square or invertible to construct its LU factorization.     In this example we construct LU factorizations of the following matrix.   Because is a matrix, the LU factorization has the form   Each represents an entry that we need to compute the value of. To reduce to we apply a sequence of row replacement operations as shown below.   Matrix is the echelon form of that we need for the LU factorization. We next construct so that the row operations that reduced to will reduce to . Our row operations were:   With these two row operations, we see that must be the matrix:   Note that the row operations and applied to will give us the identity. The LU factorization of is      Our motivation for introducing the LU factorization was to introduce an efficient method for solving linear systems. Given rectangular matrix and vector , we wish to use the LU factorization of to solve for . A procedure for doing so is below.   To solve for :  1. Construct the LU decomposition of to obtain and .  2. Set . Forward solve for in .  3. Backwards solve for in .     In this example we will solve the linear system given the LU decomposition of .   We first set and solve . Reducing the augmented matrix gives us:   Therefore, is the vector   We now solve .   The solution to the linear system, , is the vector      In our treatment of the LU factorization we constructed the LU decomposition using the following process.  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the same sequence of row operations reduces to  There is much more to the LU factorization than what was presented in this section. There are for example other methods for constructing that you may encounter in future courses or projects you are working on. In our approach, the only row operation we use to construct and is to replace a row with a multiple of a row above it. Multiplying a row by a non-zero scalar is not needed, but more importantly, we cannot swap rows. More advanced linear algebra and numerical analysis courses would address this significant limitation.      Construct the LU Factorizations for the following matrices.  (a)  (b)  (c)    Show that the product of two lower triangular matrices is lower triangular.    Show that the inverse of an lower triangular matrix is also and lower triangular.    "
+},
+{
+  "id": "activity-1-2-worksheet-2-5",
+  "level": "2",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "matrix factorization matrix decomposition "
+},
+{
+  "id": "activity-1-2-worksheet-2-6",
+  "level": "2",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-6",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "lower upper "
+},
+{
+  "id": "activity-1-2-worksheet-3-4",
+  "level": "2",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-3-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "upper triangular lower triangular "
+},
+{
+  "id": "activity-1-2-worksheet-11-2",
+  "level": "2",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-11-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Construct the LU Factorizations for the following matrices.  (a)  (b)  (c)  "
+},
+{
+  "id": "activity-1-2-worksheet-11-3",
+  "level": "2",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-11-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " Show that the product of two lower triangular matrices is lower triangular.  "
+},
+{
+  "id": "activity-1-2-worksheet-11-4",
+  "level": "2",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-11-4",
+  "type": "Worksheet Exercise",
+  "number": "3",
+  "title": "",
+  "body": " Show that the inverse of an lower triangular matrix is also and lower triangular.  "
+},
+{
+  "id": "activity-1-3-worksheet",
+  "level": "1",
+  "url": "activity-1-3-worksheet.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "The Leontif Input-Output Model",
+  "body": " The Leontif Input-Output Model    Input-output models are used in economics to model the inter-dependencies between different sectors of an economy. Wassily Leontief (1906-1999) is credited with developing the type of analysis that we explore in this chapter. His work on this model earned a Nobel Prize in Economics.  The input-output model assumes that there are sectors in an economy that produce a set of desired products to meet an external demand. The model also assumes that the sectors themselves will also demand a portion of the output that the sectors produce. If the sectors produce exactly the number of units to meet the external demand, then we have the equation  (sector output) − (internal consumption) = (external demand)  In this section we will see that this equation is a linear system that can be solved to determine the output the economy needs to produce to meet the external demand.     Suppose an economy that has two sectors: manufacturing (M) and energy (E). Both of the sectors produce an output to meet an external demand (D) for their products. Sectors M and E also require output from each other to produce their output. The way in which they do so is described in the diagram below.   Internal consumption diagram for sectors M and E.    The numbers in the above diagram can be interpreted as follows.  • For every 100 units that sector M creates, M requires 40 units from M and 10 units from E.  • For every 100 units that sector E creates, E requires 20 units from M and 30 units from E.  • An external demand (D) requires 4 units from M and 12 units from E.  In other words, if M were to create units, then M would consume units from M and units from E. The consumption from sector M could be represented with a vector.   Likewise, the consumption from sector E would be   Adding these vectors together gives us the total internal consumption from both sectors.   Matrix is called the consumption matrix . Typically its entries are between 0 and 1, and the sum of the entries in each column of will be less than 1. Vector is the output of the sectors. If the sectors produce exactly the number of units to meet the external demand, then we have the equation      In our example, vector , and . This simplifies Equation (1.6) to     This is a linear system with two equations, whose solution gives us the output vector that balances production with demand. Expressing the system as an augmented matrix and using row operations yields the solution as shown below.   The unique solution to this linear system is . This is the output that sectors M and E would need to produce to meet the external demand exactly.     Suppose an economy that has three sectors: X, Y, and Z. Each of these sectors produce an output to meet an external demand (D) for their products. The way in which they do so is described in the diagram below.   Internal consumption diagram for sectors X, Y, and Z.    The external demand, D, is requiring 24 units from X, 4 units from Y, and 16 units from Z. Our goal is to determine how many units the sectors need to produce in order to satisfy this demand, while also accounting for internal consumption.  If Sector X were to create units, then it would consume units from X and units from Y. This consumption could be represented by the vector   Likewise, the consumption from the other two sectors are   Adding these three vectors together gives us the total internal consumption from all sectors and the consumption matrix .   where , .  Each of the sectors in our economy are producing units to satisfy an external demand. The difference between the output and the internal consumption will represent the number of units produced to meet external demand.     If the sectors are to meet the needs of the external demand exactly, the demand would need to equal the number of units produced after internal consumption is taken into account. That is, we need that   This is a linear system that can be solved for the output vector, . This could be computed using an augmented matrix.   A helpful trick when reducing these matrices by hand is to multiply each row by 10 to make the algebra a bit less tedious. The above augmented matrix is in row reduced echelon form, and indicates that the desired output is       Consider the production model for an economy with two sectors, where , and .  (a) Construct the augmented matrix that can be used to calculate .  (b) Solve your linear system for .    A model for an economy consists of four sectors, W, X, Y, and Z, and an external demand, D. The relationships between them are given in the diagram below. Sector Z provides resources to the other sectors internally. There is no external demand from D for the output from Z.   Internal consumption diagram for sectors W, X, Y, and Z.    (a) Construct the augmented matrix which can be used to solve the system for the output that would meet the external demand exactly while accounting for internal consumption between the four sectors.  (b) Solve your augmented matrix to determine the desired output vector.    "
+},
+{
+  "id": "leontief-me-figure",
+  "level": "2",
+  "url": "activity-1-3-worksheet.html#leontief-me-figure",
+  "type": "Figure",
+  "number": "1",
+  "title": "",
+  "body": " Internal consumption diagram for sectors M and E.   "
+},
+{
+  "id": "activity-1-3-worksheet-3-14",
+  "level": "2",
+  "url": "activity-1-3-worksheet.html#activity-1-3-worksheet-3-14",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "consumption matrix "
+},
+{
+  "id": "leontief-xyz-figure",
+  "level": "2",
+  "url": "activity-1-3-worksheet.html#leontief-xyz-figure",
+  "type": "Figure",
+  "number": "2",
+  "title": "",
+  "body": " Internal consumption diagram for sectors X, Y, and Z.   "
+},
+{
+  "id": "activity-1-3-worksheet-7-2",
+  "level": "2",
+  "url": "activity-1-3-worksheet.html#activity-1-3-worksheet-7-2",
+  "type": "Worksheet Exercise",
+  "number": "1",
+  "title": "",
+  "body": " Consider the production model for an economy with two sectors, where , and .  (a) Construct the augmented matrix that can be used to calculate .  (b) Solve your linear system for .  "
+},
+{
+  "id": "activity-1-3-worksheet-7-3",
+  "level": "2",
+  "url": "activity-1-3-worksheet.html#activity-1-3-worksheet-7-3",
+  "type": "Worksheet Exercise",
+  "number": "2",
+  "title": "",
+  "body": " A model for an economy consists of four sectors, W, X, Y, and Z, and an external demand, D. The relationships between them are given in the diagram below. Sector Z provides resources to the other sectors internally. There is no external demand from D for the output from Z.   Internal consumption diagram for sectors W, X, Y, and Z.    (a) Construct the augmented matrix which can be used to solve the system for the output that would meet the external demand exactly while accounting for internal consumption between the four sectors.  (b) Solve your augmented matrix to determine the desired output vector.  "
+},
+{
+  "id": "activity-1-1-4-worksheet",
+  "level": "1",
+  "url": "activity-1-1-4-worksheet.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "1.1.4 Example 2: Computing AB",
+  "body": " 1.1.4 Example 2: Computing AB   and are the matrices   where   If we compute the matrix product using the given partitioning we obtain   where   Therefore   Computing with the row column method confirms our result.    "
+},
+{
+  "id": "activity-1-1-5-worksheet",
+  "level": "1",
+  "url": "activity-1-1-5-worksheet.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "1.1.5 Block Matrix Inversion",
+  "body": " 1.1.5 Block Matrix Inversion   In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of matrix is a matrix , that has the same dimensions as and satisfies   where is the identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.   "
+},
+{
+  "id": "activity-1-1-6-worksheet",
+  "level": "1",
+  "url": "activity-1-1-6-worksheet.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "1.1.6 Example 3: Expression for Inverse of a Block Matrix",
+  "body": " 1.1.6 Example 3: Expression for Inverse of a Block Matrix   Recall, using our formula for a 2 × 2 matrix,   provided that . Suppose , , and are invertible matrices. Suppose we wish to construct an expression for the inverse of the matrix   To construct the inverse of , we can write   where is the matrix we seek. If we let be the block matrix   we can determine by solving or . Solving gives us:    The above matrix equation gives us a set of four equations that can be solved to determine , , , and . The block in the second row and first column gives us . It was given that is an invertible matrix, so is a zero matrix because      Likewise the block in the second row and second column yields , so     Now that we have expressions for and we can solve the remaining two equations for and . Solving for gives us the following expression.       Solving for :      We now have our expression for :   Note that in the special case where that each of the blocks are scalars and our expression is equivalent to Equation (1.1).   "
+},
+{
   "id": "section-orthogonal-diagonalization",
   "level": "1",
   "url": "section-orthogonal-diagonalization.html",
@@ -41,7 +275,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#theorem-orthogonal-eigenspaces",
   "type": "Theorem",
-  "number": "1",
+  "number": "4",
   "title": "Theorem.",
   "body": " Theorem   If is a symmetric matrix, with eigenvectors and corresponding to two distinct eigenvalues, then and are orthogonal.   "
 },
@@ -59,7 +293,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#theorem-real-eigenvalues",
   "type": "Theorem",
-  "number": "2",
+  "number": "5",
   "title": "Theorem.",
   "body": " Theorem   If is a real symmetric matrix then all eigenvalues of are real.   "
 },
@@ -68,7 +302,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#theorem-spectral-theorem",
   "type": "Theorem",
-  "number": "3",
+  "number": "6",
   "title": "The Spectral Theorem.",
   "body": " The Spectral Theorem   An matrix is symmetric if and only if the matrix can be orthogonally diagonalized.   "
 },
@@ -77,7 +311,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#example-2x2-orthogonal-diagonalization",
   "type": "Example",
-  "number": "4",
+  "number": "7",
   "title": "Example 1: Orthogonal Diagonalization of a <span class=\"process-math\">\\(2\\times 2\\)<\/span> Matrix.",
   "body": " Example 1: Orthogonal Diagonalization of a Matrix  Suppose is the symmetric matrix below.   The eigenvalues of are given. In this example we will diagonalize using an orthogonal matrix, . For eigenvalue we have A vector in the null space of is the eigenvector   A vector orthogonal to is which must be an eigenvector for because is symmetric.  Dividing each of the eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, , we obtain an orthogonal matrix. In other words, . This convenient property gives us a convenient way to compute should it be needed.  Placing the eigenvalues of in the order that matches the order used to create , we obtain the factorization   "
 },
@@ -86,7 +320,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#example-3x3-orthogonal-diagonalization",
   "type": "Example",
-  "number": "5",
+  "number": "8",
   "title": "Example 2: Orthogonal Diagonalization of a <span class=\"process-math\">\\(3\\times3\\)<\/span> Matrix.",
   "body": " Example 2: Orthogonal Diagonalization of a Matrix  In this example we will diagonalize a matrix, , using an orthogonal matrix, .   The eigenvalues of are given. For eigenvalue we have A vector in the null space of is the eigenvector For eigenvalue we have By inspection, two vectors in the null space of are   There are many other choices that we could make but the above two vectors will suffice. Note that and happen to be orthogonal to each other. If they happened to not be orthogonal, one could use the Gram-Schmidt procedure to make them so.  Dividing each of the three eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, , we obtain an orthogonal matrix. This will give us a matrix whose inverse is equal to its transpose. In other words, is an orthogonal matrix, and . This convenient property gives us a convenient way to compute should it be needed.  Placing the eigenvalues of in the order that matches the order used to create , we obtain the factorization   "
 },
@@ -131,7 +365,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#figure-two-circles",
   "type": "Figure",
-  "number": "6",
+  "number": "9",
   "title": "",
   "body": " Two circles generated by for and .     "
 },
@@ -140,7 +374,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#figure-single-ellipse",
   "type": "Figure",
-  "number": "7",
+  "number": "10",
   "title": "",
   "body": " The ellipse generated by .     "
 },
@@ -149,7 +383,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#theorem-principal-axes",
   "type": "Theorem",
-  "number": "8",
+  "number": "11",
   "title": "Theorem.",
   "body": " Theorem   If is a symmetric matrix then there exists an orthogonal change of variable that transforms to with no cross-product terms.   "
 },
@@ -167,7 +401,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#figure-change-of-variable-ellipses",
   "type": "Figure",
-  "number": "9",
+  "number": "12",
   "title": "",
   "body": " The ellipse in the -plane, and the same ellipse expressed without cross terms, , in the -plane.          "
 },
@@ -185,7 +419,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-temperature-sphere",
   "type": "Figure",
-  "number": "10",
+  "number": "13",
   "title": "",
   "body": " The unit sphere colored according to the temperature , with the hottest points in red and the coldest points in blue.     "
 },
@@ -203,7 +437,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#theorem-constrained-optimization",
   "type": "Theorem",
-  "number": "11",
+  "number": "14",
   "title": "Constrained Optimization.",
   "body": " Constrained Optimization   If , is a real symmetric matrix, with eigenvalues   and associated normalized eigenvectors . Then, subject to the constraint , the maximum value of is , which is attained at . The minimum value of is , which is attained at .   "
 },
@@ -221,7 +455,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-repeated-eigenvalue-sphere",
   "type": "Figure",
-  "number": "12",
+  "number": "15",
   "title": "",
   "body": " Left: the unit sphere colored according to . Right: the eigenvectors , , and .          "
 },
@@ -230,7 +464,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#theorem-orthogonality-constraint",
   "type": "Theorem",
-  "number": "13",
+  "number": "16",
   "title": "Optimization with an Orthogonality Constraint.",
   "body": " Optimization with an Orthogonality Constraint   Suppose , where is symmetric and has eigenvalues and associated normalized eigenvectors . Then, subject to the constraints and , the maximum value of is , which is attained at . The minimum value of is , which is attained at .   "
 },
@@ -239,7 +473,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-orthogonality-constraint-sphere",
   "type": "Figure",
-  "number": "14",
+  "number": "17",
   "title": "",
   "body": " The unit sphere colored according to , with the eigenvectors and marked.     "
 },
@@ -275,7 +509,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-parab-curves",
   "type": "Figure",
-  "number": "15",
+  "number": "18",
   "title": "",
   "body": " Curves generated by .     "
 },
@@ -284,7 +518,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-paraboloid",
   "type": "Figure",
-  "number": "16",
+  "number": "19",
   "title": "",
   "body": " The surface .   "
 },
@@ -293,7 +527,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#listing-matlab-script",
   "type": "Listing",
-  "number": "17",
+  "number": "20",
   "title": "MATLAB Script",
   "body": " MATLAB Script   fimplicit3(@(x,y,Q) Q-2*y.^2-2*x.^2-2*x.*y) xlabel('x') ylabel('y') zlabel('Q') set(gcf,'color','w'); % sets background color to white set(gca,'FontSize',18) % increases font size to 18   "
 },
@@ -302,7 +536,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-quad-surfaces-grid",
   "type": "Figure",
-  "number": "18",
+  "number": "21",
   "title": "",
   "body": " Quadratic surfaces generated by four different choices of .                      "
 },
@@ -311,7 +545,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#definition-quadratic-form-types",
   "type": "Definition",
-  "number": "19",
+  "number": "22",
   "title": "Definition.",
   "body": " Definition   A quadratic form is   positive definite if for all .  negative definite if for all .  positive semidefinite if for all .  negative semidefinite if for all .  indefinite if takes on positive and negative values for .    "
 },
@@ -320,7 +554,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#theorem-classify-quadratic-forms",
   "type": "Theorem",
-  "number": "20",
+  "number": "23",
   "title": "Theorem.",
   "body": " Theorem   If is a symmetric matrix with eigenvalues , then is   positive definite when all eigenvalues are positive  positive semidefinite when all eigenvalues are non-negative  negative definite when all eigenvalues are negative  negative semidefinite when all eigenvalues are non-positive  indefinite when at least one eigenvalue is negative and at least one eigenvalue is positive    "
 },
@@ -338,7 +572,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-saddle",
   "type": "Figure",
-  "number": "21",
+  "number": "24",
   "title": "",
   "body": " The indefinite quadratic surface generated by .   "
 },

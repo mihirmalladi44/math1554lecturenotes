@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: denver                         *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>1.1.6 Example 3: Expression for Inverse of a Block Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-alpha; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends lower-alpha; prefix: ''; suffix: ') '; }
+@counter-style ptx-marker-3 { system: extends decimal; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-4 { system: extends lower-alpha; prefix: '('; suffix: ') '; }
+</style>
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+lang: "en-US",
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Linear Algebra">
+<meta property="og:title" content="Linear Algebra">
+<meta property="book:title" content="Linear Algebra">
+<meta name="twitter:description" content="MATH 1554 Fall Semester">
+<meta property="og:description" content="MATH 1554 Fall Semester">
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.52"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.52"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.2';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.6ad113829064d43a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.02090e9f6a81e70e.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="root-1-2.html"><span class="title">Linear Algebra</span> <span class="subtitle">MATH 1554 Fall Semester</span></a></div>
+<p class="byline">Dr. Greg Mayer</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="ptx-embed-button" class="ptx-embed-button button" title="Embed this page"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe86f;</span><span class="name">Embed</span></button><dialog class="ptx-dialog ptx-embed-popup" id="ptx-embed-popup"><div class="ptx-embed-popup-controls">
+<p>Copy the code below to embed this page in your own website or LMS page.</p>
+<button class="ptx-embed-close-button button" id="ptx-embed-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-embed-code-container">
+<textarea class="ptx-embed-code-textbox" id="ptx-embed-code-textbox" readonly aria-label="Embed"><iframe src="https://example.com/embed" width="100%" height="1000"></iframe></textarea><button autofocus="autofocus" class="ptx-embed-copy-button button" id="ptx-embed-copy-button" title="Copy"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe14d;</span><span class="name">Copy</span></button>
+</div></dialog><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="activity-1-1-5-worksheet.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="course-notes.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="section-orthogonal-diagonalization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Row}{\text{Row}}
+\newcommand{\Col}{\text{Col}}
+\newcommand{\Nul}{\text{Null}}
+\newcommand{\Span}{\text{Span}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth2 focused" data-preexpanded-levels="0" data-max-levels="2"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter"><div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div></li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="course-documents.html" class="internal"><span class="title">Course Documents</span></a></div>
+<ul id="ptx-toc-group-course-documents" class="structural toc-item-list"><li class="toc-item toc-section">
+<div class="toc-title-box"><a href="syllabus.html" class="internal"><span class="title">Syllabus</span></a></div>
+<ul id="ptx-toc-group-syllabus" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="syllabus.html#sec-course-info" class="internal"><span class="title">Course Information</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="syllabus.html#sec-assessments" class="internal"><span class="title">Assessments and Grades</span></a></div></li>
+</ul>
+</li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="course-notes.html" class="internal"><span class="title">Course Notes</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-course-notes">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="course-notes-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-worksheet.html" class="internal"><span class="title">Block Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-2-worksheet.html" class="internal"><span class="title">The LU Factorization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-3-worksheet.html" class="internal"><span class="title">The Leontif Input-Output Model</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-4-worksheet.html" class="internal"><span class="title">1.1.4 Example 2: Computing AB</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-5-worksheet.html" class="internal"><span class="title">1.1.5 Block Matrix Inversion</span></a></div></li>
+<li class="toc-item toc-worksheet active"><div class="toc-title-box"><a href="activity-1-1-6-worksheet.html" class="internal"><span class="title">1.1.6 Example 3: Expression for Inverse of a Block Matrix</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-orthogonal-diagonalization.html" class="internal"><span class="title">2.1 Orthogonal Diagonalization</span></a></div>
+<ul id="ptx-toc-group-section-orthogonal-diagonalization" class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsection-properties-of-symmetric-matrices" class="internal"><span class="title">Properties of Symmetric Matrices</span></a></div>
+<ul id="ptx-toc-group-subsection-properties-of-symmetric-matrices" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsubsection-orthogonal-eigenspaces" class="internal"><span class="title">1) Symmetric Matrices Have Orthogonal Eigenspaces</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsubsection-real-eigenvalues" class="internal"><span class="title">2) The Eigenvalues of a Symmetric Matrix are Real</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsubsection-spectral-theorem" class="internal"><span class="title">3) The Spectral Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsection-examples" class="internal"><span class="title">Examples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#subsection-summary" class="internal"><span class="title">Summary</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="section-orthogonal-diagonalization.html#exercises-orthogonal-diagonalization" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-quadratic-forms.html" class="internal"><span class="title">2.2 Quadratic Forms</span></a></div>
+<ul id="ptx-toc-group-section-quadratic-forms" class="structural toc-item-list">
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-quadratic-forms-def" class="internal"><span class="title">Quadratic Forms</span></a></div>
+<ul id="ptx-toc-group-subsection-quadratic-forms-def" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsubsection-quadratic-forms-r2" class="internal"><span class="title">Example 1: Quadratic forms in <span class="process-math">\(\mathbb R^2\)</span></span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsubsection-quadratic-form-example2" class="internal"><span class="title">Example 2: A Quadratic Form</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsubsection-quadratic-form-example3" class="internal"><span class="title">Example 3: Quadratic Form in Three Variables</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-principal-axes-theorem" class="internal"><span class="title">Principle Axes Theorem</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-example4-change-of-variable" class="internal"><span class="title">Example 4: Change of Variable</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-example5-inequality" class="internal"><span class="title">Example 5: Inequality</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-forms.html#subsection-quadratic-forms-summary" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-constrained-optimization.html" class="internal"><span class="title">2.3.1 Constrained Optimization</span></a></div>
+<ul id="ptx-toc-group-section-constrained-optimization" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-temperature-unit-sphere" class="internal"><span class="title">Example 1: Temperature on a Unit Sphere</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-constrained-optimization-problem" class="internal"><span class="title">A Constrained Optimization Problem</span></a></div>
+<ul id="ptx-toc-group-subsection-constrained-optimization-problem" class="structural toc-item-list"><li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsubsection-example2-repeated-eigenvalue" class="internal"><span class="title">Example 2: Constrained Optimization with a Repeated Eigenvalue</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-orthogonality-constraints" class="internal"><span class="title">Orthogonality Constraints</span></a></div>
+<ul id="ptx-toc-group-subsection-orthogonality-constraints" class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsubsection-example3-orthogonality-constraint" class="internal"><span class="title">Example 3: Optimization with an Orthogonality Constraint</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsubsection-example4-orthogonality-repeated" class="internal"><span class="title">Example 4: Optimization with an Orthogonality Constraint, a Repeated Eigenvalue Case</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-constrained-optimization.html#subsection-constrained-optimization-summary" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="section-quadratic-surfaces.html" class="internal"><span class="title">2.3.2 Quadratic Surfaces</span></a></div>
+<ul id="ptx-toc-group-section-quadratic-surfaces" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-quadratic-surface-r3" class="internal"><span class="title">Example 1: A Quadratic Surface in <span class="process-math">\(\mathbb R^3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-quadratic-surfaces-example2" class="internal"><span class="title">Example 2: Quadratic Surfaces</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-classifying-quadratic-forms" class="internal"><span class="title">Classifying Quadratic Forms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-example3-quad-forms-eigenvalues" class="internal"><span class="title">Example 3: Quadratic Forms and Eigenvalues</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="section-quadratic-surfaces.html#subsection-quadratic-surfaces-summary" class="internal"><span class="title">Summary</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="activities.html" class="internal"><span class="title">In-Class Activities</span></a></div>
+<ul id="ptx-toc-group-activities" class="structural toc-item-list">
+<li class="toc-item toc-introduction"><div class="toc-title-box"><a href="activities-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-3.html" class="internal"><span class="title">0 About This Document</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-4.html" class="internal"><span class="title">1 Systems of Linear Equations (ILA 1.1, 1.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-5.html" class="internal"><span class="title">2 Row Reduction and Echelon Forms (ILA1.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-6.html" class="internal"><span class="title">3 Vector Equations and The Matrix Equation (ILA 1.3, 2.1, 2.2, 2.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="worksheet-4.html" class="internal"><span class="title">4 Solution Sets and Linear Independence</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-8.html" class="internal"><span class="title">5 Linear Transforms (ILA 3.1, 3.2, 3.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-9.html" class="internal"><span class="title">6 Matrix Algebra (ILA 3.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-10.html" class="internal"><span class="title">7 Invertible Matrices (ILA 3.5, 3.6)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-11.html" class="internal"><span class="title">8 Exam 1 Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-12.html" class="internal"><span class="title">9 Applications (LN 1.1, 1.2, 1.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-13.html" class="internal"><span class="title">10 Computer Graphics, Subspaces (LN 1.4, 1.5; ILA 2.6, 2.7)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-14.html" class="internal"><span class="title">11 Subspaces, Dimension, Basis (ILA 2.8, 2.9)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-15.html" class="internal"><span class="title">12 Determinants (ILA 4.1, 4.2, 4.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-16.html" class="internal"><span class="title">13 Determinants (ILA 4.1, 4.2, 4.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-17.html" class="internal"><span class="title">14 Exam 2 Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-18.html" class="internal"><span class="title">15 Markov Chains and Eigenvalues (ILA 5.1, 5.2, 5.6)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="worksheet-8-worksheet.html" class="internal"><span class="title">16 Diagonalization, Complex Eigenvalues, Page Rank (ILA 5.3, 5.4, 5.5, 5.6)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-20.html" class="internal"><span class="title">17 Inner Products (ILA 6.1, 6.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-21.html" class="internal"><span class="title">18 Orthogonal Sets (ILA 6.1, 6.2)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-22.html" class="internal"><span class="title">19 Exam 3 Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-23.html" class="internal"><span class="title">20 Orthogonal Projections, Gram-Schmidt, and the QR Factorization (6.3, 6.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-24.html" class="internal"><span class="title">21 Least-Squares and Linear Models (ILA 6.3, 6.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-25.html" class="internal"><span class="title">22 Orthogonality Review</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-26.html" class="internal"><span class="title">23 Diagonalization of Symmetric Matrices (LN 2.1)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-27.html" class="internal"><span class="title">24  Quadratic Forms (LN 2.2, 2.3)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-28.html" class="internal"><span class="title">25 Constrained Optimization (LN 2.4)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-29.html" class="internal"><span class="title">26 The Singular Value Decomposition (LN 2.5, 2.6, 2.7)</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-30.html" class="internal"><span class="title">27 Final Exam Review 1</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activities-31.html" class="internal"><span class="title">28 Final Exam Review 2</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="handouts.html" class="internal"><span class="title">Handouts</span></a></div></li>
+<li class="toc-item toc-chapter"><div class="toc-title-box"><a href="homework.html" class="internal"><span class="title">Homework</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<div class="print-preview-header">
+<h2 class="print-preview">Print preview</h2>
+<div class="print-controls">
+<div class="print-controls-toggles">
+<form class="papersize-select" id="papersize-select">
+<span class="name">Paper size</span><label><input type="radio" name="papersize" value="a4">A4
+        </label><label><input type="radio" name="papersize" value="letter">Letter
+        </label>
+</form>
+<details class="print-options"><summary>Additional printing options</summary><div class="header-footer-options">
+<div class="header-option">
+<span class="title">Print headers</span><label>First page<input type="checkbox" id="print-first-page-header-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-header-checkbox" checked></label>
+</div>
+<div class="footer-option">
+<span class="title">Print footers</span><label>First page<input type="checkbox" id="print-first-page-footer-checkbox" checked></label><label>Running<input type="checkbox" id="print-running-footer-checkbox" checked></label>
+</div>
+</div>
+<div class="highlight-workspace-option">
+<label for="highlight-workspace-checkbox">Highlight workspace</label><input type="checkbox" id="highlight-workspace-checkbox">
+</div></details>
+</div>
+<button class="print-button" title="Print" onClick="window.print()"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span><span class="name">Print</span></button>
+</div>
+</div>
+<section class="worksheet" id="activity-1-1-6-worksheet" data-margins="1in 1in 1.25cm 1in">
+<h1 class="heading hide-type">
+<span class="type">Worksheet</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">1.1.6 Example 3: Expression for Inverse of a Block Matrix</span><div class="print-links"><a href="?printpreview=activity-1-1-6-worksheet" class="print-link" title="Print preview"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8ad;</span></a></div>
+</h1>
+<section class="onepage" id="activity-1-1-6-worksheet-2">
+<div class="para" id="activity-1-1-6-worksheet-2-1">Recall, using our formula for a 2 × 2 matrix,<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-2">
+\begin{equation*}
+\begin{pmatrix}
+a \amp b \\
+0 \amp c
+\end{pmatrix}^{-1} =
+\frac{1}{ac}
+\begin{pmatrix}
+c \amp -b \\
+0 \amp a
+\end{pmatrix} =
+\begin{pmatrix}
+1/a \amp -b/(ac) \\
+0 \amp 1/c
+\end{pmatrix}
+\quad \quad \quad \text{(1.1)}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-3">provided that <span class="process-math">\(ac \neq 0\text{.}\)</span> Suppose <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\)</span> are invertible <span class="process-math">\(n \times n\)</span> matrices. Suppose we wish to construct an expression for the inverse of the matrix<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-4">
+\begin{equation*}
+P =
+\begin{pmatrix}
+A \amp B \\
+\mathbf{0} \amp C
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-5">To construct the inverse of <span class="process-math">\(P\text{,}\)</span> we can write<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-6">
+\begin{equation*}
+PP^{-1} = P^{-1}P = I_n
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-7">where <span class="process-math">\(P^{-1}\)</span> is the matrix we seek. If we let <span class="process-math">\(P^{-1}\)</span> be the block matrix<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-8">
+\begin{equation*}
+P^{-1} =
+\begin{pmatrix}
+W \amp X \\
+Y \amp Z
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-9">we can determine <span class="process-math">\(P^{-1}\)</span> by solving <span class="process-math">\(PP^{-1} = I_n\)</span> or <span class="process-math">\(P^{-1}P = I_n\text{.}\)</span> Solving <span class="process-math">\(PP^{-1} = I_n\)</span> gives us:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-10">
+\begin{equation*}
+I_n = PP^{-1} =
+\begin{pmatrix}
+I \amp \mathbf{0} \\
+\mathbf{0} \amp I
+\end{pmatrix} =
+\begin{pmatrix}
+A \amp B \\
+\mathbf{0} \amp C
+\end{pmatrix}
+\begin{pmatrix}
+W \amp X \\
+Y \amp Z
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-11">
+\begin{equation*}
+\begin{pmatrix}
+I \amp \mathbf{0} \\
+\mathbf{0} \amp I
+\end{pmatrix} =
+\begin{pmatrix}
+AW + BY \amp AX + BZ \\
+CY \amp CZ
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-12">The above matrix equation gives us a set of four equations that can be solved to determine <span class="process-math">\(W\text{,}\)</span> <span class="process-math">\(X\text{,}\)</span> <span class="process-math">\(Y\text{,}\)</span> and <span class="process-math">\(Z\text{.}\)</span> The block in the second row and first column gives us <span class="process-math">\(CY = \mathbf{0}\text{.}\)</span> It was given that <span class="process-math">\(C\)</span> is an invertible matrix, so <span class="process-math">\(Y\)</span> is a zero matrix because<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-13">
+\begin{equation*}
+CY = \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-14">
+\begin{equation*}
+C^{-1}CY = C^{-1}\mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-15">
+\begin{equation*}
+IY = \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-16">
+\begin{equation*}
+Y = \mathbf{0}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-17">Likewise the block in the second row and second column yields <span class="process-math">\(CZ = I\text{,}\)</span> so<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-18">
+\begin{equation*}
+CZ = I
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-19">
+\begin{equation*}
+C^{-1}CZ = C^{-1}I
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-20">
+\begin{equation*}
+Z = C^{-1}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-21">Now that we have expressions for <span class="process-math">\(Y\)</span> and <span class="process-math">\(Z\)</span> we can solve the remaining two equations for <span class="process-math">\(W\)</span> and <span class="process-math">\(X\text{.}\)</span> Solving for <span class="process-math">\(X\)</span> gives us the following expression.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-22">
+\begin{equation*}
+AX + BZ = \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-23">
+\begin{equation*}
+AX + BC^{-1} = \mathbf{0}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-24">
+\begin{equation*}
+AX = -BC^{-1}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-25">
+\begin{equation*}
+A^{-1}AX = -A^{-1}BC^{-1}
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-26">
+\begin{equation*}
+X = -A^{-1}BC^{-1}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-27">Solving for <span class="process-math">\(W\text{:}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-28">
+\begin{equation*}
+AW + BY = I
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-29">
+\begin{equation*}
+AW + B\mathbf{0} = I
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-30">
+\begin{equation*}
+A^{-1}AW = A^{-1}I
+\end{equation*}
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-31">
+\begin{equation*}
+W = A^{-1}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-32">We now have our expression for <span class="process-math">\(P^{-1}\text{:}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="activity-1-1-6-worksheet-2-33">
+\begin{equation*}
+P^{-1} =
+\begin{pmatrix}
+W \amp X \\
+Y \amp Z
+\end{pmatrix} =
+\begin{pmatrix}
+A^{-1} \amp -A^{-1}BC^{-1} \\
+\mathbf{0} \amp C^{-1}
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para" id="activity-1-1-6-worksheet-2-34">Note that in the special case where <span class="process-math">\(n = 2\)</span> that each of the blocks are scalars and our expression is equivalent to Equation (1.1).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#activity-1-1-6-worksheet-2-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section><div class="autopermalink" aria-hidden="true" data-description="Worksheet: 1.1.6 Example 3: Expression for Inverse of a Block Matrix"><a tabindex="-1" href="#activity-1-1-6-worksheet" title="Copy heading and permalink for Worksheet: 1.1.6 Example 3: Expression for Inverse of a Block Matrix" aria-label="Copy heading and permalink for Worksheet: 1.1.6 Example 3: Expression for Inverse of a Block Matrix">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="activity-1-1-5-worksheet.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="section-orthogonal-diagonalization.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
