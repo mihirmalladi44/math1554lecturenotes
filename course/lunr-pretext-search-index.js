@@ -258,8 +258,8 @@ var ptx_lunr_docs = [
   "url": "sec-3d-computer-graphics.html",
   "type": "Section",
   "number": "",
-  "title": "3D Computer Graphics",
-  "body": " 3D Computer Graphics   Results from the previous section on 2D graphics have a natural extension to three dimensions. In this section we extend the data matrix and homogeneous coordinates to three dimensions. This will allow us to model translations and composite transforms involving many points with matrix multiplication.    Rotations in 3D  Rotations about the origin are linear transforms. Because they are linear they can be expressed in the form where is a matrix, and we can obtain the columns of matrix by transforming the standard vectors We will use the convention that a positive rotation is in the counterclockwise direction when looking toward the origin from the positive half of the axis of rotation. For example, rotating about the -axis by radians results in the vector Transforming the first standard vector yields the first column of . Likewise the remaining columns can be found by transforming the other standard vectors. The third standard vector does not change under this transformation because it is parallel to the rotation axis. The standard matrix for a rotation about the -axis is A similar analysis gives us the standard matrices for rotations about the and the axes. Results are summarized in . The standard matrices in the table can be multiplied together to model transforms that perform multiple transformations. The next example demonstrates this application.   Standard matrices for 3D rotations about the coordinate axes.      rotation axis  standard matrix    -axis       -axis       -axis          Example 1: 3D Rotations  Suppose that the transform first rotates points in about the -axis by radians and then rotates points about the -axis by radians. We can determine the standard matrix, , for this transform in a few different ways. One approach is to use the standard matrices in . The standard matrix, , is the product of two rotation matrices. Note that the rotation about the -axis is applied before the rotation about the -axis, which determines the multiplication order. The standard matrix for the first transformation is placed in the rightmost position.  We could also obtain the same result by transforming the standard vectors, because . The first standard vector gives us the first column of . This result agrees with our result obtained above by multiplying rotation matrices together. Note also that our convention is that a positive rotation is in the counterclockwise direction when looking toward the origin from the positive half of the axis of rotation.    The Data Matrix for 3D Transforms  Similar to the 2D case, for problems involving many points it is convenient to represent the points a data matrix. Analogous to our approach in 2D, points in can be represented in a matrix whose columns are vectors that correspond to the points we wish to transform. We may transform this matrix with a matrix-vector multiplication. Recall that the product of two matrices and , is defined as where are the columns of . In other words, can perform the transformation on our data by computing , which transforms each column independently of the others. The following example demonstrates this approach.    Example 2: A Projection in 3D with the Data Matrix   Corners of a cube with side length 1.                                     Data in Table ( ) define a cube in with side length 1. Suppose the linear transform projects points in onto the -plane. In this example we will construct the matrix, , that is the standard matrix of the transformation .  The data in Table ( ) (blue) and its projection (green) are shown Figure ( ).   Data from Table ( ) and its projection onto the -plane.      Because the given transform that we are dealing with in this example is linear, we can express the transform in the form of a matrix-vector product where is a matrix. Moreover, because we are working with a linear transform, each column of is equal to the product and is a standard vector. For example, the first column of can be found using , which is the vector Projecting onto the -plane does not change the vector, because the vector is already in that plane. The first column of is . Likewise, the second column of is , becuase is also already in the -plane. The last column of is the projection of onto the plane, which is the zero vector. Combining our results for each column of gives us the standard matrix. Now that we have the standard matrix for this transform, we can use it to transform the data in Table 1. Representing each point as a vector in and placing the vectors in a data matrix, , will allow us to compute the projection using a matrix multiplication. Our matrix is The transformed points can be computed as follows. Extracting the columns of the product gives us the projected points.    3D Homogeneous Coordinates  Homogeneous coordinates in 3D are analogous to the homogeneous 2D coordinates we introduced in the previous section.   Homogeneous Coordinates in   are homogeneous coordinates for in    A translation of the form can be represented as a matrix multiplication with homogeneous coordinates:    Example 3: A Translation in 3D  The data in Table ( ) can be translated using a homogeneous coordinate system. The data matrix in homogeneous coordinates would be The transform that, for example, shifts the data by units in the direction and by 1 unit in the -direction is The figure below shows the original data (blue) and its translated version (green).        Exercises    Construct the standard matrices for the following transforms.     The standard matrix of the transform that uses homogeneous coordinates to reflect points in across the plane , where is any real number.      The standard matrix of the transform that reflects points in across the plane .      The standard matrix of the transform that first rotates points in about the -axis by an angle and then projects them onto the -plane.       Line passes through the point and is parallel to the vector , where Construct the matrix that uses homogeneous coordinates to rotate points in about line by an angle .     "
+  "title": "1.5 3D Computer Graphics",
+  "body": " 1.5 3D Computer Graphics   Results from the previous section on 2D graphics have a natural extension to three dimensions. In this section we extend the data matrix and homogeneous coordinates to three dimensions. This will allow us to model translations and composite transforms involving many points with matrix multiplication.    Rotations in 3D  Rotations about the origin are linear transforms. Because they are linear they can be expressed in the form where is a matrix, and we can obtain the columns of matrix by transforming the standard vectors We will use the convention that a positive rotation is in the counterclockwise direction when looking toward the origin from the positive half of the axis of rotation. For example, rotating about the -axis by radians results in the vector Transforming the first standard vector yields the first column of . Likewise the remaining columns can be found by transforming the other standard vectors. The third standard vector does not change under this transformation because it is parallel to the rotation axis. The standard matrix for a rotation about the -axis is A similar analysis gives us the standard matrices for rotations about the and the axes. Results are summarized in . The standard matrices in the table can be multiplied together to model transforms that perform multiple transformations. The next example demonstrates this application.   Standard matrices for 3D rotations about the coordinate axes.      rotation axis  standard matrix    -axis       -axis       -axis          Example 1: 3D Rotations  Suppose that the transform first rotates points in about the -axis by radians and then rotates points about the -axis by radians. We can determine the standard matrix, , for this transform in a few different ways. One approach is to use the standard matrices in . The standard matrix, , is the product of two rotation matrices. Note that the rotation about the -axis is applied before the rotation about the -axis, which determines the multiplication order. The standard matrix for the first transformation is placed in the rightmost position.  We could also obtain the same result by transforming the standard vectors, because . The first standard vector gives us the first column of . This result agrees with our result obtained above by multiplying rotation matrices together. Note also that our convention is that a positive rotation is in the counterclockwise direction when looking toward the origin from the positive half of the axis of rotation.    The Data Matrix for 3D Transforms  Similar to the 2D case, for problems involving many points it is convenient to represent the points a data matrix. Analogous to our approach in 2D, points in can be represented in a matrix whose columns are vectors that correspond to the points we wish to transform. We may transform this matrix with a matrix-vector multiplication. Recall that the product of two matrices and , is defined as where are the columns of . In other words, can perform the transformation on our data by computing , which transforms each column independently of the others. The following example demonstrates this approach.    Example 2: A Projection in 3D with the Data Matrix   Corners of a cube with side length 1.                                     Data in Table ( ) define a cube in with side length 1. Suppose the linear transform projects points in onto the -plane. In this example we will construct the matrix, , that is the standard matrix of the transformation .  The data in Table ( ) (blue) and its projection (green) are shown Figure ( ).   Data from Table ( ) and its projection onto the -plane.      Because the given transform that we are dealing with in this example is linear, we can express the transform in the form of a matrix-vector product where is a matrix. Moreover, because we are working with a linear transform, each column of is equal to the product and is a standard vector. For example, the first column of can be found using , which is the vector Projecting onto the -plane does not change the vector, because the vector is already in that plane. The first column of is . Likewise, the second column of is , becuase is also already in the -plane. The last column of is the projection of onto the plane, which is the zero vector. Combining our results for each column of gives us the standard matrix. Now that we have the standard matrix for this transform, we can use it to transform the data in Table 1. Representing each point as a vector in and placing the vectors in a data matrix, , will allow us to compute the projection using a matrix multiplication. Our matrix is The transformed points can be computed as follows. Extracting the columns of the product gives us the projected points.    3D Homogeneous Coordinates  Homogeneous coordinates in 3D are analogous to the homogeneous 2D coordinates we introduced in the previous section.   Homogeneous Coordinates in   are homogeneous coordinates for in    A translation of the form can be represented as a matrix multiplication with homogeneous coordinates:    Example 3: A Translation in 3D  The data in Table ( ) can be translated using a homogeneous coordinate system. The data matrix in homogeneous coordinates would be The transform that, for example, shifts the data by units in the direction and by 1 unit in the -direction is The figure below shows the original data (blue) and its translated version (green).        Exercises    Construct the standard matrices for the following transforms.     The standard matrix of the transform that uses homogeneous coordinates to reflect points in across the plane , where is any real number.      The standard matrix of the transform that reflects points in across the plane .      The standard matrix of the transform that first rotates points in about the -axis by an angle and then projects them onto the -plane.       Line passes through the point and is parallel to the vector , where Construct the matrix that uses homogeneous coordinates to rotate points in about line by an angle .     "
 },
 {
   "id": "tab-3d-rotations",
@@ -305,33 +305,6 @@ var ptx_lunr_docs = [
   "number": "2",
   "title": "",
   "body": "  Line passes through the point and is parallel to the vector , where Construct the matrix that uses homogeneous coordinates to rotate points in about line by an angle .   "
-},
-{
-  "id": "activity-1-1-4-worksheet",
-  "level": "1",
-  "url": "activity-1-1-4-worksheet.html",
-  "type": "Worksheet",
-  "number": "",
-  "title": "1.1.4 Example 2: Computing AB",
-  "body": " 1.1.4 Example 2: Computing AB   and are the matrices   where   If we compute the matrix product using the given partitioning we obtain   where   Therefore   Computing with the row column method confirms our result.    "
-},
-{
-  "id": "activity-1-1-5-worksheet",
-  "level": "1",
-  "url": "activity-1-1-5-worksheet.html",
-  "type": "Worksheet",
-  "number": "",
-  "title": "1.1.5 Block Matrix Inversion",
-  "body": " 1.1.5 Block Matrix Inversion   In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of matrix is a matrix , that has the same dimensions as and satisfies   where is the identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.   "
-},
-{
-  "id": "activity-1-1-6-worksheet",
-  "level": "1",
-  "url": "activity-1-1-6-worksheet.html",
-  "type": "Worksheet",
-  "number": "",
-  "title": "1.1.6 Example 3: Expression for Inverse of a Block Matrix",
-  "body": " 1.1.6 Example 3: Expression for Inverse of a Block Matrix   Recall, using our formula for a 2 × 2 matrix,   provided that . Suppose , , and are invertible matrices. Suppose we wish to construct an expression for the inverse of the matrix   To construct the inverse of , we can write   where is the matrix we seek. If we let be the block matrix   we can determine by solving or . Solving gives us:    The above matrix equation gives us a set of four equations that can be solved to determine , , , and . The block in the second row and first column gives us . It was given that is an invertible matrix, so is a zero matrix because      Likewise the block in the second row and second column yields , so     Now that we have expressions for and we can solve the remaining two equations for and . Solving for gives us the following expression.       Solving for :      We now have our expression for :   Note that in the special case where that each of the blocks are scalars and our expression is equivalent to Equation (1.1).   "
 },
 {
   "id": "section-orthogonal-diagonalization",
@@ -487,6 +460,87 @@ var ptx_lunr_docs = [
   "body": " The ellipse in the -plane, and the same ellipse expressed without cross terms, , in the -plane.          "
 },
 {
+  "id": "section-quadratic-surfaces",
+  "level": "1",
+  "url": "section-quadratic-surfaces.html",
+  "type": "Section",
+  "number": "",
+  "title": "2.3.2 Quadratic Surfaces",
+  "body": " 2.3.2 Quadratic Surfaces  In a previous section of these notes we encountered situations where we want to minimize or maximize a quadratic function of the form   where is symmetric. Then the set of that satisfies Equation We were also interested in additional constraints on what could be. These sorts of problems are encountered, for example, when constructing the singular value decomposition of a matrix, which we will get to soon. Either way, to help us understand thes2e constrained optimization problems it can be helpful to have a geometric interpretation of what Equation represents. The interpretations and terminology we introduce in this section can help us describes the shape of and solve optimization problems related to it.   Example 1: A Quadratic Surface in  For a fixed , Equation will define a curve in . For example, if   then the points that satisfy   generates a curve in . The diagram below shows a set of curves for equal to 2 and to 8. As we vary the value of , the size of our curve will change. In general, when we increase the value of , the curve gets larger and points on the curve get further away from the origin. As we decrease , the opposite happens: the curve gets smaller and points on the curve get closer to the origin.   Curves generated by .      If we consider many values of we would generate many more curves in . The curves could also be displayed in , with one of the axes corresponding to . In fact, if we allow to vary continuously, would give us a surface in , which is shown in .   The surface .    Those familiar with MATLAB may be surprised that the above surface can be generated using only a few lines of code. The script that was used to create is below. The code uses the fimplicit3 function.   MATLAB Script   fimplicit3(@(x,y,Q) Q-2*y.^2-2*x.^2-2*x.*y) xlabel('x') ylabel('y') zlabel('Q') set(gcf,'color','w'); % sets background color to white set(gca,'FontSize',18) % increases font size to 18    Most of the code above was used to format the diagram. The MATLAB fimplicit3 function plots the three dimensional implicit function defined by over a default interval of for input values of . By rearranging Equation we can obtain which is the form that MATLAB needs for fimplicit3.    Example 2: Quadratic Surfaces  The entries of in Equation will determine the shape of a quadratic surface that it creates. Several examples are shown in the figures below.   Quadratic surfaces generated by four different choices of .                       Notice how some surfaces will have a maximum or minimum value. and have a minimum value of . Whereas the form shown in has a maximum value .    Classifying Quadratic Forms  Quadratic functions of the form can be classified based on the values that can have.   Definition   A quadratic form is   positive definite if for all .  negative definite if for all .  positive semidefinite if for all .  negative semidefinite if for all .  indefinite if takes on positive and negative values for .     That these categories are not mutually exclusive. A form can, for example, be both positive definite and positive semidefinite. The following theorem allows us to classify a form based on the eigenvalues of the matrix of the quadratic form.   Theorem   If is a symmetric matrix with eigenvalues , then is   positive definite when all eigenvalues are positive  positive semidefinite when all eigenvalues are non-negative  negative definite when all eigenvalues are negative  negative semidefinite when all eigenvalues are non-positive  indefinite when at least one eigenvalue is negative and at least one eigenvalue is positive      If is symmetric, we can write and set , so , and   The entries of are . Note that is always non-negative, so for , the sign of will only depend on the values of . This implies, for example that when for all , that is positive definite.     Example 3: Quadratic Forms and Eigenvalues  Consider the quadratic form   The matrix of this quadratic form is   Calculating its eigenvalues reveals that . Because the eigenvalues are both positive and negative, our quadratic form is indefinite. Indeed, when we plot this surface using MATLAB, we see that the surface does have values that are both positive and negative.   The indefinite quadratic surface generated by .      Summary  In this section we explored geometric interpretations of the quadratic form   where is symmetric. Then the set of that satisfies this equation create a surface. The surface, , could have a minimum or maximum value that may or may not be unique. If all the eigenvalues of are known, we have seen how we can characterize the extreme values of a quadratic form give by .  Those students who have encountered quadratic surfaces in a multivariable calculus course may have already seen the forms discussed in this section from a different perspective. In such a course students may also consider more general quadratic surfaces of the form   Such forms can be used to create ellipsoids, cylinders, and other useful shapes that are studied in calculus, but go beyond the scope of this course.   "
+},
+{
+  "id": "figure-parab-curves",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#figure-parab-curves",
+  "type": "Figure",
+  "number": "16",
+  "title": "",
+  "body": " Curves generated by .     "
+},
+{
+  "id": "figure-paraboloid",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#figure-paraboloid",
+  "type": "Figure",
+  "number": "17",
+  "title": "",
+  "body": " The surface .   "
+},
+{
+  "id": "listing-matlab-script",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#listing-matlab-script",
+  "type": "Listing",
+  "number": "18",
+  "title": "MATLAB Script",
+  "body": " MATLAB Script   fimplicit3(@(x,y,Q) Q-2*y.^2-2*x.^2-2*x.*y) xlabel('x') ylabel('y') zlabel('Q') set(gcf,'color','w'); % sets background color to white set(gca,'FontSize',18) % increases font size to 18   "
+},
+{
+  "id": "figure-quad-surfaces-grid",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#figure-quad-surfaces-grid",
+  "type": "Figure",
+  "number": "19",
+  "title": "",
+  "body": " Quadratic surfaces generated by four different choices of .                      "
+},
+{
+  "id": "definition-quadratic-form-types",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#definition-quadratic-form-types",
+  "type": "Definition",
+  "number": "20",
+  "title": "Definition.",
+  "body": " Definition   A quadratic form is   positive definite if for all .  negative definite if for all .  positive semidefinite if for all .  negative semidefinite if for all .  indefinite if takes on positive and negative values for .    "
+},
+{
+  "id": "theorem-classify-quadratic-forms",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#theorem-classify-quadratic-forms",
+  "type": "Theorem",
+  "number": "21",
+  "title": "Theorem.",
+  "body": " Theorem   If is a symmetric matrix with eigenvalues , then is   positive definite when all eigenvalues are positive  positive semidefinite when all eigenvalues are non-negative  negative definite when all eigenvalues are negative  negative semidefinite when all eigenvalues are non-positive  indefinite when at least one eigenvalue is negative and at least one eigenvalue is positive    "
+},
+{
+  "id": "subsection-classifying-quadratic-forms-6",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#subsection-classifying-quadratic-forms-6",
+  "type": "Proof",
+  "number": "1",
+  "title": "",
+  "body": " If is symmetric, we can write and set , so , and   The entries of are . Note that is always non-negative, so for , the sign of will only depend on the values of . This implies, for example that when for all , that is positive definite.  "
+},
+{
+  "id": "figure-saddle",
+  "level": "2",
+  "url": "section-quadratic-surfaces.html#figure-saddle",
+  "type": "Figure",
+  "number": "22",
+  "title": "",
+  "body": " The indefinite quadratic surface generated by .   "
+},
+{
   "id": "section-constrained-optimization",
   "level": "1",
   "url": "section-constrained-optimization.html",
@@ -500,7 +554,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-temperature-sphere",
   "type": "Figure",
-  "number": "16",
+  "number": "23",
   "title": "",
   "body": " The unit sphere colored according to the temperature , with the hottest points in red and the coldest points in blue.     "
 },
@@ -518,7 +572,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#theorem-constrained-optimization",
   "type": "Theorem",
-  "number": "17",
+  "number": "24",
   "title": "Constrained Optimization.",
   "body": " Constrained Optimization   If , is a real symmetric matrix, with eigenvalues   and associated normalized eigenvectors . Then, subject to the constraint , the maximum value of is , which is attained at . The minimum value of is , which is attained at .   "
 },
@@ -536,7 +590,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-repeated-eigenvalue-sphere",
   "type": "Figure",
-  "number": "18",
+  "number": "25",
   "title": "",
   "body": " Left: the unit sphere colored according to . Right: the eigenvectors , , and .          "
 },
@@ -545,7 +599,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#theorem-orthogonality-constraint",
   "type": "Theorem",
-  "number": "19",
+  "number": "26",
   "title": "Optimization with an Orthogonality Constraint.",
   "body": " Optimization with an Orthogonality Constraint   Suppose , where is symmetric and has eigenvalues and associated normalized eigenvectors . Then, subject to the constraints and , the maximum value of is , which is attained at . The minimum value of is , which is attained at .   "
 },
@@ -554,7 +608,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-orthogonality-constraint-sphere",
   "type": "Figure",
-  "number": "20",
+  "number": "27",
   "title": "",
   "body": " The unit sphere colored according to , with the eigenvectors and marked.     "
 },
@@ -577,85 +631,76 @@ var ptx_lunr_docs = [
   "body": "Lagrange Multipliers "
 },
 {
-  "id": "section-quadratic-surfaces",
+  "id": "section-singular-values",
   "level": "1",
-  "url": "section-quadratic-surfaces.html",
+  "url": "section-singular-values.html",
   "type": "Section",
   "number": "",
-  "title": "2.3.2 Quadratic Surfaces",
-  "body": " 2.3.2 Quadratic Surfaces  In a previous section of these notes we encountered situations where we want to minimize or maximize a quadratic function of the form   where is symmetric. Then the set of that satisfies Equation We were also interested in additional constraints on what could be. These sorts of problems are encountered, for example, when constructing the singular value decomposition of a matrix, which we will get to soon. Either way, to help us understand thes2e constrained optimization problems it can be helpful to have a geometric interpretation of what Equation represents. The interpretations and terminology we introduce in this section can help us describes the shape of and solve optimization problems related to it.   Example 1: A Quadratic Surface in  For a fixed , Equation will define a curve in . For example, if   then the points that satisfy   generates a curve in . The diagram below shows a set of curves for equal to 2 and to 8. As we vary the value of , the size of our curve will change. In general, when we increase the value of , the curve gets larger and points on the curve get further away from the origin. As we decrease , the opposite happens: the curve gets smaller and points on the curve get closer to the origin.   Curves generated by .      If we consider many values of we would generate many more curves in . The curves could also be displayed in , with one of the axes corresponding to . In fact, if we allow to vary continuously, would give us a surface in , which is shown in .   The surface .    Those familiar with MATLAB may be surprised that the above surface can be generated using only a few lines of code. The script that was used to create is below. The code uses the fimplicit3 function.   MATLAB Script   fimplicit3(@(x,y,Q) Q-2*y.^2-2*x.^2-2*x.*y) xlabel('x') ylabel('y') zlabel('Q') set(gcf,'color','w'); % sets background color to white set(gca,'FontSize',18) % increases font size to 18    Most of the code above was used to format the diagram. The MATLAB fimplicit3 function plots the three dimensional implicit function defined by over a default interval of for input values of . By rearranging Equation we can obtain which is the form that MATLAB needs for fimplicit3.    Example 2: Quadratic Surfaces  The entries of in Equation will determine the shape of a quadratic surface that it creates. Several examples are shown in the figures below.   Quadratic surfaces generated by four different choices of .                       Notice how some surfaces will have a maximum or minimum value. and have a minimum value of . Whereas the form shown in has a maximum value .    Classifying Quadratic Forms  Quadratic functions of the form can be classified based on the values that can have.   Definition   A quadratic form is   positive definite if for all .  negative definite if for all .  positive semidefinite if for all .  negative semidefinite if for all .  indefinite if takes on positive and negative values for .     That these categories are not mutually exclusive. A form can, for example, be both positive definite and positive semidefinite. The following theorem allows us to classify a form based on the eigenvalues of the matrix of the quadratic form.   Theorem   If is a symmetric matrix with eigenvalues , then is   positive definite when all eigenvalues are positive  positive semidefinite when all eigenvalues are non-negative  negative definite when all eigenvalues are negative  negative semidefinite when all eigenvalues are non-positive  indefinite when at least one eigenvalue is negative and at least one eigenvalue is positive      If is symmetric, we can write and set , so , and   The entries of are . Note that is always non-negative, so for , the sign of will only depend on the values of . This implies, for example that when for all , that is positive definite.     Example 3: Quadratic Forms and Eigenvalues  Consider the quadratic form   The matrix of this quadratic form is   Calculating its eigenvalues reveals that . Because the eigenvalues are both positive and negative, our quadratic form is indefinite. Indeed, when we plot this surface using MATLAB, we see that the surface does have values that are both positive and negative.   The indefinite quadratic surface generated by .      Summary  In this section we explored geometric interpretations of the quadratic form   where is symmetric. Then the set of that satisfies this equation create a surface. The surface, , could have a minimum or maximum value that may or may not be unique. If all the eigenvalues of are known, we have seen how we can characterize the extreme values of a quadratic form give by .  Those students who have encountered quadratic surfaces in a multivariable calculus course may have already seen the forms discussed in this section from a different perspective. In such a course students may also consider more general quadratic surfaces of the form   Such forms can be used to create ellipsoids, cylinders, and other useful shapes that are studied in calculus, but go beyond the scope of this course.   "
+  "title": "2.5 Singular Values",
+  "body": " 2.5 Singular Values  If is any real matrix, what is the maximum that could be equal to, given that has to be a unit vector? It turns out that the answer to this question reveals an application of a constrained optimization problem that we explored in a previous sections, and in the process of answering it we will introduce what are known as the singular values of a matrix and their properties. Singular values are at the heart of many applications of linear algebra. Indeed, singular values play an important role in the singular value decomposition of a matrix, which has many applications.  We will introduce the SVD in a later section of these notes. In this section we motivate their definition and properties by exploring examples involving linear transforms.   Example 1: A Linear Transform on the Unit Circle  Consider the linear transform where   The set of all unit vectors in will form a circle, and this particular transform will map these unit vectors to points on another curve, as shown in . To help illustrate the problem we are working on, the diagram also shows how a unit vector, is mapped to , where    The linear transform maps the unit circle to a curve in . An example of one unit vector, , and its image, , are also shown.      There are two questions we want to ask. Is there a unit vector, , that will maximize the length of ? And what would be equal to for that particular vector? In other words, which unit vector, , maximizes , and what is equal to?  To answer these questions, it is helpful to use the idea that location of the maximum of will be at the same location as the maximum of , subject to our constraint that must be a unit vector. Using this idea, we can then write the squared length as   But is symmetric. Which means that we are now working with a familiar optimization problem. We know from a previous section that because is symmetric that we can use the eigenvalues and eigenvectors of to 1) identify the maximum value of , and 2) identify where the maximum is located. First need to compute .   In this case, happens to be diagonal, so the eigenvalues can be obtained by inspection. The largest eigenvalue is 8.   Taking the square root of this gives us the maximum value that we need, which we denote by .   But what is the vector that corresponds to this maximum? Let the unit eigenvector corresponding to the largest eigenvalue is the vector be , which maximizes over all unit vectors .   Thus the maximum value we found is obtained at the point . But of course we could also use , either point will maximize the length of .  If we also wanted to determine the smallest value of subject to , we would use the eigenvector that is associated with the smallest eigenvalue of , which is   Therefore, the minimum value of is   is the square root of the smallest eigenvalue of , which is .  The maximum and minimum lengths of are denoted by the Greek letter , so that , and . They are known as the singular values of , and shows how they are related to the range of the linear transform . We give a definition of the singular values of a matrix in the next section.   The singular values and are lengths. They give the largest and smallest values of subject to , respectively. The vectors and give the locations of these extreme values.        Singular Values    The singular values, , of any real matrix are the square roots of the eigenvalues of , so that for , where is an eigenvalue of . Singular values are also ordered from largest to smallest, so that     Because we are relying on a square root to define the singular values of a matrix, we might wonder whether the eigenvalues of could be negative, which would imply that singular values can be complex. But, it turns out that the eigenvalues of can never be negative because of the following theorem.    The eigenvalues of are real and non-negative.     We have already shown that the eigenvalues of any symmetric matrix are real (see Appendix (3.1)). Also recall that because are unit eigenvectors of . Then   Therefore the eigenvalues of must be real and non-negative. And the singular values of , which are the square roots of the eigenvalues, must also be real and non-negative.     Singular Values Represent Lengths  We saw in Example 1 how the singular values of the matrix represented the lengths of and . We can extend this concept to any matrix.  When showing that the eigenvalues of are non-negative, we saw that   Therefore,   This is an important point: the singular value is the length of for . Moreover, our proof relied on the fact that because the matrix is symmetric with non-negative eigenvalues , the eigenvectors of , the set , forms an orthogonal basis for . In other words, not only is each is the length of , but the lengths are in orthogonal directions.  For example, the largest singular value of gives us the maximum length of subject to .   The second largest eigenvalue of a symmetric matrix gives the maximum of subject to   The second largest eigenvalue is . Thus, . Likewise with the remaining eigenvalues.   Example 2: Singular Values of a Matrix with Orthogonal Columns  Suppose is a linear transform and is the matrix   The maximum and minimum values of are determined from the eigenvalues of . And is the matrix   This matrix happens to be diagonal because has orthogonal columns. So the eigenvalues can be determined by inspection and are , , and . Their square roots are the singular values of , which are   Shown below, on the left, is the unit sphere in . The vectors that make up the unit sphere are transformed by : each unit vector is transformed to . The output of the transform is shown on the right.   The transform of the unit sphere creates an ellipsoid in , whose size is described by the singular values of .       The maximum value of subject to is , which is why the ellipsoid on the right intersects the axis at and at . Notice we have chosen the first eigenvalue to be the largest and the last to be the smallest, which is consistent with the convention that the singular values are arranged in decreasing order.     Summary  In this section we saw how the singular values of any real matrix are the square roots of the eigenvalues of . They are real and non-negative, arranged in decreasing order, and are related to the lengths of for . In the next section we will see how they can be used to construct the singular value decomposition.   "
 },
 {
-  "id": "figure-parab-curves",
+  "id": "figure-unitcircletoellipse",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-parab-curves",
+  "url": "section-singular-values.html#figure-unitcircletoellipse",
   "type": "Figure",
-  "number": "21",
+  "number": "28",
   "title": "",
-  "body": " Curves generated by .     "
+  "body": " The linear transform maps the unit circle to a curve in . An example of one unit vector, , and its image, , are also shown.     "
 },
 {
-  "id": "figure-paraboloid",
+  "id": "subsection-unit-circle-transform-24",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-paraboloid",
+  "url": "section-singular-values.html#subsection-unit-circle-transform-24",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "singular values "
+},
+{
+  "id": "figure-unitcircletransform",
+  "level": "2",
+  "url": "section-singular-values.html#figure-unitcircletransform",
   "type": "Figure",
-  "number": "22",
+  "number": "29",
   "title": "",
-  "body": " The surface .   "
+  "body": " The singular values and are lengths. They give the largest and smallest values of subject to , respectively. The vectors and give the locations of these extreme values.     "
 },
 {
-  "id": "listing-matlab-script",
+  "id": "definition-singular-values",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#listing-matlab-script",
-  "type": "Listing",
-  "number": "23",
-  "title": "MATLAB Script",
-  "body": " MATLAB Script   fimplicit3(@(x,y,Q) Q-2*y.^2-2*x.^2-2*x.*y) xlabel('x') ylabel('y') zlabel('Q') set(gcf,'color','w'); % sets background color to white set(gca,'FontSize',18) % increases font size to 18   "
-},
-{
-  "id": "figure-quad-surfaces-grid",
-  "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-quad-surfaces-grid",
-  "type": "Figure",
-  "number": "24",
-  "title": "",
-  "body": " Quadratic surfaces generated by four different choices of .                      "
-},
-{
-  "id": "definition-quadratic-form-types",
-  "level": "2",
-  "url": "section-quadratic-surfaces.html#definition-quadratic-form-types",
+  "url": "section-singular-values.html#definition-singular-values",
   "type": "Definition",
-  "number": "25",
-  "title": "Definition.",
-  "body": " Definition   A quadratic form is   positive definite if for all .  negative definite if for all .  positive semidefinite if for all .  negative semidefinite if for all .  indefinite if takes on positive and negative values for .    "
+  "number": "30",
+  "title": "",
+  "body": "  The singular values, , of any real matrix are the square roots of the eigenvalues of , so that for , where is an eigenvalue of . Singular values are also ordered from largest to smallest, so that    "
 },
 {
-  "id": "theorem-classify-quadratic-forms",
+  "id": "theorem-ata-real-nonnegative",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#theorem-classify-quadratic-forms",
+  "url": "section-singular-values.html#theorem-ata-real-nonnegative",
   "type": "Theorem",
-  "number": "26",
-  "title": "Theorem.",
-  "body": " Theorem   If is a symmetric matrix with eigenvalues , then is   positive definite when all eigenvalues are positive  positive semidefinite when all eigenvalues are non-negative  negative definite when all eigenvalues are negative  negative semidefinite when all eigenvalues are non-positive  indefinite when at least one eigenvalue is negative and at least one eigenvalue is positive    "
+  "number": "31",
+  "title": "",
+  "body": "  The eigenvalues of are real and non-negative.   "
 },
 {
-  "id": "subsection-classifying-quadratic-forms-6",
+  "id": "subsection-singular-values-definition-5",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#subsection-classifying-quadratic-forms-6",
+  "url": "section-singular-values.html#subsection-singular-values-definition-5",
   "type": "Proof",
   "number": "1",
   "title": "",
-  "body": " If is symmetric, we can write and set , so , and   The entries of are . Note that is always non-negative, so for , the sign of will only depend on the values of . This implies, for example that when for all , that is positive definite.  "
+  "body": " We have already shown that the eigenvalues of any symmetric matrix are real (see Appendix (3.1)). Also recall that because are unit eigenvectors of . Then   Therefore the eigenvalues of must be real and non-negative. And the singular values of , which are the square roots of the eigenvalues, must also be real and non-negative.  "
 },
 {
-  "id": "figure-saddle",
+  "id": "figure-ellipsoid2",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-saddle",
+  "url": "section-singular-values.html#figure-ellipsoid2",
   "type": "Figure",
-  "number": "27",
+  "number": "32",
   "title": "",
-  "body": " The indefinite quadratic surface generated by .   "
+  "body": " The transform of the unit sphere creates an ellipsoid in , whose size is described by the singular values of .      "
 },
 {
   "id": "activities-3",
