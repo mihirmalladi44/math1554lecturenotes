@@ -1,0 +1,278 @@
+<worksheet margin="1in" bottom="1.25cm" xml:id="activity-1-3-worksheet">
+    <title>The Leontif Input-Output Model</title>
+
+    <page>
+        <m>{\LARGE \textbf{1.3 The Leontif Input-Output Model}}</m>
+
+        <p>
+            Input-output models are used in economics to model the inter-dependencies between different sectors of an economy. Wassily Leontief (1906-1999) is credited with developing the type of analysis that we explore in this chapter. His work on this model earned a Nobel Prize in Economics.
+        </p>
+
+        <p>
+            The input-output model assumes that there are sectors in an economy that produce a set of desired products to meet an external demand. The model also assumes that the sectors themselves will also demand a portion of the output that the sectors produce. If the sectors produce exactly the number of units to meet the external demand, then we have the equation
+        </p>
+
+        <p>(sector output) &#8722; (internal consumption) = (external demand)</p>
+
+        <p>
+            In this section we will see that this equation is a linear system that can be solved to determine the output the economy needs to produce to meet the external demand.
+        </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.3.1 Example 1: The Internal Consumption Matrix}}</m>
+
+        <p>
+            Suppose an economy that has two sectors: manufacturing (M) and energy (E). Both of the sectors produce an output to meet an external demand (D) for their products. Sectors M and E also require output from each other to produce their output. The way in which they do so is described in the diagram below.
+        </p>
+
+        <figure xml:id="leontief-me-figure">
+            <caption>Internal consumption diagram for sectors M and E.</caption>
+            <image source="leontief-me-diagram.png" width="50%"/>
+        </figure>
+
+        <p>The numbers in the above diagram can be interpreted as follows.</p>
+
+        <p>&#8226; For every 100 units that sector M creates, M requires 40 units from M and 10 units from E.</p>
+        <p>&#8226; For every 100 units that sector E creates, E requires 20 units from M and 30 units from E.</p>
+        <p>&#8226; An external demand (D) requires 4 units from M and 12 units from E.</p>
+
+        <p>
+            In other words, if M were to create <m>x_M</m> units, then M would consume <m>0.4x_M</m> units from M and <m>0.1x_M</m> units from E. The consumption from sector M could be represented with a vector.
+        </p>
+
+        <me>
+            \text{consumption from M} =
+            \begin{pmatrix}
+                0.4x_M \\ 0.1x_M
+            \end{pmatrix} =
+            \frac{x_M}{10}
+            \begin{pmatrix}
+                4 \\ 1
+            \end{pmatrix}
+        </me>
+
+        <p>Likewise, the consumption from sector E would be</p>
+
+        <me>
+            \text{consumption from E} =
+            \frac{x_E}{10}
+            \begin{pmatrix}
+                2 \\ 3
+            \end{pmatrix}
+        </me>
+
+        <p>Adding these vectors together gives us the total internal consumption from both sectors.</p>
+
+        <me>
+            \text{total internal consumption} =
+            \frac{x_M}{10}
+            \begin{pmatrix}
+                4 \\ 1
+            \end{pmatrix}
+            +
+            \frac{x_E}{10}
+            \begin{pmatrix}
+                2 \\ 3
+            \end{pmatrix}
+            =
+            \frac{1}{10}
+            \begin{pmatrix}
+                4 \amp 2 \\
+                1 \amp 3
+            \end{pmatrix}
+            \begin{pmatrix}
+                x_M \\ x_E
+            \end{pmatrix}
+            = C\vec{x}, \quad \text{where } C = \frac{1}{10}\begin{pmatrix} 4 \amp 2 \\ 1 \amp 3 \end{pmatrix}, \; \vec{x} = \begin{pmatrix} x_M \\ x_E \end{pmatrix}
+        </me>
+
+        <p>
+            Matrix <m>C</m> is called the <term>consumption matrix</term>. Typically its entries are between 0 and 1, and the sum of the entries in each column of <m>C</m> will be less than 1. Vector <m>\vec{x}</m> is the output of the sectors. If the sectors produce exactly the number of units to meet the external demand, then we have the equation
+        </p>
+
+        <me>
+            \text{(sector output)} - \text{(internal consumption)} = \text{(external demand)} \quad \quad \quad \text{(1.5)}
+        </me>
+
+        <me>
+            \vec{x} - C\vec{x} = \vec{d} \quad \quad \quad \text{(1.6)}
+        </me>
+    </page>
+
+    <page>
+        <p>
+            In our example, vector <m>\vec{d} = \begin{pmatrix} 4 \\ 12 \end{pmatrix}</m>, and <m>\vec{x} - C\vec{x} = (I - C)\vec{x}</m>. This simplifies Equation (1.6) to
+        </p>
+
+        <me>
+            (I - C)\vec{x} = \vec{d} \quad \quad \quad \text{(1.7)}
+        </me>
+
+        <me>
+            \left( \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix} - \frac{1}{10}\begin{pmatrix} 4 \amp 2 \\ 1 \amp 3 \end{pmatrix} \right)
+            \begin{pmatrix} x_M \\ x_E \end{pmatrix} =
+            \begin{pmatrix} 4 \\ 12 \end{pmatrix}
+            \quad \quad \quad \text{(1.8)}
+        </me>
+
+        <me>
+            \begin{pmatrix} 0.6 \amp -0.2 \\ -0.1 \amp 0.7 \end{pmatrix}
+            \begin{pmatrix} x_M \\ x_E \end{pmatrix} =
+            \begin{pmatrix} 4 \\ 12 \end{pmatrix}
+            \quad \quad \quad \text{(1.9)}
+        </me>
+
+        <p>
+            This is a linear system with two equations, whose solution gives us the output vector that balances production with demand. Expressing the system as an augmented matrix and using row operations yields the solution as shown below.
+        </p>
+
+        <me>
+            \begin{pmatrix} .6 \amp -.2 \amp 4 \\ -0.1 \amp 0.7 \amp 12 \end{pmatrix}
+            \sim
+            \begin{pmatrix} -1 \amp 7 \amp 120 \\ 6 \amp -2 \amp 40 \end{pmatrix}
+            \sim
+            \begin{pmatrix} -1 \amp 7 \amp 120 \\ 0 \amp 40 \amp 760 \end{pmatrix}
+            \sim
+            \begin{pmatrix} 1 \amp 0 \amp 13 \\ 0 \amp 1 \amp 19 \end{pmatrix}
+        </me>
+
+        <p>
+            The unique solution to this linear system is <m>\vec{x} = \begin{pmatrix} 13 \\ 19 \end{pmatrix}</m>. This is the output that sectors M and E would need to produce to meet the external demand exactly.
+        </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.3.2 Example 2: An Economy with Three Sectors}}</m>
+
+        <p>
+            Suppose an economy that has three sectors: X, Y, and Z. Each of these sectors produce an output to meet an external demand (D) for their products. The way in which they do so is described in the diagram below.
+        </p>
+
+        <figure xml:id="leontief-xyz-figure">
+            <caption>Internal consumption diagram for sectors X, Y, and Z.</caption>
+            <image source="leontief-xyz-diagram.png" width="50%"/>
+        </figure>
+
+        <p>
+            The external demand, D, is requiring 24 units from X, 4 units from Y, and 16 units from Z. Our goal is to determine how many units the sectors need to produce in order to satisfy this demand, while also accounting for internal consumption.
+        </p>
+
+        <p>
+            If Sector X were to create <m>x_X</m> units, then it would consume <m>0.2x_X</m> units from X and <m>0.4x_X</m> units from Y. This consumption could be represented by the vector
+        </p>
+
+        <me>
+            \text{consumption from Sector X} =
+            \begin{pmatrix} 0.2x_X \\ 0.4x_X \\ 0x_X \end{pmatrix} =
+            \frac{x_X}{10}
+            \begin{pmatrix} 2 \\ 4 \\ 0 \end{pmatrix}
+        </me>
+
+        <p>Likewise, the consumption from the other two sectors are</p>
+
+        <me>
+            \text{consumption from Sector Y} = \frac{x_Y}{10}\begin{pmatrix} 0 \\ 4 \\ 0 \end{pmatrix}
+            \qquad
+            \text{consumption from Sector Z} = \frac{x_Z}{10}\begin{pmatrix} 0 \\ 4 \\ 2 \end{pmatrix}
+        </me>
+
+        <p>Adding these three vectors together gives us the total internal consumption from all sectors and the consumption matrix <m>C</m>.</p>
+
+        <me>
+            \text{total internal consumption} =
+            \frac{x_X}{10}\begin{pmatrix} 2 \\ 4 \\ 0 \end{pmatrix} +
+            \frac{x_Y}{10}\begin{pmatrix} 0 \\ 4 \\ 0 \end{pmatrix} +
+            \frac{x_Z}{10}\begin{pmatrix} 0 \\ 4 \\ 2 \end{pmatrix}
+            =
+            \frac{1}{10}
+            \begin{pmatrix} 2 \amp 0 \amp 0 \\ 4 \amp 4 \amp 4 \\ 0 \amp 0 \amp 2 \end{pmatrix}
+            \begin{pmatrix} x_X \\ x_Y \\ x_Z \end{pmatrix}
+            = C\vec{x}
+        </me>
+
+        <p>where <m>C = \frac{1}{10}\begin{pmatrix} 2 \amp 0 \amp 0 \\ 4 \amp 4 \amp 4 \\ 0 \amp 0 \amp 2 \end{pmatrix}</m>, <m>\vec{x} = \begin{pmatrix} x_X \\ x_Y \\ x_Z \end{pmatrix}</m>.</p>
+
+        <p>
+            Each of the sectors in our economy are producing units to satisfy an external demand. The difference between the output and the internal consumption will represent the number of units produced to meet external demand.
+        </p>
+
+        <me>
+            \text{remaining units to meet demand} = \text{(sector output)} - \text{(internal consumption)} = \vec{x} - C\vec{x} = (I-C)\vec{x}
+        </me>
+    </page>
+
+    <page>
+        <p>
+            If the sectors are to meet the needs of the external demand exactly, the demand would need to equal the number of units produced after internal consumption is taken into account. That is, we need that
+        </p>
+
+        <me>
+            (I - C)\vec{x} = \vec{d}
+        </me>
+
+        <p>This is a linear system that can be solved for the output vector, <m>\vec{x}</m>. This could be computed using an augmented matrix.</p>
+
+        <me>
+            \begin{pmatrix} I - C \amp \vec{d} \end{pmatrix} =
+            \begin{pmatrix}
+                0.8 \amp 0 \amp 0 \amp 24 \\
+                -0.4 \amp 0.6 \amp -0.4 \amp 4 \\
+                0 \amp 0 \amp 0.8 \amp 16
+            \end{pmatrix}
+            \sim
+            \begin{pmatrix}
+                8 \amp 0 \amp 0 \amp 240 \\
+                -4 \amp 6 \amp -4 \amp 40 \\
+                0 \amp 0 \amp 8 \amp 160
+            \end{pmatrix}
+            \sim
+            \begin{pmatrix}
+                1 \amp 0 \amp 0 \amp 30 \\
+                -4 \amp 6 \amp -4 \amp 40 \\
+                0 \amp 0 \amp 1 \amp 20
+            \end{pmatrix}
+            \sim
+            \begin{pmatrix}
+                1 \amp 0 \amp 0 \amp 30 \\
+                0 \amp 1 \amp 0 \amp 40 \\
+                0 \amp 0 \amp 1 \amp 20
+            \end{pmatrix}
+        </me>
+
+        <p>
+            A helpful trick when reducing these matrices by hand is to multiply each row by 10 to make the algebra a bit less tedious. The above augmented matrix is in row reduced echelon form, and indicates that the desired output is
+        </p>
+
+        <me>
+            \vec{x} = \begin{pmatrix} 30 \\ 40 \\ 20 \end{pmatrix}
+        </me>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.3.3 Exercises}}</m>
+
+        <exercise workspace="1.5in">
+            <p>
+                Consider the production model <m>\vec{x} = C\vec{x} + \vec{d}</m> for an economy with two sectors, where <m>C = \begin{pmatrix} .0 \amp .5 \\ .6 \amp .2 \end{pmatrix}</m>, and <m>\vec{d} = \begin{pmatrix} 5 \\ 3 \end{pmatrix}</m>.
+            </p>
+
+            <p>(a) Construct the augmented matrix that can be used to calculate <m>\vec{x}</m>.</p>
+            <p>(b) Solve your linear system for <m>\vec{x}</m>.</p>
+        </exercise>
+
+        <exercise workspace="1.5in">
+            <p>
+                A model for an economy consists of four sectors, W, X, Y, and Z, and an external demand, D. The relationships between them are given in the diagram below. Sector Z provides resources to the other sectors internally. There is no external demand from D for the output from Z.
+            </p>
+
+            <figure xml:id="leontief-wxyz-figure">
+                <caption>Internal consumption diagram for sectors W, X, Y, and Z.</caption>
+                <image source="leontief-wxyz-diagram.png" width="50%"/>
+            </figure>
+
+            <p>(a) Construct the augmented matrix which can be used to solve the system for the output that would meet the external demand exactly while accounting for internal consumption between the four sectors.</p>
+            <p>(b) Solve your augmented matrix to determine the desired output vector.</p>
+        </exercise>
+    </page>
+</worksheet>

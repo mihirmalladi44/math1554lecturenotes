@@ -30,7 +30,12 @@
           They are not a substitute for attending class and not a substitute for reading the textbook.
         </p>
       </introduction>
-
+      <xi:include href="./notes/1.1.ptx"/>
+      <xi:include href="./notes/1.2.ptx"/>
+      <xi:include href="./notes/1.3.ptx"/>
+      <xi:include href="./notes/1.1.4.ptx"/>
+      <xi:include href="./notes/1.1.5.ptx"/>
+      <xi:include href="./notes/1.1.6.ptx"/>
       <xi:include href="./notes/2.1.ptx"/>
       <xi:include href="./notes/2.2.ptx"/>
       <xi:include href="./notes/2.3.1.ptx"/>

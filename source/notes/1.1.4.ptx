@@ -1,0 +1,146 @@
+<worksheet margin="1in" bottom="1.25cm" xml:id="activity-1-1-4-worksheet">
+    <title>1.1.4 Example 2: Computing AB</title>
+
+    <page>
+
+        <p><m>A</m> and <m>B</m> are the matrices</p>
+
+        <me>
+            A =
+            \begin{pmatrix}
+                1 \amp 0 \amp 1 \\
+                0 \amp 1 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                A_{11} \amp A_{12}
+            \end{pmatrix}
+            \qquad
+            B =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1 \\
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                B_{11} \\
+                B_{21}
+            \end{pmatrix}
+        </me>
+
+        <p>where</p>
+
+        <me>
+            A_{11} =
+            \begin{pmatrix}
+                1 \amp 0 \\
+                0 \amp 1
+            \end{pmatrix},
+            \quad
+            A_{12} =
+            \begin{pmatrix}
+                1 \\
+                1
+            \end{pmatrix},
+            \quad
+            B_{11} =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix},
+            \quad
+            B_{21} =
+            \begin{pmatrix}
+                0 \amp 1
+            \end{pmatrix}
+        </me>
+
+        <p>If we compute the matrix product using the given partitioning we obtain</p>
+
+        <me>
+            AB =
+            \begin{pmatrix}
+                A_{11} \amp A_{12}
+            \end{pmatrix}
+            \begin{pmatrix}
+                B_{11} \\
+                B_{21}
+            \end{pmatrix} =
+            \begin{pmatrix}
+                A_{11}B_{11} + A_{12}B_{21}
+            \end{pmatrix}
+        </me>
+
+        <p>where</p>
+
+        <me>
+            A_{11}B_{11} =
+            \begin{pmatrix}
+                1 \amp 0 \\
+                0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix}
+            \qquad
+            A_{12}B_{21} =
+            \begin{pmatrix}
+                1 \\
+                1
+            \end{pmatrix}
+            \begin{pmatrix}
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                0 \amp 1 \\
+                0 \amp 1
+            \end{pmatrix}
+        </me>
+
+        <p>Therefore</p>
+
+        <me>
+            AB =
+            A_{11}B_{11} + A_{12}B_{21} =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix} +
+            \begin{pmatrix}
+                0 \amp 1 \\
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 \amp 0 \\
+                0 \amp 0
+            \end{pmatrix}
+        </me>
+
+        <p>Computing <m>AB</m> with the row column method confirms our result. </p>
+
+        <me>
+            AB =
+            \begin{pmatrix}
+                1 \amp 0 \amp 1 \\
+                0 \amp 1 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1 \\
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 + 0 + 0 \amp -1 + 0 + 1 \\
+                0 + 0 + 0 \amp 0 - 1 + 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 \amp 0 \\
+                0 \amp 0
+            \end{pmatrix}
+        </me>
+    </page>
+</worksheet>

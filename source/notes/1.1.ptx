@@ -1,0 +1,534 @@
+<worksheet margin="1in" bottom="1.25cm" xml:id="activity-1-1-worksheet">
+    <title>Block Matrices</title>
+
+    <page>
+        <m>{\LARGE \textbf{1.1 Block Matrices}}</m>
+
+        <p> A <term> block matrix </term> is a matrix that is interpreted as having been broken into sections called <term> blocks </term>, or <term> submatrices </term>.
+        Intuitively, a block matrix can be interpreted as the original matrix that is partitioned into a collection of smaller matrices. For example, the matrix </p>
+
+        <me>
+            A =
+            \begin{pmatrix}
+                1 \amp 1 \amp 1 \amp 0 \amp 0 \\
+                1 \amp 1 \amp 0 \amp 1 \amp 0 \\
+                1 \amp 1 \amp 0 \amp 0 \amp 1 \\
+                0 \amp 0 \amp 2 \amp 2 \amp 2
+            \end{pmatrix}
+        </me>
+
+        <p> can also be written as a 2 &#215; 2 partitioned (or block) matrix: </p>
+
+        <me>
+            A =
+            \begin{pmatrix}
+                A_{1,1} \amp A_{1,2} \\
+                A_{2,1} \amp A_{2,2}
+            \end{pmatrix}
+        </me>
+
+        <p> where the entries of <term> A </term> are the blocks </p>
+
+        <me>
+            A_{1,1} =
+            \begin{pmatrix}
+                1 \amp 1 \\
+                1 \amp 1 \\
+                1 \amp 1
+            \end{pmatrix}
+            \quad
+            A_{1,2} =
+            \begin{pmatrix}
+                1 \amp 0 \amp 0 \\
+                0 \amp 1 \amp 0 \\
+                0 \amp 0 \amp 1
+            \end{pmatrix}
+            \quad
+            A_{2,1} =
+            \begin{pmatrix}
+                0 \amp 0
+            \end{pmatrix}
+            \quad
+            A_{2,2} =
+            \begin{pmatrix}
+                2 \amp 2 \amp 2
+            \end{pmatrix}
+        </me>
+
+        <p> We partitioned our matrix into four blocks, each of which have different dimensions. But the matrix could also, for example, be partitioned into five 4 &#215; 1 blocks,
+        or four 1 &#215; 5 blocks. Indeed, matrices can be partitioned into blocks in many different ways, and depending on the application at hand, there can be a partitioning that
+        is useful or needed. </p>
+
+        <p> For example, when solving a linear system <m>A\vec{x} = \vec{b}</m> to determine <m>\vec{x}</m>, we can construct and row reduce an augmented matrix of the
+        form </p>
+
+        <me>
+            X =
+            \begin{pmatrix}
+                A \amp \vec{b}
+            \end{pmatrix}
+        </me>
+
+        <p> The augmented matrix <term> X </term> consists of two sub-matrices, <term> A </term> and <m>\vec{b}</m>, meaning that it can be viewed as a block matrix.
+        Another application of a block matrix arises when using the SVD, which is a popular tool used in data science. The SVD uses a matrix, <m>\Sigma</m>, of the form </p>
+
+        <me>
+            \Sigma =
+            \begin{pmatrix}
+                D \amp \mathbf{0} \\
+                \mathbf{0} \amp \mathbf{0}
+            \end{pmatrix}
+        </me>
+
+        <p> Matrix <term> D </term> is a diagonal matrix, and each <m>\mathbf{0}</m> is a zero matrix. Representing <m>\Sigma</m> in terms of sub-matrices helps us see what the structure
+        of <m>\Sigma</m> is. Another block matrix arises when introducing a procedure for computing the inverse of an <m>n \times n</m> matrix. To compute the inverse of matrix <term> A
+        </term>, we construct and row reduce the matrix </p>
+
+        <me>
+            X =
+            \begin{pmatrix}
+                A \amp I
+            \end{pmatrix}
+        </me>
+
+        <p> This is an example of a block matrix used in an algorithm. In order to use block matrices in other applications we need to define matrix addition and multiplication
+        with partitioned matrices. </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.1 Block Matrix Addition}}</m>
+
+        <p> If <m>m \times n</m> matrices <term> A </term> and <term> B </term> are partitioned in exactly the same way, then the entries of their sum is the sum of
+        their blocks. For example, if <term> A </term> and <term> B </term> are the block matrices </p>
+
+        <me>
+            A =
+            \begin{pmatrix}
+                A_{1,1} \amp A_{1,2} \\
+                A_{2,1} \amp A_{2,2}
+            \end{pmatrix},
+            \quad
+            B =
+            \begin{pmatrix}
+                B_{1,1} \amp B_{1,2} \\
+                B_{2,1} \amp B_{2,2}
+            \end{pmatrix}
+        </me>
+
+        <p> then their sum is the matrix </p>
+
+        <me>
+            A + B =
+            \begin{pmatrix}
+                A_{1,1} + B_{1,1} \amp A_{1,2} + B_{1,2} \\
+                A_{2,1} + B_{2,1} \amp A_{2,2} + B_{2,2}
+            \end{pmatrix}
+        </me>
+
+        <p> As long as <term> A </term> and <term> B </term> are partitioned in the same way the addition is calculated block by block. </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.2 Block Matrix Multiplication}}</m>
+
+        <p> Recall the row column method for matrix multiplication. </p>
+
+        <m>{\large \textbf{Theorem}}</m>
+
+        <p>Let <m>A</m> be <m>m \times n</m> and <m>B</m> be <m>n \times p</m> matrix.
+        Then, the <m>(i, j)</m> entry of <m>AB</m> is </p>
+
+        <me>
+            \operatorname{row}_i(A) \cdot \operatorname{col}_j(B).
+        </me>
+
+        <p> This is the Row Column Method for matrix multiplication. </p>
+
+        <p> Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions
+        so that products are defined. </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.3 Example 1: Computing }A^2}</m>
+
+        <p>Block matrices can be useful in cases where a matrix has a particular structure.</p>
+
+        <p>For example, suppose <m>A</m> is the <m>n \times n</m> block matrix</p>
+
+        <me>
+            A =
+            \begin{pmatrix}
+                X \amp \mathbf{0} \\
+                \mathbf{0} \amp Y
+            \end{pmatrix}
+        </me>
+
+        <p> where <m>X</m> and <m>Y</m> are <m>p \times p</m> matrices, <m>\mathbf{0}</m> is a <m>p \times p</m> zero matrix, and <m>2p = n</m>. Then</p>
+
+        <me>
+            A^2 = AA =
+            \begin{pmatrix}
+                X \amp \mathbf{0} \\
+                \mathbf{0} \amp Y
+            \end{pmatrix}
+            \begin{pmatrix}
+                X \amp \mathbf{0} \\
+                \mathbf{0} \amp Y
+            \end{pmatrix} =
+            \begin{pmatrix}
+                X^2 \amp \mathbf{0} \\
+                \mathbf{0} \amp Y^2
+            \end{pmatrix}
+        </me>
+
+        <p>
+            Computation of <m>A^2</m> only requires computing <m>X^2</m> and <m>Y^2</m>. Taking advantage of the block structure <m>A</m> leads to a more efficient computation than it otherwise would have been with a naive row-column method that does not take advantage of the structure of the matrix.
+        </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.4 Example 2: Computing }AB}</m>
+
+        <p><m>A</m> and <m>B</m> are the matrices</p>
+
+        <me>
+            A =
+            \begin{pmatrix}
+                1 \amp 0 \amp 1 \\
+                0 \amp 1 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                A_{11} \amp A_{12}
+            \end{pmatrix}
+            \qquad
+            B =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1 \\
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                B_{11} \\
+                B_{21}
+            \end{pmatrix}
+        </me>
+
+        <p>where</p>
+
+        <me>
+            A_{11} =
+            \begin{pmatrix}
+                1 \amp 0 \\
+                0 \amp 1
+            \end{pmatrix},
+            \quad
+            A_{12} =
+            \begin{pmatrix}
+                1 \\
+                1
+            \end{pmatrix},
+            \quad
+            B_{11} =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix},
+            \quad
+            B_{21} =
+            \begin{pmatrix}
+                0 \amp 1
+            \end{pmatrix}
+        </me>
+
+        <p>If we compute the matrix product using the given partitioning we obtain</p>
+
+        <me>
+            AB =
+            \begin{pmatrix}
+                A_{11} \amp A_{12}
+            \end{pmatrix}
+            \begin{pmatrix}
+                B_{11} \\
+                B_{21}
+            \end{pmatrix} =
+            \begin{pmatrix}
+                A_{11}B_{11} + A_{12}B_{21}
+            \end{pmatrix}
+        </me>
+
+        <p>where</p>
+
+        <me>
+            A_{11}B_{11} =
+            \begin{pmatrix}
+                1 \amp 0 \\
+                0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix}
+            \qquad
+            A_{12}B_{21} =
+            \begin{pmatrix}
+                1 \\
+                1
+            \end{pmatrix}
+            \begin{pmatrix}
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                0 \amp 1 \\
+                0 \amp 1
+            \end{pmatrix}
+        </me>
+
+        <p>Therefore</p>
+
+        <me>
+            AB =
+            A_{11}B_{11} + A_{12}B_{21} =
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1
+            \end{pmatrix} +
+            \begin{pmatrix}
+                0 \amp 1 \\
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 \amp 0 \\
+                0 \amp 0
+            \end{pmatrix}
+        </me>
+
+        <p>Computing <m>AB</m> with the row column method confirms our result. </p>
+
+        <me>
+            AB =
+            \begin{pmatrix}
+                1 \amp 0 \amp 1 \\
+                0 \amp 1 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix}
+                2 \amp -1 \\
+                0 \amp -1 \\
+                0 \amp 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 + 0 + 0 \amp -1 + 0 + 1 \\
+                0 + 0 + 0 \amp 0 - 1 + 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                2 \amp 0 \\
+                0 \amp 0
+            \end{pmatrix}
+        </me>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.5 Block Matrix Inversion}}</m>
+
+        <p>
+            In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of <m>n \times n</m> matrix <m>A</m> is a matrix <m>B</m>, that has the same dimensions as <m>A</m> and satisfies
+        </p>
+
+        <me>
+            AB = BA = I
+        </me>
+
+        <p>where <m>I</m> is the <m>n \times n</m> identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.</p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.6 Example 3: Expression for Inverse of a Block Matrix}}</m>
+
+        <p>Recall, using our formula for a 2 &#215; 2 matrix, </p>
+
+        <me>
+            \begin{pmatrix}
+                a \amp b \\
+                0 \amp c
+            \end{pmatrix}^{-1} =
+            \frac{1}{ac}
+            \begin{pmatrix}
+                c \amp -b \\
+                0 \amp a
+            \end{pmatrix} =
+            \begin{pmatrix}
+                1/a \amp -b/(ac) \\
+                0 \amp 1/c
+            \end{pmatrix}
+            \quad \quad \quad \text{(1.1)}
+        </me>
+
+        <p>
+            provided that <m>ac \neq 0</m>. Suppose <m>A</m>, <m>B</m>, and <m>C</m> are invertible <m>n \times n</m> matrices. Suppose we wish to construct an expression for the inverse of the matrix
+        </p>
+
+        <me>
+            P =
+            \begin{pmatrix}
+                A \amp B \\
+                \mathbf{0} \amp C
+            \end{pmatrix}
+        </me>
+
+        <p>To construct the inverse of <m>P</m>, we can write </p>
+
+        <me>
+            PP^{-1} = P^{-1}P = I_n
+        </me>
+
+        <p>where <m>P^{-1}</m> is the matrix we seek. If we let <m>P^{-1}</m> be the block matrix </p>
+
+        <me>
+            P^{-1} =
+            \begin{pmatrix}
+                W \amp X \\
+                Y \amp Z
+            \end{pmatrix}
+        </me>
+
+        <p>we can determine <m>P^{-1}</m> by solving <m>PP^{-1} = I_n</m> or <m>P^{-1}P = I_n</m>. Solving <m>PP^{-1} = I_n</m> gives us: </p>
+
+        <me>
+            I_n = PP^{-1} =
+            \begin{pmatrix}
+                I \amp \mathbf{0} \\
+                \mathbf{0} \amp I
+            \end{pmatrix} =
+            \begin{pmatrix}
+                A \amp B \\
+                \mathbf{0} \amp C
+            \end{pmatrix}
+            \begin{pmatrix}
+                W \amp X \\
+                Y \amp Z
+            \end{pmatrix}
+        </me>
+
+        <me>
+            \begin{pmatrix}
+                I \amp \mathbf{0} \\
+                \mathbf{0} \amp I
+            \end{pmatrix} =
+            \begin{pmatrix}
+                AW + BY \amp AX + BZ \\
+                CY \amp CZ
+            \end{pmatrix}
+        </me>
+
+        <p>
+            The above matrix equation gives us a set of four equations that can be solved to determine <m>W</m>, <m>X</m>, <m>Y</m>, and <m>Z</m>. The block in the second row and first column gives us <m>CY = \mathbf{0}</m>. It was given that <m>C</m> is an invertible matrix, so <m>Y</m> is a zero matrix because
+        </p>
+
+        <me>CY = \mathbf{0}</me>
+        <me>C^{-1}CY = C^{-1}\mathbf{0}</me>
+        <me>IY = \mathbf{0}</me>
+        <me>Y = \mathbf{0}</me>
+
+        <p>Likewise the block in the second row and second column yields <m>CZ = I</m>, so </p>
+
+        <me>CZ = I</me>
+        <me>C^{-1}CZ = C^{-1}I</me>
+        <me>Z = C^{-1}</me>
+
+        <p>Now that we have expressions for <m>Y</m> and <m>Z</m> we can solve the remaining two equations for <m>W</m> and <m>X</m>. Solving for <m>X</m> gives us the following expression.</p>
+
+        <me>AX + BZ = \mathbf{0}</me>
+        <me>AX + BC^{-1} = \mathbf{0}</me>
+        <me>AX = -BC^{-1}</me>
+        <me>A^{-1}AX = -A^{-1}BC^{-1}</me>
+        <me>X = -A^{-1}BC^{-1}</me>
+
+        <p>Solving for <m>W</m>: </p>
+
+        <me>AW + BY = I</me>
+        <me>AW + B\mathbf{0} = I</me>
+        <me>A^{-1}AW = A^{-1}I</me>
+        <me>W = A^{-1}</me>
+
+        <p>We now have our expression for <m>P^{-1}</m>: </p>
+
+        <me>
+            P^{-1} =
+            \begin{pmatrix}
+                W \amp X \\
+                Y \amp Z
+            \end{pmatrix} =
+            \begin{pmatrix}
+                A^{-1} \amp -A^{-1}BC^{-1} \\
+                \mathbf{0} \amp C^{-1}
+            \end{pmatrix}
+        </me>
+
+        <p>Note that in the special case where <m>n = 2</m> that each of the blocks are scalars and our expression is equivalent to Equation (1.1).</p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.7 Summary}}</m>
+
+        <p>
+            In this section we used partitioned matrices to solve problems regarding matrix invertibility and matrix multiplication. Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined. They can be used for example when dealing with large matrices that have a known structure where it is more convenient to describe the structure of a matrix in terms of its blocks. Although not part of this text, matrix partitioning can be used to help derive new algorithms because they give a more concise representation of a matrix and of operations on matrices.
+        </p>
+    </page>
+
+    <page>
+        <m>{\large \textbf{1.1.8 Exercises}}</m>
+
+        <exercise workspace="1in">
+            <p>
+                Suppose <m>A = \begin{pmatrix} Y \amp X \end{pmatrix} \begin{pmatrix} X \amp \mathbf{0} \\ Y \amp Z \end{pmatrix} \begin{pmatrix} X \\ Y \end{pmatrix}</m>. Which of the following could <m>A</m> be equal to?
+            </p>
+
+            <p>(a) <m>A = YX^{2} + XYX + XZY</m></p>
+            <p>(b) <m>A = 2X + XZY</m></p>
+            <p>(c) <m>A = YX^{2} + X + Z</m></p>
+        </exercise>
+
+        <exercise workspace="1in">
+            <p>
+                <m>A</m> and <m>B</m> are <m>n \times n</m> invertible matrices. Construct expressions for <m>X</m> and <m>Y</m> in terms of <m>A</m> and <m>B</m>.
+            </p>
+
+            <me>
+                \begin{pmatrix}
+                    \mathbf{0} \amp X \amp \mathbf{0} \\
+                    A \amp \mathbf{0} \amp Y
+                \end{pmatrix}
+                \begin{pmatrix}
+                    B \amp \mathbf{0} \\
+                    \mathbf{0} \amp A \\
+                    A \amp \mathbf{0}
+                \end{pmatrix} =
+                \begin{pmatrix}
+                    \mathbf{0} \amp B \\
+                    A \amp \mathbf{0}
+                \end{pmatrix}
+            </me>
+        </exercise>
+
+        <exercise workspace="1in">
+            <p>
+                Suppose <m>A</m>, <m>B</m> and <m>C</m> are invertible <m>n \times n</m> matrices, and
+            </p>
+
+            <me>
+                P =
+                \begin{pmatrix}
+                    A \amp \mathbf{0} \\
+                    B \amp C
+                \end{pmatrix}
+            </me>
+
+            <p>
+                Give an expression for <m>P^{-1}</m> in terms of <m>A</m>, <m>B</m>, and <m>C</m>.
+            </p>
+        </exercise>
+    </page>
+</worksheet>
