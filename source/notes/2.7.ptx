@@ -1,0 +1,301 @@
+<section xml:id="S-AppSVD">
+  <title>2.7 Applications of The SVD</title>
+
+  <p>The SVD has been applied to many modern applications in CS, engineering, and mathematics. In this section we will use the SVD to construct bases for the four fundamental subspaces of a matrix, characterize how errors in the entires of <m>A</m> could lead to errors when solving <m>A\vec x = \vec b</m>, and construct a spectral decomposition of a matrix.</p>
+
+  <subsection xml:id="subsection-condition-number">
+    <title>The Condition Number of a Matrix</title>
+
+    <p>In some applications of linear algebra, entries of <m>A</m> and contain errors. The condition number of a matrix describes the sensitivity that any approach to determining solutions to <m>A\vec x = \vec b</m> might have to errors in <m>A</m>. These errors could arise from the way the entries of <m>A</m> are stored, or from the way that the entries of <m>A</m> were determined.</p>
+
+    <definition xml:id="definition-condition-number">
+      <statement>
+        <p>Suppose <m>A</m> is an invertible <m>n\times n</m> matrix. The ratio</p>
+        <me>\kappa = \frac{\sigma_1}{\sigma_n}</me>
+        <p>is the <term>condition number</term> of <m>A</m>, where <m>\sigma_1</m> is the largest singular value of <m>A</m>, and <m>\sigma_n</m> is the smallest.</p>
+      </statement>
+    </definition>
+
+    <p>The larger the condition number, the more sensitive the system is to errors.</p>
+
+    <subsubsection xml:id="subsubsection-condition-number-2x2">
+      <title>Example 1: The Condition Number of a <m>2\times2</m> Matrix</title>
+
+      <p>Suppose <m>A = \begin{pmatrix}2 \amp -1\\2 \amp 1\end{pmatrix}</m>. We found in an earlier example that <m>\sigma_1 = \sqrt8, \sigma_2 = \sqrt2</m>. Therefore, the condition number of <m>A</m> is</p>
+      <me>\kappa = \frac{\sigma_1}{\sigma_n} = \frac{\sqrt8}{\sqrt2}=2</me>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-condition-number-orthogonal-columns">
+      <title>Example 2: The Condition Number of a Matrix with Orthogonal Columns</title>
+
+      <p>Suppose <m>h&gt;0</m> is any positive real number and <m>A</m> is the matrix</p>
+      <me>A = \begin{pmatrix} 2 \amp h \amp 1 \\ 1 \amp 0 \amp -4 \\ 2 \amp -h \amp 1 \end{pmatrix}</me>
+      <p>This matrix happens to have orthogonal columns, so <m>A^TA</m> will be diagonal.</p>
+      <me>A^TA = \begin{pmatrix} 9\amp0\amp0\\0\amp2h^2\amp0\\0\amp0\amp18\end{pmatrix}</me>
+      <p>Then by inspection the eigenvalues of <m>A^TA</m> are <m>18, 9</m> and <m>2h^2</m>. If <m>h</m> is a small positive number close to zero, the condition number is the ratio</p>
+      <me>\kappa = \frac{\sigma_1}{\sigma_3}=\frac{\sqrt{18}}{\sqrt{2h^2}} = \frac3h</me>
+      <p>As <m>h</m> tends to zero <m>\sigma_3</m> also tends to zero, and <m>\kappa</m> tends to infinity. This suggests that when <m>h</m> is very small, the process of solving the linear system <m>A\vec x = \vec b</m> would be sensitive to any errors made in calculating the solution. And that there could be a relationship between how close <m>A</m> is to a singular matrix and the sensitivity to errors in calculating the solution to <m>A\vec x = \vec b</m>. A more detailed discussion would certainly go beyond the scope of our discussion.</p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-svd-four-fundamental-subspaces">
+    <title>The SVD and the Four Fundamental Subspaces</title>
+
+    <p>Suppose <m>\vec v_i</m> are orthonormal eigenvectors for <m>A^TA</m>, and</p>
+    <me>\vec u _i = \frac{1}{\sigma_i}A\vec v_ i \ \text{ for } i \le r = \Rank A, \ \sigma_i = \lVert A \vec v_i \rVert.</me>
+    <p>Then we have the following bases for any <m>m\times n</m> real matrix <m>A</m>.</p>
+
+    <ul>
+      <li><p><m>\vec v_1 ,\dotsc, \vec v_r</m> is an orthonormal basis for <m>\textup{Row} A</m>.</p></li>
+      <li><p><m>\vec v_{r+1} ,\dotsc, \vec v_n</m> is an orthonormal basis for <m>\Nul A</m>.</p></li>
+      <li><p><m>\vec u_1 ,\dotsc, \vec u_r</m> is an orthonormal basis for <m>\textup{Col} A</m>.</p></li>
+      <li><p><m>\vec u_{r+1} , \dotsc , \vec u_m</m> is an orthonormal basis for <m>\textup{Col} A^{\perp} = \Nul A^T</m>.</p></li>
+    </ul>
+
+    <subsubsection xml:id="subsubsection-fundamental-subspaces-example">
+      <title>Example 3: Constructing Orthonormal Bases for the Fundamental Subspaces</title>
+
+      <p>Suppose <m>A</m> is a <m>4\times 5</m> matrix whose SVD is given below.</p>
+      <me>A = U \Sigma V^T =
+\begin{pmatrix}
+0 \amp 1 \amp 0 \amp 0\\
+0 \amp 0 \amp 1 \amp 0\\
+0 \amp 0 \amp 0 \amp -1\\
+-1 \amp 0 \amp 0 \amp 0
+\end{pmatrix}
+\begin{pmatrix}
+5 \amp 0 \amp 0 \amp 0 \amp 0\\
+0 \amp 3 \amp 0 \amp 0 \amp 0\\
+0 \amp 0 \amp 2 \amp 0 \amp 0\\
+0 \amp 0 \amp 0 \amp 0 \amp 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \amp 0 \amp \sqrt{0.8} \amp 0 \amp -\sqrt{0.2}\\
+1 \amp 0 \amp 0 \amp 0 \amp 0\\
+0 \amp 1 \amp 0 \amp 0 \amp 0\\
+0 \amp 0 \amp 0 \amp 1 \amp 0\\
+0 \amp 0 \amp \sqrt{0.8} \amp 0 \amp \sqrt{0.2}
+\end{pmatrix}</me>
+
+      <p>There are exactly three non-zero singular values, so <m>r = \Rank A = 3</m>. The first three columns of <m>V</m> are a basis for <m>\Row A</m> and the last two columns of <m>V</m> (or rows of <m>V^T</m>) are a basis for <m>\Nul A</m>. The first three columns of <m>U</m> are a basis for <m>\Col A</m>, and the remaining column of <m>U</m> are a basis for <m>(\Col A)^{\perp}</m>.</p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-spectral-decomposition-matrix">
+    <title>The Spectral Decomposition of a Matrix</title>
+
+    <p>The SVD can be also used to approximate any <m>m\times n</m> real matrix with what is defined as the spectral decomposition. Note that a similar decomposition for symmetric matrices that uses the orthogonal decomposition of a matrix is described in Appendix 3.2.</p>
+
+    <paragraphs xml:id="spectral-decomposition">
+      <title>Spectral Decomposition</title>
+      <p>For any real <m>m\times n</m> matrix <m>A</m> with rank <m>r</m> and SVD <m>A= U \Sigma V^T</m> we can write</p>
+      <me>A = U\Sigma V^T = \sum_{i=1} ^{r} \sigma _i \vec u _{i} \vec v _{i}\, ^{T} = \sigma_1 \vec u_1 \vec v_1^T + \sigma_2 \vec u_2 \vec v_2^T + \ldots + \sigma_r \vec u_r \vec v_r^T</me>
+      <p>Vectors <m>\vec u_i, \vec v_i</m> are the <m>i^{th}</m> columns of <m>U</m> and <m>V</m> respectively.</p>
+    </paragraphs>
+
+    <p>Here we give a short explanation on why <m>A</m> has the decomposition</p>
+    <me>A =
+\lambda _1 \vec u_1 \vec u_1 ^{T}  + \cdots + \lambda _n \vec u_n \vec u_n ^{T}
+= \sum_{i=1}^{n} \lambda_i \vec u_i \vec u_i^T</me>
+
+    <p>If the columns of <m>\Sigma</m> are <m>\vec s_1, \vec s_2, \cdots , \vec s_n</m>, then, using the definition of matrix multiplication,</p>
+    <me>U\Sigma = U\begin{pmatrix} \vec s_1 \amp \vec s_2 \amp \cdots \amp \vec s_n\end{pmatrix} = \begin{pmatrix} U\vec s_1 \amp U \vec s_2 \amp \cdots \amp U\vec s_n\end{pmatrix}</me>
+
+    <p>Recall that a matrix times a vector is a linear combination of the columns of the matrix weighted by the entries of the vector. Column <m>i</m> of the product <m>U\Sigma</m> is</p>
+    <me>U\Sigma _i =
+U\begin{pmatrix}
+0\\
+\vdots\\
+0\\
+\lambda_i\\
+0\\
+\vdots
+\end{pmatrix}
+=
+0+0+\ldots +0 +\lambda_i \vec u_i+0 + \ldots =\lambda_i \vec u_i</me>
+
+    <p>Therefore, the columns of <m>PD</m> are <m>\lambda_i \vec u_i</m>. We can now simplify our expression for <m>A=PDP^T</m> to a product of two <m>n \times n</m> matrices. <m>A</m> can be expressed as</p>
+
+    <me>A = U\Sigma V^T =
+\begin{pmatrix}
+\sigma_1 \vec u_1 \amp \sigma_2 \vec u_2 \amp \cdots \amp \sigma_n \vec u_n
+\end{pmatrix}
+\begin{pmatrix}
+\vec v_1 ^{T} \\
+\vec v_2^T \\
+\vdots \\
+\vec v_n ^{T}
+\end{pmatrix}</me>
+
+    <p>Using the <term>column-row expansion</term> for the product of two matrices, this becomes</p>
+    <me>A =
+\sigma _1 \vec u_1 \vec v_1 ^{T}  + \cdots + \sigma _n \vec u_n \vec v_n ^{T}
+= \sum_{i=1}^{n} \sigma_i \vec u_i \vec v_i^T</me>
+
+    <p>The row-column expansion for the product of two matrices is a way of defining matrix multiplication. Note that each term in this sum is a rank 1 matrix. In applications of linear algebra, <m>\sigma_i</m> can become sufficiently small, allowing us to approximate <m>A</m> with a small number of rank 1 matrices.</p>
+
+    <subsubsection xml:id="subsubsection-spectral-decomposition-4x2">
+      <title>Example 4: The Spectral Decomposition of a <m>4\times 2</m> Matrix</title>
+
+      <p>Suppose <m>A</m> has the following SVD.</p>
+      <me>A =
+\begin{pmatrix}
+2 \amp 0 \\
+0 \amp -3 \\
+0 \amp 0 \\
+0 \amp 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \amp 1 \amp 0 \amp 0\\
+-1 \amp 0 \amp 0 \amp 0\\
+0 \amp 0 \amp 1 \amp 0\\
+0 \amp 0 \amp 0 \amp 1
+\end{pmatrix}
+\begin{pmatrix}
+3 \amp 0\\
+0 \amp 2\\
+0 \amp 0\\
+0 \amp 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \amp 1\\
+1 \amp 0
+\end{pmatrix}</me>
+
+      <p>The spectral decomposition of <m>A</m> is as follows.</p>
+      <me>A = \sum_{s=1} ^{r} \sigma _s \vec u _{s} \vec v _{s} ^{T}</me>
+      <me>= 3
+\begin{pmatrix}
+0\\
+-1\\
+0\\
+0
+\end{pmatrix}
+\begin{pmatrix}
+0 \amp 1
+\end{pmatrix}
++
+2
+\begin{pmatrix}
+1\\
+0\\
+0\\
+0
+\end{pmatrix}
+\begin{pmatrix}
+1 \amp 0
+\end{pmatrix}</me>
+      <me>= 3
+\begin{pmatrix}
+0 \amp 0\\
+0 \amp -1\\
+0 \amp 0\\
+0 \amp 0
+\end{pmatrix}
++
+2
+\begin{pmatrix}
+1 \amp 0\\
+0 \amp 0\\
+0 \amp 0\\
+0 \amp 0
+\end{pmatrix}</me>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-spectral-decomposition-4x5">
+      <title>Example 5: The Spectral Decomposition of a <m>4\times5</m> Matrix</title>
+
+      <p>In this example we construct and discuss the spectral decomposition of the <m>4\times 5</m> matrix</p>
+      <me>A =
+\begin{pmatrix}
+1 \amp -2 \amp 2 \amp -2 \amp -4 \\
+0 \amp 2 \amp 0 \amp 2 \amp 4 \\
+2 \amp 1 \amp 4 \amp 1 \amp 2\\
+2 \amp 0 \amp 4 \amp 0 \amp 0
+\end{pmatrix}</me>
+
+      <p>With some help from MATLAB we obtain the eigenvalues of <m>A^TA</m> and the singular values of <m>A</m>.</p>
+      <me>\lambda_1 = 54 \quad \Rightarrow \quad \sigma_1 = \sqrt{54} = 3 \sqrt{6}\approx 7.3485</me>
+      <me>\lambda_2 = 45 \quad \Rightarrow \quad \sigma_2 = \sqrt{45} = 3 \sqrt{5} \approx 6.7082</me>
+
+      <p>The script used to compute the eigenvalues are below.</p>
+      <me>\vec u_1 = \frac13\begin{pmatrix} 2\\-2\\-1\\0\end{pmatrix}, \quad
+\vec u_2 = \frac13 \begin{pmatrix}-1\\0\\-2\\-2 \end{pmatrix}, \quad
+\vec v_1 = \frac{1}{\sqrt6}\begin{pmatrix} 0\\-1\\0\\-1\\-2\end{pmatrix}, \quad
+\vec v_2 = \frac{1}{\sqrt5}\begin{pmatrix} -1\\0\\-2\\0\\0\end{pmatrix}</me>
+
+      <p>The MATLAB script that computes the eigenvalues of <m>A^TA</m> and the SVD of <m>A</m> is shown below.</p>
+
+      <paragraphs xml:id="matlab-script-svd">
+        <title>MATLAB Script</title>
+        <pre>A = [1 -2 2 -2 -4;0 2 0 2 4;2 1 4 1 2;2 0 4 0 0];
+AA = A'*A;  % compute A^TA
+L = eig(AA); % L will be a vector containing the eigenvalues of A^TA
+[U,S,V] = svd(A); % this will give us the SVD of matrix A</pre>
+      </paragraphs>
+
+      <p>Using the SVD of <m>A</m> we can construct the spectral decomposition of <m>A</m> is as follows. Note that in this case that the number of non-zero singular values is <m>r=\Rank A = 2</m>.</p>
+      <me>A = \sum_{s=1} ^{r} \sigma _s \vec u _{s} \vec v _{s} ^{T}</me>
+      <me>= \sigma_1 \vec u_1 \vec v_1^T + \sigma_2 \vec u_2 \vec v_2^T</me>
+      <me>= \frac{3\sqrt{6}}{3\sqrt{6}}
+\begin{pmatrix}
+2\\
+-2\\
+-1\\
+0
+\end{pmatrix}
+\begin{pmatrix}
+0 \amp -1 \amp 0 \amp -1 \amp -2
+\end{pmatrix}
++
+\frac{3\sqrt{5}}{3\sqrt{5}}
+\begin{pmatrix}
+-1\\
+0\\
+-2\\
+-2
+\end{pmatrix}
+\begin{pmatrix}
+1 \amp 0
+\end{pmatrix}</me>
+      <me>=
+\begin{pmatrix}
+2\\
+-2\\
+-1\\
+0
+\end{pmatrix}
+\begin{pmatrix}
+0 \amp -1 \amp 0 \amp -1 \amp -2
+\end{pmatrix}
++
+\begin{pmatrix}
+-1\\
+0\\
+-2\\
+-2
+\end{pmatrix}
+\begin{pmatrix}
+-1 \amp 0 \amp -2 \amp 0 \amp 0
+\end{pmatrix}</me>
+
+      <p>Notice how this representation of <m>A</m> only requires two vectors with four entries and two vectors with 5 entries each, for a total of 18 numbers. The original matrix is <m>4\times 5</m>, which requires 20 numbers. The spectral decomposition happened to give us a slightly more concise representation of <m>A</m>. But we were only able to obtain this result because there a few non-zero singular values. Had there been three or four non-zero singular singular values, the spectral decomposition would have not been as concise. More generally, the reduction in the amount of data needed to represent a matrix will be greater with larger matrices that also have a small number of non-zero singular values.</p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-applications-svd-summary">
+    <title>Summary</title>
+
+    <p>In this section we introduced three applications of the SVD and singular values.</p>
+    <ul>
+      <li><p>The four fundamental subspaces of a matrix can be calculated using the left and right singular vectors.</p></li>
+      <li><p>The condition number of a square invertible matrix, <m>\kappa = \frac{\sigma_1}{\sigma_n}</m>, characterizes the sensitivity to solving <m>A\vec x = \vec b</m> to errors in <m>A</m>.</p></li>
+      <li><p>The spectral decomposition of a matrix can be calculated using its SVD.</p></li>
+    </ul>
+
+    <p>A similar decomposition for symmetric matrices that uses the orthogonal decomposition of a matrix is described in Appendix 3.2.</p>
+
+    <p>While there are numerous applications of the SVD, many of them would be beyond the scope of this course and would require introducing topics and problems that would go beyond the scope of a linear algebra course.</p>
+  </subsection>
+</section>

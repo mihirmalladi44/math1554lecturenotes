@@ -1,0 +1,461 @@
+<section xml:id="section-the-svd">
+  <title>2.6 The SVD</title>
+
+  <p>The Singular Value Decomposition (SVD) is a factorization that expresses a matrix as a product of three matrices. The decomposition gives us useful information about the subspaces that its rows and columns span, which are used in important applications in data science. In this section, we build on the previous section that introduced singular values to define the singular vectors of a matrix, and show howe can use them to construct the SVD of a matrix.</p>
+
+  <p>Earlier in the course we introduced the four fundamental subspaces of a matrix. Recall that for any <m>A \in \mathbb R^{m\times n}</m>, the orthogonal complement of <m>\Row A</m> is <m>\Null A</m>, and the orthogonal complement of <m>\Col A</m> is <m>\Null A ^{T}</m>. The relationships between these subspaces in described in <xref ref="fig-fourfund"/>.</p>
+
+  <figure xml:id="fig-fourfund">
+    <caption>The four fundamental subspaces of an <m>m\times n</m> matrix <m>A</m>.</caption>
+    <image width="70%">
+      <latex-image>
+\begin{tikzpicture}[scale=1] 
+
+    % boxes
+    \filldraw[draw=DarkBlue!50,fill=DarkBlue!15] (0,0) -- (-1,1) -- (1,3) -- (2,2) -- cycle;
+    \filldraw[draw=DarkBlue!50,fill=DarkBlue!15] (0,0) -- (1,-1) -- (0,-2) -- (-1,-1) -- cycle;      
+    \draw (0.4, 1.7) node[below]{\small $\Row A$};
+    \draw (0.0,-0.7) node[below]{\small $\Nul A$};        
+
+    \filldraw[draw=DarkGreen!50,fill=DarkGreen!15] (4,0) -- (2.5, 1.5) -- (3.5, 2.5) -- (5,1) -- cycle;
+    \filldraw[draw=DarkGreen!50,fill=DarkGreen!15] (4,0) -- (5.5,-1.5) -- (4.5,-2.5) -- (3,-1) -- cycle;        
+    \draw (3.9, 1.5) node[below]{\small $\Col A$};
+    \draw (4.2, -0.8) node[below]{\small $\Nul A^T$};        
+
+    \draw (-1.0,0.5) node[below]{\Large $\color{DarkBlue} \mathbb R^n$};
+    \draw ( 5.2,0.5) node[below]{\Large $\color{DarkGreen} \mathbb R^m$};
+
+\end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>Our introduction to the SVD will begin with showing how the the eigenvectors of <m>A^TA</m> can be used construct an orthonormal bases for <m>\Null A</m> and its orthogonal compliment, <m>\Row A</m>. With a little more work, we can also show how we can use the eigenvectors can be used to calculate bases for <m>\Col A</m> and its orthogonal compliment. But we will first look at the bases for <m>\Nul A</m> and <m>\Row A</m>, which will give us the right-singular vectors.</p>
+
+  <subsection xml:id="subsection-orthogonal-bases-row-null">
+    <title>Orthogonal Bases for <m>\Row A</m> and <m>\Nul A</m></title>
+
+    <theorem xml:id="theorem-right-singular-vectors">
+      <title>The Right Singular Vectors</title>
+      <statement>
+        <p>Suppose <m>A</m> is an <m>m\times n</m> matrix, and <m>\vec v_i</m> are <m>n</m> orthonormal eigenvectors of <m>A^TA</m>, ordered so that their corresponding eigenvalues satisfy <m>\lambda_1 \ge \lambda_2 \ge \ldots \ \ge \lambda_n</m>. Suppose also that <m>A</m> has <m>r</m> non-zero singular values, <m>r \le n</m>. Then the set of vectors</p>
+        <me>\{\vec v_{r+1},  \vec v_{r+2}, \ \ldots \ , \vec v_n\}</me>
+        <p>is an orthonormal basis for <m>\Nul A</m>, and the set</p>
+        <me>\{\vec v_{1},  \vec v_{2}, \ \ldots \ , \vec v_r\}</me>
+        <p>is an orthonormal basis for <m>\Row A</m>, and <m>\text{rank} A = r</m>. The vectors <m>\{\vec v_i\}</m> for <m>i \le n</m> are the <term>right singular vectors</term> of <m>A</m>.</p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>First we will show that the right singular vectors <m>\vec v_i</m> will form an orthonormal basis for <m>\Null A</m> if <m>i&gt;r</m>. Recall that for a set of vectors to form an orthogonal basis for a subspace that they must be in that space, span the space, be independent, and mutually orthogonal.Each <m>\vec v_i</m> is an eigenvector of <m>A^TA</m>. Eigenvectors cannot be zero vectors, so it is possible for them to linearly independent. Moreover, <m>\vec v_i</m> must be orthogonal and span <m>\mathbb R^n</m> because they are eigenvectors of a symmetric matrix, <m>A^TA</m>. Eigenvectors of symmetric matrices that correspond to distinct eigenvalues are orthogonal. Moreover if any eigenvalues of <m>A^TA</m> are repeated then we can use Gram-Schmidt to construct an orthogonal basis for the eigenspace. So the entire set of right singular vectors form an orthogonal basis for <m>\mathbb R^n</m>.</p>
+
+      <p>If the rank of <m>A</m> is less than <m>n</m>, then there must be non-zero vectors <m>\vec x</m> so that <m>A\vec x = \vec 0</m>. Recall also that the singular values are real, non-negative, arranged in decreasing order, and are the lengths of <m>A\vec v_i</m>.</p>
+      <me>\lVert A\vec v_i \rVert = \sigma _i</me>
+      <p>So if <m>\lVert A\vec v_i \rVert = 0</m> for <m>i &gt; r</m>, then <m>\vec v_i \in \Nul A</m> for <m>i &gt; r</m>. And if <m>\lVert A\vec v_i \rVert \ne 0</m> for <m>i \le r</m>, then <m>\vec v_i</m> cannot be in <m>\Nul A</m> for <m>i \le r</m>, they must be in <m>(\Nul A)\Perp = \Row A</m>, because <m>\{\vec v_i\}</m> is an orthonormal set.</p>
+
+      <p>Thus, our basis for <m>\Nul A</m> is the set</p>
+      <me>\{\vec v_{r+1},  \vec v_{r+2}, \ \ldots \ , \vec v_n\}</me>
+      <p>and our basis for <m>\Row A</m> is the set</p>
+      <me>\{\vec v_{1},  \vec v_{2}, \ \ldots \ , \vec v_r\}</me>
+
+      <p>We should also explain why <m>\Rank A = r</m>. There are <m>r</m> vectors in our basis for <m>\Row A</m>. The number of vectors in a basis for a subspace is the dimension of the subspace. And recall that <m>\dim(\Row A) = \dim(\Col A) = \Rank A</m>. Thus, <m>\Rank A</m> is the number of non-zero singular values, <m>r</m>.</p>
+    </proof>
+
+    <p>We will next look at the bases for <m>\Col A</m> and <m>(\Col A)^{\perp}</m>, which will give us the left singular vectors.</p>
+
+    <subsubsection xml:id="subsubsection-orthogonal-bases-col-null-transpose">
+      <title>Orthogonal Bases for <m>\Col A</m> and <m>\Nul A^T</m></title>
+
+      <theorem xml:id="theorem-left-singular-vectors">
+        <title>The Left Singular Vectors</title>
+        <statement>
+          <p>Suppose <m>\{\vec v_i\}</m> are the <m>n</m> orthonormal eigenvectors of <m>A^TA</m>, ordered so that their corresponding eigenvalues satisfy <m>\lambda_1 \ge \lambda_2 \ge \ldots \ \ge \lambda_n</m>. Suppose also that <m>A</m> has <m>r</m> non-zero singular values. Then</p>
+          <me>\{A\vec v_1, A\vec v_2, \ \ldots \ , A\vec v_r\}</me>
+          <p>are an orthogonal basis for <m>\Col A</m>. The vectors <m>\{\vec u_i\}</m> for <m>i \le m</m> are the <term>left singular vectors</term> of <m>A</m>.</p>
+        </statement>
+      </theorem>
+
+      <proof>
+        <p>The product <m>A\vec v_i</m> is just a linear combination of the columns of <m>A</m> weighted by the entries of <m>\vec v_i</m>, so <m>A\vec v_i</m> is a vector in <m>\Col A</m>. <m>A\vec v_i</m> and <m>A\vec v_j</m> are orthogonal for <m>i \ne j</m>.</p>
+        <me>(A\vec v_i) \cdot (A\vec v_j) = \vec v_i^T A^T A \vec v_j = \lambda_j \vec v_i \cdot \vec v_j = 0</me>
+        <p>For <m>i \le r = \Rank A</m>, <m>A\vec v_i</m> are orthogonal and non-zero. So they must also independent, and thus they must form an orthogonal basis for <m>\Col A</m>. Note that for <m>i &gt; r</m>, <m>A\vec v_i = \vec 0</m> because <m>\vec v_i \in \Nul A</m> for <m>i &gt; r</m>.</p>
+      </proof>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-four-fundamental-spaces-summary">
+      <title>Summary: The Four Fundamental Spaces</title>
+
+      <p>Suppose <m>\vec v_i</m> are orthonormal eigenvectors for <m>A^TA</m>, and</p>
+      <me>\vec u _i = \frac{1}{\sigma_i}A\vec v_ i \ \text{ for } i \le r = \Rank A, \ \sigma_i = \lVert A \vec v_i \rVert.</me>
+      <p>Then we have the following orthogonal bases for any <m>m\times n</m> real matrix <m>A</m>.</p>
+
+      <ul>
+        <li><p><m>\Row A</m>: the vectors <m>\vec v_1 ,\dotsc, \vec v_r</m> are an orthonormal basis for <m>\Row A</m>. They can be constructed by identifying the eigenvectors of <m>A^TA</m> for <m>1 \le i \le r \le n</m>.</p></li>
+        <li><p><m>\Null A</m>: if <m>\Rank A &lt; n</m>, then <m>\vec v_{r+1} ,\dotsc, \vec v_n</m> is an orthonormal basis for <m>\Nul A</m>. They can be found by computing the eigenvectors of <m>A^TA</m> for <m>r &lt; i \le n</m>.</p></li>
+        <li><p><m>\Col A</m>: the vectors <m>\vec u_1 ,\dotsc, \vec u_r</m> are an orthonormal basis for <m>\Col A</m>. They can be computed using <m>\sigma_i \vec u_i = A\vec v_i</m> for <m>1 \le i \le r</m>.</p></li>
+        <li><p><m>\Null A^T</m>: the vectors <m>\vec u_{r+1} ,\dotsc, \vec u_n</m> are an orthonormal basis for <m>\Nul A ^{T}</m>.</p></li>
+      </ul>
+
+      <p>To construct a basis for <m>(\Col A)\Perp</m>, we could identify any <m>m-r</m> independent non-zero vectors in <m>(\Col A)\Perp</m> and then use Gram-Schmidt to create an orthogonal basis from them. We will explore that process in an example later on in this section.</p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-svd-theorem">
+    <title>The SVD</title>
+
+    <p>Having now defined singular values and singular vectors, we are now ready to give a definition of the SVD. Applications of the SVD are given in Section 2.7.</p>
+
+    <theorem xml:id="theorem-singular-value-decomposition">
+      <title>Singular Value Decomposition</title>
+      <statement>
+        <p>Suppose <m>A</m> is an <m>m \times n</m> matrix with singular values <m>\sigma_1 \geq \sigma _2 \geq \cdots \geq \sigma _n</m> and <m>m \ge n</m>. Then <m>A</m> has the decomposition <m>A = U \Sigma V ^{T}</m> where</p>
+        <me>\Sigma = \begin{pmatrix}D\\\mathbf{0}_{m-n,n}\end{pmatrix}, \quad
+D =
+\begin{pmatrix}
+\sigma _1 \amp 0 \amp \ldots \amp 0 \\
+0 \amp \sigma _2 \amp \ldots \amp \vdots \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+0 \amp 0 \amp \ldots \amp \sigma _n
+\end{pmatrix}</me>
+        <p><m>U</m> is a <m>m \times m</m> orthogonal matrix, and <m>V</m> is a <m>n \times n</m> orthogonal matrix. If <m>m &lt; n</m>, then <m>\Sigma = \begin{pmatrix}D \amp \mathbf0_{m,n-m}\end{pmatrix}</m> with everything else the same.</p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>The proof that we can factor any real matrix as <m>A=U\Sigma V^T</m> is similar to one often used to prove that any <m>n\times n</m> matrix with <m>n</m> linearly independent eigenvectors can be diagonalized. We first construct the matrix <m>V</m> from the right singular vectors, by placing them into a matrix as follows.</p>
+      <me>V = (\vec v_1 \ \vec v_2 \ \ldots  \vec v_n)</me>
+      <p>Then <m>AV</m> becomes</p>
+      <me>AV = A(\vec v_1 \ \vec v_2 \ \ldots \ \vec v_n)
+      = (A\vec v_1 \ A\vec v_2 \ \ldots  A\vec v_n)</me>
+      <p>But <m>\sigma_i \vec u_i = A \vec v_i</m>, and <m>\sigma_i = \lVert A \vec v_i \rVert</m>. So</p>
+      <me>AV =
+\begin{pmatrix}
+\sigma_1\vec u_1 \amp \sigma_2\vec u_2 \amp \cdots \amp \sigma_n\vec u_n
+\end{pmatrix}
+=
+(\vec u_1 \ \vec u_2 \ \ldots \ \vec u_n)
+\begin{pmatrix}
+\sigma_1 \amp \amp \\
+\amp \ddots \amp \\
+\amp \amp \sigma_n
+\end{pmatrix}
+=
+U\Sigma</me>
+      <p>Thus, <m>AV = U \Sigma</m>, or <m>A=U\Sigma V^T</m>.</p>
+    </proof>
+
+    <!--
+    \subsection{The SVD and Linear Transforms}
+        \begin{center}
+        FIGURE 
+        % \includegraphics[width=0.65\textwidth]{Chapter7/images/image006.png} 
+        \end{center}
+    -->
+  </subsection>
+
+  <subsection xml:id="subsection-procedure-constructing-svd">
+    <title>A Procedure for Constructing the SVD of <m>A</m></title>
+
+    <p>Putting together our definitions for the singular values and singular vectors of a matrix we arrive at a procedure for computing the SVD of a matrix. Suppose <m>A</m> is <m>m \times n</m> and has rank <m>r</m>.</p>
+
+    <ol>
+      <li><p>Compute the squared singular values of <m>A^TA</m>, which are <m>\sigma_i^2</m>. Use them to construct the <m>m\times n</m> matrix <m>\Sigma</m>.</p></li>
+      <li><p>Compute the right singular vectors of <m>A</m>, which are <m>\vec v_i</m> for <m>i = 1, 2, \ldots, n</m>. Then use these vectors to form <m>V</m>.</p></li>
+      <li><p>Compute an orthonormal basis for Col<m>A</m> using</p>
+        <me>\vec u_i = \frac{1}{\sigma_i}A\vec v_i, \quad i = 1, 2, \ldots r</me>
+        <p>If <m>r&lt;m</m>, extend the set <m>\{\vec u_i\}</m> to form an orthonormal basis for <m>\mathbb R^m</m> and use the basis to form <m>U</m>.</p>
+      </li>
+    </ol>
+
+    <p>A process for extending the orthonormal basis for <m>\mathbb R^m</m> is explored in the examples below.</p>
+
+    <subsubsection xml:id="subsubsection-svd-example-independent-columns">
+      <title>Example 1: Constructing the SVD of a <m>4\times2</m> Matrix with Independent Columns</title>
+
+      <p>In this example we will construct the singular value decomposition for</p>
+      <me>A =
+\begin{pmatrix}
+2 \amp 0 \\
+0 \amp -3 \\
+0 \amp 0 \\
+0 \amp 0
+\end{pmatrix}</me>
+
+      <p>We first need to identify the singular values of <m>A</m> and construct <m>\Sigma</m>. The singular values of <m>A</m> are the eigenvalues of <m>A^TA</m>.</p>
+      <me>A^TA = \begin{pmatrix}4\amp0\\0\amp9\end{pmatrix} \quad \Rightarrow \quad \lambda_1 = 9, \quad \lambda_2=4</me>
+      <p>The positive square roots of the eigenvalues are the singular values.</p>
+      <me>\sigma_1 = 3, \ \sigma_2 = 2</me>
+
+      <p>Don't forget that, by convention, <m>\sigma_1</m> is the largest singular value of <m>A</m>. Using the singular values of <m>A</m> we can then construct <m>\Sigma</m>.</p>
+      <me>\sigma_1 = 3, \ \sigma_2 = 2 \ \Rightarrow \ \Sigma =
+\begin{pmatrix}
+3\amp0\\
+0\amp2\\
+0\amp0\\
+0\amp0
+\end{pmatrix}</me>
+
+      <p>Next we construct the right-singular vectors <m>\{\vec v_i\}</m> so that we can form matrix <m>V</m>.</p>
+      <me>A^TA - \lambda_1 I = \begin{pmatrix}-5\amp0\\0\amp0\end{pmatrix}\quad \Rightarrow \quad \vec v_1 = \begin{pmatrix}0\\1\end{pmatrix}</me>
+      <me>A^TA - \lambda_2 I = \begin{pmatrix}0\amp0\\0\amp5\end{pmatrix} \quad \Rightarrow \quad \vec v_2 = \begin{pmatrix}1\\0\end{pmatrix}</me>
+
+      <p>With the right singular vectors <m>\vec v_1</m> and <m>\vec v_2</m> we can form <m>V</m>.</p>
+      <me>V = \begin{pmatrix}\vec v_1 \amp \vec v_2\end{pmatrix} =
+\begin{pmatrix}0\amp1\\1\amp0\end{pmatrix}</me>
+
+      <p>Next we construct left-singular vectors <m>\{\vec u_i \}</m> using <m>\vec u_i = \frac{1}{\sigma_i}A\vec v_i</m> for <m>i = 1, 2, \ldots r</m>. Each <m>\vec u_i</m> will be a unit vector in <m>\mathbb R^4</m>.</p>
+
+      <me>\vec u_1 = \frac{1}{\sigma_1}A\vec v_1 =
+\frac{1}{3}
+\begin{pmatrix}
+2 \amp 0 \\
+0 \amp -3 \\
+0 \amp 0 \\
+0 \amp 0
+\end{pmatrix}
+\begin{pmatrix}0\\1\end{pmatrix}
+=
+\begin{pmatrix}0\\-1\\0\\0\end{pmatrix}</me>
+
+      <me>\vec u_2 = \frac{1}{\sigma_2}A\vec v_2 =
+\frac{1}{2}
+\begin{pmatrix}
+2 \amp 0 \\
+0 \amp -3 \\
+0 \amp 0 \\
+0 \amp 0
+\end{pmatrix}
+\begin{pmatrix}1\\0\end{pmatrix}
+=
+\begin{pmatrix}
+1\\0\\0\\0
+\end{pmatrix}</me>
+
+      <p>To construct the SVD of <m>A</m>, we must construct the last two columns of <m>U</m>. In this example, <m>A</m> has rank <m>r=2</m> and <m>U</m> will be a <m>4 \times 4</m> orthogonal matrix. Because the columns of <m>U</m> must be orthonormal, and <m>\vec u_1</m> and <m>\vec u_2</m> were standard vectors, by inspection we can set the last two columns to be</p>
+      <me>\vec u_3 = \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \quad \vec u_4 = \begin{pmatrix}0\\0\\0\\1\end{pmatrix}</me>
+      <p>Note that <m>\vec u_3</m> and <m>\vec u_4</m> are unit vectors, and that <m>\{\vec u_i\}</m> are orthonormal. We could have chosen other vectors for <m>\vec u_3</m> and <m>\vec u_4</m>.</p>
+
+      <p>We have the SVD of <m>A</m>.</p>
+
+      <me>A =
+\begin{pmatrix}
+2 \amp 0 \\
+0 \amp -3 \\
+0 \amp 0 \\
+0 \amp 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 \amp 1 \amp 0 \amp 0\\
+-1 \amp 0 \amp 0 \amp 0\\
+0 \amp 0 \amp 1 \amp 0\\
+0 \amp 0 \amp 0 \amp 1
+\end{pmatrix}
+\begin{pmatrix}
+3 \amp 0\\
+0 \amp 2\\
+0 \amp 0\\
+0 \amp 0
+\end{pmatrix}
+\begin{pmatrix}
+0 \amp 1\\
+1 \amp 0
+\end{pmatrix}</me>
+    </subsubsection>
+
+    <subsubsection xml:id="subsubsection-svd-example-rank-one">
+      <title>Example 2: The SVD of a <m>3\times2</m> Matrix with Rank 1</title>
+
+      <p>In this example we will construct the singular value decomposition of</p>
+      <me>A =
+\begin{pmatrix}
+1 \amp -1 \\
+-2 \amp 2 \\
+2 \amp -2
+\end{pmatrix}</me>
+
+      <p>The singular values are found by computing the eigenvalues of <m>A^TA</m>.</p>
+      <me>A^TA =
+\begin{pmatrix}
+1 \amp -2 \amp 2 \\
+-1 \amp 2 \amp -2
+\end{pmatrix}
+\begin{pmatrix}
+1 \amp -1 \\
+-2 \amp 2 \\
+2 \amp -2
+\end{pmatrix}
+=
+\begin{pmatrix}
+9 \amp -9\\
+-9 \amp 9
+\end{pmatrix}</me>
+
+      <p>Recall that singular matrices have eigenvalue 0 and the trace of a matrix is the sum of its eigenvalues. So <m>\lambda_1 = 9+9 = 18</m> and <m>\lambda_2=0</m>. The positive square roots of the eigenvalues are the singular values. <m>\sigma_1</m> is the largest singular value, and <m>\sigma_1 = \sqrt{18}, \ \sigma_2 = 0</m>.</p>
+
+      <p>Using the singular values we can construct <m>\Sigma</m>.</p>
+      <me>\sigma_1 = \sqrt{18} = 3\sqrt{2}, \quad \sigma_2 = 0 \qquad \Rightarrow \qquad
+\Sigma =
+\begin{pmatrix}
+3\sqrt{2} \amp 0\\
+0 \amp 0\\
+0 \amp 0
+\end{pmatrix}</me>
+
+      <p>Next we construct the right-singular vectors <m>\{\vec v_i\}</m> and form <m>V</m>.</p>
+      <me>A^TA - \lambda_1 I =
+\begin{pmatrix}
+-9 \amp -9\\
+-9 \amp -9
+\end{pmatrix}
+\quad \Rightarrow \quad
+\vec v_1 =
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1\\
+-1
+\end{pmatrix}</me>
+
+      <me>A^TA - \lambda_2 I =
+\begin{pmatrix}
+9 \amp -9\\
+-9 \amp 9
+\end{pmatrix}
+\quad \Rightarrow \quad
+\vec v_2 =
+\frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1\\
+1
+\end{pmatrix}</me>
+
+      <p>Thus <m>V</m> is the matrix</p>
+      <me>V = \frac{1}{\sqrt2}
+\begin{pmatrix}
+1 \amp 1\\
+-1 \amp 1
+\end{pmatrix}</me>
+
+      <p>Next we construct left-singular vectors <m>\{\vec u_i \}</m>. The rank of <m>A</m> is <m>r=1</m>, so we may use</p>
+      <me>\vec u_i = \frac{1}{\sigma_i}A\vec v_i</me>
+      <p>for <m>i = 1</m>. Vector <m>\vec u_1</m> will be a unit vector in <m>\mathbb R^3</m>.</p>
+
+      <me>\vec u_1 = \frac{1}{\sigma_1}A\vec v_1 =
+\frac{1}{3\sqrt2}
+\begin{pmatrix}
+1 \amp -1 \\
+-2 \amp 2 \\
+2 \amp -2
+\end{pmatrix}
+\begin{pmatrix}
+1/\sqrt2\\
+-1/\sqrt2
+\end{pmatrix}
+=
+\frac{1}{3\cdot2}
+\begin{pmatrix}
+2\\
+-4\\
+4
+\end{pmatrix}
+=
+\frac{1}{3}
+\begin{pmatrix}
+1\\
+-2\\
+2
+\end{pmatrix}</me>
+
+      <p>How can we construct the remaining left-singular vectors to construct <m>U</m>? In this example, <m>A</m> has rank <m>r=1</m>, and <m>U</m> will be a <m>3 \times 3</m> orthogonal matrix. By inspection, two vectors orthogonal to <m>\vec u_1</m> are</p>
+      <me>\vec x_2 = \begin{pmatrix}2\\1\\0\end{pmatrix}, \quad \vec x_3 = \begin{pmatrix}-2\\0\\1\end{pmatrix}</me>
+
+      <p>Because <m>\vec u _1 \in \Col A</m>, these two vectors are in <m>(\Col A)\Perp</m>, but <m>\vec x_2</m> and <m>\vec x_3</m> are not orthogonal. <m>U</m> is an orthogonal matrix, so how might we create an orthogonal basis for <m>(\Col A)\Perp</m> using <m>\vec x_2</m> and <m>\vec x_3</m>? The Gram-Schmidt procedure.</p>
+
+      <me>\bar u_2 = \vec x_2 =
+\begin{pmatrix}
+2\\
+1\\
+0
+\end{pmatrix}</me>
+
+      <me>\bar u_3 = \vec x_3 - \frac{\vec x_3 \cdot \bar u_2 }{\bar u_2 \cdot \bar u_2}\bar u_2 =
+\begin{pmatrix}
+-2\\
+0\\
+1
+\end{pmatrix}
+-
+\frac{-4}{5}
+\begin{pmatrix}
+-2\\
+0\\
+1
+\end{pmatrix}
+=
+\frac 15
+\begin{pmatrix}
+-2\\
+4\\
+-5
+\end{pmatrix}</me>
+
+      <p>Normalizing these vectors yields the remaining left singular vectors.</p>
+      <me>\vec u_2 = \frac{1}{\sqrt 5}
+\begin{pmatrix}
+2\\
+1\\
+0
+\end{pmatrix},
+\quad
+\vec u_3 = \frac{1}{\sqrt{45}}
+\begin{pmatrix}
+-2\\
+4\\
+-5
+\end{pmatrix}</me>
+
+      <p>Thus, <m>A = U\Sigma V^T</m>, where</p>
+      <me>U =
+\begin{pmatrix}
+1/3 \amp 2/\sqrt5 \amp -2/\sqrt{45}\\
+-2/3 \amp 1/\sqrt5 \amp 4/\sqrt{45}\\
+2/3 \amp 0 \amp -5/\sqrt{45}
+\end{pmatrix}</me>
+      <me>\Sigma =
+\begin{pmatrix}
+3\sqrt2 \amp 0\\
+0 \amp 0\\
+0 \amp 0
+\end{pmatrix}</me>
+      <me>V = \frac{1}{\sqrt2}
+\begin{pmatrix}
+1 \amp 1\\
+-1 \amp 1
+\end{pmatrix}</me>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-svd-summary">
+    <title>Summary</title>
+
+    <p>In this section we introduced the left and right singular vectors and gave a definition of the full SVD for any <m>m\times n</m> matrix with real entries. A procedure for computing the SVD was given, which can require applying Gram-Schmidt to construct a basis for <m>\Col A^{\perp}</m> to construct <m>U</m>.</p>
+  </subsection>
+
+  <!--
+  \subsection{Exercises}
+
+      \begin{enumerate}
+          \item Suppose $A$ is a $12\times4$ real matrix and has 3 non-zero singular values. Indicate whether the following statements are true or false.
+          \begin{enumerate}
+              \item A basis for $\Col A$ is given by the vectors $A\vec v_1$, $A\vec v_2$, and $A\vec v_3$.
+              \item A basis for $\Nul A$ is given by $\vec v_1$, $\vec v_2$, and $\vec v_3$.
+          \end{enumerate}
+      \end{enumerate}
+
+      \Emph{Solutions}
+      \begin{enumerate}
+          \item True: $A$ has rank 3, the three left singular vectors $A\vec v_1$, $A\vec v_2$, and $A\vec v_3$ are independent and are in $\Col A$, so they form a basis for $\Col A$.
+          \item False: $A$ has rank 3, so the three right singular vectors $\vec v_1$, $\vec v_2$, and $\vec v_3$ form a basis for $\Row A$. The vector $\vec v_4$ forms a basis for $\Nul A$.
+      \end{enumerate}
+  -->
+</section>

@@ -1,0 +1,158 @@
+<section xml:id="section-singular-values">
+  <title>2.5 Singular Values</title>
+
+  <p>If <m>A</m> is any real <m>m\times n</m> matrix, what is the maximum that <m>\lVert A\vec x\rVert</m> could be equal to, given that <m>\vec x</m> has to be a unit vector? It turns out that the answer to this question reveals an application of a constrained optimization problem that we explored in a previous sections, and in the process of answering it we will introduce what are known as the singular values of a matrix and their properties. Singular values are at the heart of many applications of linear algebra. Indeed, singular values play an important role in the singular value decomposition of a matrix, which has many applications.</p>
+
+  <p>We will introduce the SVD in a later section of these notes. In this section we motivate their definition and properties by exploring examples involving linear transforms.</p>
+
+  <subsection xml:id="subsection-unit-circle-transform">
+    <title>Example 1: A Linear Transform on the Unit Circle</title>
+
+    <p>Consider the linear transform <m>\vec x \to A\vec x</m> where</p>
+    <me>A = \frac{1}{\sqrt{2}}\begin{pmatrix}1 \amp -1\\1 \amp 1\end{pmatrix}\begin{pmatrix}2\sqrt{2} \amp 0\\0 \amp \sqrt{2}\end{pmatrix} = \begin{pmatrix}2 \amp -1\\2 \amp 1\end{pmatrix}</me>
+    <p>The set of all unit vectors in <m>\mathbb R^2</m> will form a circle, and this particular transform will map these unit vectors to points on another curve, as shown in <xref ref="figure-unitcircletoellipse"/>. To help illustrate the problem we are working on, the diagram also shows how a unit vector, <m>\vec v</m> is mapped to <m>A\vec v</m>, where</p>
+    <me>\vec v=\frac{1}{\sqrt 2}\begin{pmatrix} 1\\1\end{pmatrix} \quad \to \quad A\vec v = \frac{1}{\sqrt 2}\begin{pmatrix} 1\\3\end{pmatrix}</me>
+
+    <figure xml:id="figure-unitcircletoellipse">
+      <caption>The linear transform <m>\vec v \to A\vec v</m> maps the unit circle to a curve in <m>\mathbb R^2</m>. An example of one unit vector, <m>\vec v</m>, and its image, <m>A\vec v</m>, are also shown.</caption>
+      <image width="95%">
+        <latex-image>
+\begin{tikzpicture}[scale=0.75]
+    \draw[->,gray] (-1,0) -- (3,0) node[right,black] {$x_1$};
+    \draw[->,gray] (1,-2) -- (1,2) node[left,black] {$x_2$};
+    \draw[->,thick,>=stealth,DarkRed,line width=0.75mm] (1,0) -- node[above right = .05cm] {$\vec v = \frac{1}{\sqrt 2}\begin{pmatrix} 1\\1\end{pmatrix}$} ++ (.72,.72);
+    \draw[->,thick,>=stealth,DarkRed,line width=0.75mm] (12,0) -- node[above right = .2cm] {$A\vec v = \frac{1}{\sqrt 2}\begin{pmatrix} 1\\3\end{pmatrix}$} ++ (.72,1.75);
+    \draw [rotate=0,black,very thick] (1,0) ellipse (30pt and 30pt);  
+    \draw[->,thick,>=stealth,line width=0.75mm] (6,1) -- node[above=0.1cm] {multiply by $A$} ++ (3,0);
+    \draw[->,gray] (10,0) -- (14,0) node[right,black] {$x_1$};
+    \draw[->,gray] (12,-2) -- (12,2) node[left,black] {$x_2$};
+    \draw [rotate=45,black,very thick] (8.5,-8.5) ellipse (60pt and 40pt);  
+\end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>There are two questions we want to ask. Is there a unit vector, <m>\vec v</m>, that will maximize the length of <m>A\vec v</m>? And what would <m>A\vec v</m> be equal to for that particular vector? In other words, which unit vector, <m>\vec v</m>, maximizes <m>||A \vec v||</m>, and what is <m>||A \vec v||</m> equal to?</p>
+
+    <p>To answer these questions, it is helpful to use the idea that location of the maximum of <m>\lVert A \vec v \rVert</m> will be at the same location as the maximum of <m>\lVert A\vec v \rVert^2</m>, subject to our constraint that <m>\vec x</m> must be a unit vector. Using this idea, we can then write the squared length as</p>
+    <me>\lVert A\vec v \rVert^2 = \vec v\,^T A^TA \vec v.</me>
+    <p>But <m>A^TA</m> is symmetric. Which means that we are now working with a familiar optimization problem. We know from a previous section that because <m>A</m> is symmetric that we can use the eigenvalues and eigenvectors of <m>A^TA</m> to 1) identify the maximum value of <m>\lVert A\vec v \rVert^2</m>, and 2) identify where the maximum is located. First need to compute <m>A^TA</m>.</p>
+    <me>A^TA  = \begin{pmatrix}2 \amp 2\\-1 \amp 1\end{pmatrix}\begin{pmatrix}2 \amp -1\\2 \amp 1\end{pmatrix} = \begin{pmatrix}8 \amp 0\\0 \amp 2\end{pmatrix} \quad \Rightarrow \quad \lambda = 8, 2</me>
+    <p>In this case, <m>A^TA</m> happens to be diagonal, so the eigenvalues can be obtained by inspection. The largest eigenvalue is 8.</p>
+    <me>\max_{\lVert \vec v \rVert = 1}\lVert A\vec v \rVert^2 = 8</me>
+    <p>Taking the square root of this gives us the maximum value that we need, which we denote by <m>\sigma_1</m>.</p>
+    <me>\sigma_1 = \max_{\lVert \vec v \rVert = 1}\lVert A\vec v \rVert = \sqrt8.</me>
+    <p>But what is the vector <m>\vec v</m> that corresponds to this maximum? Let the unit eigenvector corresponding to the largest eigenvalue is the vector be <m>\vec v_1</m>, which maximizes <m>\lVert A\vec v \rVert</m> over all unit vectors <m>\vec v</m>.</p>
+    <me>A^TA - \lambda I = \begin{pmatrix}0 \amp 0\\0 \amp -6\end{pmatrix} \quad \Rightarrow \quad \vec v_1 = \begin{pmatrix}1\\0\end{pmatrix}.</me>
+    <p>Thus the maximum value we found is obtained at the point <m>(1,0)</m>. But of course we could also use <m>(-1,0)</m>, either point will maximize the length of <m>A\vec v</m>.</p>
+
+    <p>If we also wanted to determine the smallest value of <m>\lVert A\vec v\rVert</m> subject to <m>\lVert \vec v \rVert = 1</m>, we would use the eigenvector that is associated with the smallest eigenvalue of <m>A^TA</m>, which is</p>
+    <me>\vec v_2 = \begin{pmatrix}0\\1\end{pmatrix}</me>
+    <p>Therefore, the minimum value of <m>\lVert A\vec v\rVert</m> is</p>
+    <me>\sigma_2 = \min_{\lVert \vec v \rVert = 1}\lVert A\vec v \rVert = \sqrt{2}, \quad \vec v_2 = \begin{pmatrix}0\\1\end{pmatrix}</me>
+    <p><m>\lVert A\vec v_2 \rVert</m> is the square root of the smallest eigenvalue of <m>A^TA</m>, which is <m>\sqrt 2</m>.</p>
+
+    <p>The maximum and minimum lengths of <m>\lVert A\vec v\rVert</m> are denoted by the Greek letter <m>\sigma</m>, so that <m>\sigma_1 = \sqrt{\lambda_1} = \sqrt{8}</m>, and <m>\sigma_2 = \sqrt{\lambda_2}= \sqrt{2}</m>. They are known as the <term>singular values</term> of <m>A</m>, and <xref ref="figure-unitcircletransform"/> shows how they are related to the range of the linear transform <m>\vec x \to A\vec x</m>. We give a definition of the singular values of a matrix in the next section.</p>
+
+    <figure xml:id="figure-unitcircletransform">
+      <caption>The singular values <m>\sigma_1</m> and <m>\sigma_2</m> are lengths. They give the largest and smallest values of <m>\lVert A\vec v\rVert</m> subject to <m>\lVert \vec v \rVert = 1</m>, respectively. The vectors <m>A\vec v_1</m> and <m>A \vec v_2</m> give the locations of these extreme values.</caption>
+      <image width="95%">
+        <latex-image>
+\begin{tikzpicture}[scale=1]
+    \draw[->,gray] (-2,0) -- (2,0) node[right,black] {$x_1$};
+    \draw[->,gray] (0,-2) -- (0,2) node[left,black] {$x_2$};
+    \draw [rotate=0,black,very thick] (0,0) ellipse (30pt and 30pt);  
+    \draw[->,thick,>=stealth,DarkRed,line width=0.75mm] (0,0) -- node[above] {$\vec v_1$} ++ (1,0);
+    \draw[->,thick,>=stealth,DarkBlue,line width=0.75mm] (0,0) -- ++ (0,1);
+    \draw[DarkBlue] (-0.5,0.9) node[above] {$\vec v_2$} ;
+    \draw[->,thick,>=stealth,line width=0.75mm] (3,0) -- node[above] {multiply by $A$} ++ (2,0);
+\end{tikzpicture}\begin{tikzpicture}[scale=1]
+    \draw[->,gray] (-2,0) -- (2,0) node[right,black] {$x_1$};
+    \draw[->,gray] (0,-2) -- (0,2) node[left,black] {$x_2$};
+    \draw [rotate=45,black,very thick] (0,0) ellipse (60pt and 40pt);  
+    \draw[->,thick,>=stealth,DarkRed,line width=0.75mm] (0,0) -- (1.52,1.52);
+    \draw[->,thick,>=stealth,DarkBlue,line width=0.75mm] (0,0) -- (-1.,1.);                
+    \draw[DarkRed] (1.6,1.6) node[right] {$A\vec v_1$} ;
+    \draw[DarkBlue] (-1.3,1.1) node[above] {$A\vec v_2$} ;
+
+    \draw[DarkRed] (0.7,0.6) node[right] {$\sigma_1$} ;
+    \draw[DarkBlue] (-0.8,-0.02) node[above] {$\sigma_2$} ;          
+\end{tikzpicture}
+        </latex-image>
+      </image>
+    </figure>
+  </subsection>
+
+  <subsection xml:id="subsection-singular-values-definition">
+    <title>Singular Values</title>
+
+    <definition xml:id="definition-singular-values">
+      <statement>
+        <p>The singular values, <m>\sigma_j</m>, of any <m>m\times n</m> real matrix <m>A</m> are the square roots of the eigenvalues of <m>A^TA</m>, so that <m>\sigma _i = \sqrt{\lambda_i}</m> for <m>1 \le i \le n</m>, where <m>\lambda_i</m> is an eigenvalue of <m>A^TA</m>. Singular values are also ordered from largest to smallest, so that</p>
+        <me>\sigma _1 = \sqrt {\lambda _1 } \geq \sigma _2 = \sqrt {\lambda _2}  \geq \ \cdots \ \geq \sigma _n=\sqrt {\lambda _n} .</me>
+      </statement>
+    </definition>
+
+    <p>Because we are relying on a square root to define the singular values of a matrix, we might wonder whether the eigenvalues of <m>A^TA</m> could be negative, which would imply that singular values can be complex. But, it turns out that the eigenvalues of <m>A^TA</m> can never be negative because of the following theorem.</p>
+
+    <theorem xml:id="theorem-ata-real-nonnegative">
+      <statement>
+        <p>The eigenvalues of <m>A ^{T} A</m> are real and non-negative.</p>
+      </statement>
+    </theorem>
+
+    <proof>
+      <p>We have already shown that the eigenvalues of any symmetric matrix are real (see Appendix (3.1)). Also recall that <m>\vec v_j^T\vec v_j = \vec v_j\cdot\vec v_j = \lVert \vec v_j \rVert ^2 =1</m> because <m>\vec v_j</m> are <em>unit</em> eigenvectors of <m>A^TA</m>. Then</p>
+      <me>\lVert A \vec v_j\rVert ^2 = (A \vec v_j) ^{T} A \vec v_j= \vec v_j A^T A \vec v_j = \lambda _j \vec v_j ^T \vec v_j = \lambda _j \geq 0.</me>
+      <p>Therefore the eigenvalues of <m>A^TA</m> must be real and non-negative. And the singular values of <m>A</m>, which are the square roots of the eigenvalues, must also be real and non-negative.</p>
+    </proof>
+  </subsection>
+
+  <subsection xml:id="subsection-singular-values-represent-lengths">
+    <title>Singular Values Represent Lengths</title>
+
+    <p>We saw in Example 1 how the singular values of the <m>2\times 2</m> matrix <m>A</m> represented the lengths of <m>A\vec v_1</m> and <m>A\vec v_2</m>. We can extend this concept to any <m>m\times n</m> matrix.</p>
+
+    <p>When showing that the eigenvalues of <m>A^TA</m> are non-negative, we saw that</p>
+    <me>|| A\vec v_i||^2 = \lambda_i</me>
+    <p>Therefore,</p>
+    <me>|| A\vec v_i||= \sigma_i</me>
+    <p>This is an important point: the singular value <m>\sigma_i</m> is the length of <m>A \vec v_i</m> for <m>i = 1, 2, \ldots , n</m>. Moreover, our proof relied on the fact that because the matrix <m>A ^{T} A</m> is symmetric with non-negative eigenvalues <m>\lambda _1 \geq \lambda _2 \geq \cdots \geq \lambda _n \geq 0</m>, the eigenvectors of <m>A^TA</m>, the set <m>\{\vec v_1 ,\dotsc, \vec v_n\}</m>, forms an orthogonal basis for <m>\mathbb R^n</m>. In other words, not only is each <m>\sigma_i</m> is the length of <m>A\vec v_i</m>, but the lengths are in orthogonal directions.</p>
+
+    <p>For example, the largest singular value of <m>A</m> gives us the maximum length of <m>A\vec v</m> subject to <m>\lVert \vec v \rVert =1</m>.</p>
+    <me>\sigma_1 = \max_{\lVert \vec v \rVert = 1}\lVert A\vec v \rVert</me>
+    <p>The second largest eigenvalue of a symmetric matrix gives the maximum of <m>\lVert A\vec v \rVert</m> subject to</p>
+    <me>\lVert \vec v \rVert =1 , \quad \vec v \cdot \vec u_1 = 0</me>
+    <p>The second largest eigenvalue is <m>\sigma_2</m>. Thus, <m>\sigma_2</m>. Likewise with the remaining eigenvalues.</p>
+
+    <subsubsection xml:id="subsubsection-singular-values-orthogonal-columns">
+      <title>Example 2: Singular Values of a Matrix with Orthogonal Columns</title>
+
+      <p>Suppose <m>T(\vec x) = A\vec x</m> is a linear transform and <m>A</m> is the matrix</p>
+      <me>A = \begin{pmatrix} 2\amp0\amp0\\0\amp\sqrt2/2\amp\sqrt2/4\\0\amp\sqrt2/2\amp -\sqrt2/4
+      \end{pmatrix}.
+      </me>
+      <p>The maximum and minimum values of <m>\lVert A\vec x \rVert</m> are determined from the eigenvalues of <m>A^TA</m>. And <m>A^TA</m> is the matrix</p>
+      <me>A^TA = \begin{pmatrix} 4\amp0\amp0\\0\amp1\amp0\\0\amp0\amp1/4 \end{pmatrix}</me>
+      <p>This matrix happens to be diagonal because <m>A</m> has orthogonal columns. So the eigenvalues can be determined by inspection and are <m>\lambda_1 = 4</m>, <m>\lambda_2 = 1</m>, and <m>\lambda_3=1/4</m>. Their square roots are the singular values of <m>A</m>, which are</p>
+      <me>\sigma_1 = \sqrt{\lambda_1} = 2, \quad \sigma_2 = \sqrt{\lambda_2} = 1, \quad \sigma_1 = \sqrt{\lambda_3} = 1/2</me>
+      <p>Shown below, on the left, is the unit sphere in <m>\mathbb R^3</m>. The vectors that make up the unit sphere are transformed by <m>T</m>: each unit vector <m>\vec v</m> is transformed to <m>A\vec v</m>. The output of the transform is shown on the right.</p>
+
+      <figure xml:id="figure-ellipsoid2">
+        <caption>The transform of the unit sphere creates an ellipsoid in <m>\mathbb R^3</m>, whose size is described by the singular values of <m>A</m>. </caption>
+        <sidebyside widths="45% 45%">
+          <image source="Chapter2/images/Fig1C.jpg"/>
+          <image source="Chapter2/images/Fig2C.jpg"/>
+        </sidebyside>
+      </figure>
+
+      <p>The maximum value of <m>\lVert A\vec v\rVert</m> subject to <m>\lVert \vec v \rVert ^2 = 1</m> is <m>\sigma_1 = 2</m>, which is why the ellipsoid on the right intersects the <m>x_1</m> axis at <m>(2,0,0)</m> and at <m>(-2,0,0)</m>. Notice we have chosen the first eigenvalue to be the largest and the last to be the smallest, which is consistent with the convention that the singular values are arranged in decreasing order.</p>
+    </subsubsection>
+  </subsection>
+
+  <subsection xml:id="subsection-singular-values-summary">
+    <title>Summary</title>
+
+    <p>In this section we saw how the singular values of any <m>m\times n</m> real matrix <m>A</m> are the square roots of the eigenvalues of <m>A^TA</m>. They are real and non-negative, arranged in decreasing order, and are related to the lengths of <m>\lVert A \vec x \rVert</m> for <m>\lVert \vec x \rVert = 1</m>. In the next section we will see how they can be used to construct the singular value decomposition.</p>
+  </subsection>
+</section>

@@ -1,0 +1,75 @@
+<section xml:id="Sec:SpectralSymm">
+  <title>The Spectral Decomposition of a Symmetric Matrix</title>
+
+  <p>We have seen how any symmetric matrix can be diagonalized as <m>A=PDP^T</m>, where</p>
+
+  <me>A = P D P ^{T} =
+\begin{pmatrix}
+\vec u_1 \amp \cdots \amp \vec u_n
+\end{pmatrix}
+\begin{pmatrix}
+\lambda _1 \amp \cdots \amp 0 \\
+\vdots \amp \ddots \amp \vdots \\
+0 \amp \cdots \amp \lambda _n
+\end{pmatrix}
+\begin{pmatrix}
+\vec u_1 ^{T} \\
+\vdots \\
+\vec u_n ^{T}
+\end{pmatrix}</me>
+
+  <p>The columns of <m>P</m> are the eigenvectors of <m>A</m>, and the entries on the main diagonal of <m>D</m> are the corresponding eigenvalues. Following the same proof for the spectral decomposition of a matrix using the SVD, it can be shown that <m>A</m> has the decomposition</p>
+
+  <me>A =
+\lambda _1 \vec u_1 \vec u_1 ^{T}  + \cdots + \lambda _n \vec u_n \vec u_n ^{T}
+= \sum_{i=1}^{n} \lambda_i \vec u_i \vec u_i^T</me>
+
+  <p>We will give a brief explanation on why <m>A</m> has the decomposition given below.</p>
+
+  <me>A =
+\lambda _1 \vec u_1 \vec u_1 ^{T}  + \cdots + \lambda _n \vec u_n \vec u_n ^{T}
+= \sum_{i=1}^{n} \lambda_i \vec u_i \vec u_i^T</me>
+
+  <p>We assume that we can write <m>A=PDP^T</m>. If the columns of <m>D</m> are <m>d_1,d_2, \ldots , d_n</m>, then, using the definition of matrix multiplication,</p>
+
+  <me>PD = \begin{pmatrix}Pd_1 \amp Pd_2 \amp \ldots \amp Pd_n\end{pmatrix}</me>
+
+  <p>Recall that a matrix times a vector is a linear combination of the columns of the matrix weighted by the entries of the vector. Column <m>i</m> of <m>PD</m> is</p>
+
+  <me>Pd_i =
+P\begin{pmatrix}
+0\\
+\vdots\\
+0\\
+\lambda_i\\
+0\\
+\vdots
+\end{pmatrix}
+=
+0+0+\ldots +0 +\lambda_i \vec u_i+0 + \ldots
+=
+\lambda_i \vec u_i</me>
+
+  <p>Therefore, the columns of <m>PD</m> are <m>\lambda_i \vec u_i</m>. We can now simplify our expression for <m>A=PDP^T</m> to a product of two <m>n \times n</m> matrices.</p>
+
+  <p>Thus, <m>A</m> can be expressed as follows.</p>
+
+  <me>A = PDP^T =
+\begin{pmatrix}
+\lambda_1 \vec u_1 \amp \lambda_2 \vec u_2 \amp \cdots \amp \lambda_n \vec u_n
+\end{pmatrix}
+\begin{pmatrix}
+\vec u_1 ^{T} \\
+\vec u_2^T \\
+\vdots \\
+\vec u_n ^{T}
+\end{pmatrix}</me>
+
+  <p>Using the <term>column-row expansion</term> for the product of two matrices, this becomes</p>
+
+  <me>A =
+\lambda _1 \vec u_1 \vec u_1 ^{T}  + \cdots + \lambda _n \vec u_n \vec u_n ^{T}
+= \sum_{i=1}^{n} \lambda_i \vec u_i \vec u_i^T</me>
+
+  <p>The row-column expansion for the product of two matrices is a way of defining matrix multiplication.</p>
+</section>
