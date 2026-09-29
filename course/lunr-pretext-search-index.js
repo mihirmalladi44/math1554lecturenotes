@@ -19,6 +19,15 @@ var ptx_lunr_docs = [
   "body": "course name (MATH xxx, section xxx) "
 },
 {
+  "id": "course-notes-3",
+  "level": "1",
+  "url": "course-notes-3.html",
+  "type": "Worksheet",
+  "number": "",
+  "title": "0 About This Document",
+  "body": " 0 About This Document  This document was created using PreTeXt on GitHub Codespaces and GitHub Pages, and was last compiled by Greg Mayer on .      These Studio Worksheets are meant to be used by the Distance Math Program offer of Linear Algebra MATH 1554.    The pacing of the topics roughly follow the schedule of the Distance Math offer of this course.    References to the Interactive Linear Algebra (ILA) textbook and the course Lecture Notes (LN) are found in the worksheet titles.    There are no solutions for these worksheets, but the instructional team will be going through these worksheets throughout the semester. Students are encouraged to work through these worksheets themselves, and are welcome to ask questions about any of the questions during office hours or in the course forums.      This work is under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.    This work was created and reviewed by Mihir Malladi, Navina Weliwita, and Greg Mayer. Last updated .  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  "
+},
+{
   "id": "activity-1-1-worksheet",
   "level": "1",
   "url": "activity-1-1-worksheet.html",
