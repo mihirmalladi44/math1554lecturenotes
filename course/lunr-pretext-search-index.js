@@ -19,171 +19,171 @@ var ptx_lunr_docs = [
   "body": "course name (MATH xxx, section xxx) "
 },
 {
-  "id": "course-notes-3",
+  "id": "sec-about-this-document",
   "level": "1",
-  "url": "course-notes-3.html",
+  "url": "sec-about-this-document.html",
   "type": "Worksheet",
   "number": "",
   "title": "0 About This Document",
   "body": " 0 About This Document  This document was created using PreTeXt on GitHub Codespaces and GitHub Pages, and was last compiled by Greg Mayer on .      These Lecture Notes are meant to be used by the Distance Math Program offer of Linear Algebra MATH 1554.    The pacing of the topics roughly follow the schedule of the Distance Math offer of this course.    References to the Interactive Linear Algebra (ILA) textbook and the course Lecture Notes (LN) are found in the worksheet titles.    There are no solutions for these worksheets, but the instructional team will be going through these worksheets throughout the semester. Students are encouraged to work through these worksheets themselves, and are welcome to ask questions about any of the questions during office hours or in the course forums.      This work is under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.    This work was created and reviewed by Mihir Malladi, Navina Weliwita, Prayag Patel, Om Biradar, Purandhar Ram Choppa, Akshar Tamhankar, and Greg Mayer. Last updated .  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  - Attends Denmark High School, Alpharetta, GA at the time of making  "
 },
 {
-  "id": "activity-1-1-worksheet",
+  "id": "sec-block-matrices",
   "level": "1",
-  "url": "activity-1-1-worksheet.html",
+  "url": "sec-block-matrices.html",
   "type": "Worksheet",
   "number": "",
   "title": "1.1 Block Matrices",
   "body": " 1.1 Block Matrices   A block matrix is a matrix that is interpreted as having been broken into sections called blocks , or submatrices . Intuitively, a block matrix can be interpreted as the original matrix that is partitioned into a collection of smaller matrices. For example, the matrix   can also be written as a 2 × 2 partitioned (or block) matrix:   where the entries of A are the blocks   We partitioned our matrix into four blocks, each of which have different dimensions. But the matrix could also, for example, be partitioned into five 4 × 1 blocks, or four 1 × 5 blocks. Indeed, matrices can be partitioned into blocks in many different ways, and depending on the application at hand, there can be a partitioning that is useful or needed.  For example, when solving a linear system to determine , we can construct and row reduce an augmented matrix of the form   The augmented matrix X consists of two sub-matrices, A and , meaning that it can be viewed as a block matrix. Another application of a block matrix arises when using the SVD, which is a popular tool used in data science. The SVD uses a matrix, , of the form   Matrix D is a diagonal matrix, and each is a zero matrix. Representing in terms of sub-matrices helps us see what the structure of is. Another block matrix arises when introducing a procedure for computing the inverse of an matrix. To compute the inverse of matrix A , we construct and row reduce the matrix   This is an example of a block matrix used in an algorithm. In order to use block matrices in other applications we need to define matrix addition and multiplication with partitioned matrices.     If matrices A and B are partitioned in exactly the same way, then the entries of their sum is the sum of their blocks. For example, if A and B are the block matrices   then their sum is the matrix   As long as A and B are partitioned in the same way the addition is calculated block by block.     Recall the row column method for matrix multiplication.   Let be and be matrix. Then, the entry of is   This is the Row Column Method for matrix multiplication.  Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined.     Block matrices can be useful in cases where a matrix has a particular structure.  For example, suppose is the block matrix   where and are matrices, is a zero matrix, and . Then   Computation of only requires computing and . Taking advantage of the block structure leads to a more efficient computation than it otherwise would have been with a naive row-column method that does not take advantage of the structure of the matrix.     and are the matrices   where   If we compute the matrix product using the given partitioning we obtain   where   Therefore   Computing with the row column method confirms our result.      In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of matrix is a matrix , that has the same dimensions as and satisfies   where is the identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.     Recall, using our formula for a 2 × 2 matrix,   provided that . Suppose , , and are invertible matrices. Suppose we wish to construct an expression for the inverse of the matrix   To construct the inverse of , we can write   where is the matrix we seek. If we let be the block matrix   we can determine by solving or . Solving gives us:    The above matrix equation gives us a set of four equations that can be solved to determine , , , and . The block in the second row and first column gives us . It was given that is an invertible matrix, so is a zero matrix because      Likewise the block in the second row and second column yields , so     Now that we have expressions for and we can solve the remaining two equations for and . Solving for gives us the following expression.       Solving for :      We now have our expression for :   Note that in the special case where that each of the blocks are scalars and our expression is equivalent to Equation (1.1).     In this section we used partitioned matrices to solve problems regarding matrix invertibility and matrix multiplication. Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined. They can be used for example when dealing with large matrices that have a known structure where it is more convenient to describe the structure of a matrix in terms of its blocks. Although not part of this text, matrix partitioning can be used to help derive new algorithms because they give a more concise representation of a matrix and of operations on matrices.      Suppose . Which of the following could be equal to?  (a)  (b)  (c)     and are invertible matrices. Construct expressions for and in terms of and .     Suppose , and are invertible matrices, and   Give an expression for in terms of , , and .    "
 },
 {
-  "id": "activity-1-1-worksheet-2-1",
+  "id": "sec-block-matrices-2-1",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-1",
+  "url": "sec-block-matrices.html#sec-block-matrices-2-1",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "block matrix blocks submatrices "
 },
 {
-  "id": "activity-1-1-worksheet-2-5",
+  "id": "sec-block-matrices-2-5",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-5",
+  "url": "sec-block-matrices.html#sec-block-matrices-2-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "A "
 },
 {
-  "id": "activity-1-1-worksheet-2-10",
+  "id": "sec-block-matrices-2-10",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-10",
+  "url": "sec-block-matrices.html#sec-block-matrices-2-10",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "X A "
 },
 {
-  "id": "activity-1-1-worksheet-2-12",
+  "id": "sec-block-matrices-2-12",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-12",
+  "url": "sec-block-matrices.html#sec-block-matrices-2-12",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "D A "
 },
 {
-  "id": "activity-1-1-worksheet-3-2",
+  "id": "sec-block-matrices-3-2",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-3-2",
+  "url": "sec-block-matrices.html#sec-block-matrices-3-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "A B A B "
 },
 {
-  "id": "activity-1-1-worksheet-3-6",
+  "id": "sec-block-matrices-3-6",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-3-6",
+  "url": "sec-block-matrices.html#sec-block-matrices-3-6",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "A B "
 },
 {
-  "id": "activity-1-1-worksheet-10-2",
+  "id": "sec-block-matrices-10-2",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-10-2",
+  "url": "sec-block-matrices.html#sec-block-matrices-10-2",
   "type": "Worksheet Exercise",
   "number": "1",
   "title": "",
   "body": " Suppose . Which of the following could be equal to?  (a)  (b)  (c)  "
 },
 {
-  "id": "activity-1-1-worksheet-10-3",
+  "id": "sec-block-matrices-10-3",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-10-3",
+  "url": "sec-block-matrices.html#sec-block-matrices-10-3",
   "type": "Worksheet Exercise",
   "number": "2",
   "title": "",
   "body": "  and are invertible matrices. Construct expressions for and in terms of and .   "
 },
 {
-  "id": "activity-1-1-worksheet-10-4",
+  "id": "sec-block-matrices-10-4",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-10-4",
+  "url": "sec-block-matrices.html#sec-block-matrices-10-4",
   "type": "Worksheet Exercise",
   "number": "3",
   "title": "",
   "body": " Suppose , and are invertible matrices, and   Give an expression for in terms of , , and .  "
 },
 {
-  "id": "activity-1-2-worksheet",
+  "id": "sec-lu-factorization",
   "level": "1",
-  "url": "activity-1-2-worksheet.html",
+  "url": "sec-lu-factorization.html",
   "type": "Worksheet",
   "number": "",
   "title": "1.2 The LU Factorization",
   "body": " 1.2 The LU Factorization   To solve a linear system of the form we could use row reduction or, in theory, calculate and use it to determine with the equation   But computing requires the computation of the inverse of an matrix, which is especially difficult for large . It is more practical to solve with row reductions (i.e. Gaussian Elimination). But it turns out that there are more efficient methods, especially when is large.  One method for solving linear systems relies on what is referred to as a matrix factorization. A matrix factorization , or matrix decomposition is a factorization of a matrix into a product of matrices. Factorizations can be useful for solving , or for understanding the properties of a matrix.  In this section, we factor a matrix into lower and into upper triangular matrices to construct what is known as the LU factorization that is used to solve linear systems in a systematic and efficient method. Before we introduce the LU factorization, we will first need to introduce lower and upper triangular matrices.     Before we introduce the LU factorization, we need to first define upper and lower triangular matrices.   Suppose that the entries of matrix are . Then is upper triangular if for . Matrix is lower triangular if for .  As an example, all of the matrices below are in upper triangular form.   Notice how all of the entries below the main diagonal are zero, and the entries on and above the main diagonal can be anything. Likewise, examples of lower triangular matrices are below.   Again, note that our definition for an upper triangular matrix does not specify what the entries on or above the main diagonal need to be. Some or all of the entries above the main diagonal can, for example, be zero. Likewise the entries on and below the main diagonal of a lower triangular matrix do not have to have specific values.     After stating a theorem that gives the LU decomposition, we will give an algorithm for constructing the LU factorization. We will then see how we can use the factorization to solve a linear system.   If is an matrix that can be row reduced to echelon form without row exchanges, then , where is a lower triangular matrix with 1's on the diagonal, and is an echelon form of .     To prove the theorem above we will first show that we can write where is an invertible matrix, and is an echelon form of .  Suppose that matrix can be reduced to echelon form with elementary row operations that only add a multiple of a row to another row that is below it. Then each row operation can be performed by multiplying with elementary matrices.   If we let , then   Note that is invertible because elementary matrices are invertible. Therefore can be reduced to the identity with a sequence of row operations. Moreover, if we multiply Equation (1.3) by we obtain:   Therefore has the decomposition where is an echelon form of and is an invertible matrix. To show that is lower triangular, recall from Equations (1.2) and (1.3) that   Each elementary matrix is lower triangular because to reduce to we only used one type of row operation: adding a multiple of a row to a row below it, so each is a lower triangular matrix. It can also be shown that the product of two lower-triangular matrices is a lower triangular matrix, and the inverse of a lower triangular matrix is lower triangular. This implies that both and will be lower-triangular.     To construct the LU factorization of a matrix we must first apply a sequence of row operations to in order to reduce to . Equation (1.3) gives us that   But if , then the sequence of row operations that reduce to will reduce to . This gives us an algorithm for constructing the LU factorization.   Suppose is an matrix that can be row reduced to echelon form without row exchanges. To construct the LU factorization:  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the sequence of row operations that reduces to will reduce to  Note that the above procedure will work for any matrix that can be reduced to echelon form without row exchanges. Meaning that we do not need to be square or invertible to construct its LU factorization.     In this example we construct LU factorizations of the following matrix.   Because is a matrix, the LU factorization has the form   Each represents an entry that we need to compute the value of. To reduce to we apply a sequence of row replacement operations as shown below.   Matrix is the echelon form of that we need for the LU factorization. We next construct so that the row operations that reduced to will reduce to . Our row operations were:   With these two row operations, we see that must be the matrix:   Note that the row operations and applied to will give us the identity. The LU factorization of is      Our motivation for introducing the LU factorization was to introduce an efficient method for solving linear systems. Given rectangular matrix and vector , we wish to use the LU factorization of to solve for . A procedure for doing so is below.   To solve for :  1. Construct the LU decomposition of to obtain and .  2. Set . Forward solve for in .  3. Backwards solve for in .     In this example we will solve the linear system given the LU decomposition of .   We first set and solve . Reducing the augmented matrix gives us:   Therefore, is the vector   We now solve .   The solution to the linear system, , is the vector      In our treatment of the LU factorization we constructed the LU decomposition using the following process.  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the same sequence of row operations reduces to  There is much more to the LU factorization than what was presented in this section. There are for example other methods for constructing that you may encounter in future courses or projects you are working on. In our approach, the only row operation we use to construct and is to replace a row with a multiple of a row above it. Multiplying a row by a non-zero scalar is not needed, but more importantly, we cannot swap rows. More advanced linear algebra and numerical analysis courses would address this significant limitation.      Construct the LU Factorizations for the following matrices.  (a)  (b)  (c)    Show that the product of two lower triangular matrices is lower triangular.    Show that the inverse of an lower triangular matrix is also and lower triangular.    "
 },
 {
-  "id": "activity-1-2-worksheet-2-4",
+  "id": "sec-lu-factorization-2-4",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-4",
+  "url": "sec-lu-factorization.html#sec-lu-factorization-2-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "matrix factorization matrix decomposition "
 },
 {
-  "id": "activity-1-2-worksheet-2-5",
+  "id": "sec-lu-factorization-2-5",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-5",
+  "url": "sec-lu-factorization.html#sec-lu-factorization-2-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "lower upper "
 },
 {
-  "id": "activity-1-2-worksheet-3-4",
+  "id": "sec-lu-factorization-3-4",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-3-4",
+  "url": "sec-lu-factorization.html#sec-lu-factorization-3-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "upper triangular lower triangular "
 },
 {
-  "id": "activity-1-2-worksheet-11-2",
+  "id": "sec-lu-factorization-11-2",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-11-2",
+  "url": "sec-lu-factorization.html#sec-lu-factorization-11-2",
   "type": "Worksheet Exercise",
   "number": "1",
   "title": "",
   "body": " Construct the LU Factorizations for the following matrices.  (a)  (b)  (c)  "
 },
 {
-  "id": "activity-1-2-worksheet-11-3",
+  "id": "sec-lu-factorization-11-3",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-11-3",
+  "url": "sec-lu-factorization.html#sec-lu-factorization-11-3",
   "type": "Worksheet Exercise",
   "number": "2",
   "title": "",
   "body": " Show that the product of two lower triangular matrices is lower triangular.  "
 },
 {
-  "id": "activity-1-2-worksheet-11-4",
+  "id": "sec-lu-factorization-11-4",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-11-4",
+  "url": "sec-lu-factorization.html#sec-lu-factorization-11-4",
   "type": "Worksheet Exercise",
   "number": "3",
   "title": "",
   "body": " Show that the inverse of an lower triangular matrix is also and lower triangular.  "
 },
 {
-  "id": "activity-1-3-worksheet",
+  "id": "sec-leontif-io-model",
   "level": "1",
-  "url": "activity-1-3-worksheet.html",
+  "url": "sec-leontif-io-model.html",
   "type": "Worksheet",
   "number": "",
   "title": "1.3 The Leontif Input-Output Model",
@@ -192,16 +192,16 @@ var ptx_lunr_docs = [
 {
   "id": "leontief-me-figure",
   "level": "2",
-  "url": "activity-1-3-worksheet.html#leontief-me-figure",
+  "url": "sec-leontif-io-model.html#leontief-me-figure",
   "type": "Figure",
   "number": "1",
   "title": "",
   "body": " Internal consumption diagram for sectors M and E.   "
 },
 {
-  "id": "activity-1-3-worksheet-3-14",
+  "id": "sec-leontif-io-model-3-14",
   "level": "2",
-  "url": "activity-1-3-worksheet.html#activity-1-3-worksheet-3-14",
+  "url": "sec-leontif-io-model.html#sec-leontif-io-model-3-14",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -210,25 +210,25 @@ var ptx_lunr_docs = [
 {
   "id": "leontief-xyz-figure",
   "level": "2",
-  "url": "activity-1-3-worksheet.html#leontief-xyz-figure",
+  "url": "sec-leontif-io-model.html#leontief-xyz-figure",
   "type": "Figure",
   "number": "2",
   "title": "",
   "body": " Internal consumption diagram for sectors X, Y, and Z.   "
 },
 {
-  "id": "activity-1-3-worksheet-7-2",
+  "id": "sec-leontif-io-model-7-2",
   "level": "2",
-  "url": "activity-1-3-worksheet.html#activity-1-3-worksheet-7-2",
+  "url": "sec-leontif-io-model.html#sec-leontif-io-model-7-2",
   "type": "Worksheet Exercise",
   "number": "1",
   "title": "",
   "body": " Consider the production model for an economy with two sectors, where , and .  (a) Construct the augmented matrix that can be used to calculate .  (b) Solve your linear system for .  "
 },
 {
-  "id": "activity-1-3-worksheet-7-3",
+  "id": "sec-leontif-io-model-7-3",
   "level": "2",
-  "url": "activity-1-3-worksheet.html#activity-1-3-worksheet-7-3",
+  "url": "sec-leontif-io-model.html#sec-leontif-io-model-7-3",
   "type": "Worksheet Exercise",
   "number": "2",
   "title": "",
@@ -316,18 +316,18 @@ var ptx_lunr_docs = [
   "body": "  Line passes through the point and is parallel to the vector , where Construct the matrix that uses homogeneous coordinates to rotate points in about line by an angle .   "
 },
 {
-  "id": "section-orthogonal-diagonalization",
+  "id": "sec-orthogonal-diagonalization",
   "level": "1",
-  "url": "section-orthogonal-diagonalization.html",
+  "url": "sec-orthogonal-diagonalization.html",
   "type": "Section",
   "number": "",
   "title": "2.1 Orthogonal Diagonalization",
   "body": " 2.1 Orthogonal Diagonalization  Many algorithms rely on a type of matrix that is equal to its transpose. If matrix satisfies , then is symmetric . A common example of a symmetric matrix is the product , where is any matrix. We use when, for example, constructing the normal equations in least-squares problems. One way to see that is symmetric for any matrix is to take the transpose of .  is equal to its transpose so it must be symmetric. But another way to see that is symmetric is that for any rectangular matrix with columns , is to express the matrix product using the row-column rule for matrix multiplication.     Note that is the dot product between and . And because dot products commute, in other words  is symmetric.  One of the reasons that symmetric matrices are found in many algorithms is that they posses several properties that we can use to make useful or efficient calculations. In this section we investigate some of these properties that symmetric matrices have. In later sections of this chapter we will use these properties to develop and understand algorithms and their results.   Properties of Symmetric Matrices  In this section we give three theorems that characterize symmetric matrices.   1) Symmetric Matrices Have Orthogonal Eigenspaces  The eigenspaces of symmetric matrices have a useful property that we can use when, for example, diagoanlizing a matrix.   Theorem   If is a symmetric matrix, with eigenvectors and corresponding to two distinct eigenvalues, then and are orthogonal.    More generally this theorem implies that eigenspaces associated to distinct eigenvalues are orthogonal subspaces.   Our approach will be to show that if is symmetric then any two of its eigenvectors and must be orthogonal when their corresponding eigenvalues and are not equal to each other.   Rearranging the equation yields   But so . In other words, eigenvectors corresponding to distinct eigenvalues must be orthogonal.   This theorem can be sometimes be used to quickly identify the eigenvectors of a matrix. For example, if is a matrix and we know that is an eigenvector of , then we can find any non-zero vector orthogonal to to identify the eigenvector for the other eigenspace.    2) The Eigenvalues of a Symmetric Matrix are Real   Theorem   If is a real symmetric matrix then all eigenvalues of are real.    A proof of this result is in Appendix 1.2.    3) The Spectral Theorem  It turns out that every real symmetric matrix can always be diagonalized using an orthogonal matrix, which is a result of the spectral theorem.   The Spectral Theorem   An matrix is symmetric if and only if the matrix can be orthogonally diagonalized.    A proof of this theorem is beyond the scope of these notes, but there are several important consequences of this theorem. All symmetric matrices can not only be diagonalized, but they can be diagonalized with an orthogonal matrix. Moreover, the only matrices that can be diagonalized orthogonally are symmetric, and that if a matrix can be diagonalized with an orthogonal matrix, then it is symmetric.     Examples   Example 1: Orthogonal Diagonalization of a Matrix  Suppose is the symmetric matrix below.   The eigenvalues of are given. In this example we will diagonalize using an orthogonal matrix, . For eigenvalue we have A vector in the null space of is the eigenvector   A vector orthogonal to is which must be an eigenvector for because is symmetric.  Dividing each of the eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, , we obtain an orthogonal matrix. In other words, . This convenient property gives us a convenient way to compute should it be needed.  Placing the eigenvalues of in the order that matches the order used to create , we obtain the factorization     Example 2: Orthogonal Diagonalization of a Matrix  In this example we will diagonalize a matrix, , using an orthogonal matrix, .   The eigenvalues of are given. For eigenvalue we have A vector in the null space of is the eigenvector For eigenvalue we have By inspection, two vectors in the null space of are   There are many other choices that we could make but the above two vectors will suffice. Note that and happen to be orthogonal to each other. If they happened to not be orthogonal, one could use the Gram-Schmidt procedure to make them so.  Dividing each of the three eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, , we obtain an orthogonal matrix. This will give us a matrix whose inverse is equal to its transpose. In other words, is an orthogonal matrix, and . This convenient property gives us a convenient way to compute should it be needed.  Placing the eigenvalues of in the order that matches the order used to create , we obtain the factorization      Summary  In this section we explored how we might construct an orthogonal diagonalization of a symmetric matrix, . Note that when a symmetric matrix has a repeated eigenvalue, Gram-Schmidt may be needed when eigenvalues are repeated to construct a full set of orthonormal eigenvectors that span . The theorems we introduced in this section gives us that   all eigenvalues of are real  eigenspaces of are mutually orthogonal  can be diagonalized as     Exercises    Suppose and are matrices, , and is symmetric. Which of the following products are equal to a symmetric matrix?           If where is a diagonal matrix and , then is symmetric?     "
 },
 {
-  "id": "section-orthogonal-diagonalization-2",
+  "id": "sec-orthogonal-diagonalization-2",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#section-orthogonal-diagonalization-2",
+  "url": "sec-orthogonal-diagonalization.html#sec-orthogonal-diagonalization-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -336,7 +336,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-orthogonal-eigenspaces",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#theorem-orthogonal-eigenspaces",
+  "url": "sec-orthogonal-diagonalization.html#theorem-orthogonal-eigenspaces",
   "type": "Theorem",
   "number": "7",
   "title": "Theorem.",
@@ -345,7 +345,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsubsection-orthogonal-eigenspaces-5",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#subsubsection-orthogonal-eigenspaces-5",
+  "url": "sec-orthogonal-diagonalization.html#subsubsection-orthogonal-eigenspaces-5",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -354,7 +354,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-real-eigenvalues",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#theorem-real-eigenvalues",
+  "url": "sec-orthogonal-diagonalization.html#theorem-real-eigenvalues",
   "type": "Theorem",
   "number": "8",
   "title": "Theorem.",
@@ -363,7 +363,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-spectral-theorem",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#theorem-spectral-theorem",
+  "url": "sec-orthogonal-diagonalization.html#theorem-spectral-theorem",
   "type": "Theorem",
   "number": "9",
   "title": "The Spectral Theorem.",
@@ -372,7 +372,7 @@ var ptx_lunr_docs = [
 {
   "id": "example-2x2-orthogonal-diagonalization",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#example-2x2-orthogonal-diagonalization",
+  "url": "sec-orthogonal-diagonalization.html#example-2x2-orthogonal-diagonalization",
   "type": "Example",
   "number": "10",
   "title": "Example 1: Orthogonal Diagonalization of a <span class=\"process-math\">\\(2\\times 2\\)<\/span> Matrix.",
@@ -381,7 +381,7 @@ var ptx_lunr_docs = [
 {
   "id": "example-3x3-orthogonal-diagonalization",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#example-3x3-orthogonal-diagonalization",
+  "url": "sec-orthogonal-diagonalization.html#example-3x3-orthogonal-diagonalization",
   "type": "Example",
   "number": "11",
   "title": "Example 2: Orthogonal Diagonalization of a <span class=\"process-math\">\\(3\\times3\\)<\/span> Matrix.",
@@ -390,7 +390,7 @@ var ptx_lunr_docs = [
 {
   "id": "exercise-symmetric-products",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#exercise-symmetric-products",
+  "url": "sec-orthogonal-diagonalization.html#exercise-symmetric-products",
   "type": "Exercise",
   "number": "1",
   "title": "",
@@ -399,16 +399,16 @@ var ptx_lunr_docs = [
 {
   "id": "exercise-pdpt-symmetric",
   "level": "2",
-  "url": "section-orthogonal-diagonalization.html#exercise-pdpt-symmetric",
+  "url": "sec-orthogonal-diagonalization.html#exercise-pdpt-symmetric",
   "type": "Exercise",
   "number": "2",
   "title": "",
   "body": "  If where is a diagonal matrix and , then is symmetric?   "
 },
 {
-  "id": "section-quadratic-forms",
+  "id": "sec-quadratic-forms",
   "level": "1",
-  "url": "section-quadratic-forms.html",
+  "url": "sec-quadratic-forms.html",
   "type": "Section",
   "number": "",
   "title": "2.2 Quadratic Forms",
@@ -417,7 +417,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-quadratic-forms-def-2",
   "level": "2",
-  "url": "section-quadratic-forms.html#subsection-quadratic-forms-def-2",
+  "url": "sec-quadratic-forms.html#subsection-quadratic-forms-def-2",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -426,7 +426,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-two-circles",
   "level": "2",
-  "url": "section-quadratic-forms.html#figure-two-circles",
+  "url": "sec-quadratic-forms.html#figure-two-circles",
   "type": "Figure",
   "number": "12",
   "title": "",
@@ -435,7 +435,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-single-ellipse",
   "level": "2",
-  "url": "section-quadratic-forms.html#figure-single-ellipse",
+  "url": "sec-quadratic-forms.html#figure-single-ellipse",
   "type": "Figure",
   "number": "13",
   "title": "",
@@ -444,7 +444,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-principal-axes",
   "level": "2",
-  "url": "section-quadratic-forms.html#theorem-principal-axes",
+  "url": "sec-quadratic-forms.html#theorem-principal-axes",
   "type": "Theorem",
   "number": "14",
   "title": "Theorem.",
@@ -453,7 +453,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-principal-axes-theorem-5",
   "level": "2",
-  "url": "section-quadratic-forms.html#subsection-principal-axes-theorem-5",
+  "url": "sec-quadratic-forms.html#subsection-principal-axes-theorem-5",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -462,16 +462,16 @@ var ptx_lunr_docs = [
 {
   "id": "figure-change-of-variable-ellipses",
   "level": "2",
-  "url": "section-quadratic-forms.html#figure-change-of-variable-ellipses",
+  "url": "sec-quadratic-forms.html#figure-change-of-variable-ellipses",
   "type": "Figure",
   "number": "15",
   "title": "",
   "body": " The ellipse in the -plane, and the same ellipse expressed without cross terms, , in the -plane.          "
 },
 {
-  "id": "section-quadratic-surfaces",
+  "id": "sec-quadratic-surfaces",
   "level": "1",
-  "url": "section-quadratic-surfaces.html",
+  "url": "sec-quadratic-surfaces.html",
   "type": "Section",
   "number": "",
   "title": "2.3 Quadratic Surfaces",
@@ -480,7 +480,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-parab-curves",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-parab-curves",
+  "url": "sec-quadratic-surfaces.html#figure-parab-curves",
   "type": "Figure",
   "number": "16",
   "title": "",
@@ -489,7 +489,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-paraboloid",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-paraboloid",
+  "url": "sec-quadratic-surfaces.html#figure-paraboloid",
   "type": "Figure",
   "number": "17",
   "title": "",
@@ -498,7 +498,7 @@ var ptx_lunr_docs = [
 {
   "id": "listing-matlab-script",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#listing-matlab-script",
+  "url": "sec-quadratic-surfaces.html#listing-matlab-script",
   "type": "Listing",
   "number": "18",
   "title": "MATLAB Script",
@@ -507,7 +507,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-quad-surfaces-grid",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-quad-surfaces-grid",
+  "url": "sec-quadratic-surfaces.html#figure-quad-surfaces-grid",
   "type": "Figure",
   "number": "19",
   "title": "",
@@ -516,7 +516,7 @@ var ptx_lunr_docs = [
 {
   "id": "definition-quadratic-form-types",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#definition-quadratic-form-types",
+  "url": "sec-quadratic-surfaces.html#definition-quadratic-form-types",
   "type": "Definition",
   "number": "20",
   "title": "Definition.",
@@ -525,7 +525,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-classify-quadratic-forms",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#theorem-classify-quadratic-forms",
+  "url": "sec-quadratic-surfaces.html#theorem-classify-quadratic-forms",
   "type": "Theorem",
   "number": "21",
   "title": "Theorem.",
@@ -534,7 +534,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-classifying-quadratic-forms-6",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#subsection-classifying-quadratic-forms-6",
+  "url": "sec-quadratic-surfaces.html#subsection-classifying-quadratic-forms-6",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -543,16 +543,16 @@ var ptx_lunr_docs = [
 {
   "id": "figure-saddle",
   "level": "2",
-  "url": "section-quadratic-surfaces.html#figure-saddle",
+  "url": "sec-quadratic-surfaces.html#figure-saddle",
   "type": "Figure",
   "number": "22",
   "title": "",
   "body": " The indefinite quadratic surface generated by .   "
 },
 {
-  "id": "section-constrained-optimization",
+  "id": "sec-constrained-optimization",
   "level": "1",
-  "url": "section-constrained-optimization.html",
+  "url": "sec-constrained-optimization.html",
   "type": "Section",
   "number": "",
   "title": "2.4 Constrained Optimization",
@@ -561,7 +561,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-temperature-sphere",
   "level": "2",
-  "url": "section-constrained-optimization.html#figure-temperature-sphere",
+  "url": "sec-constrained-optimization.html#figure-temperature-sphere",
   "type": "Figure",
   "number": "23",
   "title": "",
@@ -570,7 +570,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-constrained-optimization-problem-4",
   "level": "2",
-  "url": "section-constrained-optimization.html#subsection-constrained-optimization-problem-4",
+  "url": "sec-constrained-optimization.html#subsection-constrained-optimization-problem-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -579,7 +579,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-constrained-optimization",
   "level": "2",
-  "url": "section-constrained-optimization.html#theorem-constrained-optimization",
+  "url": "sec-constrained-optimization.html#theorem-constrained-optimization",
   "type": "Theorem",
   "number": "24",
   "title": "Constrained Optimization.",
@@ -588,7 +588,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-constrained-optimization-problem-6",
   "level": "2",
-  "url": "section-constrained-optimization.html#subsection-constrained-optimization-problem-6",
+  "url": "sec-constrained-optimization.html#subsection-constrained-optimization-problem-6",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -597,7 +597,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-repeated-eigenvalue-sphere",
   "level": "2",
-  "url": "section-constrained-optimization.html#figure-repeated-eigenvalue-sphere",
+  "url": "sec-constrained-optimization.html#figure-repeated-eigenvalue-sphere",
   "type": "Figure",
   "number": "25",
   "title": "",
@@ -606,7 +606,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-orthogonality-constraint",
   "level": "2",
-  "url": "section-constrained-optimization.html#theorem-orthogonality-constraint",
+  "url": "sec-constrained-optimization.html#theorem-orthogonality-constraint",
   "type": "Theorem",
   "number": "26",
   "title": "Optimization with an Orthogonality Constraint.",
@@ -615,7 +615,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-orthogonality-constraint-sphere",
   "level": "2",
-  "url": "section-constrained-optimization.html#figure-orthogonality-constraint-sphere",
+  "url": "sec-constrained-optimization.html#figure-orthogonality-constraint-sphere",
   "type": "Figure",
   "number": "27",
   "title": "",
@@ -624,7 +624,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-constrained-optimization-summary-7",
   "level": "2",
-  "url": "section-constrained-optimization.html#subsection-constrained-optimization-summary-7",
+  "url": "sec-constrained-optimization.html#subsection-constrained-optimization-summary-7",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -633,16 +633,16 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-constrained-optimization-summary-8",
   "level": "2",
-  "url": "section-constrained-optimization.html#subsection-constrained-optimization-summary-8",
+  "url": "sec-constrained-optimization.html#subsection-constrained-optimization-summary-8",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "Lagrange Multipliers "
 },
 {
-  "id": "section-singular-values",
+  "id": "sec-singular-values",
   "level": "1",
-  "url": "section-singular-values.html",
+  "url": "sec-singular-values.html",
   "type": "Section",
   "number": "",
   "title": "2.5 Singular Values",
@@ -651,7 +651,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-unitcircletoellipse",
   "level": "2",
-  "url": "section-singular-values.html#figure-unitcircletoellipse",
+  "url": "sec-singular-values.html#figure-unitcircletoellipse",
   "type": "Figure",
   "number": "28",
   "title": "",
@@ -660,7 +660,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-unit-circle-transform-24",
   "level": "2",
-  "url": "section-singular-values.html#subsection-unit-circle-transform-24",
+  "url": "sec-singular-values.html#subsection-unit-circle-transform-24",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -669,7 +669,7 @@ var ptx_lunr_docs = [
 {
   "id": "figure-unitcircletransform",
   "level": "2",
-  "url": "section-singular-values.html#figure-unitcircletransform",
+  "url": "sec-singular-values.html#figure-unitcircletransform",
   "type": "Figure",
   "number": "29",
   "title": "",
@@ -678,7 +678,7 @@ var ptx_lunr_docs = [
 {
   "id": "definition-singular-values",
   "level": "2",
-  "url": "section-singular-values.html#definition-singular-values",
+  "url": "sec-singular-values.html#definition-singular-values",
   "type": "Definition",
   "number": "30",
   "title": "",
@@ -687,7 +687,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-ata-real-nonnegative",
   "level": "2",
-  "url": "section-singular-values.html#theorem-ata-real-nonnegative",
+  "url": "sec-singular-values.html#theorem-ata-real-nonnegative",
   "type": "Theorem",
   "number": "31",
   "title": "",
@@ -696,7 +696,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-singular-values-definition-5",
   "level": "2",
-  "url": "section-singular-values.html#subsection-singular-values-definition-5",
+  "url": "sec-singular-values.html#subsection-singular-values-definition-5",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -705,16 +705,16 @@ var ptx_lunr_docs = [
 {
   "id": "figure-ellipsoid2",
   "level": "2",
-  "url": "section-singular-values.html#figure-ellipsoid2",
+  "url": "sec-singular-values.html#figure-ellipsoid2",
   "type": "Figure",
   "number": "32",
   "title": "",
   "body": " The transform of the unit sphere creates an ellipsoid in , whose size is described by the singular values of .      "
 },
 {
-  "id": "section-the-svd",
+  "id": "sec-the-svd",
   "level": "1",
-  "url": "section-the-svd.html",
+  "url": "sec-the-svd.html",
   "type": "Section",
   "number": "",
   "title": "2.6 The SVD",
@@ -723,7 +723,7 @@ var ptx_lunr_docs = [
 {
   "id": "fig-fourfund",
   "level": "2",
-  "url": "section-the-svd.html#fig-fourfund",
+  "url": "sec-the-svd.html#fig-fourfund",
   "type": "Figure",
   "number": "33",
   "title": "",
@@ -732,7 +732,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-right-singular-vectors",
   "level": "2",
-  "url": "section-the-svd.html#theorem-right-singular-vectors",
+  "url": "sec-the-svd.html#theorem-right-singular-vectors",
   "type": "Theorem",
   "number": "34",
   "title": "The Right Singular Vectors.",
@@ -741,7 +741,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-orthogonal-bases-row-null-3",
   "level": "2",
-  "url": "section-the-svd.html#subsection-orthogonal-bases-row-null-3",
+  "url": "sec-the-svd.html#subsection-orthogonal-bases-row-null-3",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -750,7 +750,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-left-singular-vectors",
   "level": "2",
-  "url": "section-the-svd.html#theorem-left-singular-vectors",
+  "url": "sec-the-svd.html#theorem-left-singular-vectors",
   "type": "Theorem",
   "number": "35",
   "title": "The Left Singular Vectors.",
@@ -759,7 +759,7 @@ var ptx_lunr_docs = [
 {
   "id": "subsubsection-orthogonal-bases-col-null-transpose-3",
   "level": "2",
-  "url": "section-the-svd.html#subsubsection-orthogonal-bases-col-null-transpose-3",
+  "url": "sec-the-svd.html#subsubsection-orthogonal-bases-col-null-transpose-3",
   "type": "Proof",
   "number": "1",
   "title": "",
@@ -768,7 +768,7 @@ var ptx_lunr_docs = [
 {
   "id": "theorem-singular-value-decomposition",
   "level": "2",
-  "url": "section-the-svd.html#theorem-singular-value-decomposition",
+  "url": "sec-the-svd.html#theorem-singular-value-decomposition",
   "type": "Theorem",
   "number": "36",
   "title": "Singular Value Decomposition.",
@@ -777,16 +777,16 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-svd-theorem-4",
   "level": "2",
-  "url": "section-the-svd.html#subsection-svd-theorem-4",
+  "url": "sec-the-svd.html#subsection-svd-theorem-4",
   "type": "Proof",
   "number": "1",
   "title": "",
   "body": " The proof that we can factor any real matrix as is similar to one often used to prove that any matrix with linearly independent eigenvectors can be diagonalized. We first construct the matrix from the right singular vectors, by placing them into a matrix as follows.   Then becomes   But , and . So   Thus, , or .  "
 },
 {
-  "id": "S-AppSVD",
+  "id": "sec-apps-svd",
   "level": "1",
-  "url": "S-AppSVD.html",
+  "url": "sec-apps-svd.html",
   "type": "Section",
   "number": "",
   "title": "2.7 Applications of The SVD",
@@ -795,7 +795,7 @@ var ptx_lunr_docs = [
 {
   "id": "definition-condition-number",
   "level": "2",
-  "url": "S-AppSVD.html#definition-condition-number",
+  "url": "sec-apps-svd.html#definition-condition-number",
   "type": "Definition",
   "number": "37",
   "title": "",
@@ -804,34 +804,34 @@ var ptx_lunr_docs = [
 {
   "id": "subsection-spectral-decomposition-matrix-12",
   "level": "2",
-  "url": "S-AppSVD.html#subsection-spectral-decomposition-matrix-12",
+  "url": "sec-apps-svd.html#subsection-spectral-decomposition-matrix-12",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "column-row expansion "
 },
 {
-  "id": "Sec-SymmRealEig",
+  "id": "sec-sym-eigenvalues",
   "level": "1",
-  "url": "Sec-SymmRealEig.html",
+  "url": "sec-sym-eigenvalues.html",
   "type": "Section",
   "number": "",
   "title": "3.1 Symmetric Matrices Have Real Eigenvalues",
   "body": " 3.1 Symmetric Matrices Have Real Eigenvalues  First we will show that when is a real symmetric matrix that for any that the quantity is real.  To show that is real, we will make use of the complex conjugate. We use the overbar notation to denote complex conjugate, so if and are real, then the complex number has complex conjugate . Moreover, if , then which implies that must be a real number. We use this idea to show that .   The last step uses the assumption that is real, so that . But is a number, so and   Because , we have shown that is real for any and real symmetric matrix .  Next we use this result to show that when is an eigenvector of that is equal to an eigenvalue of .   But is real and is real, so must also be real.  "
 },
 {
-  "id": "Sec-SpectralSymm",
+  "id": "sec-spectral-decomp",
   "level": "1",
-  "url": "Sec-SpectralSymm.html",
+  "url": "sec-spectral-decomp.html",
   "type": "Section",
   "number": "",
   "title": "3.2 The Spectral Decomposition of a Symmetric Matrix",
   "body": " 3.2 The Spectral Decomposition of a Symmetric Matrix  We have seen how any symmetric matrix can be diagonalized as , where   The columns of are the eigenvectors of , and the entries on the main diagonal of are the corresponding eigenvalues. Following the same proof for the spectral decomposition of a matrix using the SVD, it can be shown that has the decomposition   We will give a brief explanation on why has the decomposition given below.   We assume that we can write . If the columns of are , then, using the definition of matrix multiplication,   Recall that a matrix times a vector is a linear combination of the columns of the matrix weighted by the entries of the vector. Column of is   Therefore, the columns of are . We can now simplify our expression for to a product of two matrices.  Thus, can be expressed as follows.   Using the column-row expansion for the product of two matrices, this becomes   The row-column expansion for the product of two matrices is a way of defining matrix multiplication.  "
 },
 {
-  "id": "Sec-SpectralSymm-15",
+  "id": "sec-spectral-decomp-15",
   "level": "2",
-  "url": "Sec-SpectralSymm.html#Sec-SpectralSymm-15",
+  "url": "sec-spectral-decomp.html#sec-spectral-decomp-15",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
