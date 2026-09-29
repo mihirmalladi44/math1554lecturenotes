@@ -1,4 +1,4 @@
-<section xml:id="section-singular-values">
+<section xml:id="sec-singular-values">
   <title>2.5 Singular Values</title>
 
   <p>If <m>A</m> is any real <m>m\times n</m> matrix, what is the maximum that <m>\lVert A\vec x\rVert</m> could be equal to, given that <m>\vec x</m> has to be a unit vector? It turns out that the answer to this question reveals an application of a constrained optimization problem that we explored in a previous sections, and in the process of answering it we will introduce what are known as the singular values of a matrix and their properties. Singular values are at the heart of many applications of linear algebra. Indeed, singular values play an important role in the singular value decomposition of a matrix, which has many applications.</p>

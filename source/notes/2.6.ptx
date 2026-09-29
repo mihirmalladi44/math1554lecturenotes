@@ -1,4 +1,4 @@
-<section xml:id="section-the-svd">
+<section xml:id="sec-the-svd">
   <title>2.6 The SVD</title>
 
   <p>The Singular Value Decomposition (SVD) is a factorization that expresses a matrix as a product of three matrices. The decomposition gives us useful information about the subspaces that its rows and columns span, which are used in important applications in data science. In this section, we build on the previous section that introduced singular values to define the singular vectors of a matrix, and show howe can use them to construct the SVD of a matrix.</p>

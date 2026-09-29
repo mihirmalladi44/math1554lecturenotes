@@ -1,4 +1,4 @@
-<section xml:id="S-AppSVD">
+<section xml:id="sec-apps-svd">
   <title>2.7 Applications of The SVD</title>
 
   <p>The SVD has been applied to many modern applications in CS, engineering, and mathematics. In this section we will use the SVD to construct bases for the four fundamental subspaces of a matrix, characterize how errors in the entires of <m>A</m> could lead to errors when solving <m>A\vec x = \vec b</m>, and construct a spectral decomposition of a matrix.</p>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Contributed by Mitch Keller -->
-<worksheet>
+<worksheet xml:id="sec-about-this-document">
   <title>0 About This Document</title>
   <p>This document was created using PreTeXt on GitHub Codespaces and GitHub Pages, and was last compiled by Greg Mayer on <today />.</p>
   <p></p>
