@@ -1,8 +1,7 @@
 <worksheet margin="1in" bottom="1.25cm" xml:id="activity-1-2-worksheet">
-    <title>The LU Factorization</title>
+    <title>1.2 The LU Factorization</title>
 
     <page>
-        <m>{\LARGE \textbf{1.2 The LU Factorization}}</m>
 
         <p>
             To solve a linear system of the form <m>A\vec{x} = \vec{b}</m> we could use row reduction or, in theory, calculate <m>A^{-1}</m> and use it to determine <m>\vec{x}</m> with the equation

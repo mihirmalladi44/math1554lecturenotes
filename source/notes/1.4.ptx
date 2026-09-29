@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-2d-computer-graphics">
+  <title>1.4 2D Computer Graphics</title>
+
+  <introduction>
+    <p>
+      Linear transformations are often used in computer graphics to simulate
+      the motion of an object. They can be modeled with a matrix-vector product
+      of the form
+      <md>
+        T(\vec x) = A\vec x
+      </md>
+      where <m>\vec x</m> is a vector that represents a point that is
+      transformed to the vector <m>A\vec x</m>. The matrix-vector product
+      <m>A\vec x</m> is a transformation that acts on the vector
+      <m>\vec x</m> to produce a new vector, <m>\vec b = A\vec x</m>, and if we
+      set the function <m>T(\vec x)</m> to be
+      <md>
+        T(\vec x) = A\vec x = \vec b
+      </md>
+      then <m>T</m> maps the vector <m>\vec x</m> to vector <m>\vec b</m>. The
+      nature of the transform is described by matrix <m>A</m>.
+    </p>
+
+    <p>
+      Translations are a type of transformation needed in computer graphics.
+      But translations are not a linear transformation because they do not
+      leave the origin fixed. How might we use matrix multiplication in order
+      to perform such transformations? In this section we answer this question
+      by introducing homogeneous coordinates, which allow for more general
+      transformations to be computed with linear algebra.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-homogeneous-coordinates">
+    <title>Homogeneous Coordinates</title>
+
+    <p>
+      Homogeneous coordinates are a tool that can be used to model
+      translations.
+    </p>
+
+    <assemblage xml:id="asm-homogeneous-coordinates-2d">
+      <title>Definition: Homogeneous Coordinates in <m>\R^2</m></title>
+      <p>
+        Each point <m>(x,y)</m> in <m>\R^2</m> can be identified with the point
+        <m>(x,y,1)</m>, on the plane in <m>\R^3</m> that lies <m>1</m> unit
+        above the <m>xy</m>-plane.
+      </p>
+    </assemblage>
+
+    <p>
+      For example, a translation of the form <m>(x,y) \to (x+h,y+k)</m> is a
+      transformation. The parameters <m>h</m> and <m>k</m> adjust the location
+      of the point <m>(x,y)</m> after the transformation. This transform can be
+      represented as a matrix multiplication with homogeneous coordinates in
+      the following way.
+      <md>
+        \begin{pmatrix}
+          1 \amp 0 \amp h \\
+          0 \amp 1 \amp k \\
+          0 \amp 0 \amp 1
+        \end{pmatrix}
+        \begin{pmatrix} x\\y\\1 \end{pmatrix}
+        = \begin{pmatrix} x+h\\y+k\\1 \end{pmatrix}
+      </md>
+      The first two entries can be extracted from the output of the transform
+      to obtain the coordinate of the translated point. The following examples
+      demonstrate how homogeneous coordinates can be used to create more
+      general transforms.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-eg1-composite-transform">
+    <title>Example 1: A Composite Transform with Translation</title>
+
+    <p>
+      Suppose the transformation <m>T(\vec x)</m> reflects points in
+      <m>\R^2</m> across the line <m>x_2 = x_1</m> and then translates them by
+      <m>2</m> units in the <m>x_1</m> direction and <m>3</m> units in the
+      <m>x_2</m> direction. In this example we will use homogeneous coordinates
+      to construct a matrix <m>A</m> so that <m>T = A\vec x</m>.
+    </p>
+
+    <p>
+      With homogeneous coordinates the point <m>(x,y)</m> may be represented by
+      the vector
+      <md>
+        \begin{pmatrix} x\\y\\1 \end{pmatrix}
+      </md>
+      Points in <m>\R^2</m> can be reflected across the line <m>x_2 = x_1</m>
+      using the standard matrix
+      <md>
+        A_r = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \end{pmatrix}
+      </md>
+      With homogeneous coordinates our point is represented with a vector in
+      <m>\R^3</m>, so we use the block matrix
+      <md>
+        A_1 = \begin{pmatrix} A_r \amp \textbf{0} \\ \textbf{0} \amp 1
+              \end{pmatrix}
+            = \begin{pmatrix}
+                0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+              \end{pmatrix}
+      </md>
+      The symbol <m>\textbf{0}</m> denotes a matrix of zeroes. In this case,
+      either a <m>1\times2</m> matrix or a <m>2\times1</m> matrix. Then the
+      matrix-vector product below produces the needed transformation.
+      <md>
+        A_1 \vec x =
+        \begin{pmatrix}
+          0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+        \end{pmatrix}
+        \begin{pmatrix} x\\y\\1 \end{pmatrix}
+        = \begin{pmatrix} y \\x\\1 \end{pmatrix}
+      </md>
+      Note that the <m>x_1</m> and <m>x_2</m> coordinates have been swapped, as
+      required for the reflection through the line <m>x_2 = x_1</m>. The matrix
+      below will perform the translation we need.
+      <md>
+        A_2 = \begin{pmatrix}
+          1 \amp 0 \amp 2 \\ 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 1
+        \end{pmatrix}
+      </md>
+      The product below will apply the translation, of <m>2</m> units in the
+      <m>x_1</m> direction and <m>3</m> units in the <m>x_2</m> direction, to
+      the reflected point.
+      <md>
+        T(\vec x) = A_2 (A_1 \vec x) = A_2 A_1 \vec x =
+        \begin{pmatrix}
+          1 \amp 0 \amp 2 \\ 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 1
+        \end{pmatrix}
+        \begin{pmatrix} y \\x\\1 \end{pmatrix}
+        = \begin{pmatrix} y +2 \\x + 3\\1 \end{pmatrix}
+      </md>
+      Therfore, our standard matrix is
+      <md>
+        <mrow>
+          A = A_2A_1 \amp =
+          \begin{pmatrix}
+            1 \amp 0 \amp 2 \\ 0 \amp 1 \amp 3 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+          \begin{pmatrix}
+            0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+        </mrow>
+        <mrow>
+          \amp =
+          \begin{pmatrix}
+            0 \amp 1 \amp 2 \\ 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+        </mrow>
+      </md>
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-eg2-rotation">
+    <title>Example 2: Rotation About the Point <m>\mathbf{(0,1)}</m></title>
+
+    <p>
+      Triangle <m>S</m> is determined by the points
+      <m>(1,1), (2,3), (3,1)</m>. Transform <m>T</m> rotates these points by
+      <m>\pi/2</m> radians counterclockwise about the point <m>(0,1)</m>. Our
+      goal is to use matrix multiplication to determine the image of <m>S</m>
+      under <m>T</m>.
+    </p>
+
+    <p>
+      A sketch of the triangle before and after the rotation is in the diagram
+      below.
+    </p>
+
+    <image xml:id="img-eg2-original" width="55%">
+      <latex-image>
+        <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkRed}{HTML}{8B0000}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{Teal}{HTML}{008080}
+\begin{tikzpicture}[scale=0.6]
+
+    \draw[help lines] (0, 0) grid (4.2, 4.2);
+
+    \coordinate (O) at (0,0);
+
+        \filldraw[
+        draw=DarkBlue!80,fill=Teal!10]
+            (1,1)
+            -- (2,3)
+            -- (3,1)
+            -- cycle;
+
+    \draw[->, thick,black] (-0.5,0) -- (4.75,0) node[anchor=north east] {$x_1$};
+    \draw[->, thick,black] (0,-0.5) -- (0.0,4.75) node[anchor=east] {$x_2$};
+
+    \foreach \x/\y in  {1/1, 2/3, 3/1 }  \filldraw (\x,\y) circle (.2em);
+    \foreach \x/\y in  {0/1}  \filldraw[DarkRed] (\x,\y) circle (.4em);
+
+    \draw[] (1,-0.1) node[below]{$1$};
+    \draw[] (2,-0.1) node[below]{$2$};
+    \draw[] (3,-0.1) node[below]{$3$};
+    \draw[] (-0.1, 1) node[left]{$1$};
+    \draw[] (-0.1, 2) node[left]{$2$};
+    \draw[] (-0.1, 3) node[left]{$3$};
+\end{tikzpicture}
+        ]]>
+      </latex-image>
+    </image>
+
+    <p>
+      We need a way to calculate the locations of the points after the
+      transformation. The rotation can be calculated by first representing each
+      point by a vector in homogeneous coordinates, and then multiplying the
+      vectors by a sequence of matrices that perform the needed transformation.
+      The transformations will first shift the points in a way so that the
+      rotation point is about the origin. We will then rotate about the origin
+      by the desired about. And then we move the rotated points up by one unit
+      to account for the initial translation.
+    </p>
+
+    <paragraphs xml:id="par-eg2-step1">
+      <title>Step 1: Shift Points Down by 1 Unit</title>
+
+      <p>
+        In homogeneous coordinates our three points can be represented by the
+        vectors below.
+        <md>
+          \vec a = \begin{pmatrix} 1\\1\\1 \end{pmatrix}, \quad
+          \vec b = \begin{pmatrix} 2\\3\\1 \end{pmatrix}, \quad
+          \vec c = \begin{pmatrix} 3\\1\\1 \end{pmatrix}
+        </md>
+        Multiplying each vector by the matrix
+        <md>
+          A_1 = \begin{pmatrix}
+            1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+        </md>
+        shifts the points down by one unit.
+        <md>
+          <mrow>
+            \vec a = \begin{pmatrix} 1\\1\\1 \end{pmatrix} \to \amp \
+            A_1 \vec a =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 1\\1\\1 \end{pmatrix}
+            = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+          </mrow>
+          <mrow>
+            \vec b = \begin{pmatrix} 2\\3\\1 \end{pmatrix} \to \amp \
+            A_1 \vec b =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 2\\3\\1 \end{pmatrix}
+            = \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}
+          </mrow>
+          <mrow>
+            \vec c = \begin{pmatrix} 3\\1\\1 \end{pmatrix} \to \amp \
+            A_1 \vec c =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 3 \\1 \\1 \end{pmatrix}
+            = \begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix}
+          </mrow>
+        </md>
+        Note the difference between the input and output vectors. The second
+        entry of the output vectors is one less than their corresponding
+        entries in the input vectors. Our translated triangle and rotation
+        point is shown below.
+      </p>
+
+      <image xml:id="img-eg2-shifted" width="55%">
+        <latex-image>
+          <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkRed}{HTML}{8B0000}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{Teal}{HTML}{008080}
+\begin{tikzpicture}[scale=0.6]
+
+    \draw[help lines] (0, 0) grid (4.2, 4.2);
+
+    \coordinate (O) at (0,0);
+
+        \filldraw[
+        draw=DarkBlue!80,fill=Teal!10]
+            (1,0)
+            -- (2,2)
+            -- (3,0)
+            -- cycle;
+
+    \draw[->, thick,black] (-0.5,0) -- (4.75,0) node[anchor=north east] {$x_1$};
+    \draw[->, thick,black] (0,-0.5) -- (0.0,4.75) node[anchor=east] {$x_2$};
+
+    \foreach \x/\y in  {1/0, 2/2, 3/0 }  \filldraw (\x,\y) circle (.2em);
+    \foreach \x/\y in  {0/0}  \filldraw[DarkRed] (\x,\y) circle (.4em);
+
+    \draw[] (1,-0.1) node[below]{$1$};
+    \draw[] (2,-0.1) node[below]{$2$};
+    \draw[] (3,-0.1) node[below]{$3$};
+    \draw[] (-0.1, 1) node[left]{$1$};
+    \draw[] (-0.1, 2) node[left]{$2$};
+    \draw[] (-0.1, 3) node[left]{$3$};
+\end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+
+      <p>
+        With this transform, the rotation point also moves down one unit, from
+        <m>(0,1)</m> to the origin <m>(0,0)</m>.
+      </p>
+    </paragraphs>
+
+<paragraphs xml:id="par-eg2-step2">
+      <title>Step 2: Rotate About <m>\mathbf{(0,0)}</m></title>
+
+      <p>
+        Rotating the translated points by <m>\pi/2</m> radians about the origin
+        can be calculated by multiplying the three vectors by the matrix
+        <md>
+          A_2 = \begin{pmatrix}
+            0 \amp -1 \amp 0 \\
+            1 \amp  0 \amp 0 \\
+            0 \amp  0 \amp 1
+          \end{pmatrix}
+        </md>
+        This gives us three new points.
+        <md>
+          <mrow>
+            \vec a = \begin{pmatrix} 1\\1\\1 \end{pmatrix} \to \amp \
+            A_2A_1 \vec a =
+            \begin{pmatrix}
+              0 \amp -1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}
+            = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+          </mrow>
+          <mrow>
+            \vec b = \begin{pmatrix} 2\\3\\1 \end{pmatrix} \to \amp \
+            A_2A_1 \vec b =
+            \begin{pmatrix}
+              0 \amp -1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}
+            = \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}
+          </mrow>
+          <mrow>
+            \vec c = \begin{pmatrix} 3\\1\\1 \end{pmatrix} \to \amp \
+            A_2A_1 \vec c =
+            \begin{pmatrix}
+              0 \amp -1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 3 \\ 0 \\ 1 \end{pmatrix}
+            = \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix}
+          </mrow>
+        </md>
+      </p>
+
+      <p>
+        Finally, to undo the initial translation that placed the rotation point
+        at the origin, we need to translate our points up by one unit.
+      </p>
+    </paragraphs>
+
+    <paragraphs xml:id="par-eg2-step3">
+      <title>Step 3: Translate Points Up One Unit</title>
+
+      <p>
+        Translating the data up by one unit can be accomplished by multiplying
+        the three vectors by the matrix
+        <md>
+          A_3 = \begin{pmatrix}
+            1 \amp 0 \amp 0 \\
+            0 \amp 1 \amp 1 \\
+            0 \amp 0 \amp 1
+          \end{pmatrix}
+        </md>
+        This gives us three new points.
+        <md>
+          <mrow>
+            \vec a = \begin{pmatrix} 1\\1\\1 \end{pmatrix} \to \amp \
+            A_3A_2A_1 \vec a =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+            = \begin{pmatrix} 0 \\ 2 \\ 1 \end{pmatrix}
+          </mrow>
+          <mrow>
+            \vec b = \begin{pmatrix} 2\\3\\1 \end{pmatrix} \to \amp \
+            A_3A_2A_1 \vec b =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}
+            = \begin{pmatrix} -2 \\ 3 \\ 1 \end{pmatrix}
+          </mrow>
+          <mrow>
+            \vec c = \begin{pmatrix} 3\\1\\1 \end{pmatrix} \to \amp \
+            A_3A_2A_1 \vec c =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix} 0 \\ 3 \\ 1 \end{pmatrix}
+            = \begin{pmatrix} 0 \\ 4 \\ 1 \end{pmatrix}
+          </mrow>
+        </md>
+      </p>
+
+      <p>
+        Our rotated and translated triangle is shown below.
+      </p>
+
+      <image xml:id="img-eg2-final" width="55%">
+        <latex-image>
+          <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkRed}{HTML}{8B0000}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{Teal}{HTML}{008080}
+\begin{tikzpicture}[scale=0.6]
+
+    \draw[help lines] (-4.2, 0) grid (4.2, 4.2);
+
+    \coordinate (O) at (0,0);
+
+        \filldraw[
+        draw=DarkBlue!80,fill=Teal!10]
+            (0,2)
+            -- (-2,3)
+            -- (0,4)
+            -- cycle;
+
+    \draw[->, thick,black] (-4.5,0) -- (4.75,0) node[anchor=north east] {$x_1$};
+    \draw[->, thick,black] (0,-0.5) -- (0.0,4.75) node[anchor=east] {$x_2$};
+
+    \foreach \x/\y in  {0/2,-2/3,0/4 }  \filldraw (\x,\y) circle (.2em);
+    \foreach \x/\y in  {0/1}  \filldraw[DarkRed] (\x,\y) circle (.4em);
+
+    \draw[] (1,-0.1) node[below]{$1$};
+    \draw[] (2,-0.1) node[below]{$2$};
+    \draw[] (3,-0.1) node[below]{$3$};
+    \draw[] (-1,-0.1) node[below]{$-1$};
+    \draw[] (-2,-0.1) node[below]{$-2$};
+    \draw[] (-3,-0.1) node[below]{$-3$};
+    \draw[] (-0.1, 1) node[left]{$1$};
+    \draw[] (-0.1, 2) node[left]{$2$};
+    \draw[] (-0.1, 3) node[left]{$3$};
+\end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+
+      <p>
+        Therefore the standard matrix that performs a rotation by <m>\pi/2</m>
+        degrees about <m>(0,1)</m> is the matrix
+        <md>
+          <mrow>
+            A = A_3A_2A_1 \amp =
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix}
+              0 \amp -1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+          </mrow>
+          <mrow>
+            \amp =
+            \begin{pmatrix}
+              0 \amp -1 \amp 1 \\ 1 \amp 0 \amp 1 \\ 0 \amp 0 \amp 1
+            \end{pmatrix}
+          </mrow>
+        </md>
+        Our result can be verified by calculating <m>A\vec a</m>,
+        <m>A\vec b</m>, or <m>A \vec c</m>.
+      </p>
+    </paragraphs>
+
+    </subsection>
+
+  <subsection xml:id="subsec-eg3-reflection">
+    <title>
+      Example 3: A Reflection Through The Line <m>x_2 = x_1 + 3</m>
+    </title>
+
+    <p>
+      In this example we construct the <m>3\times3</m> standard matrix,
+      <m>A</m>, that uses homogeneous coordinates to reflect points in
+      <m>\R^2</m> across the line <m>x_2 = x_1 + 3</m>. We will confirm
+      that our results are correct by calculating <m>T(\vec x) = A\vec x</m>
+      for any point <m>\vec x</m> that uses homogeneous coordinates.
+    </p>
+
+    <p>
+      The standard matrix <m>A</m> will be the product of three matrices that
+      translate and reflect points using homogeneous coordinates. The first
+      matrix will translate points in some way so that the line about which we
+      are reflecting will pass through the origin. We can use
+      <md>
+        A_1 = \begin{pmatrix}
+          1 \amp 0 \amp 0 \\
+          0 \amp 1 \amp -3 \\
+          0 \amp 0 \amp 1
+        \end{pmatrix}
+      </md>
+      This matrix will shift points down three units so that the line
+      <m>x_2 = x_1 + 3</m> will pass through the origin. Note that at this
+      point we could have also used a matrix that, for example, shifts to the
+      right by three units. The second matrix will reflect points through the
+      shifted line, which is <m>x_2 = x_1</m>. Recall that the matrix
+      <md>
+        \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \end{pmatrix}
+      </md>
+      will reflect vectors in <m>\R^2</m> through the line
+      <m>x_2 = x_1</m>. This is because any point with coordinates
+      <m>(x_1,x_2)</m> can be represented with the vector
+      <md>
+        \vec x = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+      </md>
+      and
+      <md>
+        \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \end{pmatrix}
+        \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}
+        = \begin{pmatrix} x_2 \\ x_1 \end{pmatrix}
+      </md>
+    </p>
+
+    <p>
+      The point <m>(x_1,x_2)</m> is mapped to <m>(x_2,x_1)</m>, which is a
+      reflection through the line <m>x_2 = x_1</m> in <m>\R^2</m>. The
+      standard matrix for this transformation in homogeneous coordinates is
+      <md>
+        A_2 = \begin{pmatrix}
+          0 \amp 1 \amp 0 \\
+          1 \amp 0 \amp 0 \\
+          0 \amp 0 \amp 1
+        \end{pmatrix}
+      </md>
+      Our final transformation shifts points back up by three units to undo the
+      initial translation.
+      <md>
+        A_3 = \begin{pmatrix}
+          0 \amp 1 \amp 0 \\
+          1 \amp 0 \amp 3 \\
+          0 \amp 0 \amp 1
+        \end{pmatrix}
+      </md>
+      The standard matrix for the transformation that reflects points in
+      <m>\R^2</m> across the line <m>x_2 = x_1 + 3</m> is
+      <md>
+        <mrow>
+          A = A_3A_2A_1 \amp =
+          \begin{pmatrix}
+            0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+          \begin{pmatrix}
+            0 \amp 1 \amp 0 \\ 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+          \begin{pmatrix}
+            1 \amp 0 \amp 0 \\ 0 \amp 1 \amp -3 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+        </mrow>
+        <mrow>
+          \amp =
+          \begin{pmatrix}
+            0 \amp 1 \amp -3 \\ 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+        </mrow>
+      </md>
+      We can check whether our work is correct by transforming any point
+      <m>(x_1,x_2)</m> with the above standard matrix. For example, the point
+      <m>(1,1)</m> is transformed by calculating
+      <md>
+        T(\vec x) = A\vec x =
+        \begin{pmatrix}
+          0 \amp 1 \amp -3 \\ 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 1
+        \end{pmatrix}
+        \begin{pmatrix} 1\\1\\1 \end{pmatrix}
+        = \begin{pmatrix} -2 \\ 4 \\ 1 \end{pmatrix}
+      </md>
+      The reflected point is <m>(-2,4)</m>. The line of reflection, initial
+      point, and the reflected point are shown below.
+    </p>
+
+    <image xml:id="img-eg3-reflection" width="70%">
+      <latex-image>
+        <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkRed}{HTML}{8B0000}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{Teal}{HTML}{008080}
+\begin{tikzpicture}[scale=0.9]
+
+    \draw[help lines] (-5.2, 0) grid (5.2, 5.2);
+
+    \coordinate (O) at (0,0);
+
+    \draw[very thick, -, DarkBlue] (-3, 0) -- (2.2, 5.2);
+
+    \draw[->, thick,black] (-5.5,0) -- (5.75,0) node[anchor=north east] {$x_1$};
+    \draw[->, thick,black] (0,-0.1) -- (0.0,5.75) node[anchor=east] {$x_2$};
+
+    \foreach \x/\y in  {1/1 }  \filldraw (\x,\y) circle (.2em);
+    \foreach \x/\y in  {-2/4}  \filldraw[DarkRed] (\x,\y) circle (.2em);
+    \draw[] (1.1,1) node[right]{$(1,1)$};
+    \draw[DarkRed] (-2.2,4.4) node[right]{$(-2,4)$};
+
+    \draw[] (0,-0.1) node[below]{$0$};
+    \draw[] (2,-0.1) node[below]{$2$};
+    \draw[] (4,-0.1) node[below]{$4$};
+    \draw[] (-2,-0.1) node[below]{$-2$};
+    \draw[] (-4,-0.1) node[below]{$-4$};
+    \draw[] (-0.1, 2) node[left]{$2$};
+    \draw[] (-0.1, 4) node[left]{$4$};
+\end{tikzpicture}
+        ]]>
+      </latex-image>
+    </image>
+  </subsection>
+
+  <subsection xml:id="subsec-data-matrix">
+    <title>The Data Matrix</title>
+
+    <p>
+      The examples in this section have only involved a small number points
+      that need to be transformed. For problems involving many points, it may
+      be more convenient to represent the points in what we refer to as a
+      <term>data matrix</term>. For example, the shape in the figure below is
+      determined by five points, or vertices,
+      <m>d_1, d_2, \ldots , d_5</m>. Their respective homogeneous coordinates
+      can be stored in the columns of a matrix, <m>D</m>.
+      <md>
+        D = \begin{pmatrix}
+          \vec d_1 \amp \vec d_2 \amp \vec d_3 \amp \vec d_4 \amp \vec d_5
+        \end{pmatrix}
+        = \begin{pmatrix}
+          2 \amp 2 \amp 3 \amp 4 \amp 4 \\
+          1 \amp 2 \amp 3 \amp 2 \amp 1 \\
+          1 \amp 1 \amp 1 \amp 1 \amp 1
+        \end{pmatrix}
+      </md>
+      For our purposes, the order in which the points are placed into <m>D</m>
+      is arbitrary.
+    </p>
+
+    <image xml:id="img-data-matrix-shape" width="55%">
+      <latex-image>
+        <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkRed}{HTML}{8B0000}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{Teal}{HTML}{008080}
+\begin{tikzpicture}[scale=0.6]
+
+    \draw[help lines] (0, 0) grid (5.2, 4.2);
+
+    \coordinate (O) at (0,0);
+
+        \filldraw[
+        draw=DarkBlue!80,fill=Teal!10]
+            (2,1)
+            -- (2,2)
+            -- (3,3) -- (4,2) -- (4,1)
+            -- cycle;
+
+    \draw[->, thick,black] (-0.5,0) -- (5.75,0) node[anchor=north east] {$x_1$};
+    \draw[->, thick,black] (0,-0.5) -- (0.0,4.75) node[anchor=east] {$x_2$};
+
+    \foreach \x/\y in  {2/1, 2/2, 3/3,4/2,4/1 }  \filldraw (\x,\y) circle (.2em);
+
+    \draw[] (2,1) node[left]{$d_1$};
+    \draw[] (2,2) node[left]{$d_2$};
+    \draw[] (3,3) node[above]{$d_3$};
+    \draw[] (4,2) node[right]{$d_4$};
+    \draw[] (4,1) node[right]{$d_5$};
+
+    \draw[] (-0.35,-0.1) node[below]{$0$};
+    \draw[] (1,-0.1) node[below]{$1$};
+    \draw[] (2,-0.1) node[below]{$2$};
+    \draw[] (3,-0.1) node[below]{$3$};
+    \draw[] (4,-0.1) node[below]{$4$};
+    \draw[] (-0.1, 1) node[left]{$1$};
+    \draw[] (-0.1, 2) node[left]{$2$};
+    \draw[] (-0.1, 3) node[left]{$3$};
+\end{tikzpicture}
+        ]]>
+      </latex-image>
+    </image>
+
+    <p>
+      In the previous examples we applied a transform with a matrix-vector
+      multiplication. With a data matrix we can use a similar approach. Recall
+      that the product of two matrices <m>A</m> and <m>D</m>, is defined as
+      <md>
+        AD = A\begin{pmatrix}
+          \vec d_1 \amp \vec d_2 \amp \cdots \amp \vec d_p
+        \end{pmatrix}
+        = \begin{pmatrix}
+          A\vec d_1 \amp A\vec d_2 \amp \cdots \amp A\vec d_p
+        \end{pmatrix}
+      </md>
+      where <m>\vec d_1, \vec d_2, \cdots , \vec d_p</m> are the columns of
+      <m>D</m>. In other words, can perform the transformation on our data by
+      computing <m>AD</m>, which transforms each column independently of the
+      others.
+    </p>
+
+    <p>
+      For example, applying the transform in the previous example will reflect
+      our shape through the line <m>x_2 = x_1 + 3</m>. The transformation is
+      found by computing
+      <md>
+        <mrow>
+          AD \amp =
+          \begin{pmatrix}
+            0 \amp 1 \amp -3 \\ 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 1
+          \end{pmatrix}
+          \begin{pmatrix}
+            2 \amp 2 \amp 3 \amp 4 \amp 4 \\
+            1 \amp 2 \amp 3 \amp 2 \amp 1 \\
+            1 \amp 1 \amp 1 \amp 1 \amp 1
+          \end{pmatrix}
+        </mrow>
+        <mrow>
+          \amp =
+          \begin{pmatrix}
+            -2 \amp -1 \amp 0 \amp -1 \amp -2 \\
+             5 \amp  5 \amp 6 \amp  7 \amp  7 \\
+             1 \amp  1 \amp 1 \amp  1 \amp  1
+          \end{pmatrix}
+        </mrow>
+      </md>
+      Extracting the first two entries of each column of the result gives us
+      the transformed points (green), as shown in the figure below.
+    </p>
+
+    <image xml:id="img-data-matrix-reflected" width="60%">
+      <latex-image>
+        <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkRed}{HTML}{8B0000}
+\definecolor{DarkGreen}{HTML}{006400}
+\definecolor{Teal}{HTML}{008080}
+\begin{tikzpicture}[scale=0.6]
+
+    \draw[help lines] (-5.2, 0) grid (5.2, 8.2);
+
+    \coordinate (O) at (0,0);
+
+    \draw[very thick, -, DarkBlue] (-3, 0) -- (5.2, 8.2);
+
+    \draw[->, thick,black] (-5.5,0) -- (5.75,0) node[anchor=north east] {$x_1$};
+    \draw[->, thick,black] (0,-0.1) -- (0.0,8.75) node[anchor=east] {$x_2$};
+
+        \filldraw[
+        draw=DarkBlue!80,fill=Teal!10]
+            (2,1)
+            -- (2,2)
+            -- (3,3) -- (4,2) -- (4,1)
+            -- cycle;
+
+        \filldraw[
+        draw=DarkGreen!80,fill=DarkGreen!10]
+            (-2,5)
+            -- (-1,5)
+            -- (-0,6) -- (-1,7) -- (-2,7)
+            -- cycle;
+
+    \foreach \x/\y in  {2/1, 2/2, 3/3,4/2,4/1 }  \filldraw[DarkBlue] (\x,\y) circle (.2em);
+    \foreach \x/\y in  {-2/5,-1/5,0/6,-1/7,-2/7 }  \filldraw[DarkGreen] (\x,\y) circle (.2em);
+
+    \draw[DarkBlue] (2,1) node[left]{$d_1$};
+    \draw[DarkBlue] (2,2) node[left]{$d_2$};
+    \draw[DarkBlue] (3,3) node[above]{$d_3$};
+    \draw[DarkBlue] (4,2) node[right]{$d_4$};
+    \draw[DarkBlue] (4,1) node[right]{$d_5$};
+
+    \draw[] (-0.,-0.1) node[below]{$0$};
+    \draw[] (-2,-0.1) node[below]{$-2$};
+    \draw[] (-4,-0.1) node[below]{$-4$};
+    \draw[] (2,-0.1) node[below]{$2$};
+    \draw[] (4,-0.1) node[below]{$4$};
+    \draw[] (-0.1, 2) node[left]{$2$};
+    \draw[] (-0.1, 4) node[left]{$4$};
+    \draw[] (-0.1, 8) node[left]{$8$};
+\end{tikzpicture}
+        ]]>
+      </latex-image>
+    </image>
+  </subsection>
+
+  <exercises xml:id="exercises-2d-graphics">
+    <title>Exercises</title>
+
+    <exercise xml:id="ex-2d-graphics-standard-matrices">
+      <introduction>
+        <p>
+          Construct the standard matrices for the following transforms.
+        </p>
+      </introduction>
+
+      <task xml:id="ex-2d-graphics-reflect-line">
+        <statement>
+          <p>
+            The standard matrix of the transform
+            <m>\vec{x}\to A\vec x</m> that reflects points in
+            <m>\R^2</m> across the line <m>x_1=k</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task xml:id="ex-2d-graphics-rotate-reflect">
+        <statement>
+          <p>
+            The standard matrix of the transform
+            <m>\vec{x}\to A\vec x</m> that rotates points in
+            <m>\R^2</m> about the point <m>(1,1)</m> and then reflects
+            points through the the line <m>x_2=1</m>.
+          </p>
+        </statement>
+      </task>
+    </exercise>
+  </exercises>
+</section>

@@ -1,8 +1,7 @@
 <worksheet margin="1in" bottom="1.25cm" xml:id="activity-1-1-worksheet">
-    <title>Block Matrices</title>
+    <title>1.1 Block Matrices</title>
 
     <page>
-        <m>{\LARGE \textbf{1.1 Block Matrices}}</m>
 
         <p> A <term> block matrix </term> is a matrix that is interpreted as having been broken into sections called <term> blocks </term>, or <term> submatrices </term>.
         Intuitively, a block matrix can be interpreted as the original matrix that is partitioned into a collection of smaller matrices. For example, the matrix </p>

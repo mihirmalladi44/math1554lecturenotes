@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-3d-computer-graphics">
+  <title>1.5 3D Computer Graphics</title>
+
+  <introduction>
+    <p>
+      Results from the previous section on 2D graphics have a natural extension
+      to three dimensions. In this section we extend the data matrix and
+      homogeneous coordinates to three dimensions. This will allow us to model
+      translations and composite transforms involving many points with matrix
+      multiplication.
+    </p>
+  </introduction>
+
+  <subsection xml:id="subsec-rotations-in-3d">
+    <title>Rotations in 3D</title>
+
+    <p>
+      Rotations about the origin are linear transforms. Because they are linear
+      they can be expressed in the form <m>T(\vec x) = A\vec x</m> where
+      <m>A</m> is a <m>3\times 3</m> matrix, and we can obtain the columns of
+      matrix <m>A</m> by transforming the standard vectors
+      <md>
+        \vec e_1 = \begin{pmatrix} 1\\0\\0 \end{pmatrix}, \quad
+        \vec e_2 = \begin{pmatrix} 0\\1\\0 \end{pmatrix}, \quad
+        \vec e_3 = \begin{pmatrix} 0\\0\\1 \end{pmatrix}
+      </md>
+      We will use the convention that a positive rotation is in the
+      counterclockwise direction when looking toward the origin from the
+      positive half of the axis of rotation. For example, rotating
+      <m>\vec e_1</m> about the <m>x_3</m>-axis by <m>\theta</m> radians
+      results in the vector
+      <md>
+        T(\vec e_1) =
+        \begin{pmatrix} \cos\theta\\\sin\theta\\0 \end{pmatrix}
+      </md>
+      Transforming the first standard vector <m>\vec e_1</m> yields the first
+      column of <m>A</m>. Likewise the remaining columns can be found by
+      transforming the other standard vectors.
+      <md>
+        T(\vec e_2) =
+        \begin{pmatrix} - \sin\theta\\\cos\theta\\0 \end{pmatrix}, \quad
+        T(\vec e_3) = \begin{pmatrix} 0\\0\\1 \end{pmatrix}
+      </md>
+      The third standard vector does not change under this transformation
+      because it is parallel to the rotation axis. The standard matrix for a
+      rotation about the <m>x_3</m>-axis is
+      <md>
+        A = \begin{pmatrix}
+              T(\vec e_1) \amp T(\vec e_2) \amp T(\vec e_3)
+            \end{pmatrix}
+          = \begin{pmatrix}
+              \cos \theta \amp -\sin\theta \amp 0 \\
+              \sin\theta  \amp \cos\theta  \amp 0 \\
+              0 \amp 0 \amp 1
+            \end{pmatrix}
+      </md>
+      A similar analysis gives us the standard matrices for rotations about the
+      <m>x_1</m> and the <m>x_2</m> axes. Results are summarized in
+      <xref ref="tab-3d-rotations"/>. The standard matrices in the table can be
+      multiplied together to model transforms that perform multiple
+      transformations. The next example demonstrates this application.
+    </p>
+
+    <table xml:id="tab-3d-rotations">
+      <title>
+        Standard matrices for 3D rotations about the coordinate axes.
+      </title>
+      <tabular>
+        <col halign="center"/>
+        <col halign="center"/>
+        <row header="yes" bottom="minor">
+          <cell>rotation axis</cell>
+          <cell>standard matrix</cell>
+        </row>
+        <row>
+          <cell><m>x_1</m>-axis</cell>
+          <cell>
+            <m>
+              \begin{pmatrix}
+                1 \amp 0 \amp 0 \\
+                0 \amp \cos\theta \amp -\sin\theta \\
+                0 \amp \sin\theta \amp \cos\theta
+              \end{pmatrix}
+            </m>
+          </cell>
+        </row>
+        <row>
+          <cell><m>x_2</m>-axis</cell>
+          <cell>
+            <m>
+              \begin{pmatrix}
+                \cos \theta \amp 0 \amp -\sin\theta \\
+                0 \amp 1 \amp 0 \\
+                \sin\theta \amp 0 \amp \cos\theta
+              \end{pmatrix}
+            </m>
+          </cell>
+        </row>
+        <row>
+          <cell><m>x_3</m>-axis</cell>
+          <cell>
+            <m>
+              \begin{pmatrix}
+                \cos \theta \amp -\sin\theta \amp 0 \\
+                \sin\theta \amp \cos\theta \amp 0 \\
+                0 \amp 0 \amp 1
+              \end{pmatrix}
+            </m>
+          </cell>
+        </row>
+      </tabular>
+    </table>
+  </subsection>
+
+  <subsection xml:id="subsec-eg1-3d-rotations">
+    <title>Example 1: 3D Rotations</title>
+
+    <p>
+      Suppose that the transform <m>\vec{x}\to A\vec x</m> first rotates points
+      in <m>\R^3</m> about the <m>x_2</m>-axis by <m>\pi/2</m> radians
+      and then rotates points about the <m>x_1</m>-axis by <m>\pi</m> radians.
+      We can determine the standard matrix, <m>A</m>, for this transform in a
+      few different ways. One approach is to use the standard matrices in
+      <xref ref="tab-3d-rotations"/>. The standard matrix, <m>A</m>, is the
+      product of two rotation matrices.
+      <md>
+        <mrow>
+          A \amp =
+          \begin{pmatrix}
+            1 \amp 0 \amp 0 \\
+            0 \amp \cos \pi \amp -\sin\pi \\
+            0 \amp \sin\pi \amp \cos\pi
+          \end{pmatrix}
+          \begin{pmatrix}
+            \cos (\pi/2) \amp 0 \amp -\sin(\pi/2) \\
+            0 \amp 1 \amp 0 \\
+            \sin(\pi/2) \amp 0 \amp \cos(\pi/2)
+          \end{pmatrix}
+        </mrow>
+        <mrow>
+          \amp =
+          \begin{pmatrix}
+            0 \amp 0 \amp -1 \\
+            0 \amp -1 \amp 0 \\
+            -1 \amp 0 \amp 0
+          \end{pmatrix}
+        </mrow>
+      </md>
+      Note that the rotation about the <m>x_2</m>-axis is applied before the
+      rotation about the <m>x_1</m>-axis, which determines the multiplication
+      order. The standard matrix for the first transformation is placed in the
+      rightmost position.
+    </p>
+
+    <p>
+      We could also obtain the same result by transforming the standard
+      vectors, because
+      <m>
+        A = \begin{pmatrix}
+              T(\vec e_1) \amp T(\vec e_2) \amp T(\vec e_3)
+            \end{pmatrix}
+      </m>.
+      The first standard vector gives us the first column of <m>A</m>.
+      <md>
+        \vec e_1 = \begin{pmatrix} 1\\0\\0 \end{pmatrix}
+        \to \begin{pmatrix} 0\\0\\1 \end{pmatrix}
+        \to \begin{pmatrix} 0\\0\\-1 \end{pmatrix}
+      </md>
+      This result agrees with our result obtained above by multiplying rotation
+      matrices together. Note also that our convention is that a positive
+      rotation is in the counterclockwise direction when looking toward the
+      origin from the positive half of the axis of rotation.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-data-matrix-3d">
+    <title>The Data Matrix for 3D Transforms</title>
+
+    <p>
+      Similar to the 2D case, for problems involving many points it is
+      convenient to represent the points a data matrix. Analogous to our
+      approach in 2D, points in <m>\R^3</m> can be represented in a
+      matrix whose columns are vectors that correspond to the points we wish to
+      transform. We may transform this matrix with a matrix-vector
+      multiplication. Recall that the product of two matrices <m>A</m> and
+      <m>D</m>, is defined as
+      <md>
+        AD = A\begin{pmatrix}
+          \vec d_1 \amp \vec d_2 \amp \cdots \amp \vec d_p
+        \end{pmatrix}
+        = \begin{pmatrix}
+          A\vec d_1 \amp A\vec d_2 \amp \cdots \amp A\vec d_p
+        \end{pmatrix}
+      </md>
+      where <m>\vec d_1, \vec d_2, \cdots , \vec d_p</m> are the columns of
+      <m>D</m>. In other words, can perform the transformation on our data by
+      computing <m>AD</m>, which transforms each column independently of the
+      others. The following example demonstrates this approach.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-eg2-projection-3d">
+    <title>Example 2: A Projection in 3D with the Data Matrix</title>
+
+    <table xml:id="tab-cube">
+      <title>Corners of a cube with side length 1.</title>
+      <tabular>
+        <col halign="center"/>
+        <col halign="center"/>
+        <col halign="center"/>
+        <row header="yes" bottom="minor">
+          <cell><m>x_1</m></cell>
+          <cell><m>x_2</m></cell>
+          <cell><m>x_3</m></cell>
+        </row>
+        <row>
+          <cell><m>1</m></cell><cell><m>1</m></cell><cell><m>1</m></cell>
+        </row>
+        <row>
+          <cell><m>1</m></cell><cell><m>2</m></cell><cell><m>1</m></cell>
+        </row>
+        <row>
+          <cell><m>2</m></cell><cell><m>2</m></cell><cell><m>1</m></cell>
+        </row>
+        <row>
+          <cell><m>2</m></cell><cell><m>1</m></cell><cell><m>1</m></cell>
+        </row>
+        <row>
+          <cell><m>1</m></cell><cell><m>1</m></cell><cell><m>2</m></cell>
+        </row>
+        <row>
+          <cell><m>1</m></cell><cell><m>2</m></cell><cell><m>2</m></cell>
+        </row>
+        <row>
+          <cell><m>2</m></cell><cell><m>2</m></cell><cell><m>2</m></cell>
+        </row>
+        <row>
+          <cell><m>2</m></cell><cell><m>1</m></cell><cell><m>2</m></cell>
+        </row>
+      </tabular>
+    </table>
+
+    <p>
+      Data in Table (<xref ref="tab-cube" text="global"/>) define a cube in
+      <m>\R^3</m> with side length 1. Suppose the linear transform
+      <m>T(\vec x)</m> projects points in <m>\R^3</m> onto the
+      <m>x_1x_2</m>-plane. In this example we will construct the matrix,
+      <m>A</m>, that is the standard matrix of the transformation
+      <m>T(\vec x) = A \vec x</m>.
+    </p>
+
+    <p>
+      The data in Table (<xref ref="tab-cube" text="global"/>) (blue) and its
+      projection (green) are shown Figure
+      (<xref ref="tab-cube" text="global"/>).
+    </p>
+
+    <figure xml:id="fig-cube-projection">
+      <caption>
+        Data from Table (<xref ref="tab-cube" text="global"/>) and its
+        projection onto the <m>x_1x_2</m>-plane.
+      </caption>
+      <image xml:id="img-cube-proj" width="60%">
+        <latex-image>
+          <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkGreen}{HTML}{006400}
+
+\tdplotsetmaincoords{75}{130}
+\begin{tikzpicture}[scale=1,
+    axis/.style={->,black,-stealth,very thick},
+    dsline/.style={black,dashed,thin},
+    tdplot_main_coords
+    ]
+
+    \coordinate (O) at (0,0,0);
+
+    \filldraw[draw=DarkGreen!40,fill=DarkGreen!08,] (2,2,0) -- (1,2,0) -- (1,1,0) -- (2,1,0) -- cycle;
+
+    \draw[axis] (O) -- (4,0,0) node[below]{$x_1$};
+    \draw[axis] (O) -- (0,4,0) node[right]{$x_2$};
+    \draw[axis] (O) -- (0,0,3) node[left]{$x_3$};
+    \draw[dsline] (1,1,0) -- (1,1,1) node[right]{};
+    \draw[dsline] (2,2,0) -- (2,2,1) node[right]{};
+    \draw[dsline] (2,1,0) -- (2,1,1) node[right]{};
+    \draw[dsline] (1,2,0) -- (1,2,1) node[right]{};
+
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (1,1,1) -- (1,2,1) -- (2,2,1) -- (2,1,1) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (1,1,2) -- (1,2,2) -- (2,2,2) -- (2,1,2) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (1,1,2) -- (1,2,2) -- (1,2,1) -- (1,1,1) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (2,2,2) -- (1,2,2) -- (1,2,1) -- (2,2,1) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (2,2,2) -- (2,1,2) -- (2,1,1) -- (2,2,1) -- cycle;
+
+    \foreach \x/\y/\z in  {1/1/1, 2/1/1, 2/2/1,1/2/1,1/1/2, 2/1/2, 2/2/2,1/2/2 }  \filldraw[DarkBlue] (\x,\y,\z) circle (.1em);
+
+    \foreach \x/\y/\z in  {1/1/0, 2/1/0, 2/2/0,1/2/0 }  \filldraw[DarkGreen] (\x,\y,\z) circle (.1em);
+
+\end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </figure>
+
+    <p>
+      Because the given transform that we are dealing with in this example is
+      linear, we can express the transform in the form of a matrix-vector
+      product
+      <md>
+        T(\vec x) = A\vec x
+      </md>
+      where <m>A</m> is a <m>3\times3</m> matrix. Moreover, because we are
+      working with a linear transform, each column of <m>A</m> is equal to the
+      product
+      <md>
+        A\vec e_i, \quad i = 1,2,3
+      </md>
+      and <m>\vec e_i</m> is a standard vector. For example, the first column
+      of <m>A</m> can be found using <m>\vec e_1</m>, which is the vector
+      <md>
+        \vec e_1 = \begin{pmatrix} 1\\0\\0 \end{pmatrix}
+      </md>
+      Projecting <m>\vec e_1</m> onto the <m>x_1x_2</m>-plane does not change
+      the vector, because the vector is already in that plane.
+      <md>
+        \vec e_1 \to A\vec e_1 = \vec e_1 = \text{first column of } A
+      </md>
+      The first column of <m>A</m> is <m>\vec e_1</m>. Likewise, the second
+      column of <m>A</m> is <m>\vec e_2</m>, becuase <m>\vec e_2</m> is also
+      already in the <m>x_1x_2</m>-plane.
+      <md>
+        \vec e_2 = \begin{pmatrix} 0\\1\\0 \end{pmatrix}
+        \to A\vec e_2 = \vec e_2 = \text{second column of } A
+      </md>
+      The last column of <m>A</m> is the projection of <m>\vec e_3</m> onto the
+      plane, which is the zero vector.
+      <md>
+        \vec e_3 = \begin{pmatrix} 0\\0\\1 \end{pmatrix}
+        \to A\vec e_3 = \begin{pmatrix} 0\\0\\0 \end{pmatrix}
+        = \text{third column of } A
+      </md>
+      Combining our results for each column of <m>A</m> gives us the standard
+      matrix.
+      <md>
+        A = \begin{pmatrix}
+          1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0
+        \end{pmatrix}
+      </md>
+      Now that we have the standard matrix for this transform, we can use it to
+      transform the data in Table 1. Representing each point as a vector in
+      <m>\R^3</m> and placing the vectors in a data matrix, <m>D</m>,
+      will allow us to compute the projection using a matrix multiplication.
+      Our matrix <m>D</m> is
+      <md>
+        D = \begin{pmatrix}
+          1 \amp 1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \\
+          1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \amp 1 \\
+          1 \amp 1 \amp 1 \amp 1 \amp 2 \amp 2 \amp 2 \amp 2
+        \end{pmatrix}
+      </md>
+      The transformed points can be computed as follows.
+      <md>
+        <mrow>
+          AD \amp =
+          \begin{pmatrix}
+            1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0
+          \end{pmatrix}
+          \begin{pmatrix}
+            1 \amp 1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \\
+            1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \amp 1 \\
+            1 \amp 1 \amp 1 \amp 1 \amp 2 \amp 2 \amp 2 \amp 2
+          \end{pmatrix}
+        </mrow>
+        <mrow>
+          \amp =
+          \begin{pmatrix}
+            1 \amp 1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \\
+            1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \amp 1 \\
+            0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0
+          \end{pmatrix}
+        </mrow>
+      </md>
+      Extracting the columns of the product gives us the projected points.
+    </p>
+  </subsection>
+
+  <subsection xml:id="subsec-3d-homogeneous-coordinates">
+    <title>3D Homogeneous Coordinates</title>
+
+    <p>
+      Homogeneous coordinates in 3D are analogous to the homogeneous 2D
+      coordinates we introduced in the previous section.
+    </p>
+
+    <assemblage xml:id="asm-homogeneous-coordinates-3d">
+      <title>Homogeneous Coordinates in <m>\R^3</m></title>
+      <p>
+        <m>(X,Y,Z,1)</m> are homogeneous coordinates for <m>(x,y,z)</m> in
+        <m>\R^3</m>
+      </p>
+    </assemblage>
+
+    <p>
+      A translation of the form <m>(x,y,z) \to (x+h,y+k,z+l)</m> can be
+      represented as a matrix multiplication with homogeneous coordinates:
+      <md>
+        \begin{pmatrix}
+          1 \amp 0 \amp 0 \amp h \\
+          0 \amp 1 \amp 0 \amp k \\
+          0 \amp 0 \amp 1 \amp l \\
+          0 \amp 0 \amp 0 \amp 1
+        \end{pmatrix}
+        \begin{pmatrix} x\\y\\z\\1 \end{pmatrix}
+        = \begin{pmatrix} x+h\\y+k\\z+l\\1 \end{pmatrix}
+      </md>
+    </p>
+
+    <paragraphs xml:id="par-eg3-translation-3d">
+      <title>Example 3: A Translation in 3D</title>
+
+      <p>
+        The data in Table (<xref ref="tab-cube" text="global"/>) can be
+        translated using a homogeneous coordinate system. The data matrix
+        <m>D_n</m> in homogeneous coordinates would be
+        <md>
+          D_h = \begin{pmatrix}
+            1 \amp 1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \\
+            1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \amp 1 \\
+            1 \amp 1 \amp 1 \amp 1 \amp 2 \amp 2 \amp 2 \amp 2 \\
+            1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1
+          \end{pmatrix}
+        </md>
+        The transform that, for example, shifts the data by <m>-3</m> units in
+        the <m>x_2</m> direction and by 1 unit in the <m>x_3</m>-direction is
+        <md>
+          <mrow>
+            \begin{pmatrix}
+              1 \amp 0 \amp 0 \amp 0 \\
+              0 \amp 1 \amp 0 \amp -3 \\
+              0 \amp 0 \amp 1 \amp 1 \\
+              0 \amp 0 \amp 0 \amp 1
+            \end{pmatrix} D_h \amp =
+          </mrow>
+          <mrow>
+            \amp \begin{pmatrix}
+              1 \amp 1 \amp 2 \amp 2 \amp 1 \amp 1 \amp 2 \amp 2 \\
+              -2 \amp -1 \amp -1 \amp -2 \amp -2 \amp -1 \amp -1 \amp -2 \\
+              2 \amp 2 \amp 2 \amp 2 \amp 3 \amp 3 \amp 3 \amp 3 \\
+              1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1
+            \end{pmatrix}
+          </mrow>
+        </md>
+        The figure below shows the original data (blue) and its translated
+        version (green).
+      </p>
+
+      <image xml:id="img-cube-shift" width="60%">
+        <latex-image>
+          <![CDATA[
+\definecolor{DarkBlue}{HTML}{00008B}
+\definecolor{DarkGreen}{HTML}{006400}
+
+\tdplotsetmaincoords{75}{110}
+\begin{tikzpicture}[scale=1,
+    axis/.style={->,black,-stealth,very thick},
+    dsline/.style={black,dashed,thin},
+    tdplot_main_coords
+    ]
+
+    \coordinate (O) at (0,0,0);
+
+    \draw[axis] (-4,0,0) -- (4,0,0) node[below]{$x_1$};
+    \draw[axis] (0,-4,0) -- (0,4,0) node[right]{$x_2$};
+    \draw[axis] (0,0,-1) -- (0,0,3) node[left]{$x_3$};
+
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (1,1,1) -- (1,2,1) -- (2,2,1) -- (2,1,1) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (1,1,2) -- (1,2,2) -- (2,2,2) -- (2,1,2) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (1,1,2) -- (1,2,2) -- (1,2,1) -- (1,1,1) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (2,2,2) -- (1,2,2) -- (1,2,1) -- (2,2,1) -- cycle;
+    \filldraw[draw=DarkBlue!80,fill=DarkBlue!08, opacity=0.4] (2,2,2) -- (2,1,2) -- (2,1,1) -- (2,2,1) -- cycle;
+
+    \foreach \x/\y/\z in  {1/1/1, 2/1/1, 2/2/1,1/2/1,1/1/2, 2/1/2, 2/2/2,1/2/2 }  \filldraw[DarkBlue] (\x,\y,\z) circle (.1em);
+
+    \filldraw[draw=DarkGreen!80,fill=DarkGreen!08, opacity=0.4] (1,-2,2) -- (1,-1,2) -- (2,-1,2) -- (2,-2,2) -- cycle;
+    \filldraw[draw=DarkGreen!80,fill=DarkGreen!08, opacity=0.4] (1,-2,3) -- (1,-1,3) -- (2,-1,3) -- (2,-2,3) -- cycle;
+    \filldraw[draw=DarkGreen!80,fill=DarkGreen!08, opacity=0.4] (1,-2,3) -- (1,-1,3) -- (1,-1,2) -- (1,-2,2) -- cycle;
+    \filldraw[draw=DarkGreen!80,fill=DarkGreen!08, opacity=0.4] (2,-1,3) -- (1,-1,3) -- (1,-1,2) -- (2,-1,2) -- cycle;
+    \filldraw[draw=DarkGreen!80,fill=DarkGreen!08, opacity=0.4] (2,-1,3) -- (2,-2,3) -- (2,-2,2) -- (2,-1,2) -- cycle;
+
+    \foreach \x/\y/\z in  {1/-2/2, 2/-2/2, 2/-1/2,1/-1/2,1/-2/3, 2/-2/3, 2/-1/3,1/-1/3 }  \filldraw[DarkGreen] (\x,\y,\z) circle (.1em);
+
+\end{tikzpicture}
+          ]]>
+        </latex-image>
+      </image>
+    </paragraphs>
+  </subsection>
+
+  <exercises xml:id="exercises-3d-computer-graphics">
+    <title>Exercises</title>
+
+    <exercise xml:id="ex-3d-standard-matrices">
+      <introduction>
+        <p>
+          Construct the standard matrices for the following transforms.
+        </p>
+      </introduction>
+
+      <task xml:id="ex-3d-reflect-plane-x3">
+        <statement>
+          <p>
+            The <m>4\times4</m> standard matrix of the transform
+            <m>\vec{x}\to A\vec x</m> that uses homogeneous coordinates to
+            reflect points in <m>\R^3</m> across the plane
+            <m>x_3=k</m>, where <m>k</m> is any real number.
+          </p>
+        </statement>
+      </task>
+
+      <task xml:id="ex-3d-reflect-plane-sum">
+        <statement>
+          <p>
+            The <m>3\times3</m> standard matrix of the transform
+            <m>\vec{x}\to A\vec x</m> that reflects points in
+            <m>\R^3</m> across the plane <m>x_1 + x_2 = 0</m>.
+          </p>
+        </statement>
+      </task>
+
+      <task xml:id="ex-3d-rotate-then-project">
+        <statement>
+          <p>
+            The <m>3\times3</m> standard matrix of the transform
+            <m>\vec{x}\to A\vec x</m> that first rotates points in
+            <m>\R^3</m> about the <m>x_3</m>-axis by an angle
+            <m>\theta</m> and then projects them onto the
+            <m>x_2x_3</m>-plane.
+          </p>
+        </statement>
+      </task>
+    </exercise>
+
+    <exercise xml:id="ex-3d-rotate-about-line">
+      <statement>
+        <p>
+          Line <m>L</m> passes through the point <m>(1,0,0)</m> and is parallel
+          to the vector <m>\vec v</m>, where
+          <md>
+            \vec v = \begin{pmatrix} 0 \\1 \\ 0 \end{pmatrix}
+          </md>
+          Construct the <m>4\times4</m> matrix that uses homogeneous
+          coordinates to rotate points in <m>\R^3</m> about line
+          <m>L</m> by an angle <m>\theta</m>.
+        </p>
+      </statement>
+    </exercise>
+  </exercises>
+</section>
