@@ -24,40 +24,40 @@ var ptx_lunr_docs = [
   "url": "activity-1-1-worksheet.html",
   "type": "Worksheet",
   "number": "",
-  "title": "Block Matrices",
-  "body": " Block Matrices    A block matrix is a matrix that is interpreted as having been broken into sections called blocks , or submatrices . Intuitively, a block matrix can be interpreted as the original matrix that is partitioned into a collection of smaller matrices. For example, the matrix   can also be written as a 2 × 2 partitioned (or block) matrix:   where the entries of A are the blocks   We partitioned our matrix into four blocks, each of which have different dimensions. But the matrix could also, for example, be partitioned into five 4 × 1 blocks, or four 1 × 5 blocks. Indeed, matrices can be partitioned into blocks in many different ways, and depending on the application at hand, there can be a partitioning that is useful or needed.  For example, when solving a linear system to determine , we can construct and row reduce an augmented matrix of the form   The augmented matrix X consists of two sub-matrices, A and , meaning that it can be viewed as a block matrix. Another application of a block matrix arises when using the SVD, which is a popular tool used in data science. The SVD uses a matrix, , of the form   Matrix D is a diagonal matrix, and each is a zero matrix. Representing in terms of sub-matrices helps us see what the structure of is. Another block matrix arises when introducing a procedure for computing the inverse of an matrix. To compute the inverse of matrix A , we construct and row reduce the matrix   This is an example of a block matrix used in an algorithm. In order to use block matrices in other applications we need to define matrix addition and multiplication with partitioned matrices.     If matrices A and B are partitioned in exactly the same way, then the entries of their sum is the sum of their blocks. For example, if A and B are the block matrices   then their sum is the matrix   As long as A and B are partitioned in the same way the addition is calculated block by block.     Recall the row column method for matrix multiplication.   Let be and be matrix. Then, the entry of is   This is the Row Column Method for matrix multiplication.  Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined.     Block matrices can be useful in cases where a matrix has a particular structure.  For example, suppose is the block matrix   where and are matrices, is a zero matrix, and . Then   Computation of only requires computing and . Taking advantage of the block structure leads to a more efficient computation than it otherwise would have been with a naive row-column method that does not take advantage of the structure of the matrix.     and are the matrices   where   If we compute the matrix product using the given partitioning we obtain   where   Therefore   Computing with the row column method confirms our result.      In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of matrix is a matrix , that has the same dimensions as and satisfies   where is the identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.     Recall, using our formula for a 2 × 2 matrix,   provided that . Suppose , , and are invertible matrices. Suppose we wish to construct an expression for the inverse of the matrix   To construct the inverse of , we can write   where is the matrix we seek. If we let be the block matrix   we can determine by solving or . Solving gives us:    The above matrix equation gives us a set of four equations that can be solved to determine , , , and . The block in the second row and first column gives us . It was given that is an invertible matrix, so is a zero matrix because      Likewise the block in the second row and second column yields , so     Now that we have expressions for and we can solve the remaining two equations for and . Solving for gives us the following expression.       Solving for :      We now have our expression for :   Note that in the special case where that each of the blocks are scalars and our expression is equivalent to Equation (1.1).     In this section we used partitioned matrices to solve problems regarding matrix invertibility and matrix multiplication. Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined. They can be used for example when dealing with large matrices that have a known structure where it is more convenient to describe the structure of a matrix in terms of its blocks. Although not part of this text, matrix partitioning can be used to help derive new algorithms because they give a more concise representation of a matrix and of operations on matrices.      Suppose . Which of the following could be equal to?  (a)  (b)  (c)     and are invertible matrices. Construct expressions for and in terms of and .     Suppose , and are invertible matrices, and   Give an expression for in terms of , , and .    "
+  "title": "1.1 Block Matrices",
+  "body": " 1.1 Block Matrices   A block matrix is a matrix that is interpreted as having been broken into sections called blocks , or submatrices . Intuitively, a block matrix can be interpreted as the original matrix that is partitioned into a collection of smaller matrices. For example, the matrix   can also be written as a 2 × 2 partitioned (or block) matrix:   where the entries of A are the blocks   We partitioned our matrix into four blocks, each of which have different dimensions. But the matrix could also, for example, be partitioned into five 4 × 1 blocks, or four 1 × 5 blocks. Indeed, matrices can be partitioned into blocks in many different ways, and depending on the application at hand, there can be a partitioning that is useful or needed.  For example, when solving a linear system to determine , we can construct and row reduce an augmented matrix of the form   The augmented matrix X consists of two sub-matrices, A and , meaning that it can be viewed as a block matrix. Another application of a block matrix arises when using the SVD, which is a popular tool used in data science. The SVD uses a matrix, , of the form   Matrix D is a diagonal matrix, and each is a zero matrix. Representing in terms of sub-matrices helps us see what the structure of is. Another block matrix arises when introducing a procedure for computing the inverse of an matrix. To compute the inverse of matrix A , we construct and row reduce the matrix   This is an example of a block matrix used in an algorithm. In order to use block matrices in other applications we need to define matrix addition and multiplication with partitioned matrices.     If matrices A and B are partitioned in exactly the same way, then the entries of their sum is the sum of their blocks. For example, if A and B are the block matrices   then their sum is the matrix   As long as A and B are partitioned in the same way the addition is calculated block by block.     Recall the row column method for matrix multiplication.   Let be and be matrix. Then, the entry of is   This is the Row Column Method for matrix multiplication.  Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined.     Block matrices can be useful in cases where a matrix has a particular structure.  For example, suppose is the block matrix   where and are matrices, is a zero matrix, and . Then   Computation of only requires computing and . Taking advantage of the block structure leads to a more efficient computation than it otherwise would have been with a naive row-column method that does not take advantage of the structure of the matrix.     and are the matrices   where   If we compute the matrix product using the given partitioning we obtain   where   Therefore   Computing with the row column method confirms our result.      In some cases, matrix partitioning can be used to give us convenient expressions for the inverse of a matrix. Recall that the inverse of matrix is a matrix , that has the same dimensions as and satisfies   where is the identity matrix. As we will see in the next example, we can use this equation to construct expressions for the inverse of a matrix.     Recall, using our formula for a 2 × 2 matrix,   provided that . Suppose , , and are invertible matrices. Suppose we wish to construct an expression for the inverse of the matrix   To construct the inverse of , we can write   where is the matrix we seek. If we let be the block matrix   we can determine by solving or . Solving gives us:    The above matrix equation gives us a set of four equations that can be solved to determine , , , and . The block in the second row and first column gives us . It was given that is an invertible matrix, so is a zero matrix because      Likewise the block in the second row and second column yields , so     Now that we have expressions for and we can solve the remaining two equations for and . Solving for gives us the following expression.       Solving for :      We now have our expression for :   Note that in the special case where that each of the blocks are scalars and our expression is equivalent to Equation (1.1).     In this section we used partitioned matrices to solve problems regarding matrix invertibility and matrix multiplication. Partitioned matrices can be multiplied using this method, as if each block were a scalar provided each block has appropriate dimensions so that products are defined. They can be used for example when dealing with large matrices that have a known structure where it is more convenient to describe the structure of a matrix in terms of its blocks. Although not part of this text, matrix partitioning can be used to help derive new algorithms because they give a more concise representation of a matrix and of operations on matrices.      Suppose . Which of the following could be equal to?  (a)  (b)  (c)     and are invertible matrices. Construct expressions for and in terms of and .     Suppose , and are invertible matrices, and   Give an expression for in terms of , , and .    "
 },
 {
-  "id": "activity-1-1-worksheet-2-2",
+  "id": "activity-1-1-worksheet-2-1",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-2",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-1",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "block matrix blocks submatrices "
 },
 {
-  "id": "activity-1-1-worksheet-2-6",
+  "id": "activity-1-1-worksheet-2-5",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-6",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "A "
 },
 {
-  "id": "activity-1-1-worksheet-2-11",
+  "id": "activity-1-1-worksheet-2-10",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-11",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-10",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "X A "
 },
 {
-  "id": "activity-1-1-worksheet-2-13",
+  "id": "activity-1-1-worksheet-2-12",
   "level": "2",
-  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-13",
+  "url": "activity-1-1-worksheet.html#activity-1-1-worksheet-2-12",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -114,22 +114,22 @@ var ptx_lunr_docs = [
   "url": "activity-1-2-worksheet.html",
   "type": "Worksheet",
   "number": "",
-  "title": "The LU Factorization",
-  "body": " The LU Factorization    To solve a linear system of the form we could use row reduction or, in theory, calculate and use it to determine with the equation   But computing requires the computation of the inverse of an matrix, which is especially difficult for large . It is more practical to solve with row reductions (i.e. Gaussian Elimination). But it turns out that there are more efficient methods, especially when is large.  One method for solving linear systems relies on what is referred to as a matrix factorization. A matrix factorization , or matrix decomposition is a factorization of a matrix into a product of matrices. Factorizations can be useful for solving , or for understanding the properties of a matrix.  In this section, we factor a matrix into lower and into upper triangular matrices to construct what is known as the LU factorization that is used to solve linear systems in a systematic and efficient method. Before we introduce the LU factorization, we will first need to introduce lower and upper triangular matrices.     Before we introduce the LU factorization, we need to first define upper and lower triangular matrices.   Suppose that the entries of matrix are . Then is upper triangular if for . Matrix is lower triangular if for .  As an example, all of the matrices below are in upper triangular form.   Notice how all of the entries below the main diagonal are zero, and the entries on and above the main diagonal can be anything. Likewise, examples of lower triangular matrices are below.   Again, note that our definition for an upper triangular matrix does not specify what the entries on or above the main diagonal need to be. Some or all of the entries above the main diagonal can, for example, be zero. Likewise the entries on and below the main diagonal of a lower triangular matrix do not have to have specific values.     After stating a theorem that gives the LU decomposition, we will give an algorithm for constructing the LU factorization. We will then see how we can use the factorization to solve a linear system.   If is an matrix that can be row reduced to echelon form without row exchanges, then , where is a lower triangular matrix with 1's on the diagonal, and is an echelon form of .     To prove the theorem above we will first show that we can write where is an invertible matrix, and is an echelon form of .  Suppose that matrix can be reduced to echelon form with elementary row operations that only add a multiple of a row to another row that is below it. Then each row operation can be performed by multiplying with elementary matrices.   If we let , then   Note that is invertible because elementary matrices are invertible. Therefore can be reduced to the identity with a sequence of row operations. Moreover, if we multiply Equation (1.3) by we obtain:   Therefore has the decomposition where is an echelon form of and is an invertible matrix. To show that is lower triangular, recall from Equations (1.2) and (1.3) that   Each elementary matrix is lower triangular because to reduce to we only used one type of row operation: adding a multiple of a row to a row below it, so each is a lower triangular matrix. It can also be shown that the product of two lower-triangular matrices is a lower triangular matrix, and the inverse of a lower triangular matrix is lower triangular. This implies that both and will be lower-triangular.     To construct the LU factorization of a matrix we must first apply a sequence of row operations to in order to reduce to . Equation (1.3) gives us that   But if , then the sequence of row operations that reduce to will reduce to . This gives us an algorithm for constructing the LU factorization.   Suppose is an matrix that can be row reduced to echelon form without row exchanges. To construct the LU factorization:  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the sequence of row operations that reduces to will reduce to  Note that the above procedure will work for any matrix that can be reduced to echelon form without row exchanges. Meaning that we do not need to be square or invertible to construct its LU factorization.     In this example we construct LU factorizations of the following matrix.   Because is a matrix, the LU factorization has the form   Each represents an entry that we need to compute the value of. To reduce to we apply a sequence of row replacement operations as shown below.   Matrix is the echelon form of that we need for the LU factorization. We next construct so that the row operations that reduced to will reduce to . Our row operations were:   With these two row operations, we see that must be the matrix:   Note that the row operations and applied to will give us the identity. The LU factorization of is      Our motivation for introducing the LU factorization was to introduce an efficient method for solving linear systems. Given rectangular matrix and vector , we wish to use the LU factorization of to solve for . A procedure for doing so is below.   To solve for :  1. Construct the LU decomposition of to obtain and .  2. Set . Forward solve for in .  3. Backwards solve for in .     In this example we will solve the linear system given the LU decomposition of .   We first set and solve . Reducing the augmented matrix gives us:   Therefore, is the vector   We now solve .   The solution to the linear system, , is the vector      In our treatment of the LU factorization we constructed the LU decomposition using the following process.  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the same sequence of row operations reduces to  There is much more to the LU factorization than what was presented in this section. There are for example other methods for constructing that you may encounter in future courses or projects you are working on. In our approach, the only row operation we use to construct and is to replace a row with a multiple of a row above it. Multiplying a row by a non-zero scalar is not needed, but more importantly, we cannot swap rows. More advanced linear algebra and numerical analysis courses would address this significant limitation.      Construct the LU Factorizations for the following matrices.  (a)  (b)  (c)    Show that the product of two lower triangular matrices is lower triangular.    Show that the inverse of an lower triangular matrix is also and lower triangular.    "
+  "title": "1.2 The LU Factorization",
+  "body": " 1.2 The LU Factorization   To solve a linear system of the form we could use row reduction or, in theory, calculate and use it to determine with the equation   But computing requires the computation of the inverse of an matrix, which is especially difficult for large . It is more practical to solve with row reductions (i.e. Gaussian Elimination). But it turns out that there are more efficient methods, especially when is large.  One method for solving linear systems relies on what is referred to as a matrix factorization. A matrix factorization , or matrix decomposition is a factorization of a matrix into a product of matrices. Factorizations can be useful for solving , or for understanding the properties of a matrix.  In this section, we factor a matrix into lower and into upper triangular matrices to construct what is known as the LU factorization that is used to solve linear systems in a systematic and efficient method. Before we introduce the LU factorization, we will first need to introduce lower and upper triangular matrices.     Before we introduce the LU factorization, we need to first define upper and lower triangular matrices.   Suppose that the entries of matrix are . Then is upper triangular if for . Matrix is lower triangular if for .  As an example, all of the matrices below are in upper triangular form.   Notice how all of the entries below the main diagonal are zero, and the entries on and above the main diagonal can be anything. Likewise, examples of lower triangular matrices are below.   Again, note that our definition for an upper triangular matrix does not specify what the entries on or above the main diagonal need to be. Some or all of the entries above the main diagonal can, for example, be zero. Likewise the entries on and below the main diagonal of a lower triangular matrix do not have to have specific values.     After stating a theorem that gives the LU decomposition, we will give an algorithm for constructing the LU factorization. We will then see how we can use the factorization to solve a linear system.   If is an matrix that can be row reduced to echelon form without row exchanges, then , where is a lower triangular matrix with 1's on the diagonal, and is an echelon form of .     To prove the theorem above we will first show that we can write where is an invertible matrix, and is an echelon form of .  Suppose that matrix can be reduced to echelon form with elementary row operations that only add a multiple of a row to another row that is below it. Then each row operation can be performed by multiplying with elementary matrices.   If we let , then   Note that is invertible because elementary matrices are invertible. Therefore can be reduced to the identity with a sequence of row operations. Moreover, if we multiply Equation (1.3) by we obtain:   Therefore has the decomposition where is an echelon form of and is an invertible matrix. To show that is lower triangular, recall from Equations (1.2) and (1.3) that   Each elementary matrix is lower triangular because to reduce to we only used one type of row operation: adding a multiple of a row to a row below it, so each is a lower triangular matrix. It can also be shown that the product of two lower-triangular matrices is a lower triangular matrix, and the inverse of a lower triangular matrix is lower triangular. This implies that both and will be lower-triangular.     To construct the LU factorization of a matrix we must first apply a sequence of row operations to in order to reduce to . Equation (1.3) gives us that   But if , then the sequence of row operations that reduce to will reduce to . This gives us an algorithm for constructing the LU factorization.   Suppose is an matrix that can be row reduced to echelon form without row exchanges. To construct the LU factorization:  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the sequence of row operations that reduces to will reduce to  Note that the above procedure will work for any matrix that can be reduced to echelon form without row exchanges. Meaning that we do not need to be square or invertible to construct its LU factorization.     In this example we construct LU factorizations of the following matrix.   Because is a matrix, the LU factorization has the form   Each represents an entry that we need to compute the value of. To reduce to we apply a sequence of row replacement operations as shown below.   Matrix is the echelon form of that we need for the LU factorization. We next construct so that the row operations that reduced to will reduce to . Our row operations were:   With these two row operations, we see that must be the matrix:   Note that the row operations and applied to will give us the identity. The LU factorization of is      Our motivation for introducing the LU factorization was to introduce an efficient method for solving linear systems. Given rectangular matrix and vector , we wish to use the LU factorization of to solve for . A procedure for doing so is below.   To solve for :  1. Construct the LU decomposition of to obtain and .  2. Set . Forward solve for in .  3. Backwards solve for in .     In this example we will solve the linear system given the LU decomposition of .   We first set and solve . Reducing the augmented matrix gives us:   Therefore, is the vector   We now solve .   The solution to the linear system, , is the vector      In our treatment of the LU factorization we constructed the LU decomposition using the following process.  1. reduce to an echelon form by a sequence of row replacement operations, if possible  2. place entries in such that the same sequence of row operations reduces to  There is much more to the LU factorization than what was presented in this section. There are for example other methods for constructing that you may encounter in future courses or projects you are working on. In our approach, the only row operation we use to construct and is to replace a row with a multiple of a row above it. Multiplying a row by a non-zero scalar is not needed, but more importantly, we cannot swap rows. More advanced linear algebra and numerical analysis courses would address this significant limitation.      Construct the LU Factorizations for the following matrices.  (a)  (b)  (c)    Show that the product of two lower triangular matrices is lower triangular.    Show that the inverse of an lower triangular matrix is also and lower triangular.    "
 },
 {
-  "id": "activity-1-2-worksheet-2-5",
+  "id": "activity-1-2-worksheet-2-4",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-5",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-4",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "matrix factorization matrix decomposition "
 },
 {
-  "id": "activity-1-2-worksheet-2-6",
+  "id": "activity-1-2-worksheet-2-5",
   "level": "2",
-  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-6",
+  "url": "activity-1-2-worksheet.html#activity-1-2-worksheet-2-5",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
@@ -177,8 +177,8 @@ var ptx_lunr_docs = [
   "url": "activity-1-3-worksheet.html",
   "type": "Worksheet",
   "number": "",
-  "title": "The Leontif Input-Output Model",
-  "body": " The Leontif Input-Output Model    Input-output models are used in economics to model the inter-dependencies between different sectors of an economy. Wassily Leontief (1906-1999) is credited with developing the type of analysis that we explore in this chapter. His work on this model earned a Nobel Prize in Economics.  The input-output model assumes that there are sectors in an economy that produce a set of desired products to meet an external demand. The model also assumes that the sectors themselves will also demand a portion of the output that the sectors produce. If the sectors produce exactly the number of units to meet the external demand, then we have the equation  (sector output) − (internal consumption) = (external demand)  In this section we will see that this equation is a linear system that can be solved to determine the output the economy needs to produce to meet the external demand.     Suppose an economy that has two sectors: manufacturing (M) and energy (E). Both of the sectors produce an output to meet an external demand (D) for their products. Sectors M and E also require output from each other to produce their output. The way in which they do so is described in the diagram below.   Internal consumption diagram for sectors M and E.    The numbers in the above diagram can be interpreted as follows.  • For every 100 units that sector M creates, M requires 40 units from M and 10 units from E.  • For every 100 units that sector E creates, E requires 20 units from M and 30 units from E.  • An external demand (D) requires 4 units from M and 12 units from E.  In other words, if M were to create units, then M would consume units from M and units from E. The consumption from sector M could be represented with a vector.   Likewise, the consumption from sector E would be   Adding these vectors together gives us the total internal consumption from both sectors.   Matrix is called the consumption matrix . Typically its entries are between 0 and 1, and the sum of the entries in each column of will be less than 1. Vector is the output of the sectors. If the sectors produce exactly the number of units to meet the external demand, then we have the equation      In our example, vector , and . This simplifies Equation (1.6) to     This is a linear system with two equations, whose solution gives us the output vector that balances production with demand. Expressing the system as an augmented matrix and using row operations yields the solution as shown below.   The unique solution to this linear system is . This is the output that sectors M and E would need to produce to meet the external demand exactly.     Suppose an economy that has three sectors: X, Y, and Z. Each of these sectors produce an output to meet an external demand (D) for their products. The way in which they do so is described in the diagram below.   Internal consumption diagram for sectors X, Y, and Z.    The external demand, D, is requiring 24 units from X, 4 units from Y, and 16 units from Z. Our goal is to determine how many units the sectors need to produce in order to satisfy this demand, while also accounting for internal consumption.  If Sector X were to create units, then it would consume units from X and units from Y. This consumption could be represented by the vector   Likewise, the consumption from the other two sectors are   Adding these three vectors together gives us the total internal consumption from all sectors and the consumption matrix .   where , .  Each of the sectors in our economy are producing units to satisfy an external demand. The difference between the output and the internal consumption will represent the number of units produced to meet external demand.     If the sectors are to meet the needs of the external demand exactly, the demand would need to equal the number of units produced after internal consumption is taken into account. That is, we need that   This is a linear system that can be solved for the output vector, . This could be computed using an augmented matrix.   A helpful trick when reducing these matrices by hand is to multiply each row by 10 to make the algebra a bit less tedious. The above augmented matrix is in row reduced echelon form, and indicates that the desired output is       Consider the production model for an economy with two sectors, where , and .  (a) Construct the augmented matrix that can be used to calculate .  (b) Solve your linear system for .    A model for an economy consists of four sectors, W, X, Y, and Z, and an external demand, D. The relationships between them are given in the diagram below. Sector Z provides resources to the other sectors internally. There is no external demand from D for the output from Z.   Internal consumption diagram for sectors W, X, Y, and Z.    (a) Construct the augmented matrix which can be used to solve the system for the output that would meet the external demand exactly while accounting for internal consumption between the four sectors.  (b) Solve your augmented matrix to determine the desired output vector.    "
+  "title": "1.3 The Leontif Input-Output Model",
+  "body": " 1.3 The Leontif Input-Output Model   Input-output models are used in economics to model the inter-dependencies between different sectors of an economy. Wassily Leontief (1906-1999) is credited with developing the type of analysis that we explore in this chapter. His work on this model earned a Nobel Prize in Economics.  The input-output model assumes that there are sectors in an economy that produce a set of desired products to meet an external demand. The model also assumes that the sectors themselves will also demand a portion of the output that the sectors produce. If the sectors produce exactly the number of units to meet the external demand, then we have the equation  (sector output) − (internal consumption) = (external demand)  In this section we will see that this equation is a linear system that can be solved to determine the output the economy needs to produce to meet the external demand.     Suppose an economy that has two sectors: manufacturing (M) and energy (E). Both of the sectors produce an output to meet an external demand (D) for their products. Sectors M and E also require output from each other to produce their output. The way in which they do so is described in the diagram below.   Internal consumption diagram for sectors M and E.    The numbers in the above diagram can be interpreted as follows.  • For every 100 units that sector M creates, M requires 40 units from M and 10 units from E.  • For every 100 units that sector E creates, E requires 20 units from M and 30 units from E.  • An external demand (D) requires 4 units from M and 12 units from E.  In other words, if M were to create units, then M would consume units from M and units from E. The consumption from sector M could be represented with a vector.   Likewise, the consumption from sector E would be   Adding these vectors together gives us the total internal consumption from both sectors.   Matrix is called the consumption matrix . Typically its entries are between 0 and 1, and the sum of the entries in each column of will be less than 1. Vector is the output of the sectors. If the sectors produce exactly the number of units to meet the external demand, then we have the equation      In our example, vector , and . This simplifies Equation (1.6) to     This is a linear system with two equations, whose solution gives us the output vector that balances production with demand. Expressing the system as an augmented matrix and using row operations yields the solution as shown below.   The unique solution to this linear system is . This is the output that sectors M and E would need to produce to meet the external demand exactly.     Suppose an economy that has three sectors: X, Y, and Z. Each of these sectors produce an output to meet an external demand (D) for their products. The way in which they do so is described in the diagram below.   Internal consumption diagram for sectors X, Y, and Z.    The external demand, D, is requiring 24 units from X, 4 units from Y, and 16 units from Z. Our goal is to determine how many units the sectors need to produce in order to satisfy this demand, while also accounting for internal consumption.  If Sector X were to create units, then it would consume units from X and units from Y. This consumption could be represented by the vector   Likewise, the consumption from the other two sectors are   Adding these three vectors together gives us the total internal consumption from all sectors and the consumption matrix .   where , .  Each of the sectors in our economy are producing units to satisfy an external demand. The difference between the output and the internal consumption will represent the number of units produced to meet external demand.     If the sectors are to meet the needs of the external demand exactly, the demand would need to equal the number of units produced after internal consumption is taken into account. That is, we need that   This is a linear system that can be solved for the output vector, . This could be computed using an augmented matrix.   A helpful trick when reducing these matrices by hand is to multiply each row by 10 to make the algebra a bit less tedious. The above augmented matrix is in row reduced echelon form, and indicates that the desired output is       Consider the production model for an economy with two sectors, where , and .  (a) Construct the augmented matrix that can be used to calculate .  (b) Solve your linear system for .    A model for an economy consists of four sectors, W, X, Y, and Z, and an external demand, D. The relationships between them are given in the diagram below. Sector Z provides resources to the other sectors internally. There is no external demand from D for the output from Z.   Internal consumption diagram for sectors W, X, Y, and Z.    (a) Construct the augmented matrix which can be used to solve the system for the output that would meet the external demand exactly while accounting for internal consumption between the four sectors.  (b) Solve your augmented matrix to determine the desired output vector.    "
 },
 {
   "id": "leontief-me-figure",
@@ -224,6 +224,87 @@ var ptx_lunr_docs = [
   "number": "2",
   "title": "",
   "body": " A model for an economy consists of four sectors, W, X, Y, and Z, and an external demand, D. The relationships between them are given in the diagram below. Sector Z provides resources to the other sectors internally. There is no external demand from D for the output from Z.   Internal consumption diagram for sectors W, X, Y, and Z.    (a) Construct the augmented matrix which can be used to solve the system for the output that would meet the external demand exactly while accounting for internal consumption between the four sectors.  (b) Solve your augmented matrix to determine the desired output vector.  "
+},
+{
+  "id": "sec-2d-computer-graphics",
+  "level": "1",
+  "url": "sec-2d-computer-graphics.html",
+  "type": "Section",
+  "number": "",
+  "title": "1.4 2D Computer Graphics",
+  "body": " 1.4 2D Computer Graphics   Linear transformations are often used in computer graphics to simulate the motion of an object. They can be modeled with a matrix-vector product of the form where is a vector that represents a point that is transformed to the vector . The matrix-vector product is a transformation that acts on the vector to produce a new vector, , and if we set the function to be then maps the vector to vector . The nature of the transform is described by matrix .  Translations are a type of transformation needed in computer graphics. But translations are not a linear transformation because they do not leave the origin fixed. How might we use matrix multiplication in order to perform such transformations? In this section we answer this question by introducing homogeneous coordinates, which allow for more general transformations to be computed with linear algebra.    Homogeneous Coordinates  Homogeneous coordinates are a tool that can be used to model translations.   Definition: Homogeneous Coordinates in  Each point in can be identified with the point , on the plane in that lies unit above the -plane.   For example, a translation of the form is a transformation. The parameters and adjust the location of the point after the transformation. This transform can be represented as a matrix multiplication with homogeneous coordinates in the following way. The first two entries can be extracted from the output of the transform to obtain the coordinate of the translated point. The following examples demonstrate how homogeneous coordinates can be used to create more general transforms.    Example 1: A Composite Transform with Translation  Suppose the transformation reflects points in across the line and then translates them by units in the direction and units in the direction. In this example we will use homogeneous coordinates to construct a matrix so that .  With homogeneous coordinates the point may be represented by the vector Points in can be reflected across the line using the standard matrix With homogeneous coordinates our point is represented with a vector in , so we use the block matrix The symbol denotes a matrix of zeroes. In this case, either a matrix or a matrix. Then the matrix-vector product below produces the needed transformation. Note that the and coordinates have been swapped, as required for the reflection through the line . The matrix below will perform the translation we need. The product below will apply the translation, of units in the direction and units in the direction, to the reflected point. Therfore, our standard matrix is     Example 2: Rotation About the Point  Triangle is determined by the points . Transform rotates these points by radians counterclockwise about the point . Our goal is to use matrix multiplication to determine the image of under .  A sketch of the triangle before and after the rotation is in the diagram below.     We need a way to calculate the locations of the points after the transformation. The rotation can be calculated by first representing each point by a vector in homogeneous coordinates, and then multiplying the vectors by a sequence of matrices that perform the needed transformation. The transformations will first shift the points in a way so that the rotation point is about the origin. We will then rotate about the origin by the desired about. And then we move the rotated points up by one unit to account for the initial translation.   Step 1: Shift Points Down by 1 Unit  In homogeneous coordinates our three points can be represented by the vectors below. Multiplying each vector by the matrix shifts the points down by one unit. Note the difference between the input and output vectors. The second entry of the output vectors is one less than their corresponding entries in the input vectors. Our translated triangle and rotation point is shown below.     With this transform, the rotation point also moves down one unit, from to the origin .    Step 2: Rotate About  Rotating the translated points by radians about the origin can be calculated by multiplying the three vectors by the matrix This gives us three new points.   Finally, to undo the initial translation that placed the rotation point at the origin, we need to translate our points up by one unit.    Step 3: Translate Points Up One Unit  Translating the data up by one unit can be accomplished by multiplying the three vectors by the matrix This gives us three new points.   Our rotated and translated triangle is shown below.     Therefore the standard matrix that performs a rotation by degrees about is the matrix Our result can be verified by calculating , , or .     Example 3: A Reflection Through The Line   In this example we construct the standard matrix, , that uses homogeneous coordinates to reflect points in across the line . We will confirm that our results are correct by calculating for any point that uses homogeneous coordinates.  The standard matrix will be the product of three matrices that translate and reflect points using homogeneous coordinates. The first matrix will translate points in some way so that the line about which we are reflecting will pass through the origin. We can use This matrix will shift points down three units so that the line will pass through the origin. Note that at this point we could have also used a matrix that, for example, shifts to the right by three units. The second matrix will reflect points through the shifted line, which is . Recall that the matrix will reflect vectors in through the line . This is because any point with coordinates can be represented with the vector and   The point is mapped to , which is a reflection through the line in . The standard matrix for this transformation in homogeneous coordinates is Our final transformation shifts points back up by three units to undo the initial translation. The standard matrix for the transformation that reflects points in across the line is We can check whether our work is correct by transforming any point with the above standard matrix. For example, the point is transformed by calculating The reflected point is . The line of reflection, initial point, and the reflected point are shown below.       The Data Matrix  The examples in this section have only involved a small number points that need to be transformed. For problems involving many points, it may be more convenient to represent the points in what we refer to as a data matrix . For example, the shape in the figure below is determined by five points, or vertices, . Their respective homogeneous coordinates can be stored in the columns of a matrix, . For our purposes, the order in which the points are placed into is arbitrary.     In the previous examples we applied a transform with a matrix-vector multiplication. With a data matrix we can use a similar approach. Recall that the product of two matrices and , is defined as where are the columns of . In other words, can perform the transformation on our data by computing , which transforms each column independently of the others.  For example, applying the transform in the previous example will reflect our shape through the line . The transformation is found by computing Extracting the first two entries of each column of the result gives us the transformed points (green), as shown in the figure below.       Exercises    Construct the standard matrices for the following transforms.     The standard matrix of the transform that reflects points in across the line .      The standard matrix of the transform that rotates points in about the point and then reflects points through the the line .      "
+},
+{
+  "id": "subsec-data-matrix-2",
+  "level": "2",
+  "url": "sec-2d-computer-graphics.html#subsec-data-matrix-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "data matrix "
+},
+{
+  "id": "ex-2d-graphics-standard-matrices",
+  "level": "2",
+  "url": "sec-2d-computer-graphics.html#ex-2d-graphics-standard-matrices",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Construct the standard matrices for the following transforms.     The standard matrix of the transform that reflects points in across the line .      The standard matrix of the transform that rotates points in about the point and then reflects points through the the line .    "
+},
+{
+  "id": "sec-3d-computer-graphics",
+  "level": "1",
+  "url": "sec-3d-computer-graphics.html",
+  "type": "Section",
+  "number": "",
+  "title": "3D Computer Graphics",
+  "body": " 3D Computer Graphics   Results from the previous section on 2D graphics have a natural extension to three dimensions. In this section we extend the data matrix and homogeneous coordinates to three dimensions. This will allow us to model translations and composite transforms involving many points with matrix multiplication.    Rotations in 3D  Rotations about the origin are linear transforms. Because they are linear they can be expressed in the form where is a matrix, and we can obtain the columns of matrix by transforming the standard vectors We will use the convention that a positive rotation is in the counterclockwise direction when looking toward the origin from the positive half of the axis of rotation. For example, rotating about the -axis by radians results in the vector Transforming the first standard vector yields the first column of . Likewise the remaining columns can be found by transforming the other standard vectors. The third standard vector does not change under this transformation because it is parallel to the rotation axis. The standard matrix for a rotation about the -axis is A similar analysis gives us the standard matrices for rotations about the and the axes. Results are summarized in . The standard matrices in the table can be multiplied together to model transforms that perform multiple transformations. The next example demonstrates this application.   Standard matrices for 3D rotations about the coordinate axes.      rotation axis  standard matrix    -axis       -axis       -axis          Example 1: 3D Rotations  Suppose that the transform first rotates points in about the -axis by radians and then rotates points about the -axis by radians. We can determine the standard matrix, , for this transform in a few different ways. One approach is to use the standard matrices in . The standard matrix, , is the product of two rotation matrices. Note that the rotation about the -axis is applied before the rotation about the -axis, which determines the multiplication order. The standard matrix for the first transformation is placed in the rightmost position.  We could also obtain the same result by transforming the standard vectors, because . The first standard vector gives us the first column of . This result agrees with our result obtained above by multiplying rotation matrices together. Note also that our convention is that a positive rotation is in the counterclockwise direction when looking toward the origin from the positive half of the axis of rotation.    The Data Matrix for 3D Transforms  Similar to the 2D case, for problems involving many points it is convenient to represent the points a data matrix. Analogous to our approach in 2D, points in can be represented in a matrix whose columns are vectors that correspond to the points we wish to transform. We may transform this matrix with a matrix-vector multiplication. Recall that the product of two matrices and , is defined as where are the columns of . In other words, can perform the transformation on our data by computing , which transforms each column independently of the others. The following example demonstrates this approach.    Example 2: A Projection in 3D with the Data Matrix   Corners of a cube with side length 1.                                     Data in Table ( ) define a cube in with side length 1. Suppose the linear transform projects points in onto the -plane. In this example we will construct the matrix, , that is the standard matrix of the transformation .  The data in Table ( ) (blue) and its projection (green) are shown Figure ( ).   Data from Table ( ) and its projection onto the -plane.      Because the given transform that we are dealing with in this example is linear, we can express the transform in the form of a matrix-vector product where is a matrix. Moreover, because we are working with a linear transform, each column of is equal to the product and is a standard vector. For example, the first column of can be found using , which is the vector Projecting onto the -plane does not change the vector, because the vector is already in that plane. The first column of is . Likewise, the second column of is , becuase is also already in the -plane. The last column of is the projection of onto the plane, which is the zero vector. Combining our results for each column of gives us the standard matrix. Now that we have the standard matrix for this transform, we can use it to transform the data in Table 1. Representing each point as a vector in and placing the vectors in a data matrix, , will allow us to compute the projection using a matrix multiplication. Our matrix is The transformed points can be computed as follows. Extracting the columns of the product gives us the projected points.    3D Homogeneous Coordinates  Homogeneous coordinates in 3D are analogous to the homogeneous 2D coordinates we introduced in the previous section.   Homogeneous Coordinates in   are homogeneous coordinates for in    A translation of the form can be represented as a matrix multiplication with homogeneous coordinates:    Example 3: A Translation in 3D  The data in Table ( ) can be translated using a homogeneous coordinate system. The data matrix in homogeneous coordinates would be The transform that, for example, shifts the data by units in the direction and by 1 unit in the -direction is The figure below shows the original data (blue) and its translated version (green).        Exercises    Construct the standard matrices for the following transforms.     The standard matrix of the transform that uses homogeneous coordinates to reflect points in across the plane , where is any real number.      The standard matrix of the transform that reflects points in across the plane .      The standard matrix of the transform that first rotates points in about the -axis by an angle and then projects them onto the -plane.       Line passes through the point and is parallel to the vector , where Construct the matrix that uses homogeneous coordinates to rotate points in about line by an angle .     "
+},
+{
+  "id": "tab-3d-rotations",
+  "level": "2",
+  "url": "sec-3d-computer-graphics.html#tab-3d-rotations",
+  "type": "Table",
+  "number": "4",
+  "title": "Standard matrices for 3D rotations about the coordinate axes.",
+  "body": " Standard matrices for 3D rotations about the coordinate axes.      rotation axis  standard matrix    -axis       -axis       -axis       "
+},
+{
+  "id": "tab-cube",
+  "level": "2",
+  "url": "sec-3d-computer-graphics.html#tab-cube",
+  "type": "Table",
+  "number": "5",
+  "title": "Corners of a cube with side length 1.",
+  "body": " Corners of a cube with side length 1.                                    "
+},
+{
+  "id": "fig-cube-projection",
+  "level": "2",
+  "url": "sec-3d-computer-graphics.html#fig-cube-projection",
+  "type": "Figure",
+  "number": "6",
+  "title": "",
+  "body": " Data from Table ( ) and its projection onto the -plane.     "
+},
+{
+  "id": "ex-3d-standard-matrices",
+  "level": "2",
+  "url": "sec-3d-computer-graphics.html#ex-3d-standard-matrices",
+  "type": "Exercise",
+  "number": "1",
+  "title": "",
+  "body": "  Construct the standard matrices for the following transforms.     The standard matrix of the transform that uses homogeneous coordinates to reflect points in across the plane , where is any real number.      The standard matrix of the transform that reflects points in across the plane .      The standard matrix of the transform that first rotates points in about the -axis by an angle and then projects them onto the -plane.    "
+},
+{
+  "id": "ex-3d-rotate-about-line",
+  "level": "2",
+  "url": "sec-3d-computer-graphics.html#ex-3d-rotate-about-line",
+  "type": "Exercise",
+  "number": "2",
+  "title": "",
+  "body": "  Line passes through the point and is parallel to the vector , where Construct the matrix that uses homogeneous coordinates to rotate points in about line by an angle .   "
 },
 {
   "id": "activity-1-1-4-worksheet",
@@ -275,7 +356,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#theorem-orthogonal-eigenspaces",
   "type": "Theorem",
-  "number": "4",
+  "number": "7",
   "title": "Theorem.",
   "body": " Theorem   If is a symmetric matrix, with eigenvectors and corresponding to two distinct eigenvalues, then and are orthogonal.   "
 },
@@ -293,7 +374,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#theorem-real-eigenvalues",
   "type": "Theorem",
-  "number": "5",
+  "number": "8",
   "title": "Theorem.",
   "body": " Theorem   If is a real symmetric matrix then all eigenvalues of are real.   "
 },
@@ -302,7 +383,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#theorem-spectral-theorem",
   "type": "Theorem",
-  "number": "6",
+  "number": "9",
   "title": "The Spectral Theorem.",
   "body": " The Spectral Theorem   An matrix is symmetric if and only if the matrix can be orthogonally diagonalized.   "
 },
@@ -311,7 +392,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#example-2x2-orthogonal-diagonalization",
   "type": "Example",
-  "number": "7",
+  "number": "10",
   "title": "Example 1: Orthogonal Diagonalization of a <span class=\"process-math\">\\(2\\times 2\\)<\/span> Matrix.",
   "body": " Example 1: Orthogonal Diagonalization of a Matrix  Suppose is the symmetric matrix below.   The eigenvalues of are given. In this example we will diagonalize using an orthogonal matrix, . For eigenvalue we have A vector in the null space of is the eigenvector   A vector orthogonal to is which must be an eigenvector for because is symmetric.  Dividing each of the eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, , we obtain an orthogonal matrix. In other words, . This convenient property gives us a convenient way to compute should it be needed.  Placing the eigenvalues of in the order that matches the order used to create , we obtain the factorization   "
 },
@@ -320,7 +401,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-orthogonal-diagonalization.html#example-3x3-orthogonal-diagonalization",
   "type": "Example",
-  "number": "8",
+  "number": "11",
   "title": "Example 2: Orthogonal Diagonalization of a <span class=\"process-math\">\\(3\\times3\\)<\/span> Matrix.",
   "body": " Example 2: Orthogonal Diagonalization of a Matrix  In this example we will diagonalize a matrix, , using an orthogonal matrix, .   The eigenvalues of are given. For eigenvalue we have A vector in the null space of is the eigenvector For eigenvalue we have By inspection, two vectors in the null space of are   There are many other choices that we could make but the above two vectors will suffice. Note that and happen to be orthogonal to each other. If they happened to not be orthogonal, one could use the Gram-Schmidt procedure to make them so.  Dividing each of the three eigenvectors by their respective length, and then collecting these unit vectors into a single matrix, , we obtain an orthogonal matrix. This will give us a matrix whose inverse is equal to its transpose. In other words, is an orthogonal matrix, and . This convenient property gives us a convenient way to compute should it be needed.  Placing the eigenvalues of in the order that matches the order used to create , we obtain the factorization   "
 },
@@ -365,7 +446,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#figure-two-circles",
   "type": "Figure",
-  "number": "9",
+  "number": "12",
   "title": "",
   "body": " Two circles generated by for and .     "
 },
@@ -374,7 +455,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#figure-single-ellipse",
   "type": "Figure",
-  "number": "10",
+  "number": "13",
   "title": "",
   "body": " The ellipse generated by .     "
 },
@@ -383,7 +464,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#theorem-principal-axes",
   "type": "Theorem",
-  "number": "11",
+  "number": "14",
   "title": "Theorem.",
   "body": " Theorem   If is a symmetric matrix then there exists an orthogonal change of variable that transforms to with no cross-product terms.   "
 },
@@ -401,7 +482,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-forms.html#figure-change-of-variable-ellipses",
   "type": "Figure",
-  "number": "12",
+  "number": "15",
   "title": "",
   "body": " The ellipse in the -plane, and the same ellipse expressed without cross terms, , in the -plane.          "
 },
@@ -419,7 +500,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-temperature-sphere",
   "type": "Figure",
-  "number": "13",
+  "number": "16",
   "title": "",
   "body": " The unit sphere colored according to the temperature , with the hottest points in red and the coldest points in blue.     "
 },
@@ -437,7 +518,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#theorem-constrained-optimization",
   "type": "Theorem",
-  "number": "14",
+  "number": "17",
   "title": "Constrained Optimization.",
   "body": " Constrained Optimization   If , is a real symmetric matrix, with eigenvalues   and associated normalized eigenvectors . Then, subject to the constraint , the maximum value of is , which is attained at . The minimum value of is , which is attained at .   "
 },
@@ -455,7 +536,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-repeated-eigenvalue-sphere",
   "type": "Figure",
-  "number": "15",
+  "number": "18",
   "title": "",
   "body": " Left: the unit sphere colored according to . Right: the eigenvectors , , and .          "
 },
@@ -464,7 +545,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#theorem-orthogonality-constraint",
   "type": "Theorem",
-  "number": "16",
+  "number": "19",
   "title": "Optimization with an Orthogonality Constraint.",
   "body": " Optimization with an Orthogonality Constraint   Suppose , where is symmetric and has eigenvalues and associated normalized eigenvectors . Then, subject to the constraints and , the maximum value of is , which is attained at . The minimum value of is , which is attained at .   "
 },
@@ -473,7 +554,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-constrained-optimization.html#figure-orthogonality-constraint-sphere",
   "type": "Figure",
-  "number": "17",
+  "number": "20",
   "title": "",
   "body": " The unit sphere colored according to , with the eigenvectors and marked.     "
 },
@@ -509,7 +590,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-parab-curves",
   "type": "Figure",
-  "number": "18",
+  "number": "21",
   "title": "",
   "body": " Curves generated by .     "
 },
@@ -518,7 +599,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-paraboloid",
   "type": "Figure",
-  "number": "19",
+  "number": "22",
   "title": "",
   "body": " The surface .   "
 },
@@ -527,7 +608,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#listing-matlab-script",
   "type": "Listing",
-  "number": "20",
+  "number": "23",
   "title": "MATLAB Script",
   "body": " MATLAB Script   fimplicit3(@(x,y,Q) Q-2*y.^2-2*x.^2-2*x.*y) xlabel('x') ylabel('y') zlabel('Q') set(gcf,'color','w'); % sets background color to white set(gca,'FontSize',18) % increases font size to 18   "
 },
@@ -536,7 +617,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-quad-surfaces-grid",
   "type": "Figure",
-  "number": "21",
+  "number": "24",
   "title": "",
   "body": " Quadratic surfaces generated by four different choices of .                      "
 },
@@ -545,7 +626,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#definition-quadratic-form-types",
   "type": "Definition",
-  "number": "22",
+  "number": "25",
   "title": "Definition.",
   "body": " Definition   A quadratic form is   positive definite if for all .  negative definite if for all .  positive semidefinite if for all .  negative semidefinite if for all .  indefinite if takes on positive and negative values for .    "
 },
@@ -554,7 +635,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#theorem-classify-quadratic-forms",
   "type": "Theorem",
-  "number": "23",
+  "number": "26",
   "title": "Theorem.",
   "body": " Theorem   If is a symmetric matrix with eigenvalues , then is   positive definite when all eigenvalues are positive  positive semidefinite when all eigenvalues are non-negative  negative definite when all eigenvalues are negative  negative semidefinite when all eigenvalues are non-positive  indefinite when at least one eigenvalue is negative and at least one eigenvalue is positive    "
 },
@@ -572,7 +653,7 @@ var ptx_lunr_docs = [
   "level": "2",
   "url": "section-quadratic-surfaces.html#figure-saddle",
   "type": "Figure",
-  "number": "24",
+  "number": "27",
   "title": "",
   "body": " The indefinite quadratic surface generated by .   "
 },

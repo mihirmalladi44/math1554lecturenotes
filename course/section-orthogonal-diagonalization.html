@@ -157,9 +157,31 @@ eBookConfig.enable_chatcodes =  false;
 <div class="toc-title-box"><a href="course-notes.html" class="internal"><span class="title">Course Notes</span></a></div>
 <ul class="structural toc-item-list contains-active" id="ptx-toc-group-course-notes">
 <li class="toc-item toc-introduction"><div class="toc-title-box"><a href="course-notes-2.html" class="internal"><span class="title">Introduction</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-worksheet.html" class="internal"><span class="title">Block Matrices</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-2-worksheet.html" class="internal"><span class="title">The LU Factorization</span></a></div></li>
-<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-3-worksheet.html" class="internal"><span class="title">The Leontif Input-Output Model</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-worksheet.html" class="internal"><span class="title">1.1 Block Matrices</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-2-worksheet.html" class="internal"><span class="title">1.2 The LU Factorization</span></a></div></li>
+<li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-3-worksheet.html" class="internal"><span class="title">1.3 The Leontif Input-Output Model</span></a></div></li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-2d-computer-graphics.html" class="internal"><span class="title">1.4 2D Computer Graphics</span></a></div>
+<ul id="ptx-toc-group-sec-2d-computer-graphics" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-2d-computer-graphics.html#subsec-homogeneous-coordinates" class="internal"><span class="title">Homogeneous Coordinates</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-2d-computer-graphics.html#subsec-eg1-composite-transform" class="internal"><span class="title">Example 1: A Composite Transform with Translation</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-2d-computer-graphics.html#subsec-eg2-rotation" class="internal"><span class="title">Example 2: Rotation About the Point <span class="process-math">\(\mathbf{(0,1)}\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-2d-computer-graphics.html#subsec-eg3-reflection" class="internal"><span class="title">Example 3: A Reflection Through The Line <span class="process-math">\(x_2 = x_1 + 3\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-2d-computer-graphics.html#subsec-data-matrix" class="internal"><span class="title">The Data Matrix</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-2d-computer-graphics.html#exercises-2d-graphics" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-3d-computer-graphics.html" class="internal"><span class="title">3D Computer Graphics</span></a></div>
+<ul id="ptx-toc-group-sec-3d-computer-graphics" class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-3d-computer-graphics.html#subsec-rotations-in-3d" class="internal"><span class="title">Rotations in 3D</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-3d-computer-graphics.html#subsec-eg1-3d-rotations" class="internal"><span class="title">Example 1: 3D Rotations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-3d-computer-graphics.html#subsec-data-matrix-3d" class="internal"><span class="title">The Data Matrix for 3D Transforms</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-3d-computer-graphics.html#subsec-eg2-projection-3d" class="internal"><span class="title">Example 2: A Projection in 3D with the Data Matrix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-3d-computer-graphics.html#subsec-3d-homogeneous-coordinates" class="internal"><span class="title">3D Homogeneous Coordinates</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-3d-computer-graphics.html#exercises-3d-computer-graphics" class="internal"><span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-4-worksheet.html" class="internal"><span class="title">1.1.4 Example 2: Computing AB</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-5-worksheet.html" class="internal"><span class="title">1.1.5 Block Matrix Inversion</span></a></div></li>
 <li class="toc-item toc-worksheet"><div class="toc-title-box"><a href="activity-1-1-6-worksheet.html" class="internal"><span class="title">1.1.6 Example 3: Expression for Inverse of a Block Matrix</span></a></div></li>
@@ -335,11 +357,11 @@ a_i^T a_j = a_i \cdot a_j = a_j \cdot a_i = a_j^Ta_i
 <div class="para" id="subsubsection-orthogonal-eigenspaces-2">The eigenspaces of symmetric matrices have a useful property that we can use when, for example, diagoanlizing a matrix.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-orthogonal-eigenspaces-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="theorem-orthogonal-eigenspaces"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Theorem.</span>
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Theorem.</span>
 </h4>
 <div class="para" id="theorem-orthogonal-eigenspaces-2-1">If <span class="process-math">\(A\)</span> is a symmetric matrix, with eigenvectors <span class="process-math">\(\vec v_1\)</span> and <span class="process-math">\(\vec v_2\)</span> corresponding to two distinct eigenvalues, then <span class="process-math">\(\vec v_1\)</span> and <span class="process-math">\(\vec v_2\)</span> are orthogonal.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#theorem-orthogonal-eigenspaces-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 4: Theorem"><a tabindex="-1" href="#theorem-orthogonal-eigenspaces" title="Copy heading and permalink for Theorem 4: Theorem" aria-label="Copy heading and permalink for Theorem 4: Theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 7: Theorem"><a tabindex="-1" href="#theorem-orthogonal-eigenspaces" title="Copy heading and permalink for Theorem 7: Theorem" aria-label="Copy heading and permalink for Theorem 7: Theorem">🔗</a></div>
 </article>
 <div class="para" id="subsubsection-orthogonal-eigenspaces-4">More generally this theorem implies that eigenspaces associated to distinct eigenvalues are orthogonal subspaces.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-orthogonal-eigenspaces-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -379,11 +401,11 @@ a_i^T a_j = a_i \cdot a_j = a_j \cdot a_i = a_j^Ta_i
 <span class="type">Subsubsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">2) The Eigenvalues of a Symmetric Matrix are Real</span>
 </h3>
 <article class="theorem theorem-like" id="theorem-real-eigenvalues"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Theorem.</span>
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Theorem.</span>
 </h4>
 <div class="para" id="theorem-real-eigenvalues-2-1">If <span class="process-math">\(A\)</span> is a real symmetric matrix then all eigenvalues of <span class="process-math">\(A\)</span> are real.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#theorem-real-eigenvalues-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 5: Theorem"><a tabindex="-1" href="#theorem-real-eigenvalues" title="Copy heading and permalink for Theorem 5: Theorem" aria-label="Copy heading and permalink for Theorem 5: Theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 8: Theorem"><a tabindex="-1" href="#theorem-real-eigenvalues" title="Copy heading and permalink for Theorem 8: Theorem" aria-label="Copy heading and permalink for Theorem 8: Theorem">🔗</a></div>
 </article>
 <div class="para" id="subsubsection-real-eigenvalues-3">A proof of this result is in Appendix 1.2.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-real-eigenvalues-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -396,11 +418,11 @@ a_i^T a_j = a_i \cdot a_j = a_j \cdot a_i = a_j^Ta_i
 <div class="para" id="subsubsection-spectral-theorem-2">It turns out that every real symmetric matrix can always be diagonalized using an orthogonal matrix, which is a result of the spectral theorem.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-spectral-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="theorem theorem-like" id="theorem-spectral-theorem"><h4 class="heading">
-<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Spectral Theorem.</span>
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Spectral Theorem.</span>
 </h4>
 <div class="para" id="theorem-spectral-theorem-2-1">An <span class="process-math">\(n \times n\)</span> matrix <span class="process-math">\(A\)</span> is symmetric if and only if the matrix can be orthogonally diagonalized.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#theorem-spectral-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Theorem 6: The Spectral Theorem"><a tabindex="-1" href="#theorem-spectral-theorem" title="Copy heading and permalink for Theorem 6: The Spectral Theorem" aria-label="Copy heading and permalink for Theorem 6: The Spectral Theorem">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Theorem 9: The Spectral Theorem"><a tabindex="-1" href="#theorem-spectral-theorem" title="Copy heading and permalink for Theorem 9: The Spectral Theorem" aria-label="Copy heading and permalink for Theorem 9: The Spectral Theorem">🔗</a></div>
 </article>
 <div class="para" id="subsubsection-spectral-theorem-4">A proof of this theorem is beyond the scope of these notes, but there are several important consequences of this theorem. All symmetric matrices can not only be diagonalized, but they can be diagonalized with an orthogonal matrix. Moreover, the only matrices that can be diagonalized orthogonally are symmetric, and that if a matrix can be diagonalized with an orthogonal matrix, then it is symmetric.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#subsubsection-spectral-theorem-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
@@ -412,7 +434,7 @@ a_i^T a_j = a_i \cdot a_j = a_j \cdot a_i = a_j^Ta_i
 <span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber"></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Examples</span>
 </h2>
 <details id="example-2x2-orthogonal-diagonalization" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 1: Orthogonal Diagonalization of a <span class="process-math">\(2\times 2\)</span> Matrix.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 1: Orthogonal Diagonalization of a <span class="process-math">\(2\times 2\)</span> Matrix.</span>
 </h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="example-2x2-orthogonal-diagonalization-2">Suppose <span class="process-math">\(A\)</span> is the symmetric matrix below.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-2x2-orthogonal-diagonalization-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -458,10 +480,10 @@ A = PDP^T, \quad D = \begin{pmatrix} \lambda_1 \amp 0 \\ 0 \amp \lambda_2 \end{p
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-2x2-orthogonal-diagonalization-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 7: Example 1: Orthogonal Diagonalization of a 2\times 2 Matrix"><a tabindex="-1" href="#example-2x2-orthogonal-diagonalization" title="Copy heading and permalink for Example 7: Example 1: Orthogonal Diagonalization of a 2\times 2 Matrix" aria-label="Copy heading and permalink for Example 7: Example 1: Orthogonal Diagonalization of a 2\times 2 Matrix">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 10: Example 1: Orthogonal Diagonalization of a 2\times 2 Matrix"><a tabindex="-1" href="#example-2x2-orthogonal-diagonalization" title="Copy heading and permalink for Example 10: Example 1: Orthogonal Diagonalization of a 2\times 2 Matrix" aria-label="Copy heading and permalink for Example 10: Example 1: Orthogonal Diagonalization of a 2\times 2 Matrix">🔗</a></div>
 </article></details>
 <details id="example-3x3-orthogonal-diagonalization" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 2: Orthogonal Diagonalization of a <span class="process-math">\(3\times3\)</span> Matrix.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Example 2: Orthogonal Diagonalization of a <span class="process-math">\(3\times3\)</span> Matrix.</span>
 </h3></summary>
 <article class="example example-like knowl__content">
 <div class="para" id="example-3x3-orthogonal-diagonalization-2">In this example we will diagonalize a matrix, <span class="process-math">\(A\text{,}\)</span> using an orthogonal matrix, <span class="process-math">\(P\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-3x3-orthogonal-diagonalization-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -511,7 +533,7 @@ A = PDP^T, \quad D = \begin{pmatrix} -1 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \\ 0 \a
 </div>
 <div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-3x3-orthogonal-diagonalization-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" aria-hidden="true" data-description="Example 8: Example 2: Orthogonal Diagonalization of a 3\times3 Matrix"><a tabindex="-1" href="#example-3x3-orthogonal-diagonalization" title="Copy heading and permalink for Example 8: Example 2: Orthogonal Diagonalization of a 3\times3 Matrix" aria-label="Copy heading and permalink for Example 8: Example 2: Orthogonal Diagonalization of a 3\times3 Matrix">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Example 11: Example 2: Orthogonal Diagonalization of a 3\times3 Matrix"><a tabindex="-1" href="#example-3x3-orthogonal-diagonalization" title="Copy heading and permalink for Example 11: Example 2: Orthogonal Diagonalization of a 3\times3 Matrix" aria-label="Copy heading and permalink for Example 11: Example 2: Orthogonal Diagonalization of a 3\times3 Matrix">🔗</a></div>
 </article></details><div class="autopermalink" aria-hidden="true" data-description="Subsection: Examples"><a tabindex="-1" href="#subsection-examples" title="Copy heading and permalink for Subsection: Examples" aria-label="Copy heading and permalink for Subsection: Examples">🔗</a></div>
 </section>
 <section class="subsection" id="subsection-summary">
